@@ -1,0 +1,1224 @@
+{
+  "run_id": "20261015T150210175612Z",
+  "checks": [
+    {
+      "name": "open_meteo/paris_city/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=10",
+      "evidence": "open_meteo/paris_city"
+    },
+    {
+      "name": "geonames/paris_city/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=2",
+      "evidence": "geonames/paris_city"
+    },
+    {
+      "name": "paris/open_meteo/unambiguous",
+      "status": "pass",
+      "detail": "Exactly one named populated-place candidate expected; no first-result fallback",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris/geonames/unambiguous",
+      "status": "pass",
+      "detail": "Exactly one named populated-place candidate expected; no first-result fallback",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris/iana",
+      "status": "warn",
+      "detail": "timezone=Europe/Paris; local IANA database not installed",
+      "evidence": "live_http+local_zoneinfo"
+    },
+    {
+      "name": "paris/provider_agreement",
+      "status": "pass",
+      "detail": "Compare shared GeoNames ID; these geocoders are not independent datasets",
+      "evidence": "live_http"
+    },
+    {
+      "name": "geonames/FR_country/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=1",
+      "evidence": "geonames/FR_country"
+    },
+    {
+      "name": "FR/currency",
+      "status": "pass",
+      "detail": "Fixture expectation FR/EUR; reference currency, not hotel offer currency",
+      "evidence": "live_http"
+    },
+    {
+      "name": "geoapify/paris_museums/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/paris_museums"
+    },
+    {
+      "name": "paris_museums/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_museums/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_museums/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_museums/country",
+      "status": "pass",
+      "detail": "Expected country FR; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_museums/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "paris_museums/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/paris_historic/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/paris_historic"
+    },
+    {
+      "name": "paris_historic/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_historic/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_historic/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_historic/country",
+      "status": "pass",
+      "detail": "Expected country FR; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_historic/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "paris_historic/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/paris_nature/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/paris_nature"
+    },
+    {
+      "name": "paris_nature/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_nature/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_nature/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_nature/country",
+      "status": "pass",
+      "detail": "Expected country FR; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_nature/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "paris_nature/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/paris_restaurants/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/paris_restaurants"
+    },
+    {
+      "name": "paris_restaurants/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_restaurants/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_restaurants/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_restaurants/country",
+      "status": "pass",
+      "detail": "Expected country FR; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_restaurants/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "paris_restaurants/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/paris_hotels/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/paris_hotels"
+    },
+    {
+      "name": "paris_hotels/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_hotels/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_hotels/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_hotels/country",
+      "status": "pass",
+      "detail": "Expected country FR; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_hotels/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "paris_hotels/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "open_meteo/moscow_city/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "open_meteo/moscow_city"
+    },
+    {
+      "name": "geonames/moscow_city/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=1",
+      "evidence": "geonames/moscow_city"
+    },
+    {
+      "name": "moscow/open_meteo/unambiguous",
+      "status": "pass",
+      "detail": "Exactly one named populated-place candidate expected; no first-result fallback",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow/geonames/unambiguous",
+      "status": "pass",
+      "detail": "Exactly one named populated-place candidate expected; no first-result fallback",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow/iana",
+      "status": "warn",
+      "detail": "timezone=Europe/Moscow; local IANA database not installed",
+      "evidence": "live_http+local_zoneinfo"
+    },
+    {
+      "name": "moscow/provider_agreement",
+      "status": "pass",
+      "detail": "Compare shared GeoNames ID; these geocoders are not independent datasets",
+      "evidence": "live_http"
+    },
+    {
+      "name": "geonames/RU_country/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=1",
+      "evidence": "geonames/RU_country"
+    },
+    {
+      "name": "RU/currency",
+      "status": "pass",
+      "detail": "Fixture expectation RU/RUB; reference currency, not hotel offer currency",
+      "evidence": "live_http"
+    },
+    {
+      "name": "geoapify/moscow_museums/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/moscow_museums"
+    },
+    {
+      "name": "moscow_museums/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_museums/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_museums/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_museums/country",
+      "status": "pass",
+      "detail": "Expected country RU; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_museums/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "moscow_museums/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/moscow_historic/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/moscow_historic"
+    },
+    {
+      "name": "moscow_historic/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_historic/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_historic/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_historic/country",
+      "status": "pass",
+      "detail": "Expected country RU; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_historic/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "moscow_historic/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/moscow_nature/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/moscow_nature"
+    },
+    {
+      "name": "moscow_nature/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_nature/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_nature/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_nature/country",
+      "status": "pass",
+      "detail": "Expected country RU; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_nature/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "moscow_nature/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/moscow_restaurants/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/moscow_restaurants"
+    },
+    {
+      "name": "moscow_restaurants/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_restaurants/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_restaurants/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_restaurants/country",
+      "status": "pass",
+      "detail": "Expected country RU; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_restaurants/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "moscow_restaurants/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/moscow_hotels/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/moscow_hotels"
+    },
+    {
+      "name": "moscow_hotels/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_hotels/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_hotels/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_hotels/country",
+      "status": "pass",
+      "detail": "Expected country RU; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "moscow_hotels/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "moscow_hotels/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "open_meteo/istanbul_city/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "open_meteo/istanbul_city"
+    },
+    {
+      "name": "geonames/istanbul_city/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=1",
+      "evidence": "geonames/istanbul_city"
+    },
+    {
+      "name": "istanbul/open_meteo/unambiguous",
+      "status": "pass",
+      "detail": "Exactly one named populated-place candidate expected; no first-result fallback",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul/geonames/unambiguous",
+      "status": "pass",
+      "detail": "Exactly one named populated-place candidate expected; no first-result fallback",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul/iana",
+      "status": "warn",
+      "detail": "timezone=Europe/Istanbul; local IANA database not installed",
+      "evidence": "live_http+local_zoneinfo"
+    },
+    {
+      "name": "istanbul/provider_agreement",
+      "status": "pass",
+      "detail": "Compare shared GeoNames ID; these geocoders are not independent datasets",
+      "evidence": "live_http"
+    },
+    {
+      "name": "geonames/TR_country/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=1",
+      "evidence": "geonames/TR_country"
+    },
+    {
+      "name": "TR/currency",
+      "status": "pass",
+      "detail": "Fixture expectation TR/TRY; reference currency, not hotel offer currency",
+      "evidence": "live_http"
+    },
+    {
+      "name": "geoapify/istanbul_museums/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/istanbul_museums"
+    },
+    {
+      "name": "istanbul_museums/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_museums/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_museums/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_museums/country",
+      "status": "pass",
+      "detail": "Expected country TR; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_museums/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "istanbul_museums/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/istanbul_historic/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/istanbul_historic"
+    },
+    {
+      "name": "istanbul_historic/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_historic/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_historic/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_historic/country",
+      "status": "pass",
+      "detail": "Expected country TR; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_historic/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "istanbul_historic/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/istanbul_nature/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/istanbul_nature"
+    },
+    {
+      "name": "istanbul_nature/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_nature/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_nature/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_nature/country",
+      "status": "pass",
+      "detail": "Expected country TR; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_nature/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "istanbul_nature/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/istanbul_restaurants/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/istanbul_restaurants"
+    },
+    {
+      "name": "istanbul_restaurants/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_restaurants/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_restaurants/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_restaurants/country",
+      "status": "pass",
+      "detail": "Expected country TR; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_restaurants/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "istanbul_restaurants/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/istanbul_hotels/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/istanbul_hotels"
+    },
+    {
+      "name": "istanbul_hotels/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_hotels/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_hotels/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_hotels/country",
+      "status": "pass",
+      "detail": "Expected country TR; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "istanbul_hotels/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "istanbul_hotels/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "open_meteo/suzdal_city/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=10",
+      "evidence": "open_meteo/suzdal_city"
+    },
+    {
+      "name": "geonames/suzdal_city/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=1",
+      "evidence": "geonames/suzdal_city"
+    },
+    {
+      "name": "suzdal/open_meteo/unambiguous",
+      "status": "pass",
+      "detail": "Exactly one named populated-place candidate expected; no first-result fallback",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal/geonames/unambiguous",
+      "status": "pass",
+      "detail": "Exactly one named populated-place candidate expected; no first-result fallback",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal/iana",
+      "status": "warn",
+      "detail": "timezone=Europe/Moscow; local IANA database not installed",
+      "evidence": "live_http+local_zoneinfo"
+    },
+    {
+      "name": "suzdal/provider_agreement",
+      "status": "pass",
+      "detail": "Compare shared GeoNames ID; these geocoders are not independent datasets",
+      "evidence": "live_http"
+    },
+    {
+      "name": "geoapify/suzdal_museums/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/suzdal_museums"
+    },
+    {
+      "name": "suzdal_museums/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_museums/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_museums/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_museums/country",
+      "status": "pass",
+      "detail": "Expected country RU; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_museums/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "suzdal_museums/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/suzdal_historic/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/suzdal_historic"
+    },
+    {
+      "name": "suzdal_historic/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_historic/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_historic/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_historic/country",
+      "status": "pass",
+      "detail": "Expected country RU; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_historic/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "suzdal_historic/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/suzdal_nature/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/suzdal_nature"
+    },
+    {
+      "name": "suzdal_nature/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_nature/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_nature/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_nature/country",
+      "status": "pass",
+      "detail": "Expected country RU; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_nature/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "suzdal_nature/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/suzdal_restaurants/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/suzdal_restaurants"
+    },
+    {
+      "name": "suzdal_restaurants/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_restaurants/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_restaurants/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_restaurants/country",
+      "status": "pass",
+      "detail": "Expected country RU; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_restaurants/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "suzdal_restaurants/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/suzdal_hotels/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/suzdal_hotels"
+    },
+    {
+      "name": "suzdal_hotels/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_hotels/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_hotels/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_hotels/country",
+      "status": "pass",
+      "detail": "Expected country RU; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "suzdal_hotels/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "suzdal_hotels/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "open_meteo/russian_name/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=2",
+      "evidence": "open_meteo/russian_name"
+    },
+    {
+      "name": "open_meteo/cyrillic",
+      "status": "pass",
+      "detail": "Cyrillic query resolves the expected populated place",
+      "evidence": "live_http"
+    },
+    {
+      "name": "geonames/russian_name/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=7",
+      "evidence": "geonames/russian_name"
+    },
+    {
+      "name": "geonames/cyrillic",
+      "status": "pass",
+      "detail": "Cyrillic query resolves the expected populated place",
+      "evidence": "live_http"
+    },
+    {
+      "name": "open_meteo/ambiguous_name/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=10",
+      "evidence": "open_meteo/ambiguous_name"
+    },
+    {
+      "name": "city/ambiguity",
+      "status": "pass",
+      "detail": "10 candidates: product should request a selection, not assume first result",
+      "evidence": "live_http"
+    },
+    {
+      "name": "open_meteo/country_filter/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=10",
+      "evidence": "open_meteo/country_filter"
+    },
+    {
+      "name": "city/country_filter",
+      "status": "pass",
+      "detail": "Explicit US filter; returned IDs remain candidates",
+      "evidence": "live_http"
+    },
+    {
+      "name": "open_meteo/unknown_city/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=0",
+      "evidence": "open_meteo/unknown_city"
+    },
+    {
+      "name": "city/empty",
+      "status": "pass",
+      "detail": "Deliberately unknown query; inspect any unexpected real matches",
+      "evidence": "live_http"
+    },
+    {
+      "name": "geoapify/empty_place_name/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=0",
+      "evidence": "geoapify/empty_place_name"
+    },
+    {
+      "name": "empty_place_name/limit",
+      "status": "pass",
+      "detail": "N=0, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "empty_place_name/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "poi/empty",
+      "status": "pass",
+      "detail": "Unknown name with valid category and coordinates",
+      "evidence": "live_http"
+    },
+    {
+      "name": "geoapify/vegetarian_restaurants/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/vegetarian_restaurants"
+    },
+    {
+      "name": "vegetarian_restaurants/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "vegetarian_restaurants/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "vegetarian_restaurants/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "vegetarian_restaurants/country",
+      "status": "pass",
+      "detail": "Expected country FR; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "poi/condition",
+      "status": "pass",
+      "detail": "Validate vegetarian metadata when exposed; acceptance of filter alone proves less",
+      "evidence": "live_http"
+    },
+    {
+      "name": "geoapify/hotels_details/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=1",
+      "evidence": "geoapify/hotels_details"
+    },
+    {
+      "name": "hotels/detail_identity",
+      "status": "pass",
+      "detail": "Same source object node/2775842952",
+      "evidence": "live_http"
+    },
+    {
+      "name": "hotels/lookup_id_changed",
+      "status": "warn",
+      "detail": "Opaque place_id changed; retain source OSM type/id and lookup ID aliases",
+      "evidence": "live_http"
+    },
+    {
+      "name": "geoapify/restaurants_details/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=1",
+      "evidence": "geoapify/restaurants_details"
+    },
+    {
+      "name": "restaurants/detail_identity",
+      "status": "pass",
+      "detail": "Same source object node/4647410494",
+      "evidence": "live_http"
+    },
+    {
+      "name": "restaurants/lookup_id_changed",
+      "status": "warn",
+      "detail": "Opaque place_id changed; retain source OSM type/id and lookup ID aliases",
+      "evidence": "live_http"
+    }
+  ],
+  "context": {
+    "scenario": "extended_v2",
+    "cities": [
+      "paris",
+      "moscow",
+      "istanbul",
+      "suzdal"
+    ],
+    "radius_metres": 3000,
+    "limit": 5,
+    "core_only": false,
+    "request_cap": 40,
+    "planned_max_requests": 40,
+    "details_only": false,
+    "coordinates": {
+      "paris": {
+        "latitude": 48.85341,
+        "longitude": 2.3488,
+        "source": "open_meteo",
+        "id": 2988507
+      },
+      "moscow": {
+        "latitude": 55.75204,
+        "longitude": 37.61781,
+        "source": "open_meteo",
+        "id": 524901
+      },
+      "istanbul": {
+        "latitude": 41.01384,
+        "longitude": 28.94966,
+        "source": "open_meteo",
+        "id": 745044
+      },
+      "suzdal": {
+        "latitude": 56.42408,
+        "longitude": 40.44978,
+        "source": "open_meteo",
+        "id": 485824
+      }
+    },
+    "no_hotel_offer_queries": true,
+    "attempted_requests": 40
+  }
+}

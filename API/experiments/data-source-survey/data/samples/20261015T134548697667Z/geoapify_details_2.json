@@ -1,0 +1,145 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T13:46:45.373319+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "Feature",
+      "properties": {
+        "opening_hours": "We-Sa 13:00-17:00",
+        "name": "Musée Curie",
+        "categories": [
+          "entertainment",
+          "entertainment.museum",
+          "no_fee",
+          "no_fee.no"
+        ],
+        "country_code": "fr",
+        "formatted": "Musée Curie, Rue Pierre et Marie Curie, 75005 Paris, France",
+        "lat": 48.8442383,
+        "lon": 2.3447906,
+        "timezone": {
+          "name": "Europe/Paris",
+          "offset_STD": "+01:00",
+          "offset_DST": "+02:00",
+          "offset_STD_seconds": 3600,
+          "offset_DST_seconds": 7200,
+          "abbreviation_STD": "CET",
+          "abbreviation_DST": "CEST"
+        },
+        "place_id": "51e9bef79221c202405903b02700106c4840f00103f90160901f9f0200000092030c4d7573c3a965204375726965",
+        "website": "https://musee.curie.fr/",
+        "wiki_and_media": {
+          "wikidata": "Q589336",
+          "wikipedia": "fr:Musée Curie"
+        },
+        "datasource": {
+          "raw": {
+            "fee": "no",
+            "name": "Musée Curie",
+            "tourism": "museum",
+            "website": "https://musee.curie.fr/",
+            "wikidata": "Q589336",
+            "wikipedia": "fr:Musée Curie",
+            "opening_hours": "We-Sa 13:00-17:00"
+          }
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3447906,
+          48.8442383
+        ]
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "51e9bef79221c202405903b02700106c4840f00103f90160901f9f0200000092030c4d7573c3a965204375726965",
+      "name": "Musée Curie",
+      "category": "details",
+      "latitude": 48.8442383,
+      "longitude": 2.3447906,
+      "address": "Musée Curie, Rue Pierre et Marie Curie, 75005 Paris, France",
+      "description": null,
+      "website_url": "https://musee.curie.fr/",
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "fr",
+      "timezone": "Europe/Paris",
+      "cuisine": null,
+      "opening_hours": "We-Sa 13:00-17:00",
+      "entrance_fee": "no",
+      "provider": "geoapify",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T13:46:45.373319+00:00",
+      "raw_fields": [
+        "bbox",
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.city_block",
+        "properties.contact",
+        "properties.contact.phone",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.check_date:opening_hours",
+        "properties.datasource.raw.fee",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.name:etymology:wikidata",
+        "properties.datasource.raw.opening_hours",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.phone",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.raw.website",
+        "properties.datasource.raw.wikidata",
+        "properties.datasource.raw.wikipedia",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.district",
+        "properties.feature_type",
+        "properties.formatted",
+        "properties.iso3166_2",
+        "properties.iso3166_2_sublevel",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.opening_hours",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.state",
+        "properties.state_code",
+        "properties.street",
+        "properties.suburb",
+        "properties.timezone",
+        "properties.timezone.abbreviation_DST",
+        "properties.timezone.abbreviation_STD",
+        "properties.timezone.name",
+        "properties.timezone.offset_DST",
+        "properties.timezone.offset_DST_seconds",
+        "properties.timezone.offset_STD",
+        "properties.timezone.offset_STD_seconds",
+        "properties.website",
+        "properties.wiki_and_media",
+        "properties.wiki_and_media.wikidata",
+        "properties.wiki_and_media.wikipedia",
+        "type"
+      ]
+    }
+  ]
+}

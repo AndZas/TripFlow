@@ -1,0 +1,190 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T14:41:32.403707+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "Feature",
+      "properties": {
+        "country_code": "ru",
+        "lon": 40.4505977,
+        "lat": 56.4212395,
+        "formatted": "Suzdal, Vladimir Oblast, Russia, 601293",
+        "categories": [
+          "leisure",
+          "leisure.park"
+        ],
+        "place_id": "5174342a98ad39444059f89c453beb354c40f00102f9015c3b320700000000",
+        "datasource": {
+          "raw": {
+            "leisure": "park"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.45061018048082,
+          56.42124119662361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "country_code": "ru",
+        "lon": 40.4396632,
+        "lat": 56.4173659,
+        "formatted": "Ильинская улица, Suzdal, Vladimir Oblast, Russia, 601293",
+        "categories": [
+          "tourism",
+          "tourism.attraction",
+          "tourism.attraction.viewpoint"
+        ],
+        "place_id": "519aa03ce24638444059997bed3e6c354c40f00103f9018e315f6f00000000",
+        "datasource": {
+          "raw": {
+            "tourism": "viewpoint"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.4396632,
+          56.4173659
+        ]
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "5174342a98ad39444059f89c453beb354c40f00102f9015c3b320700000000",
+      "name": null,
+      "category": "nature",
+      "latitude": 56.4212395,
+      "longitude": 40.4505977,
+      "address": "Suzdal, Vladimir Oblast, Russia, 601293",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T14:41:32.403707+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.county",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.barrier",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.leisure",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.municipality",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "type"
+      ]
+    },
+    {
+      "external_id": "519aa03ce24638444059997bed3e6c354c40f00103f9018e315f6f00000000",
+      "name": null,
+      "category": "nature",
+      "latitude": 56.4173659,
+      "longitude": 40.4396632,
+      "address": "Ильинская улица, Suzdal, Vladimir Oblast, Russia, 601293",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T14:41:32.403707+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.county",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.municipality",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "properties.street",
+        "type"
+      ]
+    }
+  ]
+}

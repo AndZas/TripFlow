@@ -1,0 +1,207 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T14:11:19.128486+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Agricol Perdiguier",
+        "country_code": "fr",
+        "lon": 2.3771457,
+        "lat": 48.8521843,
+        "formatted": "Agricol Perdiguier, Passage de la Bonne Graine, 75011 Paris, France",
+        "categories": [
+          "tourism",
+          "tourism.sights",
+          "tourism.sights.memorial"
+        ],
+        "place_id": "51c09dfaf6640403405913550960146d4840f00103f9014c82511b0300000092031241677269636f6c2050657264696775696572",
+        "datasource": {
+          "raw": {
+            "name": "Agricol Perdiguier",
+            "historic": "memorial"
+          }
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3771457,
+          48.8521843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "À la mémoire des élèves de cette école",
+        "country_code": "fr",
+        "lon": 2.3635478,
+        "lat": 48.8723514,
+        "formatted": "À la mémoire des élèves de cette école, Rue Jean Poulmarch, 75010 Paris, France",
+        "categories": [
+          "tourism",
+          "tourism.sights",
+          "tourism.sights.memorial"
+        ],
+        "place_id": "511243bcbf8be802405956cfee35a96f4840f00103f9010c6fbf1d0200000092032bc380206c61206dc3a96d6f6972652064657320c3a96cc3a876657320646520636574746520c3a9636f6c65",
+        "datasource": {
+          "raw": {
+            "name": "À la mémoire des élèves de cette école",
+            "historic": "memorial"
+          }
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3635478,
+          48.8723514
+        ]
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "51c09dfaf6640403405913550960146d4840f00103f9014c82511b0300000092031241677269636f6c2050657264696775696572",
+      "name": "Agricol Perdiguier",
+      "category": "historic",
+      "latitude": 48.8521843,
+      "longitude": 2.3771457,
+      "address": "Agricol Perdiguier, Passage de la Bonne Graine, 75011 Paris, France",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "fr",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T14:11:19.128486+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.city_block",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.historic",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.memorial",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.district",
+        "properties.formatted",
+        "properties.historic",
+        "properties.historic.memorial",
+        "properties.historic.type",
+        "properties.iso3166_2",
+        "properties.iso3166_2_sublevel",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "properties.state_COG",
+        "properties.state_code",
+        "properties.street",
+        "properties.suburb",
+        "type"
+      ]
+    },
+    {
+      "external_id": "511243bcbf8be802405956cfee35a96f4840f00103f9010c6fbf1d0200000092032bc380206c61206dc3a96d6f6972652064657320c3a96cc3a876657320646520636574746520c3a9636f6c65",
+      "name": "À la mémoire des élèves de cette école",
+      "category": "historic",
+      "latitude": 48.8723514,
+      "longitude": 2.3635478,
+      "address": "À la mémoire des élèves de cette école, Rue Jean Poulmarch, 75010 Paris, France",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "fr",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T14:11:19.128486+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.city_block",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.historic",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.memorial",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.district",
+        "properties.formatted",
+        "properties.historic",
+        "properties.historic.memorial",
+        "properties.historic.type",
+        "properties.iso3166_2",
+        "properties.iso3166_2_sublevel",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "properties.state_COG",
+        "properties.state_code",
+        "properties.street",
+        "properties.suburb",
+        "type"
+      ]
+    }
+  ]
+}

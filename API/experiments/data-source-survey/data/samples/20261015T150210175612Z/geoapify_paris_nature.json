@@ -1,0 +1,242 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T15:02:28.744336+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Le viaduc des arts",
+        "country_code": "fr",
+        "lon": 2.377802,
+        "lat": 48.84635,
+        "formatted": "Le viaduc des arts, 75012 Paris, France",
+        "categories": [
+          "building",
+          "leisure",
+          "leisure.park"
+        ],
+        "place_id": "5171056879d6050340593eb7426d546c4840f00102f9019215970d000000009203124c6520766961647563206465732061727473",
+        "wiki_and_media": {
+          "wikidata": "Q131383469"
+        },
+        "datasource": {
+          "raw": {
+            "name": "Le viaduc des arts",
+            "osm_id": 228005266,
+            "leisure": "park",
+            "osm_type": "w",
+            "wikidata": "Q131383469"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.377850483405091,
+          48.84632650144202
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Square Frédéric Rossif",
+        "country_code": "fr",
+        "lon": 2.3853443,
+        "lat": 48.843541,
+        "formatted": "Square Frédéric Rossif, 75012 Paris, France",
+        "categories": [
+          "leisure",
+          "leisure.park",
+          "no_dogs"
+        ],
+        "place_id": "51837217df211503405965248387fa6b4840f00102f90136a7b20700000000920318537175617265204672c3a964c3a972696320526f73736966",
+        "wiki_and_media": {
+          "wikidata": "Q3494578",
+          "wikipedia": "fr:Square Frédéric-Rossif"
+        },
+        "datasource": {
+          "raw": {
+            "name": "Square Frédéric Rossif",
+            "osm_id": 129148726,
+            "leisure": "park",
+            "osm_type": "w",
+            "wikidata": "Q3494578",
+            "wikipedia": "fr:Square Frédéric-Rossif"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3853185109167625,
+          48.84358304885317
+        ]
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "5171056879d6050340593eb7426d546c4840f00102f9019215970d000000009203124c6520766961647563206465732061727473",
+      "name": "Le viaduc des arts",
+      "category": "nature",
+      "latitude": 48.84635,
+      "longitude": 2.377802,
+      "address": "Le viaduc des arts, 75012 Paris, France",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "fr",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_provider": "openstreetmap",
+      "source_external_id": "way/228005266",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T15:02:28.744336+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.building",
+        "properties.building.levels",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.bridge",
+        "properties.datasource.raw.building",
+        "properties.datasource.raw.building:levels",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.layer",
+        "properties.datasource.raw.leisure",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.wikidata",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.district",
+        "properties.formatted",
+        "properties.iso3166_2",
+        "properties.iso3166_2_sublevel",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "properties.state_COG",
+        "properties.state_code",
+        "properties.suburb",
+        "properties.wiki_and_media",
+        "properties.wiki_and_media.wikidata",
+        "type"
+      ]
+    },
+    {
+      "external_id": "51837217df211503405965248387fa6b4840f00102f90136a7b20700000000920318537175617265204672c3a964c3a972696320526f73736966",
+      "name": "Square Frédéric Rossif",
+      "category": "nature",
+      "latitude": 48.843541,
+      "longitude": 2.3853443,
+      "address": "Square Frédéric Rossif, 75012 Paris, France",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "fr",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_provider": "openstreetmap",
+      "source_external_id": "way/129148726",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T15:02:28.744336+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.dog",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.leisure",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.operator",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.ref:FR:FANTOIR",
+        "properties.datasource.raw.start_date",
+        "properties.datasource.raw.wikidata",
+        "properties.datasource.raw.wikipedia",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.district",
+        "properties.facilities",
+        "properties.facilities.dogs",
+        "properties.formatted",
+        "properties.iso3166_2",
+        "properties.iso3166_2_sublevel",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.operator",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "properties.state_COG",
+        "properties.state_code",
+        "properties.suburb",
+        "properties.wiki_and_media",
+        "properties.wiki_and_media.wikidata",
+        "properties.wiki_and_media.wikipedia",
+        "type"
+      ]
+    }
+  ]
+}

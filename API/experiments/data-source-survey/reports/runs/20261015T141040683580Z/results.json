@@ -1,0 +1,2431 @@
+{
+  "run_id": "20261015T141040683580Z",
+  "retrieved_at_utc": "2026-10-15T14:10:40.683573+00:00",
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "offline": false,
+  "no_keys": false,
+  "timeout_seconds": 20,
+  "minimum_gap_seconds": 2,
+  "context": {
+    "city": "Paris",
+    "country": "France",
+    "country_code": "FR",
+    "run_date_moscow": "2026-10-15",
+    "stay": {
+      "check_in": "2026-11-14",
+      "check_out": "2026-11-16",
+      "adults": 2,
+      "rooms": 1,
+      "nights": 2
+    },
+    "radius_metres": 3000,
+    "coordinates": {
+      "latitude": 48.85341,
+      "longitude": 2.3488
+    },
+    "coordinate_source": "open_meteo/city_search id=2988507"
+  },
+  "results": [
+    {
+      "provider": "open_meteo",
+      "name": "city_search",
+      "endpoint": "https://geocoding-api.open-meteo.com/v1/search",
+      "params": {
+        "name": "Paris",
+        "countryCode": "FR",
+        "language": "en",
+        "count": 10
+      },
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 503.0,
+      "content_type": "application/json; charset=utf-8",
+      "response_sha256": "0db72c7e3c3614b5fa22b331914429cf04c8a9ff11acabb85937a4a893841168",
+      "count": 10,
+      "actual_fields": [
+        "admin1",
+        "admin1_id",
+        "admin2",
+        "admin2_id",
+        "admin3",
+        "admin3_id",
+        "admin4",
+        "admin4_id",
+        "country",
+        "country_code",
+        "country_id",
+        "elevation",
+        "feature_code",
+        "id",
+        "latitude",
+        "longitude",
+        "name",
+        "population",
+        "postcodes",
+        "timezone"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 10,
+          "total": 10
+        },
+        "name": {
+          "filled": 10,
+          "total": 10
+        },
+        "category": {
+          "filled": 10,
+          "total": 10
+        },
+        "latitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "longitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "address": {
+          "filled": 0,
+          "total": 10
+        },
+        "description": {
+          "filled": 0,
+          "total": 10
+        },
+        "website_url": {
+          "filled": 0,
+          "total": 10
+        },
+        "image_url": {
+          "filled": 0,
+          "total": 10
+        },
+        "rating": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 10
+        },
+        "availability": {
+          "filled": 0,
+          "total": 10
+        },
+        "country_code": {
+          "filled": 10,
+          "total": 10
+        },
+        "timezone": {
+          "filled": 10,
+          "total": 10
+        },
+        "cuisine": {
+          "filled": 0,
+          "total": 10
+        },
+        "opening_hours": {
+          "filled": 0,
+          "total": 10
+        },
+        "entrance_fee": {
+          "filled": 0,
+          "total": 10
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:10:41.186623+00:00",
+      "sample_file": "data/samples/20261015T141040683580Z/open_meteo_city_search.json"
+    },
+    {
+      "provider": "overpass",
+      "name": "museums",
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "params": {
+        "data": "[out:json][timeout:15];(nwr(around:3000,48.85341,2.3488)[\"tourism\"=\"museum\"];);out center 10;"
+      },
+      "status": "http_error",
+      "http_status": 502,
+      "duration_ms": 354.7,
+      "reason": "HTTP error; no retry",
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:10:43.541419+00:00"
+    },
+    {
+      "provider": "overpass",
+      "name": "historic",
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "params": {
+        "data": "[out:json][timeout:15];(nwr(around:3000,48.85341,2.3488)[\"historic\"];);out center 10;"
+      },
+      "status": "network_error",
+      "http_status": null,
+      "duration_ms": 20330.6,
+      "reason": "TimeoutError",
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "network_attempt",
+      "retrieved_at_utc": "2026-10-15T14:11:05.872222+00:00"
+    },
+    {
+      "provider": "overpass",
+      "name": "nature",
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "params": {
+        "data": "[out:json][timeout:15];(nwr(around:3000,48.85341,2.3488)[\"leisure\"=\"park\"];nwr(around:3000,48.85341,2.3488)[\"tourism\"=\"viewpoint\"];nwr(around:3000,48.85341,2.3488)[\"natural\"=\"wood\"];);out center 10;"
+      },
+      "status": "http_error",
+      "http_status": 502,
+      "duration_ms": 469.1,
+      "reason": "HTTP error; no retry",
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:08.341459+00:00"
+    },
+    {
+      "provider": "overpass",
+      "name": "restaurants",
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "params": {
+        "data": "[out:json][timeout:15];(nwr(around:3000,48.85341,2.3488)[\"amenity\"~\"^(restaurant|cafe)$\"];);out center 10;"
+      },
+      "status": "http_error",
+      "http_status": 502,
+      "duration_ms": 362.0,
+      "reason": "HTTP error; no retry",
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:10.703741+00:00"
+    },
+    {
+      "provider": "overpass",
+      "name": "hotels",
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "params": {
+        "data": "[out:json][timeout:15];(nwr(around:3000,48.85341,2.3488)[\"tourism\"~\"^(hotel|hostel|guest_house)$\"];);out center 10;"
+      },
+      "status": "http_error",
+      "http_status": 502,
+      "duration_ms": 399.9,
+      "reason": "HTTP error; no retry",
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:13.104041+00:00"
+    },
+    {
+      "provider": "geoapify",
+      "name": "museums",
+      "endpoint": "https://api.geoapify.com/v2/places",
+      "params": {
+        "categories": "entertainment.museum",
+        "filter": "circle:2.3488,48.85341,3000",
+        "limit": 10,
+        "lang": "en",
+        "apiKey": "[REDACTED]"
+      },
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 761.2,
+      "content_type": "application/json; charset=utf-8",
+      "response_sha256": "80ca5a1a8d4141e233bc2e3e0f195dcb295205843078a9059f3b3181674888cd",
+      "count": 10,
+      "actual_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.building",
+        "properties.building.height",
+        "properties.building.levels",
+        "properties.building.roof",
+        "properties.building.roof.shape",
+        "properties.building.start_date",
+        "properties.categories",
+        "properties.city",
+        "properties.city_block",
+        "properties.contact",
+        "properties.contact.email",
+        "properties.contact.fax",
+        "properties.contact.phone",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.alt_name",
+        "properties.datasource.raw.alt_name:es",
+        "properties.datasource.raw.archaeological_site",
+        "properties.datasource.raw.architect",
+        "properties.datasource.raw.architect:wikidata",
+        "properties.datasource.raw.architect:wikipedia",
+        "properties.datasource.raw.building",
+        "properties.datasource.raw.building:levels",
+        "properties.datasource.raw.building:start_date",
+        "properties.datasource.raw.check_date",
+        "properties.datasource.raw.check_date:opening_hours",
+        "properties.datasource.raw.city",
+        "properties.datasource.raw.contact:email",
+        "properties.datasource.raw.contact:instagram",
+        "properties.datasource.raw.contact:phone",
+        "properties.datasource.raw.contact:website",
+        "properties.datasource.raw.email",
+        "properties.datasource.raw.fare",
+        "properties.datasource.raw.fax",
+        "properties.datasource.raw.fee",
+        "properties.datasource.raw.height",
+        "properties.datasource.raw.heritage",
+        "properties.datasource.raw.historic",
+        "properties.datasource.raw.housenumber",
+        "properties.datasource.raw.image",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.location",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.museum",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.name:ar",
+        "properties.datasource.raw.name:br",
+        "properties.datasource.raw.name:de",
+        "properties.datasource.raw.name:en",
+        "properties.datasource.raw.name:etymology:wikidata",
+        "properties.datasource.raw.name:fr",
+        "properties.datasource.raw.name:ko",
+        "properties.datasource.raw.name:ru",
+        "properties.datasource.raw.name:zh",
+        "properties.datasource.raw.official_name",
+        "properties.datasource.raw.opening_hours",
+        "properties.datasource.raw.operator",
+        "properties.datasource.raw.operator_type",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.phone",
+        "properties.datasource.raw.postcode",
+        "properties.datasource.raw.ramp:wheelchair",
+        "properties.datasource.raw.roof:material",
+        "properties.datasource.raw.roof:shape",
+        "properties.datasource.raw.start_date",
+        "properties.datasource.raw.street",
+        "properties.datasource.raw.toilets",
+        "properties.datasource.raw.toilets:access",
+        "properties.datasource.raw.toilets:disposal",
+        "properties.datasource.raw.toilets:position",
+        "properties.datasource.raw.toilets:wheelchair",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.raw.website",
+        "properties.datasource.raw.website:en",
+        "properties.datasource.raw.wheelchair",
+        "properties.datasource.raw.wikidata",
+        "properties.datasource.raw.wikipedia",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.district",
+        "properties.facilities",
+        "properties.facilities.toilets",
+        "properties.facilities.wheelchair",
+        "properties.facilities.wheelchair_details",
+        "properties.facilities.wheelchair_details.condition",
+        "properties.formatted",
+        "properties.historic",
+        "properties.historic.type",
+        "properties.housenumber",
+        "properties.iso3166_2",
+        "properties.iso3166_2_sublevel",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.name_international",
+        "properties.name_international.ar",
+        "properties.name_international.br",
+        "properties.name_international.de",
+        "properties.name_international.en",
+        "properties.name_international.fr",
+        "properties.name_international.ko",
+        "properties.name_international.ru",
+        "properties.name_international.zh",
+        "properties.name_other",
+        "properties.name_other.alt_name",
+        "properties.name_other.official_name",
+        "properties.opening_hours",
+        "properties.operator",
+        "properties.operator_details",
+        "properties.operator_details.type",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.quarter",
+        "properties.region",
+        "properties.state",
+        "properties.state_COG",
+        "properties.state_code",
+        "properties.street",
+        "properties.suburb",
+        "properties.website",
+        "properties.website_international",
+        "properties.website_international.en",
+        "properties.wiki_and_media",
+        "properties.wiki_and_media.image",
+        "properties.wiki_and_media.wikidata",
+        "properties.wiki_and_media.wikipedia",
+        "type"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 10,
+          "total": 10
+        },
+        "name": {
+          "filled": 10,
+          "total": 10
+        },
+        "category": {
+          "filled": 10,
+          "total": 10
+        },
+        "latitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "longitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "address": {
+          "filled": 10,
+          "total": 10
+        },
+        "description": {
+          "filled": 0,
+          "total": 10
+        },
+        "website_url": {
+          "filled": 9,
+          "total": 10
+        },
+        "image_url": {
+          "filled": 1,
+          "total": 10
+        },
+        "rating": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 10
+        },
+        "availability": {
+          "filled": 0,
+          "total": 10
+        },
+        "country_code": {
+          "filled": 10,
+          "total": 10
+        },
+        "timezone": {
+          "filled": 0,
+          "total": 10
+        },
+        "cuisine": {
+          "filled": 0,
+          "total": 10
+        },
+        "opening_hours": {
+          "filled": 8,
+          "total": 10
+        },
+        "entrance_fee": {
+          "filled": 8,
+          "total": 10
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:15.865504+00:00",
+      "sample_file": "data/samples/20261015T141040683580Z/geoapify_museums.json"
+    },
+    {
+      "provider": "geoapify",
+      "name": "historic",
+      "endpoint": "https://api.geoapify.com/v2/places",
+      "params": {
+        "categories": "tourism.sights",
+        "filter": "circle:2.3488,48.85341,3000",
+        "limit": 10,
+        "lang": "en",
+        "apiKey": "[REDACTED]"
+      },
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 1262.6,
+      "content_type": "application/json; charset=utf-8",
+      "response_sha256": "efa2fdf0a762ee1444203d64a68904466836362015a65e6f7c2d7b86f2496458",
+      "count": 10,
+      "actual_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.city_block",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.area",
+        "properties.datasource.raw.check_date",
+        "properties.datasource.raw.commemoration_date",
+        "properties.datasource.raw.date",
+        "properties.datasource.raw.direction",
+        "properties.datasource.raw.highway",
+        "properties.datasource.raw.historic",
+        "properties.datasource.raw.image",
+        "properties.datasource.raw.inscription",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.material",
+        "properties.datasource.raw.memorial",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.name:de",
+        "properties.datasource.raw.name:fr",
+        "properties.datasource.raw.name:zh",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.panoramax",
+        "properties.datasource.raw.place",
+        "properties.datasource.raw.ref:FR:MemorialGenWeb",
+        "properties.datasource.raw.ref:FR:Paris:plaque",
+        "properties.datasource.raw.short_name",
+        "properties.datasource.raw.subject:wikidata",
+        "properties.datasource.raw.surface",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.raw.website",
+        "properties.datasource.raw.wheelchair",
+        "properties.datasource.raw.wikidata",
+        "properties.datasource.raw.wikimedia_commons",
+        "properties.datasource.raw.wikipedia",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.district",
+        "properties.facilities",
+        "properties.facilities.wheelchair",
+        "properties.formatted",
+        "properties.historic",
+        "properties.historic.inscription",
+        "properties.historic.memorial",
+        "properties.historic.type",
+        "properties.iso3166_2",
+        "properties.iso3166_2_sublevel",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.name_international",
+        "properties.name_international.de",
+        "properties.name_international.fr",
+        "properties.name_international.zh",
+        "properties.name_other",
+        "properties.name_other.short_name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.quarter",
+        "properties.region",
+        "properties.state",
+        "properties.state_COG",
+        "properties.state_code",
+        "properties.street",
+        "properties.suburb",
+        "properties.way",
+        "properties.way.surface",
+        "properties.website",
+        "properties.wiki_and_media",
+        "properties.wiki_and_media.image",
+        "properties.wiki_and_media.wikidata",
+        "properties.wiki_and_media.wikimedia_commons",
+        "properties.wiki_and_media.wikipedia",
+        "type"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 10,
+          "total": 10
+        },
+        "name": {
+          "filled": 10,
+          "total": 10
+        },
+        "category": {
+          "filled": 10,
+          "total": 10
+        },
+        "latitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "longitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "address": {
+          "filled": 10,
+          "total": 10
+        },
+        "description": {
+          "filled": 0,
+          "total": 10
+        },
+        "website_url": {
+          "filled": 1,
+          "total": 10
+        },
+        "image_url": {
+          "filled": 2,
+          "total": 10
+        },
+        "rating": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 10
+        },
+        "availability": {
+          "filled": 0,
+          "total": 10
+        },
+        "country_code": {
+          "filled": 10,
+          "total": 10
+        },
+        "timezone": {
+          "filled": 0,
+          "total": 10
+        },
+        "cuisine": {
+          "filled": 0,
+          "total": 10
+        },
+        "opening_hours": {
+          "filled": 0,
+          "total": 10
+        },
+        "entrance_fee": {
+          "filled": 0,
+          "total": 10
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:19.128486+00:00",
+      "sample_file": "data/samples/20261015T141040683580Z/geoapify_historic.json"
+    },
+    {
+      "provider": "geoapify",
+      "name": "nature",
+      "endpoint": "https://api.geoapify.com/v2/places",
+      "params": {
+        "categories": "leisure.park,natural,tourism.attraction.viewpoint",
+        "filter": "circle:2.3488,48.85341,3000",
+        "limit": 10,
+        "lang": "en",
+        "apiKey": "[REDACTED]"
+      },
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 681.4,
+      "content_type": "application/json; charset=utf-8",
+      "response_sha256": "06cd0d37b7444b3c5d96217e8d737a317923f3eac11ac4a16078b2b8fc182315",
+      "count": 10,
+      "actual_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.building",
+        "properties.building.levels",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.alt_name",
+        "properties.datasource.raw.barrier",
+        "properties.datasource.raw.bridge",
+        "properties.datasource.raw.building",
+        "properties.datasource.raw.building:levels",
+        "properties.datasource.raw.city",
+        "properties.datasource.raw.contact:website",
+        "properties.datasource.raw.dog",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.layer",
+        "properties.datasource.raw.leisure",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.name:etymology:wikidata",
+        "properties.datasource.raw.name:fr",
+        "properties.datasource.raw.name:zh",
+        "properties.datasource.raw.old_name",
+        "properties.datasource.raw.opening_hours",
+        "properties.datasource.raw.operator",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.postcode",
+        "properties.datasource.raw.ref:FR:FANTOIR",
+        "properties.datasource.raw.smoking",
+        "properties.datasource.raw.start_date",
+        "properties.datasource.raw.website",
+        "properties.datasource.raw.wikidata",
+        "properties.datasource.raw.wikimedia_commons",
+        "properties.datasource.raw.wikipedia",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.district",
+        "properties.facilities",
+        "properties.facilities.dogs",
+        "properties.facilities.smoking",
+        "properties.formatted",
+        "properties.iso3166_2",
+        "properties.iso3166_2_sublevel",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.name_international",
+        "properties.name_international.fr",
+        "properties.name_international.zh",
+        "properties.name_other",
+        "properties.name_other.alt_name",
+        "properties.name_other.old_name",
+        "properties.old_name",
+        "properties.opening_hours",
+        "properties.operator",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "properties.state_COG",
+        "properties.state_code",
+        "properties.suburb",
+        "properties.website",
+        "properties.wiki_and_media",
+        "properties.wiki_and_media.wikidata",
+        "properties.wiki_and_media.wikimedia_commons",
+        "properties.wiki_and_media.wikipedia",
+        "type"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 10,
+          "total": 10
+        },
+        "name": {
+          "filled": 9,
+          "total": 10
+        },
+        "category": {
+          "filled": 10,
+          "total": 10
+        },
+        "latitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "longitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "address": {
+          "filled": 10,
+          "total": 10
+        },
+        "description": {
+          "filled": 0,
+          "total": 10
+        },
+        "website_url": {
+          "filled": 2,
+          "total": 10
+        },
+        "image_url": {
+          "filled": 0,
+          "total": 10
+        },
+        "rating": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 10
+        },
+        "availability": {
+          "filled": 0,
+          "total": 10
+        },
+        "country_code": {
+          "filled": 10,
+          "total": 10
+        },
+        "timezone": {
+          "filled": 0,
+          "total": 10
+        },
+        "cuisine": {
+          "filled": 0,
+          "total": 10
+        },
+        "opening_hours": {
+          "filled": 1,
+          "total": 10
+        },
+        "entrance_fee": {
+          "filled": 0,
+          "total": 10
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:21.810083+00:00",
+      "sample_file": "data/samples/20261015T141040683580Z/geoapify_nature.json"
+    },
+    {
+      "provider": "geoapify",
+      "name": "restaurants",
+      "endpoint": "https://api.geoapify.com/v2/places",
+      "params": {
+        "categories": "catering.restaurant,catering.cafe",
+        "filter": "circle:2.3488,48.85341,3000",
+        "limit": 10,
+        "lang": "en",
+        "apiKey": "[REDACTED]"
+      },
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 800.1,
+      "content_type": "application/json; charset=utf-8",
+      "response_sha256": "556f3c0be36f4bbeef54b155d6b57bc1e47ca59c3953217db607d6e61b63e9e1",
+      "count": 10,
+      "actual_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.catering",
+        "properties.catering.cuisine",
+        "properties.catering.diet",
+        "properties.catering.diet.vegetarian",
+        "properties.catering.stars",
+        "properties.city",
+        "properties.city_block",
+        "properties.contact",
+        "properties.contact.email",
+        "properties.contact.phone",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw._inherited",
+        "properties.datasource.raw.amenity",
+        "properties.datasource.raw.check_date",
+        "properties.datasource.raw.check_date:opening_hours",
+        "properties.datasource.raw.city",
+        "properties.datasource.raw.contact:email",
+        "properties.datasource.raw.cuisine",
+        "properties.datasource.raw.diet:vegetarian",
+        "properties.datasource.raw.housenumber",
+        "properties.datasource.raw.indoor_seating",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.mobile",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.opening_hours",
+        "properties.datasource.raw.opening_hours:signed",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.outdoor_seating",
+        "properties.datasource.raw.phone",
+        "properties.datasource.raw.postcode",
+        "properties.datasource.raw.ref:FR:SIRET",
+        "properties.datasource.raw.stars",
+        "properties.datasource.raw.street",
+        "properties.datasource.raw.takeaway",
+        "properties.datasource.raw.website",
+        "properties.datasource.raw.website:menu",
+        "properties.datasource.raw.wheelchair",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.district",
+        "properties.facilities",
+        "properties.facilities.outdoor_seating",
+        "properties.facilities.takeaway",
+        "properties.facilities.wheelchair",
+        "properties.facilities.wheelchair_details",
+        "properties.facilities.wheelchair_details.condition",
+        "properties.formatted",
+        "properties.housenumber",
+        "properties.iso3166_2",
+        "properties.iso3166_2_sublevel",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.opening_hours",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.quarter",
+        "properties.region",
+        "properties.state",
+        "properties.state_COG",
+        "properties.state_code",
+        "properties.street",
+        "properties.suburb",
+        "properties.website",
+        "type"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 10,
+          "total": 10
+        },
+        "name": {
+          "filled": 10,
+          "total": 10
+        },
+        "category": {
+          "filled": 10,
+          "total": 10
+        },
+        "latitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "longitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "address": {
+          "filled": 10,
+          "total": 10
+        },
+        "description": {
+          "filled": 0,
+          "total": 10
+        },
+        "website_url": {
+          "filled": 7,
+          "total": 10
+        },
+        "image_url": {
+          "filled": 0,
+          "total": 10
+        },
+        "rating": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 10
+        },
+        "availability": {
+          "filled": 0,
+          "total": 10
+        },
+        "country_code": {
+          "filled": 10,
+          "total": 10
+        },
+        "timezone": {
+          "filled": 0,
+          "total": 10
+        },
+        "cuisine": {
+          "filled": 8,
+          "total": 10
+        },
+        "opening_hours": {
+          "filled": 3,
+          "total": 10
+        },
+        "entrance_fee": {
+          "filled": 0,
+          "total": 10
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:24.610301+00:00",
+      "sample_file": "data/samples/20261015T141040683580Z/geoapify_restaurants.json"
+    },
+    {
+      "provider": "geoapify",
+      "name": "hotels",
+      "endpoint": "https://api.geoapify.com/v2/places",
+      "params": {
+        "categories": "accommodation.hotel,accommodation.hostel,accommodation.guest_house",
+        "filter": "circle:2.3488,48.85341,3000",
+        "limit": 10,
+        "lang": "en",
+        "apiKey": "[REDACTED]"
+      },
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 3959.4,
+      "content_type": "application/json; charset=utf-8",
+      "response_sha256": "1b095c7c15c3b62f80297b788a931b8976b745d9b2ad0e1462e5b0dcab839c9a",
+      "count": 10,
+      "actual_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.accommodation",
+        "properties.accommodation.stars",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.brand",
+        "properties.brand_details",
+        "properties.brand_details.wikidata",
+        "properties.brand_details.wikipedia",
+        "properties.building",
+        "properties.building.levels",
+        "properties.building.roof",
+        "properties.building.roof.levels",
+        "properties.building.roof.shape",
+        "properties.building.type",
+        "properties.categories",
+        "properties.city",
+        "properties.city_block",
+        "properties.contact",
+        "properties.contact.email",
+        "properties.contact.phone",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.alt_name",
+        "properties.datasource.raw.brand",
+        "properties.datasource.raw.brand:wikidata",
+        "properties.datasource.raw.brand:wikipedia",
+        "properties.datasource.raw.building",
+        "properties.datasource.raw.building:levels",
+        "properties.datasource.raw.check_date",
+        "properties.datasource.raw.city",
+        "properties.datasource.raw.contact:email",
+        "properties.datasource.raw.email",
+        "properties.datasource.raw.housenumber",
+        "properties.datasource.raw.internet_access",
+        "properties.datasource.raw.internet_access:fee",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.name:fr",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.phone",
+        "properties.datasource.raw.postcode",
+        "properties.datasource.raw.ref:FR:SIRET",
+        "properties.datasource.raw.roof:levels",
+        "properties.datasource.raw.roof:shape",
+        "properties.datasource.raw.smoking",
+        "properties.datasource.raw.stars",
+        "properties.datasource.raw.street",
+        "properties.datasource.raw.toilets:wheelchair",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.raw.website",
+        "properties.datasource.raw.wheelchair",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.district",
+        "properties.facilities",
+        "properties.facilities.internet_access",
+        "properties.facilities.smoking",
+        "properties.facilities.toilets",
+        "properties.facilities.wheelchair",
+        "properties.facilities.wheelchair_details",
+        "properties.facilities.wheelchair_details.condition",
+        "properties.formatted",
+        "properties.housenumber",
+        "properties.iso3166_2",
+        "properties.iso3166_2_sublevel",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.name_international",
+        "properties.name_international.fr",
+        "properties.name_other",
+        "properties.name_other.alt_name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.quarter",
+        "properties.region",
+        "properties.state",
+        "properties.state_COG",
+        "properties.state_code",
+        "properties.street",
+        "properties.suburb",
+        "properties.website",
+        "type"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 10,
+          "total": 10
+        },
+        "name": {
+          "filled": 10,
+          "total": 10
+        },
+        "category": {
+          "filled": 10,
+          "total": 10
+        },
+        "latitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "longitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "address": {
+          "filled": 10,
+          "total": 10
+        },
+        "description": {
+          "filled": 0,
+          "total": 10
+        },
+        "website_url": {
+          "filled": 6,
+          "total": 10
+        },
+        "image_url": {
+          "filled": 0,
+          "total": 10
+        },
+        "rating": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 10
+        },
+        "availability": {
+          "filled": 0,
+          "total": 10
+        },
+        "country_code": {
+          "filled": 10,
+          "total": 10
+        },
+        "timezone": {
+          "filled": 0,
+          "total": 10
+        },
+        "cuisine": {
+          "filled": 0,
+          "total": 10
+        },
+        "opening_hours": {
+          "filled": 0,
+          "total": 10
+        },
+        "entrance_fee": {
+          "filled": 0,
+          "total": 10
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:30.570075+00:00",
+      "sample_file": "data/samples/20261015T141040683580Z/geoapify_hotels.json"
+    },
+    {
+      "provider": "geoapify",
+      "name": "details_1",
+      "endpoint": "https://api.geoapify.com/v2/place-details",
+      "params": {
+        "id": "51923e6eb81cbe0240594bb8cecf706e4840f00102f90152fd2e0100000000920312426f7572736520646520436f6d6d65726365",
+        "features": "details",
+        "apiKey": "[REDACTED]"
+      },
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 1354.4,
+      "content_type": "application/json; charset=utf-8",
+      "response_sha256": "cd23ec73c00587c304927604cb09386513f27d049ca4e8a1cb406e5a3a81bf2e",
+      "count": 1,
+      "actual_fields": [
+        "bbox",
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.building",
+        "properties.building.height",
+        "properties.building.start_date",
+        "properties.categories",
+        "properties.city",
+        "properties.contact",
+        "properties.contact.email",
+        "properties.contact.phone",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.addr:city",
+        "properties.datasource.raw.addr:housenumber",
+        "properties.datasource.raw.addr:postcode",
+        "properties.datasource.raw.addr:street",
+        "properties.datasource.raw.architect",
+        "properties.datasource.raw.architect:wikidata",
+        "properties.datasource.raw.architect:wikipedia",
+        "properties.datasource.raw.building",
+        "properties.datasource.raw.building:start_date",
+        "properties.datasource.raw.check_date",
+        "properties.datasource.raw.contact:email",
+        "properties.datasource.raw.contact:phone",
+        "properties.datasource.raw.contact:website",
+        "properties.datasource.raw.fee",
+        "properties.datasource.raw.height",
+        "properties.datasource.raw.image",
+        "properties.datasource.raw.museum",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.name:zh",
+        "properties.datasource.raw.official_name",
+        "properties.datasource.raw.opening_hours",
+        "properties.datasource.raw.operator",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.ramp:wheelchair",
+        "properties.datasource.raw.roof:material",
+        "properties.datasource.raw.toilets",
+        "properties.datasource.raw.toilets:access",
+        "properties.datasource.raw.toilets:disposal",
+        "properties.datasource.raw.toilets:position",
+        "properties.datasource.raw.toilets:wheelchair",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.raw.wheelchair",
+        "properties.datasource.raw.wikidata",
+        "properties.datasource.raw.wikipedia",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.district",
+        "properties.facilities",
+        "properties.facilities.toilets",
+        "properties.facilities.wheelchair",
+        "properties.feature_type",
+        "properties.formatted",
+        "properties.housenumber",
+        "properties.iso3166_2",
+        "properties.iso3166_2_sublevel",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.name_international",
+        "properties.name_international.zh",
+        "properties.name_other",
+        "properties.name_other.official_name",
+        "properties.opening_hours",
+        "properties.operator",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.quarter",
+        "properties.state",
+        "properties.state_code",
+        "properties.street",
+        "properties.suburb",
+        "properties.timezone",
+        "properties.timezone.abbreviation_DST",
+        "properties.timezone.abbreviation_STD",
+        "properties.timezone.name",
+        "properties.timezone.offset_DST",
+        "properties.timezone.offset_DST_seconds",
+        "properties.timezone.offset_STD",
+        "properties.timezone.offset_STD_seconds",
+        "properties.website",
+        "properties.wiki_and_media",
+        "properties.wiki_and_media.image",
+        "properties.wiki_and_media.wikidata",
+        "properties.wiki_and_media.wikipedia",
+        "type"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 1,
+          "total": 1
+        },
+        "name": {
+          "filled": 1,
+          "total": 1
+        },
+        "category": {
+          "filled": 1,
+          "total": 1
+        },
+        "latitude": {
+          "filled": 1,
+          "total": 1
+        },
+        "longitude": {
+          "filled": 1,
+          "total": 1
+        },
+        "address": {
+          "filled": 1,
+          "total": 1
+        },
+        "description": {
+          "filled": 0,
+          "total": 1
+        },
+        "website_url": {
+          "filled": 1,
+          "total": 1
+        },
+        "image_url": {
+          "filled": 1,
+          "total": 1
+        },
+        "rating": {
+          "filled": 0,
+          "total": 1
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 1
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 1
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 1
+        },
+        "availability": {
+          "filled": 0,
+          "total": 1
+        },
+        "country_code": {
+          "filled": 1,
+          "total": 1
+        },
+        "timezone": {
+          "filled": 1,
+          "total": 1
+        },
+        "cuisine": {
+          "filled": 0,
+          "total": 1
+        },
+        "opening_hours": {
+          "filled": 1,
+          "total": 1
+        },
+        "entrance_fee": {
+          "filled": 1,
+          "total": 1
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:33.925103+00:00",
+      "sample_file": "data/samples/20261015T141040683580Z/geoapify_details_1.json"
+    },
+    {
+      "provider": "geoapify",
+      "name": "details_2",
+      "endpoint": "https://api.geoapify.com/v2/place-details",
+      "params": {
+        "id": "51e9bef79221c2024059ec432800106c4840f00103f90160901f9f0200000092030c4d7573c3a965204375726965",
+        "features": "details",
+        "apiKey": "[REDACTED]"
+      },
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 1281.3,
+      "content_type": "application/json; charset=utf-8",
+      "response_sha256": "3fe654b5db7d122555e259a5519f86704bd26437a0a2f27b90d2cba22be5c433",
+      "count": 1,
+      "actual_fields": [
+        "bbox",
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.city_block",
+        "properties.contact",
+        "properties.contact.phone",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.check_date:opening_hours",
+        "properties.datasource.raw.fee",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.name:etymology:wikidata",
+        "properties.datasource.raw.opening_hours",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.phone",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.raw.website",
+        "properties.datasource.raw.wikidata",
+        "properties.datasource.raw.wikipedia",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.district",
+        "properties.feature_type",
+        "properties.formatted",
+        "properties.iso3166_2",
+        "properties.iso3166_2_sublevel",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.opening_hours",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.state",
+        "properties.state_code",
+        "properties.street",
+        "properties.suburb",
+        "properties.timezone",
+        "properties.timezone.abbreviation_DST",
+        "properties.timezone.abbreviation_STD",
+        "properties.timezone.name",
+        "properties.timezone.offset_DST",
+        "properties.timezone.offset_DST_seconds",
+        "properties.timezone.offset_STD",
+        "properties.timezone.offset_STD_seconds",
+        "properties.website",
+        "properties.wiki_and_media",
+        "properties.wiki_and_media.wikidata",
+        "properties.wiki_and_media.wikipedia",
+        "type"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 1,
+          "total": 1
+        },
+        "name": {
+          "filled": 1,
+          "total": 1
+        },
+        "category": {
+          "filled": 1,
+          "total": 1
+        },
+        "latitude": {
+          "filled": 1,
+          "total": 1
+        },
+        "longitude": {
+          "filled": 1,
+          "total": 1
+        },
+        "address": {
+          "filled": 1,
+          "total": 1
+        },
+        "description": {
+          "filled": 0,
+          "total": 1
+        },
+        "website_url": {
+          "filled": 1,
+          "total": 1
+        },
+        "image_url": {
+          "filled": 0,
+          "total": 1
+        },
+        "rating": {
+          "filled": 0,
+          "total": 1
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 1
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 1
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 1
+        },
+        "availability": {
+          "filled": 0,
+          "total": 1
+        },
+        "country_code": {
+          "filled": 1,
+          "total": 1
+        },
+        "timezone": {
+          "filled": 1,
+          "total": 1
+        },
+        "cuisine": {
+          "filled": 0,
+          "total": 1
+        },
+        "opening_hours": {
+          "filled": 1,
+          "total": 1
+        },
+        "entrance_fee": {
+          "filled": 1,
+          "total": 1
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:37.206901+00:00",
+      "sample_file": "data/samples/20261015T141040683580Z/geoapify_details_2.json"
+    },
+    {
+      "provider": "opentripmap",
+      "name": "museums",
+      "endpoint": "https://api.opentripmap.com/0.1/en/places/radius",
+      "params": {
+        "lat": 48.85341,
+        "lon": 2.3488,
+        "radius": 3000,
+        "kinds": "museums",
+        "limit": 10,
+        "format": "json",
+        "apikey": "[REDACTED]"
+      },
+      "status": "skipped",
+      "reason": "Missing OPENTRIPMAP_API_KEY",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "opentripmap",
+      "name": "historic",
+      "endpoint": "https://api.opentripmap.com/0.1/en/places/radius",
+      "params": {
+        "lat": 48.85341,
+        "lon": 2.3488,
+        "radius": 3000,
+        "kinds": "historic,cultural",
+        "limit": 10,
+        "format": "json",
+        "apikey": "[REDACTED]"
+      },
+      "status": "skipped",
+      "reason": "Missing OPENTRIPMAP_API_KEY",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "opentripmap",
+      "name": "nature",
+      "endpoint": "https://api.opentripmap.com/0.1/en/places/radius",
+      "params": {
+        "lat": 48.85341,
+        "lon": 2.3488,
+        "radius": 3000,
+        "kinds": "natural,gardens_and_parks",
+        "limit": 10,
+        "format": "json",
+        "apikey": "[REDACTED]"
+      },
+      "status": "skipped",
+      "reason": "Missing OPENTRIPMAP_API_KEY",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "opentripmap",
+      "name": "restaurants",
+      "endpoint": "https://api.opentripmap.com/0.1/en/places/radius",
+      "params": {
+        "lat": 48.85341,
+        "lon": 2.3488,
+        "radius": 3000,
+        "kinds": "restaurants,cafes",
+        "limit": 10,
+        "format": "json",
+        "apikey": "[REDACTED]"
+      },
+      "status": "skipped",
+      "reason": "Missing OPENTRIPMAP_API_KEY",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "geonames",
+      "name": "city_search",
+      "endpoint": "https://secure.geonames.org/searchJSON",
+      "params": {
+        "name_equals": "Paris",
+        "country": "FR",
+        "featureCode": "PPLC",
+        "maxRows": 10,
+        "style": "FULL",
+        "username": "[REDACTED]"
+      },
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 527.0,
+      "content_type": "application/json;charset=UTF-8",
+      "response_sha256": "4a73cd8826ccea013006e7ea8997a98d67dde9cf4a0e865a526fe682e201d3c7",
+      "count": 1,
+      "actual_fields": [
+        "adminCode1",
+        "adminCode2",
+        "adminCode3",
+        "adminCode4",
+        "adminCodes1",
+        "adminCodes1.ISO3166_2",
+        "adminCodes2",
+        "adminCodes2.ISO3166_2",
+        "adminId1",
+        "adminId2",
+        "adminId3",
+        "adminId4",
+        "adminName1",
+        "adminName2",
+        "adminName3",
+        "adminName4",
+        "adminName5",
+        "alternateNames",
+        "alternateNames[].lang",
+        "alternateNames[].name",
+        "asciiName",
+        "astergdem",
+        "bbox",
+        "bbox.accuracyLevel",
+        "bbox.east",
+        "bbox.north",
+        "bbox.south",
+        "bbox.west",
+        "continentCode",
+        "countryCode",
+        "countryId",
+        "countryName",
+        "fcl",
+        "fclName",
+        "fcode",
+        "fcodeName",
+        "geonameId",
+        "lat",
+        "lng",
+        "name",
+        "population",
+        "score",
+        "srtm3",
+        "timezone",
+        "timezone.dstOffset",
+        "timezone.gmtOffset",
+        "timezone.sunrise",
+        "timezone.sunset",
+        "timezone.time",
+        "timezone.timeZoneId",
+        "toponymName"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 0,
+          "total": 0
+        },
+        "name": {
+          "filled": 0,
+          "total": 0
+        },
+        "category": {
+          "filled": 0,
+          "total": 0
+        },
+        "latitude": {
+          "filled": 0,
+          "total": 0
+        },
+        "longitude": {
+          "filled": 0,
+          "total": 0
+        },
+        "address": {
+          "filled": 0,
+          "total": 0
+        },
+        "description": {
+          "filled": 0,
+          "total": 0
+        },
+        "website_url": {
+          "filled": 0,
+          "total": 0
+        },
+        "image_url": {
+          "filled": 0,
+          "total": 0
+        },
+        "rating": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 0
+        },
+        "availability": {
+          "filled": 0,
+          "total": 0
+        },
+        "country_code": {
+          "filled": 0,
+          "total": 0
+        },
+        "timezone": {
+          "filled": 0,
+          "total": 0
+        },
+        "cuisine": {
+          "filled": 0,
+          "total": 0
+        },
+        "opening_hours": {
+          "filled": 0,
+          "total": 0
+        },
+        "entrance_fee": {
+          "filled": 0,
+          "total": 0
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:39.734023+00:00",
+      "sample_file": "data/samples/20261015T141040683580Z/geonames_city_search.json"
+    },
+    {
+      "provider": "geonames",
+      "name": "country_info",
+      "endpoint": "https://secure.geonames.org/countryInfoJSON",
+      "params": {
+        "country": "FR",
+        "username": "[REDACTED]"
+      },
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 395.4,
+      "content_type": "application/json;charset=UTF-8",
+      "response_sha256": "1db949e6587e7f331e305f7e919dc34fb0580ecb0dca182c9e9c1b345af4f488",
+      "count": 1,
+      "actual_fields": [
+        "areaInSqKm",
+        "capital",
+        "continent",
+        "continentName",
+        "countryCode",
+        "countryName",
+        "currencyCode",
+        "east",
+        "fipsCode",
+        "geonameId",
+        "isoAlpha3",
+        "isoNumeric",
+        "languages",
+        "north",
+        "population",
+        "postalCodeFormat",
+        "south",
+        "west"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 0,
+          "total": 0
+        },
+        "name": {
+          "filled": 0,
+          "total": 0
+        },
+        "category": {
+          "filled": 0,
+          "total": 0
+        },
+        "latitude": {
+          "filled": 0,
+          "total": 0
+        },
+        "longitude": {
+          "filled": 0,
+          "total": 0
+        },
+        "address": {
+          "filled": 0,
+          "total": 0
+        },
+        "description": {
+          "filled": 0,
+          "total": 0
+        },
+        "website_url": {
+          "filled": 0,
+          "total": 0
+        },
+        "image_url": {
+          "filled": 0,
+          "total": 0
+        },
+        "rating": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 0
+        },
+        "availability": {
+          "filled": 0,
+          "total": 0
+        },
+        "country_code": {
+          "filled": 0,
+          "total": 0
+        },
+        "timezone": {
+          "filled": 0,
+          "total": 0
+        },
+        "cuisine": {
+          "filled": 0,
+          "total": 0
+        },
+        "opening_hours": {
+          "filled": 0,
+          "total": 0
+        },
+        "entrance_fee": {
+          "filled": 0,
+          "total": 0
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:42.129972+00:00",
+      "sample_file": "data/samples/20261015T141040683580Z/geonames_country_info.json"
+    },
+    {
+      "provider": "geonames",
+      "name": "timezone",
+      "endpoint": "https://secure.geonames.org/timezoneJSON",
+      "params": {
+        "lat": 48.85341,
+        "lng": 2.3488,
+        "username": "[REDACTED]"
+      },
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 535.0,
+      "content_type": "application/json;charset=UTF-8",
+      "response_sha256": "9d818fd8f5b4d905cbba424199f36604c06af4f5704480f4f863f628d4f4aff2",
+      "count": 1,
+      "actual_fields": [
+        "countryCode",
+        "countryName",
+        "dstOffset",
+        "gmtOffset",
+        "lat",
+        "lng",
+        "rawOffset",
+        "sunrise",
+        "sunset",
+        "time",
+        "timezoneId"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 0,
+          "total": 0
+        },
+        "name": {
+          "filled": 0,
+          "total": 0
+        },
+        "category": {
+          "filled": 0,
+          "total": 0
+        },
+        "latitude": {
+          "filled": 0,
+          "total": 0
+        },
+        "longitude": {
+          "filled": 0,
+          "total": 0
+        },
+        "address": {
+          "filled": 0,
+          "total": 0
+        },
+        "description": {
+          "filled": 0,
+          "total": 0
+        },
+        "website_url": {
+          "filled": 0,
+          "total": 0
+        },
+        "image_url": {
+          "filled": 0,
+          "total": 0
+        },
+        "rating": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 0
+        },
+        "availability": {
+          "filled": 0,
+          "total": 0
+        },
+        "country_code": {
+          "filled": 0,
+          "total": 0
+        },
+        "timezone": {
+          "filled": 0,
+          "total": 0
+        },
+        "cuisine": {
+          "filled": 0,
+          "total": 0
+        },
+        "opening_hours": {
+          "filled": 0,
+          "total": 0
+        },
+        "entrance_fee": {
+          "filled": 0,
+          "total": 0
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:44.665363+00:00",
+      "sample_file": "data/samples/20261015T141040683580Z/geonames_timezone.json"
+    },
+    {
+      "provider": "frankfurter",
+      "name": "eur_rub_v2",
+      "endpoint": "https://api.frankfurter.dev/v2/rate/EUR/RUB",
+      "params": {},
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 591.2,
+      "content_type": "application/json; charset=utf-8",
+      "response_sha256": "0970bb70f2b1f3b39d9a9880269f2c8e529a4e0cc865fd61f669ed124d73ee18",
+      "count": 1,
+      "actual_fields": [
+        "base",
+        "date",
+        "quote",
+        "rate"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 0,
+          "total": 0
+        },
+        "name": {
+          "filled": 0,
+          "total": 0
+        },
+        "category": {
+          "filled": 0,
+          "total": 0
+        },
+        "latitude": {
+          "filled": 0,
+          "total": 0
+        },
+        "longitude": {
+          "filled": 0,
+          "total": 0
+        },
+        "address": {
+          "filled": 0,
+          "total": 0
+        },
+        "description": {
+          "filled": 0,
+          "total": 0
+        },
+        "website_url": {
+          "filled": 0,
+          "total": 0
+        },
+        "image_url": {
+          "filled": 0,
+          "total": 0
+        },
+        "rating": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 0
+        },
+        "availability": {
+          "filled": 0,
+          "total": 0
+        },
+        "country_code": {
+          "filled": 0,
+          "total": 0
+        },
+        "timezone": {
+          "filled": 0,
+          "total": 0
+        },
+        "cuisine": {
+          "filled": 0,
+          "total": 0
+        },
+        "opening_hours": {
+          "filled": 0,
+          "total": 0
+        },
+        "entrance_fee": {
+          "filled": 0,
+          "total": 0
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:47.256883+00:00",
+      "sample_file": "data/samples/20261015T141040683580Z/frankfurter_eur_rub_v2.json"
+    },
+    {
+      "provider": "frankfurter",
+      "name": "eur_rub_v1",
+      "endpoint": "https://api.frankfurter.dev/v1/latest",
+      "params": {
+        "base": "EUR",
+        "symbols": "RUB"
+      },
+      "status": "http_error",
+      "http_status": 404,
+      "duration_ms": 476.3,
+      "reason": "Not found",
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:49.733379+00:00"
+    },
+    {
+      "provider": "six",
+      "name": "france_currency",
+      "endpoint": "https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml",
+      "params": {},
+      "status": "network_error",
+      "http_status": null,
+      "duration_ms": 439.9,
+      "reason": "SSLCertVerificationError",
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "network_attempt",
+      "retrieved_at_utc": "2026-10-15T14:11:52.173403+00:00"
+    },
+    {
+      "provider": "cldr",
+      "name": "france_currency",
+      "endpoint": "https://raw.githubusercontent.com/unicode-org/cldr-json/main/cldr-json/cldr-core/supplemental/currencyData.json",
+      "params": {},
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 582.8,
+      "content_type": "text/plain; charset=utf-8",
+      "response_sha256": "e50315091b1f34428480f82970be64159ad207af0bdcebe7faa6260d3e34c8a6",
+      "count": 1,
+      "actual_fields": [
+        "country_code",
+        "currency_code",
+        "validity",
+        "validity._from",
+        "version",
+        "version._cldrVersion",
+        "version._unicodeVersion"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 0,
+          "total": 0
+        },
+        "name": {
+          "filled": 0,
+          "total": 0
+        },
+        "category": {
+          "filled": 0,
+          "total": 0
+        },
+        "latitude": {
+          "filled": 0,
+          "total": 0
+        },
+        "longitude": {
+          "filled": 0,
+          "total": 0
+        },
+        "address": {
+          "filled": 0,
+          "total": 0
+        },
+        "description": {
+          "filled": 0,
+          "total": 0
+        },
+        "website_url": {
+          "filled": 0,
+          "total": 0
+        },
+        "image_url": {
+          "filled": 0,
+          "total": 0
+        },
+        "rating": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 0
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 0
+        },
+        "availability": {
+          "filled": 0,
+          "total": 0
+        },
+        "country_code": {
+          "filled": 0,
+          "total": 0
+        },
+        "timezone": {
+          "filled": 0,
+          "total": 0
+        },
+        "cuisine": {
+          "filled": 0,
+          "total": 0
+        },
+        "opening_hours": {
+          "filled": 0,
+          "total": 0
+        },
+        "entrance_fee": {
+          "filled": 0,
+          "total": 0
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-15T14:11:54.756544+00:00",
+      "sample_file": "data/samples/20261015T141040683580Z/cldr_france_currency.json"
+    },
+    {
+      "provider": "amadeus",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Official portal confirms Self-Service decommissioned July 17, 2026; Enterprise only. No token request.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "foursquare",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "New API and paid overage; documentation only, no confirmed free account quota.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "google",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Billing account and SKU-dependent charges; documentation only.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "tripadvisor",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Legacy Content API sunset; Terra has separate paid packages/rights. Documentation only.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "yelp",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Evaluation trial and storage restrictions; documentation only.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "booking",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Managed affiliate contract, token and affiliate ID required; documentation only.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "expedia",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Partner access and agreed terms required; documentation only.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "sherpa",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Sandbox requires partner key; schema/documentation only; no passport profile sent.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "visafar",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Manually issued key, current API price not confirmed; documentation only; no passport profile sent.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "timezonefinder",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Local polygon lookup assessed in documentation; not installed or benchmarked.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "government",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Official entry-information pages assessed manually; no website parsing or automated visa decision.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    }
+  ],
+  "attribution": "OSM contributors / ODbL; Open-Meteo + GeoNames; Geoapify if used; SIX currency reference; Unicode CLDR / Unicode-3.0; Frankfurter blended rates"
+}

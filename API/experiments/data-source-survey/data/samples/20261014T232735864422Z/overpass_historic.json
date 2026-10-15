@@ -1,0 +1,120 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-14T23:28:07.178436+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "node",
+      "id": 191031796,
+      "lat": 48.8534015,
+      "lon": 2.3487885,
+      "tags": {
+        "historic": "milestone",
+        "name": "Point zéro des Routes de France",
+        "name:en": "Point Zero for French Road Measurements",
+        "name:fr": "Point zéro des Routes de France",
+        "tourism": "attraction",
+        "wikidata": "Q2467833",
+        "wikipedia": "fr:Point zéro des routes de France"
+      }
+    },
+    {
+      "type": "node",
+      "id": 428054194,
+      "lat": 48.8505273,
+      "lon": 2.3858439,
+      "tags": {
+        "historic": "monument",
+        "name": "Folie Titon",
+        "wikidata": "Q3074958",
+        "wikipedia": "fr:Folie Titon"
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "node/191031796",
+      "name": "Point zéro des Routes de France",
+      "category": "historic",
+      "latitude": 48.8534015,
+      "longitude": 2.3487885,
+      "address": null,
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": null,
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "overpass",
+      "source_url": "https://www.openstreetmap.org/node/191031796",
+      "retrieved_at": "2026-10-14T23:28:07.178436+00:00",
+      "raw_fields": [
+        "id",
+        "lat",
+        "lon",
+        "tags",
+        "tags.historic",
+        "tags.latitude",
+        "tags.longitude",
+        "tags.man_made",
+        "tags.name",
+        "tags.name:el",
+        "tags.name:en",
+        "tags.name:es",
+        "tags.name:fr",
+        "tags.name:sk",
+        "tags.name:zh",
+        "tags.start_date",
+        "tags.subject:wikidata",
+        "tags.survey_point:structure",
+        "tags.tourism",
+        "tags.wheelchair",
+        "tags.wikidata",
+        "tags.wikipedia",
+        "type"
+      ]
+    },
+    {
+      "external_id": "node/428054194",
+      "name": "Folie Titon",
+      "category": "historic",
+      "latitude": 48.8505273,
+      "longitude": 2.3858439,
+      "address": null,
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": null,
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "overpass",
+      "source_url": "https://www.openstreetmap.org/node/428054194",
+      "retrieved_at": "2026-10-14T23:28:07.178436+00:00",
+      "raw_fields": [
+        "id",
+        "lat",
+        "lon",
+        "tags",
+        "tags.historic",
+        "tags.name",
+        "tags.wikidata",
+        "tags.wikipedia",
+        "type"
+      ]
+    }
+  ]
+}

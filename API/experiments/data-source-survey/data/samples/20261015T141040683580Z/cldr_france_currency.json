@@ -1,0 +1,19 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T14:11:54.756544+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "country_code": "FR",
+      "currency_code": "EUR",
+      "validity": {
+        "_from": "1999-01-01"
+      },
+      "version": {
+        "_unicodeVersion": "16.0.0",
+        "_cldrVersion": "48"
+      }
+    }
+  ],
+  "normalized": []
+}

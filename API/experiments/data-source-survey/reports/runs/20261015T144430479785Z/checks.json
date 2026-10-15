@@ -1,0 +1,153 @@
+{
+  "run_id": "20261015T144430479785Z",
+  "checks": [
+    {
+      "name": "open_meteo/paris_city/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=10",
+      "evidence": "open_meteo/paris_city"
+    },
+    {
+      "name": "geoapify/paris_hotels/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/paris_hotels"
+    },
+    {
+      "name": "paris_hotels/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_hotels/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_hotels/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_hotels/country",
+      "status": "pass",
+      "detail": "Expected country FR; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_hotels/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "paris_hotels/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/paris_restaurants/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=5",
+      "evidence": "geoapify/paris_restaurants"
+    },
+    {
+      "name": "paris_restaurants/limit",
+      "status": "pass",
+      "detail": "N=5, limit=5",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_restaurants/categories",
+      "status": "pass",
+      "detail": "All returned categories match a requested prefix; empty set is checked separately",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_restaurants/identity_coordinates",
+      "status": "pass",
+      "detail": "Provider IDs are present/unique and WGS84 coordinates valid",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_restaurants/country",
+      "status": "pass",
+      "detail": "Expected country FR; missing metadata requires review",
+      "evidence": "live_http"
+    },
+    {
+      "name": "paris_restaurants/card_scope",
+      "status": "pass",
+      "detail": "Reject first live ID in card A; card B retains it; no extra provider call",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "paris_restaurants/all_rejected",
+      "status": "pass",
+      "detail": "Empty list when all sampled candidates rejected; no infinite refill/retry",
+      "evidence": "local_on_live_candidates"
+    },
+    {
+      "name": "geoapify/hotels_details/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=1",
+      "evidence": "geoapify/hotels_details"
+    },
+    {
+      "name": "hotels/detail_identity",
+      "status": "pass",
+      "detail": "Same source object node/2775842952",
+      "evidence": "live_http"
+    },
+    {
+      "name": "hotels/lookup_id_changed",
+      "status": "warn",
+      "detail": "Opaque place_id changed; retain source OSM type/id and lookup ID aliases",
+      "evidence": "live_http"
+    },
+    {
+      "name": "geoapify/restaurants_details/response",
+      "status": "pass",
+      "detail": "HTTP 200; objects=1",
+      "evidence": "geoapify/restaurants_details"
+    },
+    {
+      "name": "restaurants/detail_identity",
+      "status": "pass",
+      "detail": "Same source object node/4647410494",
+      "evidence": "live_http"
+    },
+    {
+      "name": "restaurants/lookup_id_changed",
+      "status": "warn",
+      "detail": "Opaque place_id changed; retain source OSM type/id and lookup ID aliases",
+      "evidence": "live_http"
+    }
+  ],
+  "context": {
+    "scenario": "extended_v2",
+    "cities": [
+      "paris"
+    ],
+    "radius_metres": 3000,
+    "limit": 5,
+    "core_only": false,
+    "request_cap": 40,
+    "planned_max_requests": 5,
+    "details_only": true,
+    "coordinates": {
+      "paris": {
+        "latitude": 48.85341,
+        "longitude": 2.3488,
+        "source": "open_meteo",
+        "id": 2988507
+      }
+    },
+    "no_hotel_offer_queries": true,
+    "attempted_requests": 5
+  }
+}

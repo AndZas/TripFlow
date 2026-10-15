@@ -1,0 +1,104 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-14T23:07:09.830744+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "node",
+      "id": 1930542200,
+      "lat": 48.8501323,
+      "lon": 2.3476328,
+      "tags": {
+        "name": "Hôtel Studia",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2490914649,
+      "lat": 48.8503654,
+      "lon": 2.3494131,
+      "tags": {
+        "name": "Hôtel de Notre-Dame",
+        "tourism": "hotel"
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "node/1930542200",
+      "name": "Hôtel Studia",
+      "category": "hotels",
+      "latitude": 48.8501323,
+      "longitude": 2.3476328,
+      "address": null,
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": null,
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "overpass",
+      "source_url": "https://www.openstreetmap.org/node/1930542200",
+      "retrieved_at": "2026-10-14T23:07:09.830744+00:00",
+      "raw_fields": [
+        "id",
+        "lat",
+        "lon",
+        "tags",
+        "tags.check_date",
+        "tags.internet_access",
+        "tags.internet_access:fee",
+        "tags.name",
+        "tags.phone",
+        "tags.stars",
+        "tags.tourism",
+        "tags.wheelchair",
+        "type"
+      ]
+    },
+    {
+      "external_id": "node/2490914649",
+      "name": "Hôtel de Notre-Dame",
+      "category": "hotels",
+      "latitude": 48.8503654,
+      "longitude": 2.3494131,
+      "address": null,
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": null,
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "overpass",
+      "source_url": "https://www.openstreetmap.org/node/2490914649",
+      "retrieved_at": "2026-10-14T23:07:09.830744+00:00",
+      "raw_fields": [
+        "id",
+        "lat",
+        "lon",
+        "tags",
+        "tags.check_date",
+        "tags.name",
+        "tags.source",
+        "tags.tourism",
+        "tags.wheelchair",
+        "type"
+      ]
+    }
+  ]
+}

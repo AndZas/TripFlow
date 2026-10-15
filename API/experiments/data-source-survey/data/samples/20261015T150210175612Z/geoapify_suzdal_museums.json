@@ -1,0 +1,208 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T15:03:31.261624+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Щурово Городище",
+        "country_code": "ru",
+        "lon": 40.4293369,
+        "lat": 56.4394824,
+        "formatted": "Щурово Городище, улица Коровники, Suzdal, Vladimir Oblast, Russia, 601291",
+        "categories": [
+          "entertainment",
+          "entertainment.museum"
+        ],
+        "place_id": "51cf93bb86f5364440592d8c9c6341384c40f00102f901ac9cb90e0000000092031dd0a9d183d180d0bed0b2d0be20d093d0bed180d0bed0b4d0b8d189d0b5",
+        "datasource": {
+          "raw": {
+            "name": "Щурово Городище",
+            "osm_id": 247045292,
+            "tourism": "museum",
+            "osm_type": "w"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.42936786803295,
+          56.43949551719593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Сплетение судеб",
+        "country_code": "ru",
+        "lon": 40.4409474,
+        "lat": 56.4327635,
+        "formatted": "Сплетение судеб, улица Ленина, Suzdal, Vladimir Oblast, Russia, 601293",
+        "categories": [
+          "entertainment",
+          "entertainment.museum",
+          "fee"
+        ],
+        "place_id": "51cc20e3f6703844405985b35bcb64374c40f00103f90154095e710000000092031dd0a1d0bfd0bbd0b5d182d0b5d0bdd0b8d0b520d181d183d0b4d0b5d0b1",
+        "datasource": {
+          "raw": {
+            "fee": "yes",
+            "name": "Сплетение судеб",
+            "osm_id": 1901988180,
+            "tourism": "museum",
+            "osm_type": "n"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.4409474,
+          56.4327635
+        ]
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "51cf93bb86f5364440592d8c9c6341384c40f00102f901ac9cb90e0000000092031dd0a9d183d180d0bed0b2d0be20d093d0bed180d0bed0b4d0b8d189d0b5",
+      "name": "Щурово Городище",
+      "category": "museums",
+      "latitude": 56.4394824,
+      "longitude": 40.4293369,
+      "address": "Щурово Городище, улица Коровники, Suzdal, Vladimir Oblast, Russia, 601291",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_provider": "openstreetmap",
+      "source_external_id": "way/247045292",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T15:03:31.261624+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.county",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.municipality",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "properties.street",
+        "type"
+      ]
+    },
+    {
+      "external_id": "51cc20e3f6703844405985b35bcb64374c40f00103f90154095e710000000092031dd0a1d0bfd0bbd0b5d182d0b5d0bdd0b8d0b520d181d183d0b4d0b5d0b1",
+      "name": "Сплетение судеб",
+      "category": "museums",
+      "latitude": 56.4327635,
+      "longitude": 40.4409474,
+      "address": "Сплетение судеб, улица Ленина, Suzdal, Vladimir Oblast, Russia, 601293",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": "yes",
+      "provider": "geoapify",
+      "source_provider": "openstreetmap",
+      "source_external_id": "node/1901988180",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T15:03:31.261624+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.county",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.fee",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.municipality",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "properties.street",
+        "type"
+      ]
+    }
+  ]
+}

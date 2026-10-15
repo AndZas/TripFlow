@@ -1,0 +1,14 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T13:47:58.999670+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "date": "2026-10-15",
+      "base": "EUR",
+      "quote": "RUB",
+      "rate": 93.98
+    }
+  ],
+  "normalized": []
+}

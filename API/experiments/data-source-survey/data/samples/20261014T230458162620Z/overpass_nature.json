@@ -1,0 +1,94 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-14T23:05:07.438433+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "node",
+      "id": 977195330,
+      "lat": 48.8431371,
+      "lon": 2.355922,
+      "tags": {
+        "name": "Butte de Coupeaux",
+        "tourism": "viewpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1672178060,
+      "lat": 48.8495404,
+      "lon": 2.3602501,
+      "tags": {
+        "tourism": "viewpoint"
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "node/977195330",
+      "name": "Butte de Coupeaux",
+      "category": "nature",
+      "latitude": 48.8431371,
+      "longitude": 2.355922,
+      "address": null,
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": null,
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "overpass",
+      "source_url": "https://www.openstreetmap.org/node/977195330",
+      "retrieved_at": "2026-10-14T23:05:07.438433+00:00",
+      "raw_fields": [
+        "id",
+        "lat",
+        "lon",
+        "tags",
+        "tags.mapillary",
+        "tags.name",
+        "tags.tourism",
+        "type"
+      ]
+    },
+    {
+      "external_id": "node/1672178060",
+      "name": null,
+      "category": "nature",
+      "latitude": 48.8495404,
+      "longitude": 2.3602501,
+      "address": null,
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": null,
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "overpass",
+      "source_url": "https://www.openstreetmap.org/node/1672178060",
+      "retrieved_at": "2026-10-14T23:05:07.438433+00:00",
+      "raw_fields": [
+        "id",
+        "lat",
+        "lon",
+        "tags",
+        "tags.tourism",
+        "type"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T15:02:43.765475+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "geonameId": 2017370,
+      "population": "144478050",
+      "countryCode": "RU",
+      "countryName": "Russia",
+      "currencyCode": "RUB"
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": 2017370,
+      "name": "Russia",
+      "category": "country",
+      "latitude": null,
+      "longitude": null,
+      "address": null,
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "RU",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geonames",
+      "currency_code": "RUB",
+      "source_url": "https://www.geonames.org/2017370",
+      "retrieved_at": "2026-10-15T15:02:43.765475+00:00",
+      "raw_fields": [
+        "areaInSqKm",
+        "capital",
+        "continent",
+        "continentName",
+        "countryCode",
+        "countryName",
+        "currencyCode",
+        "east",
+        "fipsCode",
+        "geonameId",
+        "isoAlpha3",
+        "isoNumeric",
+        "languages",
+        "north",
+        "population",
+        "postalCodeFormat",
+        "south",
+        "west"
+      ]
+    }
+  ]
+}

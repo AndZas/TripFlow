@@ -1,0 +1,690 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T14:27:39.213003+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "timezone": {
+        "sunrise": "2026-10-15 08:10",
+        "gmtOffset": 1,
+        "timeZoneId": "Europe/Paris",
+        "sunset": "2026-10-15 19:01",
+        "dstOffset": 2,
+        "time": "2026-10-15 16:27"
+      },
+      "bbox": {
+        "east": 2.4672595671625035,
+        "south": 48.81575714610159,
+        "north": 48.90165177525077,
+        "west": 2.2242245702250822,
+        "accuracyLevel": 10
+      },
+      "asciiName": "Paris",
+      "astergdem": 36,
+      "countryId": "3017382",
+      "fcl": "P",
+      "srtm3": 42,
+      "score": 644.8980102539062,
+      "adminId2": "2968815",
+      "adminId3": "2988506",
+      "countryCode": "FR",
+      "adminId4": "6455259",
+      "adminCodes2": {
+        "ISO3166_2": "75"
+      },
+      "adminCodes1": {
+        "ISO3166_2": "IDF"
+      },
+      "adminId1": "3012874",
+      "lat": "48.85341",
+      "fcode": "PPLC",
+      "continentCode": "EU",
+      "adminCode2": "75",
+      "adminCode3": "751",
+      "adminCode1": "11",
+      "lng": "2.3488",
+      "geonameId": 2988507,
+      "toponymName": "Paris",
+      "adminCode4": "75056",
+      "population": 2138551,
+      "adminName5": "",
+      "adminName4": "Paris",
+      "adminName3": "Paris",
+      "alternateNames": [
+        {
+          "name": "Parys",
+          "lang": "af"
+        },
+        {
+          "name": "Paris",
+          "lang": "als"
+        },
+        {
+          "name": "ፓሪስ",
+          "lang": "am"
+        },
+        {
+          "name": "París",
+          "lang": "an"
+        },
+        {
+          "name": "باريس",
+          "lang": "ar"
+        },
+        {
+          "name": "ܦܐܪܝܣ",
+          "lang": "arc"
+        },
+        {
+          "name": "باريس",
+          "lang": "arz"
+        },
+        {
+          "name": "París",
+          "lang": "ast"
+        },
+        {
+          "name": "Paris",
+          "lang": "az"
+        },
+        {
+          "name": "Париж",
+          "lang": "ba"
+        },
+        {
+          "name": "Парыж",
+          "lang": "be"
+        },
+        {
+          "name": "Париж",
+          "lang": "bg"
+        },
+        {
+          "name": "প্যারিস",
+          "lang": "bn"
+        },
+        {
+          "name": "ཕ་རི།",
+          "lang": "bo"
+        },
+        {
+          "name": "Pariz",
+          "lang": "br"
+        },
+        {
+          "name": "Pariz",
+          "lang": "bs"
+        },
+        {
+          "name": "París",
+          "lang": "ca"
+        },
+        {
+          "name": "پاریس",
+          "lang": "ckb"
+        },
+        {
+          "name": "Parighji",
+          "lang": "co"
+        },
+        {
+          "name": "Paris",
+          "lang": "crh"
+        },
+        {
+          "name": "Paříž",
+          "lang": "cs"
+        },
+        {
+          "name": "Парижь",
+          "lang": "cu"
+        },
+        {
+          "name": "Парис",
+          "lang": "cv"
+        },
+        {
+          "name": "Baris",
+          "lang": "cy"
+        },
+        {
+          "name": "Paris",
+          "lang": "da"
+        },
+        {
+          "isPreferredName": true,
+          "name": "Paris",
+          "lang": "de"
+        },
+        {
+          "name": "Παρίσι",
+          "lang": "el"
+        },
+        {
+          "isPreferredName": true,
+          "name": "Paris",
+          "lang": "en"
+        },
+        {
+          "isPreferredName": true,
+          "name": "Parizo",
+          "lang": "eo"
+        },
+        {
+          "isShortName": true,
+          "isPreferredName": true,
+          "name": "París",
+          "lang": "es"
+        },
+        {
+          "name": "Pariis",
+          "lang": "et"
+        },
+        {
+          "name": "Paris",
+          "lang": "eu"
+        },
+        {
+          "name": "París",
+          "lang": "ext"
+        },
+        {
+          "name": "پاریس",
+          "lang": "fa"
+        },
+        {
+          "name": "Pariisi",
+          "lang": "fi"
+        },
+        {
+          "isPreferredName": true,
+          "name": "Paris",
+          "lang": "fr"
+        },
+        {
+          "name": "Parîs",
+          "lang": "fur"
+        },
+        {
+          "name": "Parys",
+          "lang": "fy"
+        },
+        {
+          "name": "Páras",
+          "lang": "ga"
+        },
+        {
+          "name": "巴黎",
+          "lang": "gan"
+        },
+        {
+          "name": "Paris",
+          "lang": "gd"
+        },
+        {
+          "name": "París",
+          "lang": "gl"
+        },
+        {
+          "name": "Parĩ",
+          "lang": "gn"
+        },
+        {
+          "name": "પૅરિસ",
+          "lang": "gu"
+        },
+        {
+          "name": "Paarys",
+          "lang": "gv"
+        },
+        {
+          "name": "Pariis",
+          "lang": "ha"
+        },
+        {
+          "name": "Palika",
+          "lang": "haw"
+        },
+        {
+          "name": "Pariz",
+          "lang": "hbs"
+        },
+        {
+          "name": "פריז",
+          "lang": "he"
+        },
+        {
+          "name": "पैरिस",
+          "lang": "hi"
+        },
+        {
+          "name": "Pariz",
+          "lang": "hr"
+        },
+        {
+          "name": "Párizs",
+          "lang": "hu"
+        },
+        {
+          "name": "Փարիզ",
+          "lang": "hy"
+        },
+        {
+          "name": "Բարիզ",
+          "lang": "hyw"
+        },
+        {
+          "name": "Paris",
+          "lang": "ia"
+        },
+        {
+          "name": "PAR",
+          "lang": "iata"
+        },
+        {
+          "name": "Paris",
+          "lang": "id"
+        },
+        {
+          "name": "Paris",
+          "lang": "io"
+        },
+        {
+          "name": "París",
+          "lang": "is"
+        },
+        {
+          "name": "Parigi",
+          "lang": "it"
+        },
+        {
+          "name": "パリ",
+          "lang": "ja"
+        },
+        {
+          "name": "paris",
+          "lang": "jbo"
+        },
+        {
+          "name": "პარიზი",
+          "lang": "ka"
+        },
+        {
+          "name": "Париж",
+          "lang": "kk"
+        },
+        {
+          "name": "ប៉ារីស",
+          "lang": "km"
+        },
+        {
+          "name": "ಪ್ಯಾರಿಸ್",
+          "lang": "kn"
+        },
+        {
+          "name": "파리",
+          "lang": "ko"
+        },
+        {
+          "name": "Париж",
+          "lang": "krc"
+        },
+        {
+          "name": "Paris",
+          "lang": "ksh"
+        },
+        {
+          "name": "Parîs",
+          "lang": "ku"
+        },
+        {
+          "name": "Париж",
+          "lang": "kv"
+        },
+        {
+          "name": "Paris",
+          "lang": "kw"
+        },
+        {
+          "name": "Париж",
+          "lang": "ky"
+        },
+        {
+          "name": "Lutetia Parisorum",
+          "lang": "la",
+          "isHistoric": true
+        },
+        {
+          "name": "Paris",
+          "lang": "lad"
+        },
+        {
+          "name": "Paräis",
+          "lang": "lb"
+        },
+        {
+          "name": "Paries",
+          "lang": "li"
+        },
+        {
+          "name": "Pariggi",
+          "lang": "lij"
+        },
+        {
+          "name": "https://en.wikipedia.org/wiki/Paris",
+          "lang": "link"
+        },
+        {
+          "name": "Paris",
+          "lang": "lmo"
+        },
+        {
+          "name": "Pari",
+          "lang": "ln"
+        },
+        {
+          "name": "Paryžius",
+          "lang": "lt"
+        },
+        {
+          "name": "Parīze",
+          "lang": "lv"
+        },
+        {
+          "name": "Paris",
+          "lang": "mg"
+        },
+        {
+          "name": "Париж",
+          "lang": "mhr"
+        },
+        {
+          "name": "Parī",
+          "lang": "mi"
+        },
+        {
+          "name": "Париз",
+          "lang": "mk"
+        },
+        {
+          "name": "പാരിസ്",
+          "lang": "ml"
+        },
+        {
+          "name": "Парис",
+          "lang": "mn"
+        },
+        {
+          "name": "पॅरिस",
+          "lang": "mr"
+        },
+        {
+          "name": "Париж",
+          "lang": "mrj"
+        },
+        {
+          "name": "Paris",
+          "lang": "ms"
+        },
+        {
+          "name": "ပါရီမြို့",
+          "lang": "my"
+        },
+        {
+          "name": "Париж ош",
+          "lang": "myv"
+        },
+        {
+          "name": "پاریس",
+          "lang": "mzn"
+        },
+        {
+          "name": "Paris",
+          "lang": "na"
+        },
+        {
+          "name": "Parigge",
+          "lang": "nap"
+        },
+        {
+          "name": "Paris",
+          "lang": "nds"
+        },
+        {
+          "name": "पेरिस",
+          "lang": "ne"
+        },
+        {
+          "isPreferredName": true,
+          "name": "Parijs",
+          "lang": "nl"
+        },
+        {
+          "name": "Paris",
+          "lang": "nn"
+        },
+        {
+          "name": "Paris",
+          "lang": "no"
+        },
+        {
+          "name": "París",
+          "lang": "oc"
+        },
+        {
+          "name": "Pariižu",
+          "lang": "olo"
+        },
+        {
+          "name": "Париж",
+          "lang": "os"
+        },
+        {
+          "name": "ਪੈਰਿਸ",
+          "lang": "pa"
+        },
+        {
+          "name": "Paryż",
+          "lang": "pl"
+        },
+        {
+          "name": "Paris",
+          "lang": "pms"
+        },
+        {
+          "name": "پیرس",
+          "lang": "pnb"
+        },
+        {
+          "isPreferredName": true,
+          "name": "75001",
+          "lang": "post"
+        },
+        {
+          "name": "پاريس",
+          "lang": "ps"
+        },
+        {
+          "name": "Paris",
+          "lang": "pt"
+        },
+        {
+          "name": "Paris",
+          "lang": "ro"
+        },
+        {
+          "name": "Париж",
+          "lang": "ru"
+        },
+        {
+          "name": "Паріж",
+          "lang": "rue"
+        },
+        {
+          "name": "Париж",
+          "lang": "sah"
+        },
+        {
+          "name": "Parigi",
+          "lang": "sc"
+        },
+        {
+          "name": "Pariggi",
+          "lang": "scn"
+        },
+        {
+          "name": "Paris",
+          "lang": "sco"
+        },
+        {
+          "name": "Paríž",
+          "lang": "sk"
+        },
+        {
+          "name": "Pariz",
+          "lang": "sl"
+        },
+        {
+          "name": "Baariis",
+          "lang": "so"
+        },
+        {
+          "name": "Parisi",
+          "lang": "sq"
+        },
+        {
+          "name": "Париз",
+          "lang": "sr"
+        },
+        {
+          "name": "Paris",
+          "lang": "sv"
+        },
+        {
+          "name": "Paris",
+          "lang": "sw"
+        },
+        {
+          "name": "Paryż",
+          "lang": "szl"
+        },
+        {
+          "name": "பாரிஸ்",
+          "lang": "ta"
+        },
+        {
+          "name": "పారిస్",
+          "lang": "te"
+        },
+        {
+          "name": "París",
+          "lang": "tet"
+        },
+        {
+          "name": "Париж",
+          "lang": "tg"
+        },
+        {
+          "name": "ปารีส",
+          "lang": "th"
+        },
+        {
+          "name": "Pariž",
+          "lang": "tk"
+        },
+        {
+          "name": "Lungsod ng Paris",
+          "lang": "tl"
+        },
+        {
+          "name": "Paris",
+          "lang": "tr"
+        },
+        {
+          "name": "Париж",
+          "lang": "tt"
+        },
+        {
+          "name": "Paris",
+          "lang": "ty"
+        },
+        {
+          "name": "Париж",
+          "lang": "udm"
+        },
+        {
+          "name": "پارىژ",
+          "lang": "ug"
+        },
+        {
+          "name": "Париж",
+          "lang": "uk"
+        },
+        {
+          "name": "FRPAR",
+          "lang": "unlc"
+        },
+        {
+          "name": "پیرس",
+          "lang": "ur"
+        },
+        {
+          "name": "Parij",
+          "lang": "uz"
+        },
+        {
+          "name": "Parixe",
+          "lang": "vec"
+        },
+        {
+          "isPreferredName": true,
+          "name": "Paris",
+          "lang": "vi"
+        },
+        {
+          "name": "Parys",
+          "lang": "vls"
+        },
+        {
+          "name": "Q90",
+          "lang": "wkdt"
+        },
+        {
+          "name": "Pari",
+          "lang": "wo"
+        },
+        {
+          "name": "პარიზი",
+          "lang": "xmf"
+        },
+        {
+          "name": "פאריז",
+          "lang": "yi"
+        },
+        {
+          "name": "Parisi",
+          "lang": "yo"
+        },
+        {
+          "name": "Bahliz",
+          "lang": "za"
+        },
+        {
+          "name": "巴黎",
+          "lang": "zh"
+        },
+        {
+          "name": "巴黎",
+          "lang": "zh-Hant"
+        }
+      ],
+      "adminName2": "Paris Department",
+      "name": "Paris",
+      "fclName": "city, village,...",
+      "countryName": "France",
+      "fcodeName": "capital of a political entity",
+      "adminName1": "Île-de-France"
+    }
+  ],
+  "normalized": []
+}

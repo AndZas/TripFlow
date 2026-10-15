@@ -1,0 +1,123 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T14:41:59.129691+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Central hotel",
+        "categories": [
+          "accommodation",
+          "accommodation.hotel"
+        ],
+        "country_code": "fr",
+        "formatted": "Central hotel, 228 Boulevard Voltaire, 75011 Paris, France",
+        "lat": 48.8526126,
+        "lon": 2.3891625,
+        "timezone": {
+          "name": "Europe/Paris",
+          "offset_STD": "+01:00",
+          "offset_DST": "+02:00",
+          "offset_STD_seconds": 3600,
+          "offset_DST_seconds": 7200,
+          "abbreviation_STD": "CET",
+          "abbreviation_DST": "CEST"
+        },
+        "place_id": "5105a3923a011d0340591dffdf68226d4840f00103f901880074a50000000092030d43656e7472616c20686f74656c",
+        "datasource": {
+          "raw": {
+            "name": "Central hotel",
+            "tourism": "hotel"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3891625,
+          48.8526126
+        ]
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "5105a3923a011d0340591dffdf68226d4840f00103f901880074a50000000092030d43656e7472616c20686f74656c",
+      "name": "Central hotel",
+      "category": "hotels",
+      "latitude": 48.8526126,
+      "longitude": 2.3891625,
+      "address": "Central hotel, 228 Boulevard Voltaire, 75011 Paris, France",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "fr",
+      "timezone": "Europe/Paris",
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T14:41:59.129691+00:00",
+      "raw_fields": [
+        "bbox",
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.city_block",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.check_date",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.district",
+        "properties.feature_type",
+        "properties.formatted",
+        "properties.housenumber",
+        "properties.iso3166_2",
+        "properties.iso3166_2_sublevel",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.state",
+        "properties.state_code",
+        "properties.street",
+        "properties.suburb",
+        "properties.timezone",
+        "properties.timezone.abbreviation_DST",
+        "properties.timezone.abbreviation_STD",
+        "properties.timezone.name",
+        "properties.timezone.offset_DST",
+        "properties.timezone.offset_DST_seconds",
+        "properties.timezone.offset_STD",
+        "properties.timezone.offset_STD_seconds",
+        "type"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T14:27:44.599523+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "sunrise": "2026-10-15 08:10",
+      "lng": 2.3488,
+      "countryCode": "FR",
+      "gmtOffset": 1,
+      "rawOffset": 1,
+      "sunset": "2026-10-15 19:01",
+      "timezoneId": "Europe/Paris",
+      "dstOffset": 2,
+      "countryName": "France",
+      "time": "2026-10-15 16:27",
+      "lat": 48.85341
+    }
+  ],
+  "normalized": []
+}

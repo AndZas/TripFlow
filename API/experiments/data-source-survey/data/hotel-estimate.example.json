@@ -1,0 +1,13 @@
+{
+  "guests": 5,
+  "guests_per_room": 2,
+  "nights": 3,
+  "currency": "EUR",
+  "price_per_room_night": null,
+  "price_basis": "room_per_night",
+  "source_type": "manual_estimate",
+  "source_url": null,
+  "observed_on": null,
+  "basis": null,
+  "taxes_included": null
+}

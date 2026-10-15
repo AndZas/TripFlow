@@ -1,0 +1,383 @@
+{
+  "run_id": "20261015T144439157439Z",
+  "checks": [
+    {
+      "name": "open_meteo/paris_city/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geonames/paris_city/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geonames/FR_country/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geoapify/paris_museums/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "paris_museums/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/paris_historic/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "paris_historic/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/paris_nature/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "paris_nature/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/paris_restaurants/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "paris_restaurants/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/paris_hotels/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "paris_hotels/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "open_meteo/moscow_city/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geonames/moscow_city/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geonames/RU_country/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geoapify/moscow_museums/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "moscow_museums/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/moscow_historic/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "moscow_historic/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/moscow_nature/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "moscow_nature/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/moscow_restaurants/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "moscow_restaurants/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/moscow_hotels/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "moscow_hotels/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "open_meteo/istanbul_city/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geonames/istanbul_city/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geonames/TR_country/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geoapify/istanbul_museums/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "istanbul_museums/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/istanbul_historic/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "istanbul_historic/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/istanbul_nature/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "istanbul_nature/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/istanbul_restaurants/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "istanbul_restaurants/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/istanbul_hotels/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "istanbul_hotels/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "open_meteo/suzdal_city/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geonames/suzdal_city/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geoapify/suzdal_museums/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "suzdal_museums/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/suzdal_historic/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "suzdal_historic/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/suzdal_nature/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "suzdal_nature/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/suzdal_restaurants/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "suzdal_restaurants/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "geoapify/suzdal_hotels/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "suzdal_hotels/rejections",
+      "status": "skipped",
+      "detail": "No live candidates for local rejection check",
+      "evidence": "not_measured"
+    },
+    {
+      "name": "open_meteo/russian_name/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geonames/russian_name/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "open_meteo/ambiguous_name/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "open_meteo/country_filter/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "open_meteo/unknown_city/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geoapify/empty_place_name/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geoapify/vegetarian_restaurants/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geoapify/hotels_details/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    },
+    {
+      "name": "geoapify/restaurants_details/response",
+      "status": "skipped",
+      "detail": "Offline or not selected",
+      "evidence": "not_called"
+    }
+  ],
+  "context": {
+    "scenario": "extended_v2",
+    "cities": [
+      "paris",
+      "moscow",
+      "istanbul",
+      "suzdal"
+    ],
+    "radius_metres": 3000,
+    "limit": 5,
+    "core_only": false,
+    "request_cap": 40,
+    "planned_max_requests": 40,
+    "details_only": false,
+    "coordinates": {},
+    "no_hotel_offer_queries": true,
+    "attempted_requests": 0
+  }
+}

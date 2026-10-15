@@ -1,0 +1,208 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T14:41:37.922029+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Николаевский посад",
+        "country_code": "ru",
+        "lon": 40.4462626,
+        "lat": 56.4309407,
+        "formatted": "Николаевский посад, улица Ленина 138, Suzdal, Vladimir Oblast, Russia, 601293",
+        "categories": [
+          "accommodation",
+          "accommodation.hotel"
+        ],
+        "place_id": "51b0c89324193944405984e9b74a28374c40f00102f90158da0a0a00000000920323d09dd0b8d0bad0bed0bbd0b0d0b5d0b2d181d0bad0b8d0b920d0bfd0bed181d0b0d0b4",
+        "website": "https://nposad.ru/",
+        "datasource": {
+          "raw": {
+            "name": "Николаевский посад",
+            "tourism": "hotel",
+            "website": "https://nposad.ru/"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.44607979980481,
+          56.430917110253205
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "country_code": "ru",
+        "lon": 40.4452631,
+        "lat": 56.4231226,
+        "formatted": "улица Теремки 24, Suzdal, Vladimir Oblast, Russia, 601293",
+        "categories": [
+          "accommodation",
+          "accommodation.guest_house"
+        ],
+        "place_id": "51cb4e9a61fe384440596899a0e128364c40f00103f9016446de4c01000000",
+        "datasource": {
+          "raw": {
+            "tourism": "guest_house"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.4452631,
+          56.4231226
+        ]
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "51b0c89324193944405984e9b74a28374c40f00102f90158da0a0a00000000920323d09dd0b8d0bad0bed0bbd0b0d0b5d0b2d181d0bad0b8d0b920d0bfd0bed181d0b0d0b4",
+      "name": "Николаевский посад",
+      "category": "hotels",
+      "latitude": 56.4309407,
+      "longitude": 40.4462626,
+      "address": "Николаевский посад, улица Ленина 138, Suzdal, Vladimir Oblast, Russia, 601293",
+      "description": null,
+      "website_url": "https://nposad.ru/",
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T14:41:37.922029+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.county",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.barrier",
+        "properties.datasource.raw.city",
+        "properties.datasource.raw.housenumber",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.street",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.raw.website",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.housenumber",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.municipality",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "properties.street",
+        "properties.website",
+        "type"
+      ]
+    },
+    {
+      "external_id": "51cb4e9a61fe384440596899a0e128364c40f00103f9016446de4c01000000",
+      "name": null,
+      "category": "hotels",
+      "latitude": 56.4231226,
+      "longitude": 40.4452631,
+      "address": "улица Теремки 24, Suzdal, Vladimir Oblast, Russia, 601293",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T14:41:37.922029+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.county",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw._inherited",
+        "properties.datasource.raw.city",
+        "properties.datasource.raw.housenumber",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.postcode",
+        "properties.datasource.raw.street",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.housenumber",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.municipality",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "properties.street",
+        "type"
+      ]
+    }
+  ]
+}

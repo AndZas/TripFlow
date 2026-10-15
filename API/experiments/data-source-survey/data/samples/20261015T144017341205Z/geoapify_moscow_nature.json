@@ -1,0 +1,189 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T14:40:53.103157+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "Feature",
+      "properties": {
+        "country_code": "ru",
+        "lon": 37.5894445,
+        "lat": 55.7593919,
+        "formatted": "Presnensky District, Moscow, Russia",
+        "categories": [
+          "leisure",
+          "leisure.park"
+        ],
+        "place_id": "51714917eb72cb4240599a0492c033e14b40f00102f9019215a95900000000",
+        "datasource": {
+          "raw": {
+            "leisure": "park"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.58944452893309,
+          55.75939185266289
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Дуровский бульвар",
+        "country_code": "ru",
+        "lon": 37.6195973,
+        "lat": 55.7780505,
+        "formatted": "Дуровский бульвар, Meshchansky, Moscow, Meshchansky District, Russia",
+        "categories": [
+          "leisure",
+          "leisure.park"
+        ],
+        "place_id": "51e40775d84fcf4240599e9e932498e34b40f00101f901e6ba500000000000920321d094d183d180d0bed0b2d181d0bad0b8d0b920d0b1d183d0bbd18cd0b2d0b0d180",
+        "datasource": {
+          "raw": {
+            "name": "Дуровский бульвар",
+            "leisure": "park"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.61962419237514,
+          55.778080532150156
+        ]
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "51714917eb72cb4240599a0492c033e14b40f00102f9019215a95900000000",
+      "name": null,
+      "category": "nature",
+      "latitude": 55.7593919,
+      "longitude": 37.5894445,
+      "address": "Presnensky District, Moscow, Russia",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T14:40:53.103157+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.leisure",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.place_id",
+        "properties.quarter",
+        "properties.region",
+        "properties.state",
+        "properties.suburb",
+        "type"
+      ]
+    },
+    {
+      "external_id": "51e40775d84fcf4240599e9e932498e34b40f00101f901e6ba500000000000920321d094d183d180d0bed0b2d181d0bad0b8d0b920d0b1d183d0bbd18cd0b2d0b0d180",
+      "name": "Дуровский бульвар",
+      "category": "nature",
+      "latitude": 55.7780505,
+      "longitude": 37.6195973,
+      "address": "Дуровский бульвар, Meshchansky, Moscow, Meshchansky District, Russia",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T14:40:53.103157+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.leisure",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.district",
+        "properties.formatted",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.place_id",
+        "properties.region",
+        "properties.state",
+        "properties.suburb",
+        "type"
+      ]
+    }
+  ]
+}

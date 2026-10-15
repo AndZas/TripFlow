@@ -1,0 +1,210 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T15:03:01.639339+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Арт Хаус на Маяковской",
+        "country_code": "ru",
+        "lon": 37.5842966,
+        "lat": 55.7675759,
+        "formatted": "Арт Хаус на Маяковской, переулок Красина 15 с1, Presnensky District, Moscow, Russia, 123056",
+        "categories": [
+          "accommodation",
+          "accommodation.hostel"
+        ],
+        "place_id": "51fe14223bcaca42405950d955ed3fe24b40f00103f901d2b354c600000000920329d090d180d18220d0a5d0b0d183d18120d0bdd0b020d09cd0b0d18fd0bad0bed0b2d181d0bad0bed0b9",
+        "datasource": {
+          "raw": {
+            "name": "Арт Хаус на Маяковской",
+            "osm_id": 3327439826,
+            "tourism": "hostel",
+            "osm_type": "n"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5842966,
+          55.7675759
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Звезда Хостел Арбат",
+        "country_code": "ru",
+        "lon": 37.5825657,
+        "lat": 55.7516365,
+        "formatted": "Звезда Хостел Арбат, Новинский бульвар, Arbat District, Moscow, Russia, 121099",
+        "categories": [
+          "accommodation",
+          "accommodation.hostel"
+        ],
+        "place_id": "51bca24a8391ca4240596dfdf49f35e04b40f00103f901061511c600000000920324d097d0b2d0b5d0b7d0b4d0b020d0a5d0bed181d182d0b5d0bb20d090d180d0b1d0b0d182",
+        "datasource": {
+          "raw": {
+            "name": "Звезда Хостел Арбат",
+            "osm_id": 3323008262,
+            "tourism": "hostel",
+            "osm_type": "n"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5825657,
+          55.7516365
+        ]
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "51fe14223bcaca42405950d955ed3fe24b40f00103f901d2b354c600000000920329d090d180d18220d0a5d0b0d183d18120d0bdd0b020d09cd0b0d18fd0bad0bed0b2d181d0bad0bed0b9",
+      "name": "Арт Хаус на Маяковской",
+      "category": "hotels",
+      "latitude": 55.7675759,
+      "longitude": 37.5842966,
+      "address": "Арт Хаус на Маяковской, переулок Красина 15 с1, Presnensky District, Moscow, Russia, 123056",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_provider": "openstreetmap",
+      "source_external_id": "node/3327439826",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T15:03:01.639339+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.city",
+        "properties.datasource.raw.housenumber",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.street",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.housenumber",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.quarter",
+        "properties.region",
+        "properties.state",
+        "properties.street",
+        "properties.suburb",
+        "type"
+      ]
+    },
+    {
+      "external_id": "51bca24a8391ca4240596dfdf49f35e04b40f00103f901061511c600000000920324d097d0b2d0b5d0b7d0b4d0b020d0a5d0bed181d182d0b5d0bb20d090d180d0b1d0b0d182",
+      "name": "Звезда Хостел Арбат",
+      "category": "hotels",
+      "latitude": 55.7516365,
+      "longitude": 37.5825657,
+      "address": "Звезда Хостел Арбат, Новинский бульвар, Arbat District, Moscow, Russia, 121099",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_provider": "openstreetmap",
+      "source_external_id": "node/3323008262",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T15:03:01.639339+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.city",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.street",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "properties.street",
+        "properties.suburb",
+        "type"
+      ]
+    }
+  ]
+}

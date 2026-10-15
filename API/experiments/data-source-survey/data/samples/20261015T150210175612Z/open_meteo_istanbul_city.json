@@ -1,0 +1,91 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T15:03:04.236596+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "id": 745044,
+      "name": "Istanbul",
+      "latitude": 41.01384,
+      "longitude": 28.94966,
+      "elevation": 39.0,
+      "feature_code": "PPLA",
+      "country_code": "TR",
+      "admin1_id": 745042,
+      "timezone": "Europe/Istanbul",
+      "population": 15701602,
+      "postcodes": [
+        "34122"
+      ],
+      "country_id": 298795,
+      "country": "Republic of Türkiye",
+      "admin1": "Istanbul"
+    },
+    {
+      "id": 10953465,
+      "name": "İstanbulboğazı",
+      "latitude": 41.0641,
+      "longitude": 37.71004,
+      "elevation": 433.0,
+      "feature_code": "PPL",
+      "country_code": "TR",
+      "admin1_id": 741098,
+      "admin2_id": 8631637,
+      "timezone": "Europe/Istanbul",
+      "country_id": 298795,
+      "country": "Republic of Türkiye",
+      "admin1": "Ordu",
+      "admin2": "Perşembe İlçesi"
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": 745044,
+      "name": "Istanbul",
+      "category": "city",
+      "latitude": 41.01384,
+      "longitude": 28.94966,
+      "address": null,
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "TR",
+      "timezone": "Europe/Istanbul",
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "open_meteo",
+      "source_url": "https://open-meteo.com/en/docs/geocoding-api",
+      "retrieved_at": "2026-10-15T15:03:04.236596+00:00"
+    },
+    {
+      "external_id": 10953465,
+      "name": "İstanbulboğazı",
+      "category": "city",
+      "latitude": 41.0641,
+      "longitude": 37.71004,
+      "address": null,
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "TR",
+      "timezone": "Europe/Istanbul",
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "open_meteo",
+      "source_url": "https://open-meteo.com/en/docs/geocoding-api",
+      "retrieved_at": "2026-10-15T15:03:04.236596+00:00"
+    }
+  ]
+}

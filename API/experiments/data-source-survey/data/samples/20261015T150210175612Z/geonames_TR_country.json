@@ -1,0 +1,61 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T15:03:09.270823+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "geonameId": 298795,
+      "population": "82319724",
+      "countryCode": "TR",
+      "countryName": "Türkiye",
+      "currencyCode": "TRY"
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": 298795,
+      "name": "Türkiye",
+      "category": "country",
+      "latitude": null,
+      "longitude": null,
+      "address": null,
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "TR",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geonames",
+      "currency_code": "TRY",
+      "source_url": "https://www.geonames.org/298795",
+      "retrieved_at": "2026-10-15T15:03:09.270823+00:00",
+      "raw_fields": [
+        "areaInSqKm",
+        "capital",
+        "continent",
+        "continentName",
+        "countryCode",
+        "countryName",
+        "currencyCode",
+        "east",
+        "fipsCode",
+        "geonameId",
+        "isoAlpha3",
+        "isoNumeric",
+        "languages",
+        "north",
+        "population",
+        "postalCodeFormat",
+        "south",
+        "west"
+      ]
+    }
+  ]
+}

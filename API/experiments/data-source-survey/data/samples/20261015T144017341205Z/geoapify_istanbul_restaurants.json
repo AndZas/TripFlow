@@ -1,0 +1,216 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T14:41:16.814493+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Safa meyhanesi",
+        "country_code": "tr",
+        "lon": 28.9258752,
+        "lat": 40.9950321,
+        "formatted": "Safa meyhanesi, İmrahor İlyasbey Caddesi, 34107 Fatih, Turkey",
+        "categories": [
+          "catering",
+          "catering.restaurant"
+        ],
+        "place_id": "516e2d382806ed3c405930fc3b365d7f4440f00103f901b032382f0100000092030e53616661206d657968616e657369",
+        "datasource": {
+          "raw": {
+            "name": "Safa meyhanesi",
+            "amenity": "restaurant"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9258752,
+          40.9950321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Nergiz Market",
+        "country_code": "tr",
+        "lon": 28.9300376,
+        "lat": 40.9980384,
+        "formatted": "Nergiz Market, İmrahor İlyasbey Caddesi, 34107 Fatih, Turkey",
+        "categories": [
+          "catering",
+          "catering.cafe"
+        ],
+        "place_id": "51e20cb4f116ee3c40597a13e8b8bf7f4440f00103f90132a9472f0100000092030d4e657267697a204d61726b6574",
+        "datasource": {
+          "raw": {
+            "name": "Nergiz Market",
+            "amenity": "cafe"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9300376,
+          40.9980384
+        ]
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "516e2d382806ed3c405930fc3b365d7f4440f00103f901b032382f0100000092030e53616661206d657968616e657369",
+      "name": "Safa meyhanesi",
+      "category": "restaurants",
+      "latitude": 40.9950321,
+      "longitude": 28.9258752,
+      "address": "Safa meyhanesi, İmrahor İlyasbey Caddesi, 34107 Fatih, Turkey",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "tr",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T14:41:16.814493+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.contact",
+        "properties.contact.phone",
+        "properties.country",
+        "properties.country_code",
+        "properties.county",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.amenity",
+        "properties.datasource.raw.city",
+        "properties.datasource.raw.district",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.name:ar",
+        "properties.datasource.raw.name:tr",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.phone",
+        "properties.datasource.raw.street",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.name_international",
+        "properties.name_international.ar",
+        "properties.name_international.tr",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.state",
+        "properties.street",
+        "properties.suburb",
+        "properties.town",
+        "type"
+      ]
+    },
+    {
+      "external_id": "51e20cb4f116ee3c40597a13e8b8bf7f4440f00103f90132a9472f0100000092030d4e657267697a204d61726b6574",
+      "name": "Nergiz Market",
+      "category": "restaurants",
+      "latitude": 40.9980384,
+      "longitude": 28.9300376,
+      "address": "Nergiz Market, İmrahor İlyasbey Caddesi, 34107 Fatih, Turkey",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "tr",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T14:41:16.814493+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.county",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.amenity",
+        "properties.datasource.raw.city",
+        "properties.datasource.raw.district",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.name:ar",
+        "properties.datasource.raw.name:tr",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.street",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.name_international",
+        "properties.name_international.ar",
+        "properties.name_international.tr",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.state",
+        "properties.street",
+        "properties.suburb",
+        "properties.town",
+        "type"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,571 @@
+{
+  "run_id": "20261014T230659759149Z",
+  "retrieved_at_utc": "2026-10-14T23:06:59.759141+00:00",
+  "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "offline": false,
+  "no_keys": true,
+  "timeout_seconds": 30.0,
+  "minimum_gap_seconds": 5.0,
+  "context": {
+    "city": "Paris",
+    "country": "France",
+    "country_code": "FR",
+    "run_date_moscow": "2026-10-15",
+    "stay": {
+      "check_in": "2026-11-14",
+      "check_out": "2026-11-16",
+      "adults": 2,
+      "rooms": 1,
+      "nights": 2
+    },
+    "radius_metres": 500,
+    "coordinates": {
+      "latitude": 48.85341,
+      "longitude": 2.3488
+    },
+    "coordinate_source": "open_meteo/city_search id=2988507"
+  },
+  "results": [
+    {
+      "provider": "open_meteo",
+      "name": "city_search",
+      "endpoint": "https://geocoding-api.open-meteo.com/v1/search",
+      "params": {
+        "name": "Paris",
+        "countryCode": "FR",
+        "language": "en",
+        "count": 10
+      },
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 469.4,
+      "content_type": "application/json; charset=utf-8",
+      "response_sha256": "feb002bb7d3587432962bcd93ac1f9fb3d18ef73d052bca79c40e1708a7f68ee",
+      "count": 10,
+      "actual_fields": [
+        "admin1",
+        "admin1_id",
+        "admin2",
+        "admin2_id",
+        "admin3",
+        "admin3_id",
+        "admin4",
+        "admin4_id",
+        "country",
+        "country_code",
+        "country_id",
+        "elevation",
+        "feature_code",
+        "id",
+        "latitude",
+        "longitude",
+        "name",
+        "population",
+        "postcodes",
+        "timezone"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 10,
+          "total": 10
+        },
+        "name": {
+          "filled": 10,
+          "total": 10
+        },
+        "category": {
+          "filled": 10,
+          "total": 10
+        },
+        "latitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "longitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "address": {
+          "filled": 0,
+          "total": 10
+        },
+        "description": {
+          "filled": 0,
+          "total": 10
+        },
+        "website_url": {
+          "filled": 0,
+          "total": 10
+        },
+        "image_url": {
+          "filled": 0,
+          "total": 10
+        },
+        "rating": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 10
+        },
+        "availability": {
+          "filled": 0,
+          "total": 10
+        },
+        "country_code": {
+          "filled": 10,
+          "total": 10
+        },
+        "timezone": {
+          "filled": 10,
+          "total": 10
+        },
+        "cuisine": {
+          "filled": 0,
+          "total": 10
+        },
+        "opening_hours": {
+          "filled": 0,
+          "total": 10
+        },
+        "entrance_fee": {
+          "filled": 0,
+          "total": 10
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-14T23:07:00.228614+00:00",
+      "sample_file": "data/samples/20261014T230659759149Z/open_meteo_city_search.json"
+    },
+    {
+      "provider": "overpass",
+      "name": "hotels",
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "params": {
+        "data": "[out:json][timeout:15];(nwr(around:500,48.85341,2.3488)[\"tourism\"~\"^(hotel|hostel|guest_house)$\"];);out center 10;"
+      },
+      "status": "ok",
+      "http_status": 200,
+      "duration_ms": 4601.9,
+      "content_type": "application/json",
+      "response_sha256": "0d00798058305cc17121b0a55b4079a1c2b234b4182682c856cce17577e46a50",
+      "count": 10,
+      "actual_fields": [
+        "id",
+        "lat",
+        "lon",
+        "tags",
+        "tags.addr:city",
+        "tags.addr:housenumber",
+        "tags.addr:postcode",
+        "tags.addr:street",
+        "tags.check_date",
+        "tags.contact:email",
+        "tags.contact:phone",
+        "tags.description",
+        "tags.disabled",
+        "tags.internet_access",
+        "tags.internet_access:fee",
+        "tags.name",
+        "tags.opening_hours:reception",
+        "tags.operator",
+        "tags.panoramax",
+        "tags.phone",
+        "tags.ref:FR:SIREN",
+        "tags.ref:FR:SIRET",
+        "tags.ref:vatin",
+        "tags.source",
+        "tags.stars",
+        "tags.tourism",
+        "tags.website",
+        "tags.wheelchair",
+        "tags.wikidata",
+        "type"
+      ],
+      "coverage": {
+        "external_id": {
+          "filled": 10,
+          "total": 10
+        },
+        "name": {
+          "filled": 10,
+          "total": 10
+        },
+        "category": {
+          "filled": 10,
+          "total": 10
+        },
+        "latitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "longitude": {
+          "filled": 10,
+          "total": 10
+        },
+        "address": {
+          "filled": 1,
+          "total": 10
+        },
+        "description": {
+          "filled": 1,
+          "total": 10
+        },
+        "website_url": {
+          "filled": 5,
+          "total": 10
+        },
+        "image_url": {
+          "filled": 0,
+          "total": 10
+        },
+        "rating": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_amount": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_currency": {
+          "filled": 0,
+          "total": 10
+        },
+        "price_period_or_total": {
+          "filled": 0,
+          "total": 10
+        },
+        "availability": {
+          "filled": 0,
+          "total": 10
+        },
+        "country_code": {
+          "filled": 0,
+          "total": 10
+        },
+        "timezone": {
+          "filled": 0,
+          "total": 10
+        },
+        "cuisine": {
+          "filled": 0,
+          "total": 10
+        },
+        "opening_hours": {
+          "filled": 0,
+          "total": 10
+        },
+        "entrance_fee": {
+          "filled": 0,
+          "total": 10
+        }
+      },
+      "evidence": "live_http",
+      "retrieved_at_utc": "2026-10-14T23:07:09.830744+00:00",
+      "source_metadata": {
+        "timestamp_osm_base": "2026-10-14T23:05:49Z",
+        "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+      },
+      "sample_file": "data/samples/20261014T230659759149Z/overpass_hotels.json"
+    },
+    {
+      "provider": "geoapify",
+      "name": "hotels",
+      "endpoint": "https://api.geoapify.com/v2/places",
+      "params": {
+        "categories": "accommodation.hotel,accommodation.hostel,accommodation.guest_house",
+        "filter": "circle:2.3488,48.85341,500",
+        "limit": 10,
+        "lang": "en",
+        "apiKey": "[REDACTED]"
+      },
+      "status": "skipped",
+      "reason": "Offline or not selected",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "geonames",
+      "name": "city_search",
+      "endpoint": "https://secure.geonames.org/searchJSON",
+      "params": {
+        "name_equals": "Paris",
+        "country": "FR",
+        "featureCode": "PPLC",
+        "maxRows": 10,
+        "style": "FULL",
+        "username": "[REDACTED]"
+      },
+      "status": "skipped",
+      "reason": "Offline or not selected",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "geonames",
+      "name": "country_info",
+      "endpoint": "https://secure.geonames.org/countryInfoJSON",
+      "params": {
+        "country": "FR",
+        "username": "[REDACTED]"
+      },
+      "status": "skipped",
+      "reason": "Offline or not selected",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "geonames",
+      "name": "timezone",
+      "endpoint": "https://secure.geonames.org/timezoneJSON",
+      "params": {
+        "lat": 48.85341,
+        "lng": 2.3488,
+        "username": "[REDACTED]"
+      },
+      "status": "skipped",
+      "reason": "Offline or not selected",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "frankfurter",
+      "name": "eur_rub_v2",
+      "endpoint": "https://api.frankfurter.dev/v2/rate/EUR/RUB",
+      "params": {},
+      "status": "skipped",
+      "reason": "Offline or not selected",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "frankfurter",
+      "name": "eur_rub_v1",
+      "endpoint": "https://api.frankfurter.dev/v1/latest",
+      "params": {
+        "base": "EUR",
+        "symbols": "RUB"
+      },
+      "status": "skipped",
+      "reason": "Offline or not selected",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "six",
+      "name": "france_currency",
+      "endpoint": "https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml",
+      "params": {},
+      "status": "skipped",
+      "reason": "Offline or not selected",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "cldr",
+      "name": "france_currency",
+      "endpoint": "https://raw.githubusercontent.com/unicode-org/cldr-json/main/cldr-json/cldr-core/supplemental/currencyData.json",
+      "params": {},
+      "status": "skipped",
+      "reason": "Offline or not selected",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "amadeus",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Official portal confirms Self-Service decommissioned July 17, 2026; Enterprise only. No token request.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "foursquare",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "New API and paid overage; documentation only, no confirmed free account quota.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "google",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Billing account and SKU-dependent charges; documentation only.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "tripadvisor",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Legacy Content API sunset; Terra has separate paid packages/rights. Documentation only.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "yelp",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Evaluation trial and storage restrictions; documentation only.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "booking",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Managed affiliate contract, token and affiliate ID required; documentation only.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "expedia",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Partner access and agreed terms required; documentation only.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "sherpa",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Sandbox requires partner key; schema/documentation only; no passport profile sent.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "visafar",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Manually issued key, current API price not confirmed; documentation only; no passport profile sent.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "timezonefinder",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Local polygon lookup assessed in documentation; not installed or benchmarked.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    },
+    {
+      "provider": "government",
+      "name": "documentation",
+      "endpoint": null,
+      "params": {},
+      "status": "skipped",
+      "reason": "Official entry-information pages assessed manually; no website parsing or automated visa decision.",
+      "http_status": null,
+      "duration_ms": null,
+      "count": null,
+      "actual_fields": [],
+      "coverage": {},
+      "evidence": "not_called"
+    }
+  ],
+  "attribution": "OSM contributors / ODbL; Open-Meteo + GeoNames; Geoapify if used; SIX currency reference; Unicode CLDR / Unicode-3.0; Frankfurter blended rates"
+}

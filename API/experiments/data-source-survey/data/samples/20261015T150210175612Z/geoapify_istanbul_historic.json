@@ -1,0 +1,213 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T15:03:15.518219+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hagios İoannes Studius Kilisesi",
+        "country_code": "tr",
+        "lon": 28.9285817,
+        "lat": 40.9961193,
+        "formatted": "Hagios İoannes Studius Kilisesi, İmam Aşır Sokağı, 34098 Fatih, Turkey",
+        "categories": [
+          "tourism",
+          "tourism.sights",
+          "tourism.sights.ruines"
+        ],
+        "place_id": "51260c00a2b7ed3c4059fd057ee0807f4440f00102f901dc6ebb1300000000920320486167696f7320c4b06f616e6e65732053747564697573204b696c6973657369",
+        "datasource": {
+          "raw": {
+            "name": "Hagios İoannes Studius Kilisesi",
+            "osm_id": 331050716,
+            "historic": "ruins",
+            "osm_type": "w"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.92858326436194,
+          40.996120511565074
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Atatürk",
+        "country_code": "tr",
+        "lon": 28.9733107,
+        "lat": 41.0044513,
+        "formatted": "Atatürk, Üçler Hamamı Sokağı, 34122 Fatih, Turkey",
+        "categories": [
+          "tourism",
+          "tourism.sights",
+          "tourism.sights.memorial"
+        ],
+        "place_id": "51cc58d9e32af93c40595cf635dc91804440f00103f9010a7394c30000000092030841746174c3bc726b",
+        "datasource": {
+          "raw": {
+            "name": "Atatürk",
+            "osm_id": 3281285898,
+            "historic": "memorial",
+            "osm_type": "n"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9733107,
+          41.0044513
+        ]
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "51260c00a2b7ed3c4059fd057ee0807f4440f00102f901dc6ebb1300000000920320486167696f7320c4b06f616e6e65732053747564697573204b696c6973657369",
+      "name": "Hagios İoannes Studius Kilisesi",
+      "category": "historic",
+      "latitude": 40.9961193,
+      "longitude": 28.9285817,
+      "address": "Hagios İoannes Studius Kilisesi, İmam Aşır Sokağı, 34098 Fatih, Turkey",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "tr",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_provider": "openstreetmap",
+      "source_external_id": "way/331050716",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T15:03:15.518219+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.county",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.designation",
+        "properties.datasource.raw.historic",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.historic",
+        "properties.historic.type",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.quarter",
+        "properties.state",
+        "properties.street",
+        "properties.suburb",
+        "properties.town",
+        "type"
+      ]
+    },
+    {
+      "external_id": "51cc58d9e32af93c40595cf635dc91804440f00103f9010a7394c30000000092030841746174c3bc726b",
+      "name": "Atatürk",
+      "category": "historic",
+      "latitude": 41.0044513,
+      "longitude": 28.9733107,
+      "address": "Atatürk, Üçler Hamamı Sokağı, 34122 Fatih, Turkey",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "tr",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_provider": "openstreetmap",
+      "source_external_id": "node/3281285898",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T15:03:15.518219+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.county",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.historic",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.historic",
+        "properties.historic.type",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.state",
+        "properties.street",
+        "properties.suburb",
+        "properties.town",
+        "type"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T14:40:47.841434+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Музей мертвых кукол",
+        "country_code": "ru",
+        "lon": 37.592188,
+        "lat": 55.7540396,
+        "formatted": "Музей мертвых кукол, Malaya Molchanovka Street 8 с2, Arbat District, Moscow, Russia, 121069",
+        "categories": [
+          "entertainment",
+          "entertainment.museum"
+        ],
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "place_id": "51b58afed0cccb424059c8f19e5e84e04b40f00103f901c0108dd101000000920324d09cd183d0b7d0b5d0b920d0bcd0b5d180d182d0b2d18bd18520d0bad183d0bad0bed0bb",
+        "website": "https://dead-dolls.museum/",
+        "datasource": {
+          "raw": {
+            "name": "Музей мертвых кукол",
+            "tourism": "museum",
+            "opening_hours": "Mo-Su 10:00-22:00",
+            "contact:website": "https://dead-dolls.museum/"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.592188,
+          55.7540396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Экспозиция «100 лет сатиры»",
+        "country_code": "ru",
+        "lon": 37.5949454,
+        "lat": 55.7682989,
+        "formatted": "Экспозиция «100 лет сатиры», Triumfalnaya Square 2 с1, Tverskoy District, Moscow, Russia, 125047",
+        "categories": [
+          "entertainment",
+          "entertainment.museum"
+        ],
+        "place_id": "51ecf3bd2b27cc424059c1864c9e57e24b40f00103f90150bba83803000000920330d0add0bad181d0bfd0bed0b7d0b8d186d0b8d18f20c2ab31303020d0bbd0b5d18220d181d0b0d182d0b8d180d18bc2bb",
+        "datasource": {
+          "raw": {
+            "name": "Экспозиция «100 лет сатиры»",
+            "tourism": "museum"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5949454,
+          55.7682989
+        ]
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "51b58afed0cccb424059c8f19e5e84e04b40f00103f901c0108dd101000000920324d09cd183d0b7d0b5d0b920d0bcd0b5d180d182d0b2d18bd18520d0bad183d0bad0bed0bb",
+      "name": "Музей мертвых кукол",
+      "category": "museums",
+      "latitude": 55.7540396,
+      "longitude": 37.592188,
+      "address": "Музей мертвых кукол, Malaya Molchanovka Street 8 с2, Arbat District, Moscow, Russia, 121069",
+      "description": null,
+      "website_url": "https://dead-dolls.museum/",
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": "Mo-Su 10:00-22:00",
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T14:40:47.841434+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.contact",
+        "properties.contact.phone",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw._inherited",
+        "properties.datasource.raw.contact:phone",
+        "properties.datasource.raw.contact:website",
+        "properties.datasource.raw.housenumber",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.museum",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.opening_hours",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.street",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.housenumber",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.opening_hours",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.quarter",
+        "properties.region",
+        "properties.state",
+        "properties.street",
+        "properties.suburb",
+        "properties.website",
+        "type"
+      ]
+    },
+    {
+      "external_id": "51ecf3bd2b27cc424059c1864c9e57e24b40f00103f90150bba83803000000920330d0add0bad181d0bfd0bed0b7d0b8d186d0b8d18f20c2ab31303020d0bbd0b5d18220d181d0b0d182d0b8d180d18bc2bb",
+      "name": "Экспозиция «100 лет сатиры»",
+      "category": "museums",
+      "latitude": 55.7682989,
+      "longitude": 37.5949454,
+      "address": "Экспозиция «100 лет сатиры», Triumfalnaya Square 2 с1, Tverskoy District, Moscow, Russia, 125047",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T14:40:47.841434+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw._inherited",
+        "properties.datasource.raw.check_date",
+        "properties.datasource.raw.city",
+        "properties.datasource.raw.country",
+        "properties.datasource.raw.housenumber",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.postcode",
+        "properties.datasource.raw.street",
+        "properties.datasource.raw.tourism",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.housenumber",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.quarter",
+        "properties.region",
+        "properties.state",
+        "properties.street",
+        "properties.suburb",
+        "type"
+      ]
+    }
+  ]
+}

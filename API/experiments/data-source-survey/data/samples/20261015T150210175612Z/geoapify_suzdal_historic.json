@@ -1,0 +1,219 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T15:03:33.979370+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Вечный огонь",
+        "country_code": "ru",
+        "lon": 40.4501584,
+        "lat": 56.4203392,
+        "formatted": "Вечный огонь, Васильевская улица, Suzdal, Vladimir Oblast, Russia, 601293",
+        "categories": [
+          "tourism",
+          "tourism.sights",
+          "tourism.sights.memorial"
+        ],
+        "description": "Cуздальцам, погибшим в 1941-1945",
+        "place_id": "5185025bca9e39444059089dc6accd354c40f00103f901e86ba45000000000920317d092d0b5d187d0bdd18bd0b920d0bed0b3d0bed0bdd18c",
+        "datasource": {
+          "raw": {
+            "name": "Вечный огонь",
+            "osm_id": 1352952808,
+            "historic": "memorial",
+            "osm_type": "n",
+            "description": "Cуздальцам, погибшим в 1941-1945"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.4501584,
+          56.4203392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Владимирский научно-исследовательский институт сельского хозяйства",
+        "country_code": "ru",
+        "lon": 40.4282702,
+        "lat": 56.4181336,
+        "formatted": "Владимирский научно-исследовательский институт сельского хозяйства, улица Мичурина, Suzdal, Vladimir Oblast, Russia, 601293",
+        "categories": [
+          "tourism",
+          "tourism.sights",
+          "tourism.sights.memorial"
+        ],
+        "place_id": "51fa6cd38ed136444059ebaddc6685354c40f00103f90152faaa960000000092037fd092d0bbd0b0d0b4d0b8d0bcd0b8d180d181d0bad0b8d0b920d0bdd0b0d183d187d0bdd0be2dd0b8d181d181d0bbd0b5d0b4d0bed0b2d0b0d182d0b5d0bbd18cd181d0bad0b8d0b920d0b8d0bdd181d182d0b8d182d183d18220d181d0b5d0bbd18cd181d0bad0bed0b3d0be20d185d0bed0b7d18fd0b9d181d182d0b2d0b0",
+        "datasource": {
+          "raw": {
+            "name": "Владимирский научно-исследовательский институт сельского хозяйства",
+            "osm_id": 2527787602,
+            "historic": "memorial",
+            "osm_type": "n"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.4282702,
+          56.4181336
+        ]
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "5185025bca9e39444059089dc6accd354c40f00103f901e86ba45000000000920317d092d0b5d187d0bdd18bd0b920d0bed0b3d0bed0bdd18c",
+      "name": "Вечный огонь",
+      "category": "historic",
+      "latitude": 56.4203392,
+      "longitude": 40.4501584,
+      "address": "Вечный огонь, Васильевская улица, Suzdal, Vladimir Oblast, Russia, 601293",
+      "description": "Cуздальцам, погибшим в 1941-1945",
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_provider": "openstreetmap",
+      "source_external_id": "node/1352952808",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T15:03:33.979370+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.county",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.description",
+        "properties.datasource.raw.historic",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.memorial",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.description",
+        "properties.details",
+        "properties.formatted",
+        "properties.historic",
+        "properties.historic.memorial",
+        "properties.historic.type",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.municipality",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "properties.street",
+        "type"
+      ]
+    },
+    {
+      "external_id": "51fa6cd38ed136444059ebaddc6685354c40f00103f90152faaa960000000092037fd092d0bbd0b0d0b4d0b8d0bcd0b8d180d181d0bad0b8d0b920d0bdd0b0d183d187d0bdd0be2dd0b8d181d181d0bbd0b5d0b4d0bed0b2d0b0d182d0b5d0bbd18cd181d0bad0b8d0b920d0b8d0bdd181d182d0b8d182d183d18220d181d0b5d0bbd18cd181d0bad0bed0b3d0be20d185d0bed0b7d18fd0b9d181d182d0b2d0b0",
+      "name": "Владимирский научно-исследовательский институт сельского хозяйства",
+      "category": "historic",
+      "latitude": 56.4181336,
+      "longitude": 40.4282702,
+      "address": "Владимирский научно-исследовательский институт сельского хозяйства, улица Мичурина, Suzdal, Vladimir Oblast, Russia, 601293",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_provider": "openstreetmap",
+      "source_external_id": "node/2527787602",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T15:03:33.979370+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.county",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.historic",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.memorial",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.historic",
+        "properties.historic.memorial",
+        "properties.historic.type",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.municipality",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "properties.street",
+        "type"
+      ]
+    }
+  ]
+}

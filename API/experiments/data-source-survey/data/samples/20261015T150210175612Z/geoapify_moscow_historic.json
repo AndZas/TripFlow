@@ -1,0 +1,220 @@
+{
+  "evidence": "live_response",
+  "retrieved_at": "2026-10-15T15:02:49.241574+00:00",
+  "selection": "First two results; values allowlisted; URLs cleaned",
+  "raw": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Памяти погибших в октябре 1993 года",
+        "country_code": "ru",
+        "lon": 37.5758119,
+        "lat": 55.757127,
+        "formatted": "Памяти погибших в октябре 1993 года, Дружинниковская улица, Presnensky District, Moscow, Russia, 123242",
+        "categories": [
+          "tourism",
+          "tourism.sights",
+          "tourism.sights.memorial"
+        ],
+        "place_id": "51aff2ba34b4c942405994f59b89e9e04b40f00102f901385d87040000000092033dd09fd0b0d0bcd18fd182d0b820d0bfd0bed0b3d0b8d0b1d188d0b8d18520d0b220d0bed0bad182d18fd0b1d180d0b5203139393320d0b3d0bed0b4d0b0",
+        "datasource": {
+          "raw": {
+            "name": "Памяти погибших в октябре 1993 года",
+            "osm_id": 75980088,
+            "historic": "memorial",
+            "osm_type": "w"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.575811949999995,
+          55.757127
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Марине Цветаевой",
+        "country_code": "ru",
+        "lon": 37.589584,
+        "lat": 55.7542379,
+        "formatted": "Марине Цветаевой, Borisoglebskiy Lane, Arbat District, Moscow, Russia, 121069",
+        "categories": [
+          "tourism",
+          "tourism.sights",
+          "tourism.sights.memorial"
+        ],
+        "place_id": "51581f0f7d77cb424059adf314de8ae04b40f00103f901d0f4f1690000000092031fd09cd0b0d180d0b8d0bdd0b520d0a6d0b2d0b5d182d0b0d0b5d0b2d0bed0b9",
+        "wiki_and_media": {
+          "wikidata": "Q69052978"
+        },
+        "datasource": {
+          "raw": {
+            "name": "Марине Цветаевой",
+            "osm_id": 1777464528,
+            "historic": "memorial",
+            "osm_type": "n",
+            "wikidata": "Q69052978"
+          },
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "sourcename": "openstreetmap",
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.589584,
+          55.7542379
+        ]
+      }
+    }
+  ],
+  "normalized": [
+    {
+      "external_id": "51aff2ba34b4c942405994f59b89e9e04b40f00102f901385d87040000000092033dd09fd0b0d0bcd18fd182d0b820d0bfd0bed0b3d0b8d0b1d188d0b8d18520d0b220d0bed0bad182d18fd0b1d180d0b5203139393320d0b3d0bed0b4d0b0",
+      "name": "Памяти погибших в октябре 1993 года",
+      "category": "historic",
+      "latitude": 55.757127,
+      "longitude": 37.5758119,
+      "address": "Памяти погибших в октябре 1993 года, Дружинниковская улица, Presnensky District, Moscow, Russia, 123242",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_provider": "openstreetmap",
+      "source_external_id": "way/75980088",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T15:02:49.241574+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.historic",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.historic",
+        "properties.historic.type",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.region",
+        "properties.state",
+        "properties.street",
+        "properties.suburb",
+        "type"
+      ]
+    },
+    {
+      "external_id": "51581f0f7d77cb424059adf314de8ae04b40f00103f901d0f4f1690000000092031fd09cd0b0d180d0b8d0bdd0b520d0a6d0b2d0b5d182d0b0d0b5d0b2d0bed0b9",
+      "name": "Марине Цветаевой",
+      "category": "historic",
+      "latitude": 55.7542379,
+      "longitude": 37.589584,
+      "address": "Марине Цветаевой, Borisoglebskiy Lane, Arbat District, Moscow, Russia, 121069",
+      "description": null,
+      "website_url": null,
+      "image_url": null,
+      "rating": null,
+      "price_amount": null,
+      "price_currency": null,
+      "price_period_or_total": null,
+      "availability": null,
+      "country_code": "ru",
+      "timezone": null,
+      "cuisine": null,
+      "opening_hours": null,
+      "entrance_fee": null,
+      "provider": "geoapify",
+      "source_provider": "openstreetmap",
+      "source_external_id": "node/1777464528",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "retrieved_at": "2026-10-15T15:02:49.241574+00:00",
+      "raw_fields": [
+        "geometry",
+        "geometry.coordinates",
+        "geometry.type",
+        "properties",
+        "properties.address_line1",
+        "properties.address_line2",
+        "properties.categories",
+        "properties.city",
+        "properties.country",
+        "properties.country_code",
+        "properties.datasource",
+        "properties.datasource.attribution",
+        "properties.datasource.license",
+        "properties.datasource.raw",
+        "properties.datasource.raw.historic",
+        "properties.datasource.raw.lat",
+        "properties.datasource.raw.lon",
+        "properties.datasource.raw.memorial",
+        "properties.datasource.raw.memorial:subject",
+        "properties.datasource.raw.name",
+        "properties.datasource.raw.osm_id",
+        "properties.datasource.raw.osm_type",
+        "properties.datasource.raw.wikidata",
+        "properties.datasource.sourcename",
+        "properties.datasource.url",
+        "properties.details",
+        "properties.formatted",
+        "properties.historic",
+        "properties.historic.memorial",
+        "properties.historic.type",
+        "properties.iso3166_2",
+        "properties.lat",
+        "properties.lon",
+        "properties.name",
+        "properties.place_id",
+        "properties.postcode",
+        "properties.quarter",
+        "properties.region",
+        "properties.state",
+        "properties.street",
+        "properties.suburb",
+        "properties.wiki_and_media",
+        "properties.wiki_and_media.wikidata",
+        "type"
+      ]
+    }
+  ]
+}
