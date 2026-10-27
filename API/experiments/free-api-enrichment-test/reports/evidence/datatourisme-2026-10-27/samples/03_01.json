@@ -1,0 +1,83 @@
+{
+  "source_fields": {
+    "uuid": "0a2a7727-f5ff-3c0e-a416-bfeb7099d29f",
+    "label": {
+      "@ru": "Le Petit Musée du Vin",
+      "@en": "Le Petit Musée du Vin",
+      "@fr": "Le Petit Musée du Vin",
+      "@zh": "Le Petit Musée du Vin"
+    },
+    "type": [
+      "LocalBusiness",
+      "Museum",
+      "PointOfInterest",
+      "PlaceOfInterest",
+      "CulturalSite"
+    ],
+    "tariff_observations": [
+      {
+        "min_price": "25",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2026-01-01",
+        "end_date": "2026-12-31",
+        "expired": false,
+        "basis": null
+      }
+    ],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2026-04-02",
+    "lastUpdateDatatourisme": "2026-10-21T09:31:08.074Z"
+  },
+  "source_id": "0a2a7727-f5ff-3c0e-a416-bfeb7099d29f",
+  "source_url": "https://data.datatourisme.fr/13/893e4523-4ba2-30b6-a311-bbdb5e4658d4",
+  "name": "Le Petit Musée du Vin",
+  "description": "Un parcours immersif et sensoriel au cœur de la vigne et du vin. Découvrez, touchez, sentez, apprenez et dégustez jusqu’à 8 vins dans les caves voûtées d’un ancien immeuble lyonnais. Une expérience unique, ludique et culturelle !",
+  "category": "LocalBusiness, Museum, PointOfInterest, PlaceOfInterest, CulturalSite",
+  "coordinates": [
+    45.755046,
+    4.840685
+  ],
+  "address": "3 rue Passet",
+  "opening_hours": null,
+  "website": "https://lepetitmuseeduvin.com/",
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": null,
+  "unclassified_price_amount": "25",
+  "tariff_observations": [
+    {
+      "min_price": "25",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2026-01-01",
+      "end_date": "2026-12-31",
+      "expired": false,
+      "basis": null
+    }
+  ],
+  "price_currency": "EUR",
+  "price_basis": null,
+  "price_period_or_validity": [
+    "2026-01-01",
+    "2026-12-31"
+  ],
+  "price_kind": "catalog_minimum_unknown_basis",
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "Lyon Tourisme et Congrès / ONLYLYON Tourisme",
+  "last_update": "2026-04-02",
+  "catalog_updated_at": "2026-10-21T09:31:08.074Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

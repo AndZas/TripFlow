@@ -1,0 +1,56 @@
+{
+  "source_fields": {
+    "uuid": "11382423-210f-367a-878b-dfd1c4147c96",
+    "label": {
+      "@en": "Parc Sourreil",
+      "@fr": "Parc Sourreil"
+    },
+    "type": [
+      "ParkAndGarden",
+      "PointOfInterest",
+      "Park",
+      "CulturalSite",
+      "PlaceOfInterest"
+    ],
+    "tariff_observations": [],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2026-01-06",
+    "lastUpdateDatatourisme": "2026-10-21T03:04:51.495Z"
+  },
+  "source_id": "11382423-210f-367a-878b-dfd1c4147c96",
+  "source_url": "https://data.datatourisme.fr/23/714e2e42-d0a6-319a-89f2-fc4e31774487",
+  "name": "Parc Sourreil",
+  "description": "Ce parc de 7 hectares est l’un des plus beaux parcs romantiques de l’agglomération. C’est à la fois un espace de détente protégé des nuisances de la ville par une enceinte végétale mais aussi un espace de jeux (prairies pour jeux de balle, jeux pour enfants...), de découverte (plantation expérimentale, richesse des espèces végétales…) et d’expression avec la maison des arts vivants.",
+  "category": "ParkAndGarden, PointOfInterest, Park, CulturalSite, PlaceOfInterest",
+  "coordinates": [
+    44.7962479,
+    -0.5795624
+  ],
+  "address": "Rue Victor Jara",
+  "opening_hours": null,
+  "website": "https://www.villenavedornon.fr/180/sortir-s-epanouir/parcs-et-sites-naturels/parc-sourreil.htm",
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": null,
+  "unclassified_price_amount": null,
+  "tariff_observations": [],
+  "price_currency": null,
+  "price_basis": null,
+  "price_period_or_validity": null,
+  "price_kind": null,
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "OT Bordeaux Métropole",
+  "last_update": "2026-01-06",
+  "catalog_updated_at": "2026-10-21T03:04:51.495Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

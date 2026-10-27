@@ -1,0 +1,57 @@
+{
+  "source_fields": {
+    "uuid": "00531bf1-ae2d-3aa8-a71f-3b29207622a1",
+    "label": {
+      "@en": "Maison Pavlov",
+      "@fr": "Maison Pavlov"
+    },
+    "type": [
+      "PointOfInterest",
+      "HotelTrade",
+      "Accommodation",
+      "Hotel",
+      "LodgingBusiness",
+      "PlaceOfInterest"
+    ],
+    "tariff_observations": [],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2026-10-05",
+    "lastUpdateDatatourisme": "2026-10-21T02:45:04.386Z"
+  },
+  "source_id": "00531bf1-ae2d-3aa8-a71f-3b29207622a1",
+  "source_url": "https://data.datatourisme.fr/23/fb040f30-e280-362d-a54e-ee964952369f",
+  "name": "Maison Pavlov",
+  "description": "Bienvenue à la Maison Pavlov, boutique-hôtel 5 étoiles rénové entièrement en 2021 par Mary et Maxime Rosselin. Le restaurant tour à tour bistronomique au déjeuner et gastronomique le soir vous accueille au cœur de sa magnifique chartreuse.\nSitué dans la charmante ville du Bouscat, à quelques minutes du centre de Bordeaux, Maison Pavlov vous ouvre ses portes sur huit chambres et suites spacieuses nichées au fond d’un jardin luxuriant.",
+  "category": "PointOfInterest, HotelTrade, Accommodation, Hotel, LodgingBusiness, PlaceOfInterest",
+  "coordinates": [
+    44.8624304,
+    -0.6018393
+  ],
+  "address": "199 Avenue de la Libération Charles de Gaulle",
+  "opening_hours": null,
+  "website": "https://maisonpavlov.com/",
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": null,
+  "unclassified_price_amount": null,
+  "tariff_observations": [],
+  "price_currency": null,
+  "price_basis": null,
+  "price_period_or_validity": null,
+  "price_kind": null,
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "OT Bordeaux Métropole",
+  "last_update": "2026-10-05",
+  "catalog_updated_at": "2026-10-21T02:45:04.386Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

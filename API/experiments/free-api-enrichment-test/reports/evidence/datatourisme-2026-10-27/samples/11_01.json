@@ -1,0 +1,81 @@
+{
+  "source_fields": {
+    "uuid": "03f104ad-c099-3977-ab73-12dc376f955e",
+    "label": {
+      "@en": "Musée des Arts décoratifs",
+      "@fr": "Musée des Arts décoratifs"
+    },
+    "type": [
+      "PointOfInterest",
+      "CulturalSite",
+      "Museum",
+      "LocalBusiness",
+      "PlaceOfInterest"
+    ],
+    "tariff_observations": [
+      {
+        "min_price": "15",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2025-01-01",
+        "end_date": "2025-12-31",
+        "expired": true,
+        "basis": null
+      }
+    ],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2026-08-07",
+    "lastUpdateDatatourisme": "2026-10-21T09:31:07.915Z"
+  },
+  "source_id": "03f104ad-c099-3977-ab73-12dc376f955e",
+  "source_url": "https://data.datatourisme.fr/13/f8dd1d34-3bf2-30b9-975f-0ec698418ca9",
+  "name": "Musée des Arts décoratifs",
+  "description": "La mode, la pub, le mobilier, la joaillerie… Toute l’histoire du beau et de l’utile est retracée au musée des Arts déco, dans une aile du Palais du Louvre.",
+  "category": "PointOfInterest, CulturalSite, Museum, LocalBusiness, PlaceOfInterest",
+  "coordinates": [
+    48.863086,
+    2.333734
+  ],
+  "address": "107-111 rue de Rivoli (entrée par le jardin du Carrousel)",
+  "opening_hours": "Collections permanentes :\r\n• Du mardi au dimanche de 11h à 18h\r\n\r\n• Nocturne le jeudi jusqu’à 21h\r\nFermeture des caisses à 20h15",
+  "website": "https://madparis.fr/",
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": null,
+  "unclassified_price_amount": "15",
+  "tariff_observations": [
+    {
+      "min_price": "15",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31",
+      "expired": true,
+      "basis": null
+    }
+  ],
+  "price_currency": "EUR",
+  "price_basis": null,
+  "price_period_or_validity": [
+    "2025-01-01",
+    "2025-12-31"
+  ],
+  "price_kind": "expired_catalog_tariff",
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "Choose Paris Region",
+  "last_update": "2026-08-07",
+  "catalog_updated_at": "2026-10-21T09:31:07.915Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "source_fields": {
+    "uuid": "01d10695-e7e7-3c80-be58-0df68711ed07",
+    "label": {
+      "@fr": "Musée des arts forains"
+    },
+    "type": [
+      "Museum",
+      "LocalBusiness",
+      "PlaceOfInterest",
+      "CulturalSite",
+      "PointOfInterest"
+    ],
+    "tariff_observations": [
+      {
+        "min_price": "18.8",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2023-01-01",
+        "end_date": "2024-12-31",
+        "expired": true,
+        "basis": null
+      },
+      {
+        "min_price": "12.8",
+        "price": null,
+        "currency": "EUR",
+        "name": "de 4 à 11 ans",
+        "start_date": "2023-01-01",
+        "end_date": "2024-12-31",
+        "expired": true,
+        "basis": null
+      }
+    ],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2026-06-24",
+    "lastUpdateDatatourisme": "2026-10-21T09:31:08.664Z"
+  },
+  "source_id": "01d10695-e7e7-3c80-be58-0df68711ed07",
+  "source_url": "https://data.datatourisme.fr/13/2b37e32e-4be9-3f53-9b20-1168be94265d",
+  "name": "Musée des arts forains",
+  "description": "Le Musée des arts forains vous plonge dans l'univers des manèges et des automates. En visite guidée, entrez dans l'histoire du monde des attractions.",
+  "category": "Museum, LocalBusiness, PlaceOfInterest, CulturalSite, PointOfInterest",
+  "coordinates": [
+    48.832605,
+    2.389228
+  ],
+  "address": "53 Avenue des Terroirs de France",
+  "opening_hours": "Visite uniquement sur réservation.\r\nPas de visite libre en autonomie.\r\nLes visites sont programmées essentiellement les mercredis, samedis et dimanches et tous les jours pendant les périodes de vacances scolaires.",
+  "website": null,
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": null,
+  "unclassified_price_amount": "18.8",
+  "tariff_observations": [
+    {
+      "min_price": "18.8",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2023-01-01",
+      "end_date": "2024-12-31",
+      "expired": true,
+      "basis": null
+    },
+    {
+      "min_price": "12.8",
+      "price": null,
+      "currency": "EUR",
+      "name": "de 4 à 11 ans",
+      "start_date": "2023-01-01",
+      "end_date": "2024-12-31",
+      "expired": true,
+      "basis": null
+    }
+  ],
+  "price_currency": "EUR",
+  "price_basis": null,
+  "price_period_or_validity": [
+    "2023-01-01",
+    "2024-12-31"
+  ],
+  "price_kind": "expired_catalog_tariff",
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "Choose Paris Region",
+  "last_update": "2026-06-24",
+  "catalog_updated_at": "2026-10-21T09:31:08.664Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

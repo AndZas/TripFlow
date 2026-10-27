@@ -1,0 +1,56 @@
+{
+  "source_fields": {
+    "uuid": "00407f14-6316-373d-ac63-4a39516abab9",
+    "label": {
+      "@en": "Banks of the Rhône",
+      "@fr": "Les Berges du Rhône"
+    },
+    "type": [
+      "PlaceOfInterest",
+      "Park",
+      "CulturalSite",
+      "ParkAndGarden",
+      "PointOfInterest"
+    ],
+    "tariff_observations": [],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2026-05-07",
+    "lastUpdateDatatourisme": "2026-10-21T09:31:08.637Z"
+  },
+  "source_id": "00407f14-6316-373d-ac63-4a39516abab9",
+  "source_url": "https://data.datatourisme.fr/13/06eaaa6b-d4d1-348b-aea6-1bd4b9c7a9bb",
+  "name": "Les Berges du Rhône",
+  "description": "Les berges du Rhône, du parc de la Tête d'Or au parc du Confluent, liens urbains, naturels, culturels et sociaux, sont des promenades et des jardins où se déroulent tout au long de l'année des manifestations et des fêtes.",
+  "category": "PlaceOfInterest, Park, CulturalSite, ParkAndGarden, PointOfInterest",
+  "coordinates": [
+    45.776952,
+    4.843469
+  ],
+  "address": "Du parc de la Tête d'Or au Parc de Gerland",
+  "opening_hours": null,
+  "website": null,
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": null,
+  "unclassified_price_amount": null,
+  "tariff_observations": [],
+  "price_currency": null,
+  "price_basis": null,
+  "price_period_or_validity": null,
+  "price_kind": null,
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "Lyon Tourisme et Congrès / ONLYLYON Tourisme",
+  "last_update": "2026-05-07",
+  "catalog_updated_at": "2026-10-21T09:31:08.637Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

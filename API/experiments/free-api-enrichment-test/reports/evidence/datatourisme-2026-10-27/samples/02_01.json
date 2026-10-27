@@ -1,0 +1,124 @@
+{
+  "source_fields": {
+    "uuid": "03785f08-3a90-37d7-8c42-1896a48e47f7",
+    "label": {
+      "@fr": "Hôtel ibis budget Paris Porte de Bercy**"
+    },
+    "type": [
+      "Accommodation",
+      "HotelRestaurant",
+      "Restaurant",
+      "PlaceOfInterest",
+      "FoodEstablishment",
+      "PointOfInterest",
+      "HotelTrade",
+      "Hotel",
+      "LodgingBusiness"
+    ],
+    "tariff_observations": [
+      {
+        "min_price": "8.9",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2024-01-01",
+        "end_date": "2024-12-31",
+        "expired": true,
+        "basis": null
+      },
+      {
+        "min_price": "20",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2024-01-01",
+        "end_date": "2024-12-31",
+        "expired": true,
+        "basis": null
+      },
+      {
+        "min_price": "65",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2024-01-01",
+        "end_date": "2024-12-31",
+        "expired": true,
+        "basis": null
+      }
+    ],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2024-10-05",
+    "lastUpdateDatatourisme": "2026-10-21T09:31:08.496Z"
+  },
+  "source_id": "03785f08-3a90-37d7-8c42-1896a48e47f7",
+  "source_url": "https://data.datatourisme.fr/13/f40b2268-d513-3617-966d-9f523afc9789",
+  "name": "Hôtel ibis budget Paris Porte de Bercy**",
+  "description": "Situé aux portes de Paris, l'hôtel 2 étoiles Ibis budget Paris Porte de Bercy, vous permettra de profiter des charmes de la capitale tout en vous ressourçant dans un lieu calme entouré de nombreux commerces.",
+  "category": "Accommodation, HotelRestaurant, Restaurant, PlaceOfInterest, FoodEstablishment, PointOfInterest, HotelTrade, Hotel, LodgingBusiness",
+  "coordinates": [
+    48.825215,
+    2.394158
+  ],
+  "address": "2 Place de l'Europe",
+  "opening_hours": null,
+  "website": "https://all.accor.com/hotel/2587/index.fr.shtml",
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": "8.9",
+  "unclassified_price_amount": null,
+  "tariff_observations": [
+    {
+      "min_price": "8.9",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "expired": true,
+      "basis": null
+    },
+    {
+      "min_price": "20",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "expired": true,
+      "basis": null
+    },
+    {
+      "min_price": "65",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2024-01-01",
+      "end_date": "2024-12-31",
+      "expired": true,
+      "basis": null
+    }
+  ],
+  "price_currency": "EUR",
+  "price_basis": null,
+  "price_period_or_validity": [
+    "2024-01-01",
+    "2024-12-31"
+  ],
+  "price_kind": "expired_catalog_tariff",
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "Etablissement Public territorial Paris Est Marne et Bois",
+  "last_update": "2024-10-05",
+  "catalog_updated_at": "2026-10-21T09:31:08.496Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

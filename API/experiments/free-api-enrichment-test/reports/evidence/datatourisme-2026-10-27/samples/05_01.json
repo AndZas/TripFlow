@@ -1,0 +1,224 @@
+{
+  "source_fields": {
+    "uuid": "0b8daa65-3ff0-372e-b12c-98fcdb2ab2f6",
+    "label": {
+      "@ru": "Hôtel Alexandra",
+      "@en": "Hôtel Alexandra",
+      "@fr": "Hôtel Alexandra",
+      "@zh": "Hôtel Alexandra"
+    },
+    "type": [
+      "Accommodation",
+      "Hotel",
+      "LodgingBusiness",
+      "PointOfInterest",
+      "PlaceOfInterest",
+      "HotelTrade"
+    ],
+    "tariff_observations": [
+      {
+        "min_price": "12",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2025-01-01",
+        "end_date": "2025-12-31",
+        "expired": true,
+        "basis": null
+      },
+      {
+        "min_price": "19",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2025-01-01",
+        "end_date": "2025-12-31",
+        "expired": true,
+        "basis": null
+      },
+      {
+        "min_price": "163",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2025-01-01",
+        "end_date": "2025-12-31",
+        "expired": true,
+        "basis": null
+      },
+      {
+        "min_price": "40",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2025-01-01",
+        "end_date": "2025-12-31",
+        "expired": true,
+        "basis": null
+      },
+      {
+        "min_price": "129",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2025-01-01",
+        "end_date": "2025-12-31",
+        "expired": true,
+        "basis": null
+      },
+      {
+        "min_price": "189",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2025-01-01",
+        "end_date": "2025-12-31",
+        "expired": true,
+        "basis": null
+      },
+      {
+        "min_price": "169",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2025-01-01",
+        "end_date": "2025-12-31",
+        "expired": true,
+        "basis": null
+      },
+      {
+        "min_price": "189",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2025-01-01",
+        "end_date": "2025-12-31",
+        "expired": true,
+        "basis": null
+      }
+    ],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2026-06-16",
+    "lastUpdateDatatourisme": "2026-10-21T09:31:08.429Z"
+  },
+  "source_id": "0b8daa65-3ff0-372e-b12c-98fcdb2ab2f6",
+  "source_url": "https://data.datatourisme.fr/13/ea183434-95bd-3bc1-bcc4-4c6378c5baa7",
+  "name": "Hôtel Alexandra",
+  "description": "Idéalement situé au cœur des rues piétonnes de Lyon, cet hôtel se trouve à deux pas de la Place Bellecour. Vous apprécierez son charme particulier au style ancien, raffiné et authentique.",
+  "category": "Accommodation, Hotel, LodgingBusiness, PointOfInterest, PlaceOfInterest, HotelTrade",
+  "coordinates": [
+    45.752763,
+    4.829012
+  ],
+  "address": "49 rue Victor Hugo",
+  "opening_hours": "Ouverture 24h/24.",
+  "website": null,
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": "12",
+  "unclassified_price_amount": null,
+  "tariff_observations": [
+    {
+      "min_price": "12",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31",
+      "expired": true,
+      "basis": null
+    },
+    {
+      "min_price": "19",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31",
+      "expired": true,
+      "basis": null
+    },
+    {
+      "min_price": "163",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31",
+      "expired": true,
+      "basis": null
+    },
+    {
+      "min_price": "40",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31",
+      "expired": true,
+      "basis": null
+    },
+    {
+      "min_price": "129",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31",
+      "expired": true,
+      "basis": null
+    },
+    {
+      "min_price": "189",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31",
+      "expired": true,
+      "basis": null
+    },
+    {
+      "min_price": "169",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31",
+      "expired": true,
+      "basis": null
+    },
+    {
+      "min_price": "189",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31",
+      "expired": true,
+      "basis": null
+    }
+  ],
+  "price_currency": "EUR",
+  "price_basis": null,
+  "price_period_or_validity": [
+    "2025-01-01",
+    "2025-12-31"
+  ],
+  "price_kind": "expired_catalog_tariff",
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "Lyon Tourisme et Congrès / ONLYLYON Tourisme",
+  "last_update": "2026-06-16",
+  "catalog_updated_at": "2026-10-21T09:31:08.429Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

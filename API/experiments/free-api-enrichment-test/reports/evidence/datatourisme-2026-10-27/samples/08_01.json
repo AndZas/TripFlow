@@ -1,0 +1,57 @@
+{
+  "source_fields": {
+    "uuid": "04a8349d-a7c2-3e1d-b98d-b4a8be25bde5",
+    "label": {
+      "@en": "Best Western Premier Hôtel Bayonne Etche Ona",
+      "@fr": "Best Western Premier Hôtel Bayonne Etche Ona"
+    },
+    "type": [
+      "Accommodation",
+      "PlaceOfInterest",
+      "PointOfInterest",
+      "Hotel",
+      "HotelTrade",
+      "LodgingBusiness"
+    ],
+    "tariff_observations": [],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2026-10-05",
+    "lastUpdateDatatourisme": "2026-10-21T02:45:04.387Z"
+  },
+  "source_id": "04a8349d-a7c2-3e1d-b98d-b4a8be25bde5",
+  "source_url": "https://data.datatourisme.fr/23/8f5fee40-78ec-397a-80e2-bb2e8676e40e",
+  "name": "Best Western Premier Hôtel Bayonne Etche Ona",
+  "description": "Le Best Western Premier Hôtel Bayonne Etche-Ona se situe au cœur du Triangle d’Or de Bordeaux, à proximité immédiate de toutes les activités de la ville.\nComposé de deux hôtels particuliers du XVIIIème siècle, les 61 Chambres et Suites, tout comme les espaces communs, vous invitent à découvrir deux univers racontés avec élégance et sens du détail : Art déco 1925-1930 pour la Maison « Bayonne » et Cabinet de Curiosité - Retour de Voyage pour la Maison « Etche-Ona ».\nL’aménagement a été réalisé par des artisans français : ébénistes, ferronniers, tapissiers... Un soin particulier a été apporté au choix des matériaux nobles avec des bois tel que l’Orme de Nancy et le Chêne des Marais. Les cuivres, les revêtements, les tissus et cuirs sont issus des plus belles maisons : Rubelli, Lelièvre, Pierre Frey, Arte, Nobilis, Dédar... Les salles de bain sont exclusives et offrent deux décors uniques.",
+  "category": "Accommodation, PlaceOfInterest, PointOfInterest, Hotel, HotelTrade, LodgingBusiness",
+  "coordinates": [
+    44.8421823,
+    -0.5759081
+  ],
+  "address": "4 rue Martignac et 11 rue Mautrec",
+  "opening_hours": null,
+  "website": "https://www.bordeaux-hotel.com/",
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": null,
+  "unclassified_price_amount": null,
+  "tariff_observations": [],
+  "price_currency": null,
+  "price_basis": null,
+  "price_period_or_validity": null,
+  "price_kind": null,
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "OT Bordeaux Métropole",
+  "last_update": "2026-10-05",
+  "catalog_updated_at": "2026-10-21T02:45:04.387Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

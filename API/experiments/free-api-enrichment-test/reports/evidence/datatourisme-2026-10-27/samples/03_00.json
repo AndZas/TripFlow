@@ -1,0 +1,141 @@
+{
+  "source_fields": {
+    "uuid": "08148020-366d-3050-a539-609f4050679f",
+    "label": {
+      "@en": "The Museum of Printing and Graphic Communication",
+      "@fr": "Musée de l'Imprimerie et de la communication graphique"
+    },
+    "type": [
+      "Museum",
+      "CulturalSite",
+      "LocalBusiness",
+      "PointOfInterest",
+      "PlaceOfInterest"
+    ],
+    "tariff_observations": [
+      {
+        "min_price": "135",
+        "price": null,
+        "currency": "EUR",
+        "name": "1h : 135€, 1h30 : 160€, 2h : 185€, de 10 à 25 personnes",
+        "start_date": "2020-01-01",
+        "end_date": "2020-12-31",
+        "expired": true,
+        "basis": null
+      },
+      {
+        "min_price": "8",
+        "price": null,
+        "currency": "EUR",
+        "name": "8€ : expositions temporaires de longue durée, 6€ : expositions dossiers",
+        "start_date": "2020-01-01",
+        "end_date": "2020-12-31",
+        "expired": true,
+        "basis": null
+      },
+      {
+        "min_price": "6",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2020-01-01",
+        "end_date": "2020-12-31",
+        "expired": true,
+        "basis": null
+      },
+      {
+        "min_price": "4",
+        "price": null,
+        "currency": "EUR",
+        "name": "pour les 18/25 ans",
+        "start_date": "2020-01-01",
+        "end_date": "2020-12-31",
+        "expired": true,
+        "basis": null
+      }
+    ],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2026-05-07",
+    "lastUpdateDatatourisme": "2026-10-21T09:31:08.205Z"
+  },
+  "source_id": "08148020-366d-3050-a539-609f4050679f",
+  "source_url": "https://data.datatourisme.fr/13/a7f99a50-4081-3b24-942a-37565aee1f4a",
+  "name": "Musée de l'Imprimerie et de la communication graphique",
+  "description": "Dans la ville qui fut l’une des capitales de l'imprimerie aux 15ème et 16ème siècles, le Musée de l'Imprimerie offre un panorama unique de l’histoire du livre et des techniques graphiques sur 1750 m².",
+  "category": "Museum, CulturalSite, LocalBusiness, PointOfInterest, PlaceOfInterest",
+  "coordinates": [
+    45.764245,
+    4.834746
+  ],
+  "address": "13 rue de la Poulaillerie",
+  "opening_hours": null,
+  "website": null,
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": null,
+  "unclassified_price_amount": "135",
+  "tariff_observations": [
+    {
+      "min_price": "135",
+      "price": null,
+      "currency": "EUR",
+      "name": "1h : 135€, 1h30 : 160€, 2h : 185€, de 10 à 25 personnes",
+      "start_date": "2020-01-01",
+      "end_date": "2020-12-31",
+      "expired": true,
+      "basis": null
+    },
+    {
+      "min_price": "8",
+      "price": null,
+      "currency": "EUR",
+      "name": "8€ : expositions temporaires de longue durée, 6€ : expositions dossiers",
+      "start_date": "2020-01-01",
+      "end_date": "2020-12-31",
+      "expired": true,
+      "basis": null
+    },
+    {
+      "min_price": "6",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2020-01-01",
+      "end_date": "2020-12-31",
+      "expired": true,
+      "basis": null
+    },
+    {
+      "min_price": "4",
+      "price": null,
+      "currency": "EUR",
+      "name": "pour les 18/25 ans",
+      "start_date": "2020-01-01",
+      "end_date": "2020-12-31",
+      "expired": true,
+      "basis": null
+    }
+  ],
+  "price_currency": "EUR",
+  "price_basis": null,
+  "price_period_or_validity": [
+    "2020-01-01",
+    "2020-12-31"
+  ],
+  "price_kind": "expired_catalog_tariff",
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "Lyon Tourisme et Congrès / ONLYLYON Tourisme",
+  "last_update": "2026-05-07",
+  "catalog_updated_at": "2026-10-21T09:31:08.205Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "source_fields": {
+    "id": "Q691375",
+    "label_fr": "bourse de commerce de Paris",
+    "label_en": "Bourse de commerce",
+    "description_fr": "bourse de commerce dans le 1er arrondissement de Paris",
+    "description_en": "commodity market",
+    "license": "CC BY-SA 4.0",
+    "artist": "Chabe01",
+    "credit": "Own work"
+  },
+  "source_id": "Q691375",
+  "wikidata": "Q691375",
+  "name": "bourse de commerce de Paris",
+  "description": "bourse de commerce dans le 1er arrondissement de Paris",
+  "category": "poi",
+  "coordinates": [
+    48.86281882523548,
+    2.342834126266405
+  ],
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Bourse_Commerce_-_Paris_I_%28FR75%29_-_2021-06-05_-_1.jpg",
+  "image_author": "Chabe01",
+  "image_credit": "Own work",
+  "image_license": "CC BY-SA 4.0",
+  "image_source_page": "https://commons.wikimedia.org/wiki/File:Bourse_Commerce_-_Paris_I_(FR75)_-_2021-06-05_-_1.jpg",
+  "image_width": 4968,
+  "image_height": 3678,
+  "image_usable": true,
+  "price_kind": null,
+  "match": {
+    "confidence": "confident",
+    "reference": "Bourse de Commerce",
+    "distance_m": 0
+  }
+}

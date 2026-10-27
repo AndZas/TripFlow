@@ -1,0 +1,87 @@
+{
+  "source_fields": {
+    "uuid": "00294965-4322-3ff6-b452-fce439e44af3",
+    "label": {
+      "@ru": "InterContinental Lyon-Hotel Dieu",
+      "@en": "InterContinental Lyon-Hotel Dieu",
+      "@fr": "InterContinental Lyon-Hotel Dieu",
+      "@zh": "InterContinental Lyon-Hotel Dieu"
+    },
+    "type": [
+      "Accommodation",
+      "FoodEstablishment",
+      "PlaceOfInterest",
+      "HotelTrade",
+      "HotelRestaurant",
+      "Hotel",
+      "PointOfInterest",
+      "Restaurant",
+      "LodgingBusiness"
+    ],
+    "tariff_observations": [
+      {
+        "min_price": "320",
+        "price": null,
+        "currency": "EUR",
+        "name": null,
+        "start_date": "2025-01-01",
+        "end_date": "2025-12-31",
+        "expired": true,
+        "basis": null
+      }
+    ],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2026-08-31",
+    "lastUpdateDatatourisme": "2026-10-21T09:31:08.394Z"
+  },
+  "source_id": "00294965-4322-3ff6-b452-fce439e44af3",
+  "source_url": "https://data.datatourisme.fr/13/ca7cda3e-ce31-3c8d-abea-4f925989e1fd",
+  "name": "InterContinental Lyon-Hotel Dieu",
+  "description": "Rendez-vous sous le dôme ! Au cœur du Grand Hôtel-Dieu, l’InterContinental fait briller ses 5 étoiles dans un site d’exception. Pépite de l’hôtellerie lyonnaise, l'hôtel ouvre en grand les portes de ce bâtiment historique et emblématique de la ville.",
+  "category": "Accommodation, FoodEstablishment, PlaceOfInterest, HotelTrade, HotelRestaurant, Hotel, PointOfInterest, Restaurant, LodgingBusiness",
+  "coordinates": [
+    45.758533,
+    4.836925
+  ],
+  "address": "20 quai Jules Courmont",
+  "opening_hours": null,
+  "website": null,
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": "320",
+  "unclassified_price_amount": null,
+  "tariff_observations": [
+    {
+      "min_price": "320",
+      "price": null,
+      "currency": "EUR",
+      "name": null,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31",
+      "expired": true,
+      "basis": null
+    }
+  ],
+  "price_currency": "EUR",
+  "price_basis": null,
+  "price_period_or_validity": [
+    "2025-01-01",
+    "2025-12-31"
+  ],
+  "price_kind": "expired_catalog_tariff",
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "Lyon Tourisme et Congrès / ONLYLYON Tourisme",
+  "last_update": "2026-08-31",
+  "catalog_updated_at": "2026-10-21T09:31:08.394Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

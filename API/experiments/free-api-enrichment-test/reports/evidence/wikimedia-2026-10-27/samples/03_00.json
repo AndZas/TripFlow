@@ -1,0 +1,35 @@
+{
+  "source_fields": {
+    "id": "Q589336",
+    "label_fr": "musée Curie",
+    "label_en": "Musée Curie",
+    "description_fr": "musée historique parisien axé sur la recherche radiologique",
+    "description_en": "museum in Paris, France",
+    "license": "CC BY-SA 3.0",
+    "artist": "Piero d'Houin dit Triboulet",
+    "credit": "Own work"
+  },
+  "source_id": "Q589336",
+  "wikidata": "Q589336",
+  "name": "musée Curie",
+  "description": "musée historique parisien axé sur la recherche radiologique",
+  "category": "poi",
+  "coordinates": [
+    48.84416667,
+    2.34361111
+  ],
+  "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Pavillon_Pasteur.jpg",
+  "image_author": "Piero d'Houin dit Triboulet",
+  "image_credit": "Own work",
+  "image_license": "CC BY-SA 3.0",
+  "image_source_page": "https://commons.wikimedia.org/wiki/File:Pavillon_Pasteur.jpg",
+  "image_width": 4284,
+  "image_height": 2844,
+  "image_usable": true,
+  "price_kind": null,
+  "match": {
+    "confidence": "confident",
+    "reference": "Musée Curie",
+    "distance_m": 87
+  }
+}

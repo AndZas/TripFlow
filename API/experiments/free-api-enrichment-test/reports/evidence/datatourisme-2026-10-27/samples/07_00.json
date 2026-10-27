@@ -1,0 +1,54 @@
+{
+  "source_fields": {
+    "uuid": "10389c09-5d4e-3b45-95b3-18f8869c64dc",
+    "label": {
+      "@en": "Grand Théâtre - Opéra National de Bordeaux",
+      "@fr": "Grand Théâtre - Opéra National de Bordeaux"
+    },
+    "type": [
+      "PointOfInterest",
+      "CulturalSite",
+      "PlaceOfInterest"
+    ],
+    "tariff_observations": [],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2026-10-22",
+    "lastUpdateDatatourisme": "2026-10-23T02:47:32.232Z"
+  },
+  "source_id": "10389c09-5d4e-3b45-95b3-18f8869c64dc",
+  "source_url": "https://data.datatourisme.fr/23/9b578936-61e5-36ba-acef-9470757e3bc4",
+  "name": "Grand Théâtre - Opéra National de Bordeaux",
+  "description": "Edifié par l'architecte Victor Louis, le Grand Théâtre, classé M.H., fut achevé en 1780. Sa façade est composée de douze colonnes corinthiennes et ornée de douze statues de pierre représentant les neuf muses et trois déesses.",
+  "category": "PointOfInterest, CulturalSite, PlaceOfInterest",
+  "coordinates": [
+    44.842523,
+    -0.574284
+  ],
+  "address": "Place de la Comédie",
+  "opening_hours": null,
+  "website": "https://www.visiter-bordeaux.com/fr/decouvrir-bordeaux/visite-guidee-du-grand-theatre.html",
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": null,
+  "unclassified_price_amount": null,
+  "tariff_observations": [],
+  "price_currency": null,
+  "price_basis": null,
+  "price_period_or_validity": null,
+  "price_kind": null,
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "OT Bordeaux Métropole",
+  "last_update": "2026-10-22",
+  "catalog_updated_at": "2026-10-23T02:47:32.232Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "source_fields": {
+    "uuid": "003f4f2a-ec99-3c5f-9040-f325f44efd46",
+    "label": {
+      "@en": "Itinerrance Gallery",
+      "@fr": "Galerie Itinerrance"
+    },
+    "type": [
+      "Museum",
+      "PointOfInterest",
+      "LocalBusiness",
+      "CulturalSite",
+      "PlaceOfInterest"
+    ],
+    "tariff_observations": [],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2025-04-17",
+    "lastUpdateDatatourisme": "2026-10-21T09:31:08.101Z"
+  },
+  "source_id": "003f4f2a-ec99-3c5f-9040-f325f44efd46",
+  "source_url": "https://data.datatourisme.fr/13/6902e5a1-e013-38d1-8048-109ed40fa498",
+  "name": "Galerie Itinerrance",
+  "description": "La galerie Itinerrance programme chaque année une grande variété d’expositions et de projets artistiques qui font rayonner le street art dans et hors les murs.",
+  "category": "Museum, PointOfInterest, LocalBusiness, CulturalSite, PlaceOfInterest",
+  "coordinates": [
+    48.826433,
+    2.383101
+  ],
+  "address": "24bis boulevard du Général Jean Simon",
+  "opening_hours": null,
+  "website": null,
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": null,
+  "unclassified_price_amount": null,
+  "tariff_observations": [],
+  "price_currency": null,
+  "price_basis": null,
+  "price_period_or_validity": null,
+  "price_kind": null,
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "Choose Paris Region",
+  "last_update": "2025-04-17",
+  "catalog_updated_at": "2026-10-21T09:31:08.101Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

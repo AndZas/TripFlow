@@ -1,0 +1,553 @@
+{
+  "run_id": "20261027T130913544966Z",
+  "mode": "live",
+  "version": "1.0",
+  "reference_path": "../../../../data-source-survey/data/samples/20261015T150210175612Z",
+  "reference_count": 6,
+  "requests": 5,
+  "limits": {
+    "max_requests": 6,
+    "max_results": 3,
+    "delay_seconds": 1.0,
+    "timeout_seconds": 15.0
+  },
+  "records": [
+    {
+      "provider": "datatourisme",
+      "city": "France",
+      "category": "all",
+      "endpoint": "/v1/catalog",
+      "status": "skipped_missing_config",
+      "http_status": null,
+      "latency_ms": null,
+      "result_count": 0,
+      "error_kind": null,
+      "items": [],
+      "coverage": {
+        "name": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "description": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "category": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "coordinates": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "address": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "opening_hours": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "website": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "image_url": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "image_usable": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "admission_price_amount": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "activity_price_amount": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "hotel_price_amount": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "price_currency": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "price_basis": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "price_period_or_validity": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "is_free": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "price_source_url": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "price_updated_at": {
+          "filled": 0,
+          "denominator": 0
+        }
+      }
+    },
+    {
+      "provider": "amadeus",
+      "city": "sandbox",
+      "category": "all",
+      "endpoint": "/v1/security/oauth2/token",
+      "status": "skipped_missing_config",
+      "http_status": null,
+      "latency_ms": null,
+      "result_count": 0,
+      "error_kind": null,
+      "items": [],
+      "coverage": {
+        "name": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "description": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "category": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "coordinates": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "address": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "opening_hours": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "website": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "image_url": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "image_usable": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "admission_price_amount": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "activity_price_amount": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "hotel_price_amount": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "price_currency": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "price_basis": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "price_period_or_validity": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "is_free": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "price_source_url": {
+          "filled": 0,
+          "denominator": 0
+        },
+        "price_updated_at": {
+          "filled": 0,
+          "denominator": 0
+        }
+      }
+    },
+    {
+      "provider": "wikimedia",
+      "city": "Paris",
+      "category": "poi",
+      "endpoint": "/w/api.php",
+      "status": "ok",
+      "http_status": 200,
+      "latency_ms": 553,
+      "result_count": 1,
+      "error_kind": null,
+      "items": [
+        {
+          "source_fields": {
+            "id": "Q691375",
+            "label_fr": "bourse de commerce de Paris",
+            "label_en": "Bourse de commerce",
+            "description_fr": "bourse de commerce dans le 1er arrondissement de Paris",
+            "description_en": "commodity market",
+            "license": "CC BY-SA 4.0",
+            "artist": "Chabe01",
+            "credit": "Own work"
+          },
+          "source_id": "Q691375",
+          "wikidata": "Q691375",
+          "name": "bourse de commerce de Paris",
+          "description": "bourse de commerce dans le 1er arrondissement de Paris",
+          "category": "poi",
+          "coordinates": [
+            48.86281882523548,
+            2.342834126266405
+          ],
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Bourse_Commerce_-_Paris_I_%28FR75%29_-_2021-06-05_-_1.jpg",
+          "image_author": "Chabe01",
+          "image_credit": "Own work",
+          "image_license": "CC BY-SA 4.0",
+          "image_source_page": "https://commons.wikimedia.org/wiki/File:Bourse_Commerce_-_Paris_I_(FR75)_-_2021-06-05_-_1.jpg",
+          "image_width": 4968,
+          "image_height": 3678,
+          "image_usable": true,
+          "price_kind": null,
+          "match": {
+            "confidence": "confident",
+            "reference": "Bourse de Commerce",
+            "distance_m": 0
+          }
+        }
+      ],
+      "coverage": {
+        "name": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "description": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "category": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "coordinates": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "address": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "opening_hours": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "website": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "image_url": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "image_usable": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "admission_price_amount": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "activity_price_amount": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "hotel_price_amount": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_currency": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_basis": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_period_or_validity": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "is_free": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_source_url": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_updated_at": {
+          "filled": 0,
+          "denominator": 1
+        }
+      }
+    },
+    {
+      "provider": "wikimedia",
+      "city": "Paris",
+      "category": "poi",
+      "endpoint": "/w/api.php",
+      "status": "ok",
+      "http_status": 200,
+      "latency_ms": 617,
+      "result_count": 1,
+      "error_kind": null,
+      "items": [
+        {
+          "source_fields": {
+            "id": "Q589336",
+            "label_fr": "musée Curie",
+            "label_en": "Musée Curie",
+            "description_fr": "musée historique parisien axé sur la recherche radiologique",
+            "description_en": "museum in Paris, France",
+            "license": "CC BY-SA 3.0",
+            "artist": "Piero d'Houin dit Triboulet",
+            "credit": "Own work"
+          },
+          "source_id": "Q589336",
+          "wikidata": "Q589336",
+          "name": "musée Curie",
+          "description": "musée historique parisien axé sur la recherche radiologique",
+          "category": "poi",
+          "coordinates": [
+            48.84416667,
+            2.34361111
+          ],
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Pavillon_Pasteur.jpg",
+          "image_author": "Piero d'Houin dit Triboulet",
+          "image_credit": "Own work",
+          "image_license": "CC BY-SA 3.0",
+          "image_source_page": "https://commons.wikimedia.org/wiki/File:Pavillon_Pasteur.jpg",
+          "image_width": 4284,
+          "image_height": 2844,
+          "image_usable": true,
+          "price_kind": null,
+          "match": {
+            "confidence": "confident",
+            "reference": "Musée Curie",
+            "distance_m": 87
+          }
+        }
+      ],
+      "coverage": {
+        "name": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "description": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "category": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "coordinates": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "address": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "opening_hours": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "website": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "image_url": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "image_usable": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "admission_price_amount": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "activity_price_amount": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "hotel_price_amount": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_currency": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_basis": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_period_or_validity": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "is_free": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_source_url": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_updated_at": {
+          "filled": 0,
+          "denominator": 1
+        }
+      }
+    },
+    {
+      "provider": "wikimedia",
+      "city": "Paris",
+      "category": "poi",
+      "endpoint": "/w/api.php",
+      "status": "ok",
+      "http_status": 200,
+      "latency_ms": 422,
+      "result_count": 1,
+      "error_kind": null,
+      "items": [
+        {
+          "source_fields": {
+            "id": "Q131383469",
+            "label_fr": "30 avenue Daumesnil, Paris",
+            "label_en": null,
+            "description_fr": "bâtiment situé à Paris, en France",
+            "description_en": null,
+            "license": null,
+            "artist": null,
+            "credit": null
+          },
+          "source_id": "Q131383469",
+          "wikidata": "Q131383469",
+          "name": "30 avenue Daumesnil, Paris",
+          "description": "bâtiment situé à Paris, en France",
+          "category": "poi",
+          "coordinates": [
+            48.847418,
+            2.374706
+          ],
+          "image_url": null,
+          "image_author": null,
+          "image_credit": null,
+          "image_license": null,
+          "image_source_page": null,
+          "image_width": null,
+          "image_height": null,
+          "image_usable": false,
+          "price_kind": null,
+          "match": {
+            "confidence": "possible",
+            "reference": null
+          }
+        }
+      ],
+      "coverage": {
+        "name": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "description": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "category": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "coordinates": {
+          "filled": 1,
+          "denominator": 1
+        },
+        "address": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "opening_hours": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "website": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "image_url": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "image_usable": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "admission_price_amount": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "activity_price_amount": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "hotel_price_amount": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_currency": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_basis": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_period_or_validity": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "is_free": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_source_url": {
+          "filled": 0,
+          "denominator": 1
+        },
+        "price_updated_at": {
+          "filled": 0,
+          "denominator": 1
+        }
+      }
+    }
+  ]
+}

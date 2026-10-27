@@ -1,0 +1,56 @@
+{
+  "source_fields": {
+    "uuid": "0313048a-d26e-35d4-807f-eef8cb64bf3a",
+    "label": {
+      "@fr": "Renaissance Paris Arc de Triomphe"
+    },
+    "type": [
+      "PointOfInterest",
+      "Hotel",
+      "Accommodation",
+      "HotelTrade",
+      "LodgingBusiness",
+      "PlaceOfInterest"
+    ],
+    "tariff_observations": [],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2026-09-01",
+    "lastUpdateDatatourisme": "2026-09-01T16:29:33.667Z"
+  },
+  "source_id": "0313048a-d26e-35d4-807f-eef8cb64bf3a",
+  "source_url": "https://data.datatourisme.fr/19/9c79bed3-c07c-3e7f-9cbf-643169867a8c",
+  "name": "Renaissance Paris Arc de Triomphe",
+  "description": "Situé près des Champs-Élysées et de l'Arc de Triomphe, l'hôtel Renaissance Paris Arc de Triomphe est un cinq étoiles au style unique. Sa façade en verre par Christian de Portzamparc offre une vue magnifique. Accessible en transports en commun et cars Air France depuis les aéroports, l'hôtel propose 96 chambres et 22 suites spacieuses avec vue panoramique. Découvrez le bar & restaurant SOLIS pour une expérience culinaire méditerranéenne raffinée.",
+  "category": "PointOfInterest, Hotel, Accommodation, HotelTrade, LodgingBusiness, PlaceOfInterest",
+  "coordinates": [
+    48.877068,
+    2.2971485
+  ],
+  "address": "39 avenue de Wagram",
+  "opening_hours": null,
+  "website": null,
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": null,
+  "unclassified_price_amount": null,
+  "tariff_observations": [],
+  "price_currency": null,
+  "price_basis": null,
+  "price_period_or_validity": null,
+  "price_kind": null,
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "Paris je t'aime - Office de Tourisme",
+  "last_update": "2026-09-01",
+  "catalog_updated_at": "2026-09-01T16:29:33.667Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

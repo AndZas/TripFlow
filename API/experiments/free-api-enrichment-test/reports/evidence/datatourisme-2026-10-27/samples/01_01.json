@@ -1,0 +1,55 @@
+{
+  "source_fields": {
+    "uuid": "005e2fd8-2a92-3433-b071-0d67aca83bfd",
+    "label": {
+      "@fr": "Maison de la photographie Robert Doisneau"
+    },
+    "type": [
+      "Museum",
+      "PointOfInterest",
+      "LocalBusiness",
+      "CulturalSite",
+      "PlaceOfInterest"
+    ],
+    "tariff_observations": [],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2026-09-01",
+    "lastUpdateDatatourisme": "2026-09-01T16:02:03.561Z"
+  },
+  "source_id": "005e2fd8-2a92-3433-b071-0d67aca83bfd",
+  "source_url": "https://data.datatourisme.fr/19/7748d440-daa4-33c4-b344-d27638be469b",
+  "name": "Maison de la photographie Robert Doisneau",
+  "description": "La Maison de la Photographie Robert Doisneau, à Gentilly, célèbre le célèbre photographe à travers des expositions temporaires. Avec des clichés historiques et des travaux contemporains, elle offre un regard unique sur son humanisme. Accessible à tous, elle propose des ateliers et des activités éducatives pour partager la culture photographique. Un lieu de sensibilisation artistique pour un large public.",
+  "category": "Museum, PointOfInterest, LocalBusiness, CulturalSite, PlaceOfInterest",
+  "coordinates": [
+    48.814198,
+    2.3474536
+  ],
+  "address": "1 rue de la Division du Général Leclerc",
+  "opening_hours": "Mercredi-vendredi, 13h30-18h30 ; samedi-dimanche, 13h30-19h.",
+  "website": null,
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": null,
+  "unclassified_price_amount": null,
+  "tariff_observations": [],
+  "price_currency": null,
+  "price_basis": null,
+  "price_period_or_validity": null,
+  "price_kind": null,
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "Paris je t'aime - Office de Tourisme",
+  "last_update": "2026-09-01",
+  "catalog_updated_at": "2026-09-01T16:02:03.561Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

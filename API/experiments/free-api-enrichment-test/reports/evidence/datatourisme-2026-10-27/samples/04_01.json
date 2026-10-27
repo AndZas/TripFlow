@@ -1,0 +1,55 @@
+{
+  "source_fields": {
+    "uuid": "068ba390-1abc-3a2f-a1bd-3c9c5b09ee38",
+    "label": {
+      "@fr": "Bibliothèque du 2ème Arrondissement"
+    },
+    "type": [
+      "PlaceOfInterest",
+      "SportsAndLeisurePlace",
+      "CulturalSite",
+      "PointOfInterest",
+      "Library"
+    ],
+    "tariff_observations": [],
+    "isAccessibleForFree": null,
+    "lastUpdate": "2020-09-03",
+    "lastUpdateDatatourisme": "2026-10-21T09:31:08.4Z"
+  },
+  "source_id": "068ba390-1abc-3a2f-a1bd-3c9c5b09ee38",
+  "source_url": "https://data.datatourisme.fr/13/c7a5de3b-6e92-3056-9737-3906039a7e8c",
+  "name": "Bibliothèque du 2ème Arrondissement",
+  "description": "La bibliothèque municipale s'étend sur 723 m² (plateau de 320 m² et mezzanine de 100 m²) avec une médiathèque, un espace multimédia, salle d'expositions, lectures, projections de films.",
+  "category": "PlaceOfInterest, SportsAndLeisurePlace, CulturalSite, PointOfInterest, Library",
+  "coordinates": [
+    45.752141,
+    4.826838
+  ],
+  "address": "13 rue de Condé (1er étage)",
+  "opening_hours": "mar, jeu, et ven de 13h à 19h / mer de 10h à 19h /\r\nsam de 10h à 13h et 14h à 18h",
+  "website": null,
+  "image_url": null,
+  "image_author": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_usable": false,
+  "admission_price_amount": null,
+  "activity_price_amount": null,
+  "hotel_price_amount": null,
+  "unclassified_price_amount": null,
+  "tariff_observations": [],
+  "price_currency": null,
+  "price_basis": null,
+  "price_period_or_validity": null,
+  "price_kind": null,
+  "is_free": null,
+  "price_source_url": null,
+  "price_updated_at": null,
+  "attribution": "Lyon Tourisme et Congrès / ONLYLYON Tourisme",
+  "last_update": "2020-09-03",
+  "catalog_updated_at": "2026-10-21T09:31:08.4Z",
+  "match": {
+    "confidence": "none",
+    "reference": null
+  }
+}

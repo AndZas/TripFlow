@@ -1,0 +1,34 @@
+{
+  "source_fields": {
+    "id": "Q131383469",
+    "label_fr": "30 avenue Daumesnil, Paris",
+    "label_en": null,
+    "description_fr": "bâtiment situé à Paris, en France",
+    "description_en": null,
+    "license": null,
+    "artist": null,
+    "credit": null
+  },
+  "source_id": "Q131383469",
+  "wikidata": "Q131383469",
+  "name": "30 avenue Daumesnil, Paris",
+  "description": "bâtiment situé à Paris, en France",
+  "category": "poi",
+  "coordinates": [
+    48.847418,
+    2.374706
+  ],
+  "image_url": null,
+  "image_author": null,
+  "image_credit": null,
+  "image_license": null,
+  "image_source_page": null,
+  "image_width": null,
+  "image_height": null,
+  "image_usable": false,
+  "price_kind": null,
+  "match": {
+    "confidence": "possible",
+    "reference": null
+  }
+}
