@@ -1,0 +1,1351 @@
+{
+  "checked_at": "2026-10-28T13:52:19.985020+00:00",
+  "note": "Small first-page probes for single occupancy only; an empty result does not prove absence of hotels in the destination or provider.",
+  "records": [
+    {
+      "city": "Калининград",
+      "request": {
+        "city_name": "Калининград",
+        "limit": 3,
+        "offset": 0,
+        "room_placement_type": [
+          1
+        ]
+      },
+      "http_status": 200,
+      "hotels": [
+        {
+          "id": "372",
+          "name": "Навигатор",
+          "city": "Калининград",
+          "last_modified": "1792026338",
+          "positive_room_prices": [
+            {
+              "room_id": "2501",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4910,
+              "room_updated_at": "1789866000"
+            },
+            {
+              "room_id": "2505",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 5770,
+              "room_updated_at": "1789866000"
+            },
+            {
+              "room_id": "2508",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 6620,
+              "room_updated_at": "1789866000"
+            },
+            {
+              "room_id": "2509",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 7690,
+              "room_updated_at": "1789866000"
+            },
+            {
+              "room_id": "2513",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 13020,
+              "room_updated_at": "1789866000"
+            },
+            {
+              "room_id": "258578",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 5770,
+              "room_updated_at": "1789952400"
+            },
+            {
+              "room_id": "258585",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 5980,
+              "room_updated_at": "1789866000"
+            },
+            {
+              "room_id": "258587",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 9070,
+              "room_updated_at": "1789952400"
+            },
+            {
+              "room_id": "258589",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 12120,
+              "room_updated_at": "1767834000"
+            }
+          ],
+          "exact_requested_city_match": true
+        },
+        {
+          "id": "373",
+          "name": "Мартон Олимпик",
+          "city": "Калининград",
+          "last_modified": "1772845213",
+          "positive_room_prices": [
+            {
+              "room_id": "3654",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2590,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "3657",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3200,
+              "room_updated_at": "1658646304"
+            }
+          ],
+          "exact_requested_city_match": true
+        },
+        {
+          "id": "374",
+          "name": "Дона",
+          "city": "Калининград",
+          "last_modified": "1790730000",
+          "positive_room_prices": [
+            {
+              "room_id": "3644",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 6270,
+              "room_updated_at": "1790730000"
+            },
+            {
+              "room_id": "3646",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 6970,
+              "room_updated_at": "1790730000"
+            },
+            {
+              "room_id": "3648",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 7580,
+              "room_updated_at": "1790730000"
+            },
+            {
+              "room_id": "3650",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 9100,
+              "room_updated_at": "1772240400"
+            },
+            {
+              "room_id": "3652",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 10110,
+              "room_updated_at": "1772240400"
+            }
+          ],
+          "exact_requested_city_match": true
+        }
+      ],
+      "correct_city_count": 3,
+      "priced_correct_city_count": 3
+    },
+    {
+      "city": "Новосибирск",
+      "request": {
+        "city_name": "Новосибирск",
+        "limit": 3,
+        "offset": 0,
+        "room_placement_type": [
+          1
+        ]
+      },
+      "http_status": 200,
+      "hotels": [
+        {
+          "id": "101",
+          "name": "Золотое руно",
+          "city": "Новосибирск",
+          "last_modified": "1761192549",
+          "positive_room_prices": [
+            {
+              "room_id": "4107",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2700,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "4109",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4060,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "4111",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4310,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "266214",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3950,
+              "room_updated_at": "1660033675"
+            }
+          ],
+          "exact_requested_city_match": true
+        },
+        {
+          "id": "102",
+          "name": "Набережная",
+          "city": "Новосибирск",
+          "last_modified": "1658646304",
+          "positive_room_prices": [
+            {
+              "room_id": "1389",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4550,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "1391",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3440,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "1394",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2830,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "211664",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 5160,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "211667",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 1720,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "211668",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 1230,
+              "room_updated_at": "1658646304"
+            }
+          ],
+          "exact_requested_city_match": true
+        },
+        {
+          "id": "103",
+          "name": "Маринс Парк Отель",
+          "city": "Новосибирск",
+          "last_modified": "1788863858",
+          "positive_room_prices": [
+            {
+              "room_id": "2467",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2890,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "2469",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4670,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "8853",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 10930,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "259786",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4700,
+              "room_updated_at": "1684210917"
+            },
+            {
+              "room_id": "277635",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 10,
+              "room_updated_at": "1684477000"
+            },
+            {
+              "room_id": "289614",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 10,
+              "room_updated_at": "1712289964"
+            }
+          ],
+          "exact_requested_city_match": true
+        }
+      ],
+      "correct_city_count": 3,
+      "priced_correct_city_count": 3
+    },
+    {
+      "city": "Иркутск",
+      "request": {
+        "city_name": "Иркутск",
+        "limit": 3,
+        "offset": 0,
+        "room_placement_type": [
+          1
+        ]
+      },
+      "http_status": 200,
+      "hotels": [
+        {
+          "id": "56",
+          "name": "Звезда",
+          "city": "Иркутск",
+          "last_modified": "1792976400",
+          "positive_room_prices": [
+            {
+              "room_id": "2981",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 9090,
+              "room_updated_at": "1792976400"
+            },
+            {
+              "room_id": "258459",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 16640,
+              "room_updated_at": "1792976400"
+            },
+            {
+              "room_id": "258460",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 24790,
+              "room_updated_at": "1792976400"
+            }
+          ],
+          "exact_requested_city_match": true
+        },
+        {
+          "id": "57",
+          "name": "Дельта",
+          "city": "Иркутск",
+          "last_modified": "1665622800",
+          "positive_room_prices": [
+            {
+              "room_id": "1664",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3840,
+              "room_updated_at": "1665622800"
+            },
+            {
+              "room_id": "1666",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4150,
+              "room_updated_at": "1665622800"
+            },
+            {
+              "room_id": "236774",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 6120,
+              "room_updated_at": "1665622800"
+            },
+            {
+              "room_id": "236779",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 6120,
+              "room_updated_at": "1665622800"
+            }
+          ],
+          "exact_requested_city_match": true
+        },
+        {
+          "id": "58",
+          "name": "Европа",
+          "city": "Иркутск",
+          "last_modified": "1793062800",
+          "positive_room_prices": [
+            {
+              "room_id": "1677",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 6170,
+              "room_updated_at": "1793062800"
+            },
+            {
+              "room_id": "1680",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 5360,
+              "room_updated_at": "1711846800"
+            },
+            {
+              "room_id": "1681",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 7580,
+              "room_updated_at": "1792890000"
+            },
+            {
+              "room_id": "118584",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 10810,
+              "room_updated_at": "1792890000"
+            },
+            {
+              "room_id": "216807",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 6170,
+              "room_updated_at": "1792630800"
+            },
+            {
+              "room_id": "244811",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 5460,
+              "room_updated_at": "1730595600"
+            },
+            {
+              "room_id": "244812",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 11820,
+              "room_updated_at": "1792890000"
+            }
+          ],
+          "exact_requested_city_match": true
+        }
+      ],
+      "correct_city_count": 3,
+      "priced_correct_city_count": 3
+    },
+    {
+      "city": "Плёс",
+      "request": {
+        "city_name": "Плёс",
+        "limit": 3,
+        "offset": 0,
+        "room_placement_type": [
+          1
+        ]
+      },
+      "http_status": 200,
+      "hotels": [
+        {
+          "id": "2521",
+          "name": "Регина",
+          "city": "Плесецк",
+          "last_modified": "1658646304",
+          "positive_room_prices": [],
+          "exact_requested_city_match": false
+        },
+        {
+          "id": "3826",
+          "name": "Путник",
+          "city": "Плесецк",
+          "last_modified": "1760693866",
+          "positive_room_prices": [
+            {
+              "room_id": "105148",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2720,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "139883",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 1850,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "224589",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3060,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "224590",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2720,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "224591",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3330,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "228448",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2990,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "248502",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4160,
+              "room_updated_at": "1658646865"
+            },
+            {
+              "room_id": "286652",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2370,
+              "room_updated_at": "1705419183"
+            },
+            {
+              "room_id": "300821",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3840,
+              "room_updated_at": "1741591469"
+            }
+          ],
+          "exact_requested_city_match": false
+        },
+        {
+          "id": "7606",
+          "name": "Плесецкая",
+          "city": "Плесецк",
+          "last_modified": "1757061060",
+          "positive_room_prices": [
+            {
+              "room_id": "110185",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2620,
+              "room_updated_at": "1658646865"
+            },
+            {
+              "room_id": "205176",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 1850,
+              "room_updated_at": "1658646304"
+            }
+          ],
+          "exact_requested_city_match": false
+        }
+      ],
+      "correct_city_count": 0,
+      "priced_correct_city_count": 0
+    },
+    {
+      "city": "Териберка",
+      "request": {
+        "city_name": "Териберка",
+        "limit": 3,
+        "offset": 0,
+        "room_placement_type": [
+          1
+        ]
+      },
+      "http_status": 200,
+      "hotels": [
+        {
+          "id": "8988",
+          "name": "Териберский берег",
+          "city": "Териберка",
+          "last_modified": "1785742844",
+          "positive_room_prices": [],
+          "exact_requested_city_match": true
+        },
+        {
+          "id": "9578",
+          "name": "45-й причал",
+          "city": "Териберка",
+          "last_modified": "1757061233",
+          "positive_room_prices": [
+            {
+              "room_id": "257280",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4140,
+              "room_updated_at": "1643906651"
+            },
+            {
+              "room_id": "257281",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4140,
+              "room_updated_at": "1643906664"
+            },
+            {
+              "room_id": "297415",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 10,
+              "room_updated_at": "1729862223"
+            }
+          ],
+          "exact_requested_city_match": true
+        },
+        {
+          "id": "28458",
+          "name": "Норманн",
+          "city": "Териберка",
+          "last_modified": "1685877965",
+          "positive_room_prices": [],
+          "exact_requested_city_match": true
+        }
+      ],
+      "correct_city_count": 3,
+      "priced_correct_city_count": 1
+    },
+    {
+      "city": "Горно-Алтайск",
+      "request": {
+        "city_name": "Горно-Алтайск",
+        "limit": 3,
+        "offset": 0,
+        "room_placement_type": [
+          1
+        ]
+      },
+      "http_status": 200,
+      "hotels": [
+        {
+          "id": "217",
+          "name": "Золотое копыто (Алтын Туяк)",
+          "city": "Горно-Алтайск",
+          "last_modified": "1661198852",
+          "positive_room_prices": [
+            {
+              "room_id": "1324",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 1660,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "1326",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 1780,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "1328",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3430,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "1330",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2920,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "267179",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2870,
+              "room_updated_at": "1661198852"
+            }
+          ],
+          "exact_requested_city_match": true
+        },
+        {
+          "id": "1175",
+          "name": "Игман",
+          "city": "Горно-Алтайск",
+          "last_modified": "1792026883",
+          "positive_room_prices": [
+            {
+              "room_id": "9190",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4490,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "9194",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 5980,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "14409",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4290,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "102109",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2790,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "102111",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3530,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "196772",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2670,
+              "room_updated_at": "1658646865"
+            },
+            {
+              "room_id": "197778",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 6080,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "199408",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3530,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "200806",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 5030,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "201278",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 5570,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "204845",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4490,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "205661",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3400,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "206166",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2790,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "206167",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2790,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "210678",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 5030,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "230551",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2670,
+              "room_updated_at": "1658646865"
+            },
+            {
+              "room_id": "232292",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3970,
+              "room_updated_at": "1658646865"
+            },
+            {
+              "room_id": "232298",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4550,
+              "room_updated_at": "1658646865"
+            },
+            {
+              "room_id": "250702",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4370,
+              "room_updated_at": "1628011678"
+            },
+            {
+              "room_id": "252563",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2420,
+              "room_updated_at": "1632250703"
+            },
+            {
+              "room_id": "261011",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 5170,
+              "room_updated_at": "1651239085"
+            },
+            {
+              "room_id": "267743",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4020,
+              "room_updated_at": "1662104506"
+            },
+            {
+              "room_id": "267955",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 2840,
+              "room_updated_at": "1662557721"
+            },
+            {
+              "room_id": "269945",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3780,
+              "room_updated_at": "1666287126"
+            },
+            {
+              "room_id": "276074",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 5320,
+              "room_updated_at": "1681201455"
+            },
+            {
+              "room_id": "279760",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 6260,
+              "room_updated_at": "1688734253"
+            },
+            {
+              "room_id": "306195",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4080,
+              "room_updated_at": "1753164172"
+            },
+            {
+              "room_id": "308396",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 6910,
+              "room_updated_at": "1757834285"
+            }
+          ],
+          "exact_requested_city_match": true
+        },
+        {
+          "id": "1970",
+          "name": "Гостиный двор Алтай",
+          "city": "Горно-Алтайск",
+          "last_modified": "1773234104",
+          "positive_room_prices": [
+            {
+              "room_id": "198952",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4080,
+              "room_updated_at": "1658646304"
+            },
+            {
+              "room_id": "231874",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4420,
+              "room_updated_at": "1658646865"
+            },
+            {
+              "room_id": "244165",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3900,
+              "room_updated_at": "1658646865"
+            },
+            {
+              "room_id": "244166",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 3900,
+              "room_updated_at": "1658646865"
+            },
+            {
+              "room_id": "253633",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 5320,
+              "room_updated_at": "1634661963"
+            },
+            {
+              "room_id": "264312",
+              "placement": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "amount": 4140,
+              "room_updated_at": "1656354033"
+            }
+          ],
+          "exact_requested_city_match": true
+        }
+      ],
+      "correct_city_count": 3,
+      "priced_correct_city_count": 3
+    }
+  ],
+  "matching_note": "String city_name is a partial search. Ples query returned Plesetsk. Such hotels must be excluded; use resolved provider city ID or geographic search and validate coordinates."
+}

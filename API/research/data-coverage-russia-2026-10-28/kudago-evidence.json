@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-10-28T13:16:22.876796+00:00",
+  "source": "https://docs.kudago.com/api/",
+  "note": "Small public GET probes, price strings are event offers, not automatically a museum admission price.",
+  "records": [
+    {
+      "url": "https://kudago.com/public-api/v1.4/locations/?",
+      "endpoint": "locations",
+      "params": {},
+      "error": "RemoteDisconnected",
+      "message": "Remote end closed connection without response"
+    },
+    {
+      "url": "https://kudago.com/public-api/v1.4/places/?location=msk&categories=museums&page_size=3&fields=id%2Ctitle%2Ccoords%2Cdescription%2Cimages%2Csite_url%2Ctimetable&text_format=text",
+      "endpoint": "places",
+      "params": {
+        "location": "msk",
+        "categories": "museums",
+        "page_size": 3,
+        "fields": "id,title,coords,description,images,site_url,timetable",
+        "text_format": "text"
+      },
+      "error": "RemoteDisconnected",
+      "message": "Remote end closed connection without response"
+    },
+    {
+      "url": "https://kudago.com/public-api/v1.4/events/?location=msk&categories=exhibition&actual_since=2026-10-28&actual_until=2026-11-28&page_size=5&fields=id%2Ctitle%2Cdates%2Cplace%2Cprice%2Cis_free%2Csite_url%2Cimages&expand=place",
+      "endpoint": "events",
+      "params": {
+        "location": "msk",
+        "categories": "exhibition",
+        "actual_since": "2026-10-28",
+        "actual_until": "2026-11-28",
+        "page_size": 5,
+        "fields": "id,title,dates,place,price,is_free,site_url,images",
+        "expand": "place"
+      },
+      "error": "RemoteDisconnected",
+      "message": "Remote end closed connection without response"
+    },
+    {
+      "url": "https://kudago.com/public-api/v1.4/events/?location=spb&categories=exhibition&actual_since=2026-10-28&actual_until=2026-11-28&page_size=5&fields=id%2Ctitle%2Cdates%2Cplace%2Cprice%2Cis_free%2Csite_url%2Cimages&expand=place",
+      "endpoint": "events",
+      "params": {
+        "location": "spb",
+        "categories": "exhibition",
+        "actual_since": "2026-10-28",
+        "actual_until": "2026-11-28",
+        "page_size": 5,
+        "fields": "id,title,dates,place,price,is_free,site_url,images",
+        "expand": "place"
+      },
+      "error": "RemoteDisconnected",
+      "message": "Remote end closed connection without response"
+    }
+  ]
+}

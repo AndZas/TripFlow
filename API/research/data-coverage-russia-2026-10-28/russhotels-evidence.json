@@ -1,0 +1,3426 @@
+{
+  "checked_at": "2026-10-28T13:15:34.346022+00:00",
+  "source": "https://wiki.russhotels.ru/doku.php?id=site:api",
+  "endpoint": "https://russhotels.ru/api/hotel/index",
+  "note": "Public documented read-only search; no dates; small first-page sample; not an SLA or global coverage measurement.",
+  "records": [
+    {
+      "city": "Москва",
+      "request": {
+        "city_name": "Москва",
+        "limit": 3,
+        "offset": 0
+      },
+      "http_status": 200,
+      "latency_ms": 282,
+      "hotels": [
+        {
+          "id": "16",
+          "name": "Золотое кольцо",
+          "city": "Москва",
+          "address": "г Москва, ул Смоленская, д 5",
+          "lat": "55.7452845",
+          "lon": "37.5804289",
+          "active": "1",
+          "description_length": 1152,
+          "updated_at": "1757060888",
+          "last_modified": "1785905943",
+          "rooms": [
+            {
+              "id": "4693",
+              "name": "Стандарт (двуспальная кровать)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 9920,
+              "price_stand": null,
+              "updated_at": "1706662800"
+            },
+            {
+              "id": "4694",
+              "name": "Стандарт (двуспальная кровать)",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 11570,
+              "price_stand": null,
+              "updated_at": "1706662800"
+            },
+            {
+              "id": "4695",
+              "name": "Делюкс (двуспальная кровать или  2 раздельные)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 10510,
+              "price_stand": null,
+              "updated_at": "1706662800"
+            },
+            {
+              "id": "4696",
+              "name": "Делюкс (двуспальная кровать или  2 раздельные)",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 12160,
+              "price_stand": null,
+              "updated_at": "1706662800"
+            },
+            {
+              "id": "4697",
+              "name": "Полулюкс  (двуспальная кровать)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 12280,
+              "price_stand": null,
+              "updated_at": "1706662800"
+            },
+            {
+              "id": "4698",
+              "name": "Полулюкс  (двуспальная кровать)",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 13930,
+              "price_stand": null,
+              "updated_at": "1706662800"
+            },
+            {
+              "id": "229807",
+              "name": "Комфорт  (двуспальная кровать)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 9330,
+              "price_stand": null,
+              "updated_at": "1704934800"
+            },
+            {
+              "id": "242809",
+              "name": "Комфорт  (двуспальная кровать)",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 10980,
+              "price_stand": null,
+              "updated_at": "1704934800"
+            },
+            {
+              "id": "290824",
+              "name": "Стандарт с видом на центр",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 14050,
+              "price_stand": null,
+              "updated_at": "1715594729"
+            },
+            {
+              "id": "301513",
+              "name": "полулюкс вид на центр",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 22430,
+              "price_stand": null,
+              "updated_at": "1743318830"
+            },
+            {
+              "id": "301903",
+              "name": "Стандарт бизнес",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1744197355"
+            },
+            {
+              "id": "307913",
+              "name": "стандарт плюс",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 14280,
+              "price_stand": null,
+              "updated_at": "1756721706"
+            },
+            {
+              "id": "318617",
+              "name": "Бизнес стандарт",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1785905943"
+            }
+          ]
+        },
+        {
+          "id": "18",
+          "name": "Славянка",
+          "city": "Москва",
+          "address": "г Москва, ул Суворовская, д 2 стр 3",
+          "lat": "55.7885550",
+          "lon": "37.7100900",
+          "active": "1",
+          "description_length": 1004,
+          "updated_at": "1792026799",
+          "last_modified": "1792026799",
+          "rooms": [
+            {
+              "id": "1469",
+              "name": "Люкс 3-комнатный с 2 двуспальными кроватями",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 9950,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "1476",
+              "name": "Стандартный двухместный с 2 отдельными кроватями",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 3810,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "1477",
+              "name": "Комфорт одноместный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 4060,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "1478",
+              "name": "Стандартный улучшенный с 1 двуспальной кроватью или 2 отдельными кроватями",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 4370,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "9023",
+              "name": "Комфорт с 1 двуспальной кроватью или с 2 раздельными",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 4550,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "14195",
+              "name": "Полулюкс с 1 двуспальной кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 4180,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "198351",
+              "name": "Полулюкс 2-комнатный с 1 двуспальной кроватью или 2 отдельными кроватями",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 7740,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "201599",
+              "name": "Стандарт  одноместный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 3390,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "252560",
+              "name": "STANDARD SUPERIOR DBL/TWN",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1632244685"
+            },
+            {
+              "id": "252562",
+              "name": "COMFORT DBL/TWIN",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1632245993"
+            },
+            {
+              "id": "267896",
+              "name": "семейный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 6780,
+              "price_stand": null,
+              "updated_at": "1662476429"
+            },
+            {
+              "id": "278142",
+              "name": "улучшенный (2спал кровать)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1685615124"
+            },
+            {
+              "id": "301400",
+              "name": "стандарт",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 8970,
+              "price_stand": null,
+              "updated_at": "1742923852"
+            }
+          ]
+        },
+        {
+          "id": "19",
+          "name": "Гостиный дом",
+          "city": "Москва",
+          "address": "ул. Василия Петушкова, д.25",
+          "lat": "55.8387990",
+          "lon": "37.4068010",
+          "active": "1",
+          "description_length": 1034,
+          "updated_at": "1768804971",
+          "last_modified": "1769525883",
+          "rooms": [
+            {
+              "id": "2750",
+              "name": "Студия",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 4240,
+              "price_stand": null,
+              "updated_at": "1643590800"
+            },
+            {
+              "id": "2751",
+              "name": "Студия",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 4240,
+              "price_stand": null,
+              "updated_at": "1643590800"
+            },
+            {
+              "id": "2754",
+              "name": "Люкс",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 4660,
+              "price_stand": null,
+              "updated_at": "1643590800"
+            },
+            {
+              "id": "2755",
+              "name": "Люкс",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 4660,
+              "price_stand": null,
+              "updated_at": "1643590800"
+            },
+            {
+              "id": "2756",
+              "name": "Двухместный первой категории",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 3860,
+              "price_stand": null,
+              "updated_at": "1643590800"
+            },
+            {
+              "id": "2757",
+              "name": "Одноместный первой категории",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 2940,
+              "price_stand": null,
+              "updated_at": "1643677200"
+            },
+            {
+              "id": "230585",
+              "name": "Номер для молодоженов",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 3860,
+              "price_stand": null,
+              "updated_at": "1643590800"
+            },
+            {
+              "id": "230801",
+              "name": "Стандарт",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 2940,
+              "price_stand": null,
+              "updated_at": "1643677200"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "Санкт-Петербург",
+      "request": {
+        "city_name": "Санкт-Петербург",
+        "limit": 3,
+        "offset": 0
+      },
+      "http_status": 200,
+      "latency_ms": 257,
+      "hotels": [
+        {
+          "id": "22",
+          "name": "Москва",
+          "city": "Санкт-Петербург",
+          "address": "Санкт-Петербург, пл. Александра Невского, д.2",
+          "lat": "59.9244060",
+          "lon": "30.3857930",
+          "active": "1",
+          "description_length": 2477,
+          "updated_at": "1757063598",
+          "last_modified": "1786431951",
+          "rooms": [
+            {
+              "id": "2205",
+              "name": "Стандарт одноместный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 4080,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2206",
+              "name": "Стандарт двухместный",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 2940,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2208",
+              "name": "Комфорт одноместный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 3920,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2210",
+              "name": "Комфорт двухместный",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 5520,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2211",
+              "name": "Комфорт бизнес двухкомнатный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2212",
+              "name": "Комфорт бизнес двухкомнатный",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2213",
+              "name": "Полулюкс двухкомнатный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2214",
+              "name": "Полулюкс двухкомнатный",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2215",
+              "name": "Люкс двухкомнатный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2216",
+              "name": "Люкс двухкомнатный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2217",
+              "name": "Люкс двухкомнатный",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2218",
+              "name": "Люкс бизнес (трехкомнатный)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2219",
+              "name": "Люкс бизнес (трехкомнатный)",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2220",
+              "name": "Люкс плюс (трехкомнатный)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2221",
+              "name": "Люкс плюс (трехкомнатный)",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "13591",
+              "name": "Семейный +",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "199850",
+              "name": "3-х местный 3 кровати",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 29030,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "274381",
+              "name": "люкс с видом на Неву",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 6730,
+              "price_stand": null,
+              "updated_at": "1677657636"
+            },
+            {
+              "id": "277379",
+              "name": "Апартаменты",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 14170,
+              "price_stand": null,
+              "updated_at": "1684136528"
+            },
+            {
+              "id": "278677",
+              "name": "стандарт 2 кровати",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1686759014"
+            },
+            {
+              "id": "285315",
+              "name": "стандарт (2 кровати/2спал кровать)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1701084017"
+            },
+            {
+              "id": "296754",
+              "name": "стандарт (1 категория)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1728293134"
+            },
+            {
+              "id": "299170",
+              "name": "двухместный с доп кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1736524623"
+            },
+            {
+              "id": "299171",
+              "name": "двухместный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1736524822"
+            },
+            {
+              "id": "299172",
+              "name": "одноместный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1736525386"
+            },
+            {
+              "id": "318794",
+              "name": "Стандарт видовой одноместное",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1786431951"
+            }
+          ]
+        },
+        {
+          "id": "23",
+          "name": "Марко-Поло",
+          "city": "Санкт-Петербург",
+          "address": "г Санкт-Петербург, линия 12-я В.О., д 27",
+          "lat": "59.9407437",
+          "lon": "30.2714902",
+          "active": "1",
+          "description_length": 642,
+          "updated_at": "1676987703",
+          "last_modified": "1793062800",
+          "rooms": [
+            {
+              "id": "2224",
+              "name": "Standart BUSINESS DBL",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 6510,
+              "price_stand": null,
+              "updated_at": "1792890000"
+            },
+            {
+              "id": "2225",
+              "name": "Standart BUSINESS DBL",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 8650,
+              "price_stand": null,
+              "updated_at": "1792890000"
+            },
+            {
+              "id": "2228",
+              "name": "SUITE",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 6510,
+              "price_stand": null,
+              "updated_at": "1790816400"
+            },
+            {
+              "id": "2229",
+              "name": "SUITE",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 8650,
+              "price_stand": null,
+              "updated_at": "1790816400"
+            },
+            {
+              "id": "2232",
+              "name": "JUNIOR SUITE \"HENNESSY\"",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 7050,
+              "price_stand": null,
+              "updated_at": "1792717200"
+            },
+            {
+              "id": "2233",
+              "name": "JUNIOR SUITE \"HENNESSY\"",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 9180,
+              "price_stand": null,
+              "updated_at": "1792717200"
+            },
+            {
+              "id": "2236",
+              "name": "LUXURY SUITE \"GRAND\"",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 13980,
+              "price_stand": null,
+              "updated_at": "1793062800"
+            },
+            {
+              "id": "2239",
+              "name": "LUXURY SUITE \"MARCO POLO\"",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 10780,
+              "price_stand": null,
+              "updated_at": "1792890000"
+            },
+            {
+              "id": "2240",
+              "name": "LUXURY SUITE \"MARCO POLO\"",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 12920,
+              "price_stand": null,
+              "updated_at": "1792890000"
+            },
+            {
+              "id": "2241",
+              "name": "LUXURY SUITE \"GRAND\"",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 11850,
+              "price_stand": null,
+              "updated_at": "1793062800"
+            },
+            {
+              "id": "274056",
+              "name": "JUNIOR SUITE \"WHITE NIGHTS\"",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 9180,
+              "price_stand": null,
+              "updated_at": "1792890000"
+            },
+            {
+              "id": "274057",
+              "name": "JUNIOR SUITE \"WHITE NIGHTS\"",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 11320,
+              "price_stand": null,
+              "updated_at": "1792890000"
+            },
+            {
+              "id": "274284",
+              "name": "Standart BUSINESS TWIN",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 4910,
+              "price_stand": null,
+              "updated_at": "1792803600"
+            },
+            {
+              "id": "274285",
+              "name": "Standart BUSINESS TWIN",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 7050,
+              "price_stand": null,
+              "updated_at": "1792803600"
+            }
+          ]
+        },
+        {
+          "id": "203",
+          "name": "Космос Санкт-Петербург Олимпия Гарден (бывший сокос)",
+          "city": "Санкт-Петербург",
+          "address": "Батайский пер., 3А, Санкт-Петербург",
+          "lat": "59.9135410",
+          "lon": "30.3206380",
+          "active": "1",
+          "description_length": 388,
+          "updated_at": "1763378966",
+          "last_modified": "1763378966",
+          "rooms": [
+            {
+              "id": "653",
+              "name": "Стандартный двухместный номер с двуспальной кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 5080,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "654",
+              "name": "Улучшенный двухместный номер с двуспальной кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 6260,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "12708",
+              "name": "Стандартный двухместный номер с двуспальной кроватью",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 6020,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "12709",
+              "name": "Улучшенный двухместный номер с двуспальной кроватью",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 7200,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "118976",
+              "name": "Люкс с двуспальной кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 10980,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "149600",
+              "name": "Полулюкс с двуспальной кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 8620,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "300026",
+              "name": "Полулюкс с двуспальной кроватью",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 9560,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "300027",
+              "name": "Люкс с двуспальной кроватью",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 11920,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "300062",
+              "name": "Стандартный двухместный номер с 2 односпальными кроватями",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 5080,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "300063",
+              "name": "Стандартный двухместный номер с 2 односпальными кроватями",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 6020,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "300064",
+              "name": "Улучшенный двухместный номер с 2 односпальными кроватями",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 6260,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "300065",
+              "name": "Улучшенный двухместный номер с 2 односпальными кроватями",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 7200,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "Казань",
+      "request": {
+        "city_name": "Казань",
+        "limit": 3,
+        "offset": 0
+      },
+      "http_status": 200,
+      "latency_ms": 296,
+      "hotels": [
+        {
+          "id": "188",
+          "name": "Гольфстрим",
+          "city": "Казань",
+          "address": "г Казань, ул 2-я Азинская, д 1Г",
+          "lat": "55.8043055",
+          "lon": "49.2043403",
+          "active": "1",
+          "description_length": 433,
+          "updated_at": "1757061204",
+          "last_modified": "1792803600",
+          "rooms": [
+            {
+              "id": "9195",
+              "name": "Улучшенный   DOUBLE",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 6020,
+              "price_stand": null,
+              "updated_at": "1792630800"
+            },
+            {
+              "id": "9702",
+              "name": "Улучшенный TWIN",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 6310,
+              "price_stand": null,
+              "updated_at": "1792371600"
+            },
+            {
+              "id": "9703",
+              "name": "Улучшенный TWIN",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 5150,
+              "price_stand": null,
+              "updated_at": "1792371600"
+            },
+            {
+              "id": "9708",
+              "name": "Бизнес DBL",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 6410,
+              "price_stand": null,
+              "updated_at": "1789520400"
+            },
+            {
+              "id": "9709",
+              "name": "Бизнес DBL",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 7860,
+              "price_stand": null,
+              "updated_at": "1789520400"
+            },
+            {
+              "id": "118699",
+              "name": "Люкс 2-хкомнатный DBL",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 9170,
+              "price_stand": null,
+              "updated_at": "1792803600"
+            },
+            {
+              "id": "240856",
+              "name": "Улучшенный   DOUBLE",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 7380,
+              "price_stand": null,
+              "updated_at": "1792630800"
+            },
+            {
+              "id": "240857",
+              "name": "Люкс 2-хкомнатный DBL",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 10630,
+              "price_stand": null,
+              "updated_at": "1792803600"
+            },
+            {
+              "id": "240858",
+              "name": "Люкс 2-хкомнатный TWIN",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 9170,
+              "price_stand": null,
+              "updated_at": "1778806800"
+            },
+            {
+              "id": "240859",
+              "name": "Люкс 2-хкомнатный TWIN",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 10630,
+              "price_stand": null,
+              "updated_at": "1778806800"
+            },
+            {
+              "id": "266988",
+              "name": "4 Dbl, 5 Twin",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1660897892"
+            },
+            {
+              "id": "267392",
+              "name": "3  двухместных 06.09-09.09 + 1 двухместный 06.09-08.09+3 одноместных 06.09-08.09 + 2 одноместных 06.09-09.09",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1661403552"
+            },
+            {
+              "id": "267595",
+              "name": "3 двухместных 06.09-09.09 + 1 двухместный 06.09-08.09+2 одноместных 06.09-08.09 + 3 одноместных 06.09-09.09",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1661845522"
+            },
+            {
+              "id": "292735",
+              "name": "пешеходная экскурсия по Казани",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1719476723"
+            }
+          ]
+        },
+        {
+          "id": "189",
+          "name": "Гранд Отель Казань",
+          "city": "Казань",
+          "address": "г Казань, ул Петербургская, д 1",
+          "lat": "55.7857910",
+          "lon": "49.1258634",
+          "active": "1",
+          "description_length": 379,
+          "updated_at": "1769674150",
+          "last_modified": "1792890000",
+          "rooms": [
+            {
+              "id": "441",
+              "name": "Стандарт с 1 двуспальной кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 9760,
+              "price_stand": null,
+              "updated_at": "1792717200"
+            },
+            {
+              "id": "443",
+              "name": "Стандарт с 1 двуспальной кроватью",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 11030,
+              "price_stand": null,
+              "updated_at": "1792803600"
+            },
+            {
+              "id": "447",
+              "name": "Junior Suit с панорамным видом с 1двуспальной кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 11250,
+              "price_stand": null,
+              "updated_at": "1792803600"
+            },
+            {
+              "id": "448",
+              "name": "Junior Suit с панорамным видом с 1двуспальной кроватью",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 11030,
+              "price_stand": null,
+              "updated_at": "1792803600"
+            },
+            {
+              "id": "449",
+              "name": "Lux (кровать двуспальная  + диван раскладной)",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 18250,
+              "price_stand": null,
+              "updated_at": "1792890000"
+            },
+            {
+              "id": "1139",
+              "name": "Lux (кровать двуспальная  + диван раскладной)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 16970,
+              "price_stand": null,
+              "updated_at": "1792890000"
+            },
+            {
+              "id": "118700",
+              "name": "Стандарт с 2 односпальными кроватями",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 9760,
+              "price_stand": null,
+              "updated_at": "1792717200"
+            },
+            {
+              "id": "150030",
+              "name": "Стандарт с 2 односпальными кроватями",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 11030,
+              "price_stand": null,
+              "updated_at": "1792803600"
+            },
+            {
+              "id": "211791",
+              "name": "Junior Suit с панорамным видом с 2 односпальными кроватями",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 11250,
+              "price_stand": null,
+              "updated_at": "1792803600"
+            },
+            {
+              "id": "211792",
+              "name": "Junior Suit с панорамным видом с 2 односпальными кроватями",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 12730,
+              "price_stand": null,
+              "updated_at": "1792803600"
+            },
+            {
+              "id": "211793",
+              "name": "Junior Suit (кровать двуспальная + диван раскладной)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 10190,
+              "price_stand": null,
+              "updated_at": "1792803600"
+            },
+            {
+              "id": "211794",
+              "name": "Junior Suit (кровать двуспальная + диван раскладной)",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 11460,
+              "price_stand": null,
+              "updated_at": "1792803600"
+            },
+            {
+              "id": "267913",
+              "name": "Стандарт",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1662532661"
+            },
+            {
+              "id": "267949",
+              "name": "Family room",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 16760,
+              "price_stand": null,
+              "updated_at": "1792717200"
+            },
+            {
+              "id": "267950",
+              "name": "Family room",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 16760,
+              "price_stand": null,
+              "updated_at": "1792717200"
+            }
+          ]
+        },
+        {
+          "id": "190",
+          "name": "Шаляпин Палас Отель",
+          "city": "Казань",
+          "address": "г Казань, ул Университетская, д 7",
+          "lat": "55.7876082",
+          "lon": "49.1197116",
+          "active": "1",
+          "description_length": 870,
+          "updated_at": "1789149091",
+          "last_modified": "1789149091",
+          "rooms": [
+            {
+              "id": "9250",
+              "name": "Стандарт с 1 большой двуспальной кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 11320,
+              "price_stand": null,
+              "updated_at": "1787706000"
+            },
+            {
+              "id": "9251",
+              "name": "Стандарт с 1 большой двуспальной кроватью",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 12730,
+              "price_stand": null,
+              "updated_at": "1787706000"
+            },
+            {
+              "id": "9253",
+              "name": "Junior Suit  2х-комнатный",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 15560,
+              "price_stand": null,
+              "updated_at": "1787706000"
+            },
+            {
+              "id": "9255",
+              "name": "Junior Suit  с балконом",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 14350,
+              "price_stand": null,
+              "updated_at": "1786150800"
+            },
+            {
+              "id": "118702",
+              "name": "Junior Suit",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 15560,
+              "price_stand": null,
+              "updated_at": "1787706000"
+            },
+            {
+              "id": "118703",
+              "name": "Junior Suit",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 14150,
+              "price_stand": null,
+              "updated_at": "1787706000"
+            },
+            {
+              "id": "240803",
+              "name": "Стандарт с 2 односпальными кроватями",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 11320,
+              "price_stand": null,
+              "updated_at": "1787706000"
+            },
+            {
+              "id": "240804",
+              "name": "Стандарт с 2 односпальными кроватями",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 12730,
+              "price_stand": null,
+              "updated_at": "1787706000"
+            },
+            {
+              "id": "240805",
+              "name": "Junior Suit  2х-комнатный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 14150,
+              "price_stand": null,
+              "updated_at": "1787706000"
+            },
+            {
+              "id": "240806",
+              "name": "Junior Suit  с балконом",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 13140,
+              "price_stand": null,
+              "updated_at": "1786150800"
+            },
+            {
+              "id": "240807",
+              "name": "Junior Suit  Бизнес",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 15160,
+              "price_stand": null,
+              "updated_at": "1787706000"
+            },
+            {
+              "id": "240808",
+              "name": "Junior Suit  Бизнес",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 16570,
+              "price_stand": null,
+              "updated_at": "1787706000"
+            },
+            {
+              "id": "273532",
+              "name": "аренда конф зала с 09:00 до 15:00 + проектор + 23 бутылки воды по 0,5 л",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1675676232"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "Сочи",
+      "request": {
+        "city_name": "Сочи",
+        "limit": 3,
+        "offset": 0
+      },
+      "http_status": 200,
+      "latency_ms": 594,
+      "hotels": [
+        {
+          "id": "666",
+          "name": "Сити Парк Отель Сочи (бывш. Маринс Парк Отель)",
+          "city": "Сочи",
+          "address": "Сочи, пер. Морской, д.2",
+          "lat": "43.5760880",
+          "lon": "39.7258550",
+          "active": "1",
+          "description_length": 595,
+          "updated_at": "1776844361",
+          "last_modified": "1776844361",
+          "rooms": [
+            {
+              "id": "5217",
+              "name": "Бизнес",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "5218",
+              "name": "Бизнес",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "5219",
+              "name": "Стандарт",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "5220",
+              "name": "Стандарт",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "5223",
+              "name": "Люкс Студио",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "5224",
+              "name": "Люкс Студио",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "5227",
+              "name": "Люкс Премиум",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "5228",
+              "name": "Люкс Премиум",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "5230",
+              "name": "Люкс Казанова",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "5231",
+              "name": "Люкс Апартамент",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "5232",
+              "name": "Люкс Апартамент",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "12557",
+              "name": "Люкс Казанова",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "268249",
+              "name": "Студио",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 17710,
+              "price_stand": null,
+              "updated_at": "1663062506"
+            },
+            {
+              "id": "311830",
+              "name": "2-х местный стандартный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1766572863"
+            },
+            {
+              "id": "315228",
+              "name": "Стандарт двухместный 1 кровать, с балконом",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1776844056"
+            }
+          ]
+        },
+        {
+          "id": "667",
+          "name": "Гранд Отель Жемчужина",
+          "city": "Сочи",
+          "address": "Сочи, ул. Черноморская, д.3",
+          "lat": "43.5705560",
+          "lon": "39.7321350",
+          "active": "1",
+          "description_length": 298,
+          "updated_at": "1768890107",
+          "last_modified": "1788778490",
+          "rooms": [
+            {
+              "id": "5201",
+              "name": "Стандарт бизнес",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 7990,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "5203",
+              "name": "Стандарт премиум",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 8720,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "5208",
+              "name": "Люкс Комфорт",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 16580,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "5211",
+              "name": "Люкс Премиум",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 18050,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "12077",
+              "name": "Стандарт",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 7000,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "12751",
+              "name": "Люкс Морской",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 19280,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "119063",
+              "name": "Апартаменты",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 47120,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "212475",
+              "name": "Бизнес",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 21360,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "241998",
+              "name": "СТАНДАРТ",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 16440,
+              "price_stand": null,
+              "updated_at": "1658646865"
+            },
+            {
+              "id": "253137",
+              "name": "Стандарт с раздельными кроватями",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1633535350"
+            },
+            {
+              "id": "274038",
+              "name": "Бизнес-люкс",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 22410,
+              "price_stand": null,
+              "updated_at": "1676546170"
+            },
+            {
+              "id": "278585",
+              "name": "делюкс комфорт",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 8540,
+              "price_stand": null,
+              "updated_at": "1686640006"
+            },
+            {
+              "id": "278610",
+              "name": "Люкс студия",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 23800,
+              "price_stand": null,
+              "updated_at": "1686653249"
+            },
+            {
+              "id": "280212",
+              "name": "обед 08.09, 09.09, 10.09 и 11.09",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1689821047"
+            },
+            {
+              "id": "298562",
+              "name": "Стандарт",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1733203148"
+            },
+            {
+              "id": "319632",
+              "name": "Стандарт Бизнес с двумя раздельными кроватями  (одном разм-ие)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1788778490"
+            }
+          ]
+        },
+        {
+          "id": "924",
+          "name": "Оазис",
+          "city": "Сочи",
+          "address": "г. Сочи, ул. Ленина 219А/11",
+          "lat": "43.4654890",
+          "lon": "39.8959690",
+          "active": "1",
+          "description_length": 470,
+          "updated_at": "1790695325",
+          "last_modified": "1790695325",
+          "rooms": [
+            {
+              "id": "119175",
+              "name": "Люкс мансардный (двуспальная кровать)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 1950,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "119176",
+              "name": "Комфорт семейный (двуспальная кровать + кресло-кровать)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 1750,
+              "price_stand": null,
+              "updated_at": "1760922000"
+            },
+            {
+              "id": "136334",
+              "name": "Стандарт двухместный DBL/TWIN",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 1360,
+              "price_stand": null,
+              "updated_at": "1761526800"
+            },
+            {
+              "id": "136336",
+              "name": "Стандарт двухместный DBL/TWIN",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 1360,
+              "price_stand": null,
+              "updated_at": "1761526800"
+            },
+            {
+              "id": "249955",
+              "name": "Комфорт семейный (двуспальная кровать + кресло-кровать)",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 1750,
+              "price_stand": null,
+              "updated_at": "1760922000"
+            },
+            {
+              "id": "249956",
+              "name": "Комфорт семейный (двуспальная кровать + кресло-кровать)",
+              "placement_type": {
+                "id": "6",
+                "name": "3-местное",
+                "description": "",
+                "sleeping_place": "3"
+              },
+              "price_client": 1750,
+              "price_stand": null,
+              "updated_at": "1760922000"
+            },
+            {
+              "id": "249957",
+              "name": "Люкс мансардный (двуспальная кровать)",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 1950,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "249958",
+              "name": "Люкс с балконом (двуспальная кровать)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 2040,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "249959",
+              "name": "Люкс с балконом (двуспальная кровать)",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 2040,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "Суздаль",
+      "request": {
+        "city_name": "Суздаль",
+        "limit": 3,
+        "offset": 0
+      },
+      "http_status": 200,
+      "latency_ms": 291,
+      "hotels": [
+        {
+          "id": "2241",
+          "name": "Пушкарская слобода",
+          "city": "Суздаль",
+          "address": "Владимирская обл, Суздальский р-н, г Суздаль, ул Ленина, д 45",
+          "lat": "56.4132581",
+          "lon": "40.4470994",
+          "active": "1",
+          "description_length": 403,
+          "updated_at": "1792026043",
+          "last_modified": "1792026043",
+          "rooms": [
+            {
+              "id": "104021",
+              "name": "Стандарт",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 4670,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "122869",
+              "name": "Люкс",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 12520,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "150713",
+              "name": "Полулюкс",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 16330,
+              "price_stand": null,
+              "updated_at": "1653377656"
+            },
+            {
+              "id": "204751",
+              "name": "Молодежный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 3930,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "213229",
+              "name": "Улучшенный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 9930,
+              "price_stand": null,
+              "updated_at": "1655979386"
+            },
+            {
+              "id": "213230",
+              "name": "Русское подворье (Серия деревянных домиков)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 7610,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "213231",
+              "name": "Люкс премиум",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 17180,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "213235",
+              "name": "Царский дом",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "247655",
+              "name": "корпус русское подворье улучшенный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 10800,
+              "price_stand": null,
+              "updated_at": "1658646865"
+            },
+            {
+              "id": "256998",
+              "name": "Полулюкс в корпусе Боярский",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1643369565"
+            },
+            {
+              "id": "271491",
+              "name": "номер с большой кроватью",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 17080,
+              "price_stand": null,
+              "updated_at": "1669905235"
+            },
+            {
+              "id": "271492",
+              "name": "Стандарт",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 17080,
+              "price_stand": null,
+              "updated_at": "1669905332"
+            },
+            {
+              "id": "271493",
+              "name": "стандарт,2 кровати",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 17080,
+              "price_stand": null,
+              "updated_at": "1669908572"
+            },
+            {
+              "id": "271505",
+              "name": "стандарт (2спал кровать)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1669953381"
+            },
+            {
+              "id": "283858",
+              "name": "Улучшенный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 8860,
+              "price_stand": null,
+              "updated_at": "1698043044"
+            },
+            {
+              "id": "294293",
+              "name": "Улучшенный TWIN",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1722587211"
+            }
+          ]
+        },
+        {
+          "id": "2805",
+          "name": "Николаевский Посад",
+          "city": "Суздаль",
+          "address": "Владимирская обл, Суздальский р-н, г Суздаль, ул Ленина, д 138",
+          "lat": "56.4307114",
+          "lon": "40.4443328",
+          "active": "1",
+          "description_length": 329,
+          "updated_at": "1757060913",
+          "last_modified": "1792143849",
+          "rooms": [
+            {
+              "id": "104383",
+              "name": "Стандарт",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 6450,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "136087",
+              "name": "Стандарт твин",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 8140,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "150634",
+              "name": "Стандарт",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 8140,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "253230",
+              "name": "Полулюкс",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 10210,
+              "price_stand": null,
+              "updated_at": "1633708157"
+            },
+            {
+              "id": "272600",
+              "name": "стандарт 6 корп",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 9920,
+              "price_stand": null,
+              "updated_at": "1673942399"
+            },
+            {
+              "id": "321062",
+              "name": "733 номер",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 67270,
+              "price_stand": null,
+              "updated_at": "1792143849"
+            }
+          ]
+        },
+        {
+          "id": "4479",
+          "name": "Суздаль",
+          "city": "Суздаль",
+          "address": "Суздаль, ул. Коровники, д.45",
+          "lat": "56.4303142",
+          "lon": "40.4273155",
+          "active": "1",
+          "description_length": 470,
+          "updated_at": "1792026833",
+          "last_modified": "1792026833",
+          "rooms": [
+            {
+              "id": "101956",
+              "name": "Стандарт 1-комн 2-местн",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 4610,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "101957",
+              "name": "Стандарт 1-комн 2-местн",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 5040,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "142234",
+              "name": "Двухместный номер с 1 кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 4610,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "271776",
+              "name": "Стандарт",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 5340,
+              "price_stand": null,
+              "updated_at": "1670608466"
+            },
+            {
+              "id": "274576",
+              "name": "студия",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1678191432"
+            },
+            {
+              "id": "275089",
+              "name": "двухместный 2 кровати",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1679248742"
+            },
+            {
+              "id": "275090",
+              "name": "Одноместный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1679248797"
+            },
+            {
+              "id": "295068",
+              "name": "2-х местный стандарт",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 11740,
+              "price_stand": null,
+              "updated_at": "1724251000"
+            },
+            {
+              "id": "302314",
+              "name": "улучшенный номер",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1744884798"
+            },
+            {
+              "id": "311419",
+              "name": "улучшенный  твин",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 5870,
+              "price_stand": null,
+              "updated_at": "1765190067"
+            },
+            {
+              "id": "311423",
+              "name": "Люкс Модерн  Абсалямова",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 10680,
+              "price_stand": null,
+              "updated_at": "1765190679"
+            },
+            {
+              "id": "311424",
+              "name": "Люкс Модерн",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 10680,
+              "price_stand": null,
+              "updated_at": "1765190706"
+            },
+            {
+              "id": "311425",
+              "name": "Студия Делюкс",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 10680,
+              "price_stand": null,
+              "updated_at": "1765191136"
+            },
+            {
+              "id": "311440",
+              "name": "Таунхаус с раздельными кроватями (3х-местный)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 22410,
+              "price_stand": null,
+              "updated_at": "1765200671"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city": "Владивосток",
+      "request": {
+        "city_name": "Владивосток",
+        "limit": 3,
+        "offset": 0
+      },
+      "http_status": 200,
+      "latency_ms": 548,
+      "hotels": [
+        {
+          "id": "178",
+          "name": "Азимут Владивосток",
+          "city": "Владивосток",
+          "address": "Владивосток, ул. Набережная,10",
+          "lat": "43.1139430",
+          "lon": "131.8756030",
+          "active": "1",
+          "description_length": 1008,
+          "updated_at": "1782954907",
+          "last_modified": "1793062800",
+          "rooms": [
+            {
+              "id": "6204",
+              "name": "SMART Люкс",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 14940,
+              "price_stand": null,
+              "updated_at": "1791421200"
+            },
+            {
+              "id": "6210",
+              "name": "SMART Люкс",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 17610,
+              "price_stand": null,
+              "updated_at": "1791421200"
+            },
+            {
+              "id": "11349",
+              "name": "SMART Супериор с одной большой кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 11740,
+              "price_stand": null,
+              "updated_at": "1792976400"
+            },
+            {
+              "id": "11350",
+              "name": "SMART Супериор с одной большой кроватью",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 14410,
+              "price_stand": null,
+              "updated_at": "1792976400"
+            },
+            {
+              "id": "100230",
+              "name": "SMART Стандарт с одной большой кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 10140,
+              "price_stand": null,
+              "updated_at": "1792976400"
+            },
+            {
+              "id": "100231",
+              "name": "SMART Стандарт с одной большой кроватью",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 12810,
+              "price_stand": null,
+              "updated_at": "1792976400"
+            },
+            {
+              "id": "101908",
+              "name": "SMART Супериор с 2 кроватями",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 11740,
+              "price_stand": null,
+              "updated_at": "1792976400"
+            },
+            {
+              "id": "101909",
+              "name": "SMART Супериор с 2 кроватями",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 14410,
+              "price_stand": null,
+              "updated_at": "1792976400"
+            },
+            {
+              "id": "262150",
+              "name": "SMART Стандарт с 2 кроватями",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 10140,
+              "price_stand": null,
+              "updated_at": "1793062800"
+            },
+            {
+              "id": "262151",
+              "name": "SMART Стандарт с 2 кроватями",
+              "placement_type": {
+                "id": "8",
+                "name": "Двухместное TWIN",
+                "description": "2 кровати",
+                "sleeping_place": "2"
+              },
+              "price_client": 12810,
+              "price_stand": null,
+              "updated_at": "1793062800"
+            },
+            {
+              "id": "262152",
+              "name": "SMART Стандарт Клубный этаж с одной большой кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 13340,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "262153",
+              "name": "SMART Стандарт Клубный этаж с одной большой кроватью",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 17610,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "262154",
+              "name": "SMART Супериор Клубный этаж с одной большой кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 14410,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "262155",
+              "name": "SMART Супериор Клубный этаж с одной большой кроватью",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 18680,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "262156",
+              "name": "SMART Люкс Клубный этаж",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 18140,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "262157",
+              "name": "SMART Люкс Клубный этаж",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 22410,
+              "price_stand": null,
+              "updated_at": "1760576401"
+            },
+            {
+              "id": "266266",
+              "name": "Смарт супериор с видом на море",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1660114278"
+            },
+            {
+              "id": "266276",
+              "name": "стандарт вид на город (2спал кровать)",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1660123003"
+            },
+            {
+              "id": "280414",
+              "name": "2 номера супериор + 2 номера стандарт",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1690283384"
+            },
+            {
+              "id": "280487",
+              "name": "Смарт супериор с видом на море 2мест размещ",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1690432021"
+            },
+            {
+              "id": "318801",
+              "name": "СМАРТ Улучшенный Клубный этаж (вид на море)18 кв.м",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1786440500"
+            }
+          ]
+        },
+        {
+          "id": "179",
+          "name": "Гостиница А Отель Амурский залив",
+          "city": "Владивосток",
+          "address": "г Владивосток, ул Набережная, д 9",
+          "lat": "43.1120970",
+          "lon": "131.8729979",
+          "active": "1",
+          "description_length": 293,
+          "updated_at": "1626245213",
+          "last_modified": "1658646304",
+          "rooms": [
+            {
+              "id": "368",
+              "name": "Супериор",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "369",
+              "name": "Стандарт",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 4180,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "2812",
+              "name": "Люкс",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "6213",
+              "name": "Супериор",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "6214",
+              "name": "Стандарт",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 3080,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "6215",
+              "name": "Люкс",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "11352",
+              "name": "Эконом улучшенный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "11353",
+              "name": "Эконом улучшенный",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 0,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            }
+          ]
+        },
+        {
+          "id": "180",
+          "name": "Версаль",
+          "city": "Владивосток",
+          "address": "г Владивосток, ул Светланская, д 10",
+          "lat": "43.1168453",
+          "lon": "131.8798387",
+          "active": "1",
+          "description_length": 785,
+          "updated_at": "1782993512",
+          "last_modified": "1782993512",
+          "rooms": [
+            {
+              "id": "7061",
+              "name": "Одноместный стандарт",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 7190,
+              "price_stand": null,
+              "updated_at": "1658646865"
+            },
+            {
+              "id": "107153",
+              "name": "Суперлюкс",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 33750,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "118682",
+              "name": "Одноместный",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 7990,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "118684",
+              "name": "Двухместный с 1 кроватью или 2 отдельными кроватями",
+              "placement_type": {
+                "id": "2",
+                "name": "Двухместное DBL",
+                "description": "одна кровать или две кровати(на усмотрение места размещения)",
+                "sleeping_place": "2"
+              },
+              "price_client": 6760,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            },
+            {
+              "id": "211723",
+              "name": "улучшенный двухместный с широкой  кроватью",
+              "placement_type": {
+                "id": "1",
+                "name": "Одноместное",
+                "description": "",
+                "sleeping_place": "1"
+              },
+              "price_client": 12280,
+              "price_stand": null,
+              "updated_at": "1658646304"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

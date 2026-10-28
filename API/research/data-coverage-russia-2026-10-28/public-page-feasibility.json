@@ -1,0 +1,58 @@
+{
+  "checked_at": "2026-10-28T13:17:55.892797+00:00",
+  "note": "A few public GET requests only; no login, CAPTCHA solving or block bypass. Presence of HTML prices does not establish accuracy or licence.",
+  "records": [
+    {
+      "url": "https://turago.ru/hotels/russia/moscow",
+      "http_status": 200,
+      "final_url": "https://turago.ru/hotels/russia/moscow",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 336835,
+      "title": [
+        "Отели Москвы — рейтинги, цены и подборки"
+      ],
+      "json_ld_blocks": 4,
+      "price_markers": 34,
+      "small_markup_example": "ap-x-5 gap-y-3 pt-1 sm:justify-end\"><p class=\"sm:text-right\"><span class=\"block text-xs text-faint\">за ночь от</span><span class=\"text-xl font-bold text-brand-ink\">35 008 ₽</span></p><a aria-label=\"Выбрать номер: Арарат Парк Хаятт Москва\" class=\"relative z-10 rounded-field bg-accent-strong px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outlin"
+    },
+    {
+      "url": "https://101hotels.com/main/cities/moskva",
+      "http_status": 200,
+      "final_url": "https://101hotels.com/main/cities/moskva",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 854213,
+      "title": [
+        "Гостиницы Москвы — Лучшие цены на Отели 2026"
+      ],
+      "json_ld_blocks": 0,
+      "price_markers": 75,
+      "small_markup_example": " от <span class=\"price-value price-highlight\" data-price-currency=\"RUB\" data-price-value=\"6480\"> 6 480 </span> <span class=\"currency\">руб.</span> </a> </div> </div> <div class=\"pull-rig"
+    },
+    {
+      "url": "https://ostrovok.ru/hotel/russia/moscow/",
+      "http_status": 200,
+      "final_url": "https://ostrovok.ru/hotel/russia/moscow/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 620440,
+      "title": [
+        "Отели в Москве — забронировать гостиницу в Москве от 1 993 ₽, цены 2026 на бронирование отелей в Москве"
+      ],
+      "json_ld_blocks": 2,
+      "price_markers": 40,
+      "small_markup_example": "024e9d1a68b375fca7849a401.JPEG\" itemProp=\"image\" alt=\"Отель The St. Regis Moscow Nikolskaya\"/><meta itemProp=\"price\" content=\"28309.71\"/><meta itemProp=\"priceCurrency\" content=\"RUB\"/><link itemProp=\"availability\" href=\"http://schema.org/InStock\"/></div></li><li itemProp=\"itemListElement\" itemScope=\"\" itemType=\"https://schema.org/Offer\"><div><span itemProp=\"name\">Отель Измайлово Гамма</span> <span itemProp=\"description\">Измайловское шоссе, д. 71, "
+    },
+    {
+      "url": "https://www.komandirovka.ru/hotels/moscow/",
+      "http_status": 200,
+      "final_url": "https://www.komandirovka.ru/hotels/moscow/",
+      "content_type": "text/html; charset=UTF-8",
+      "bytes": 328590,
+      "title": [
+        "Гостиницы Москвы, Поиск лучших цен, Бронирование для групп"
+      ],
+      "json_ld_blocks": 0,
+      "price_markers": 0,
+      "small_markup_example": null
+    }
+  ]
+}
