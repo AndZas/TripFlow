@@ -1,0 +1,71 @@
+{
+  "makcorps": {
+    "enabled": false,
+    "environment": "production",
+    "review": {
+      "free_no_billing": false,
+      "cost_evidence": "",
+      "research_storage_allowed": false,
+      "terms_evidence": "",
+      "account_check_free": false,
+      "price_only_display_allowed": false,
+      "account_cost_evidence": "",
+      "legacy_free_jwt_confirmed": false
+    },
+    "currency": "USD",
+    "rooms": 1,
+    "adults": 1,
+    "checkin": "",
+    "checkout": "",
+    "credit_costs": {"mapping": null, "free": null, "hotel": null, "city": null},
+    "verified_price_basis": {},
+    "scenarios": [
+      {"kind": "free", "city": "Paris"},
+      {"kind": "mapping", "city": "Paris", "name": "Le Relais de Lyon Paris"},
+      {"kind": "hotel", "city": "Paris", "mapping_name": "Le Relais de Lyon Paris"},
+      {"kind": "mapping", "city": "TripFlowNonexistentCityZXQ", "name": "TripFlowNonexistentCityZXQ"}
+    ]
+  },
+  "skyscanner": {
+    "enabled": false,
+    "environment": "production",
+    "review": {
+      "free_no_billing": false,
+      "cost_evidence": "",
+      "research_storage_allowed": false,
+      "terms_evidence": "",
+      "access_approved": false,
+      "price_only_display_allowed": false
+    },
+    "market": "UK",
+    "locale": "en-GB",
+    "currency": "RUB",
+    "date_start": "",
+    "date_end": "",
+    "grouping": "aggregated",
+    "cities": ["Paris", "Madrid", "TripFlowNonexistentCityZXQ"],
+    "filter": {},
+    "filter_evidence": "",
+    "verified_price_basis": {}
+  },
+  "dataestur": {
+    "enabled": false,
+    "environment": "production",
+    "review": {
+      "free_no_billing": false,
+      "cost_evidence": "",
+      "research_storage_allowed": false,
+      "terms_evidence": "",
+      "price_only_display_allowed": false
+    },
+    "province": "Madrid",
+    "period_start": "",
+    "period_end": "",
+    "delimiter": ";",
+    "columns": {},
+    "verified_currency": null,
+    "verified_period": "unknown",
+    "verified_occupancy_basis": "unknown",
+    "semantics_evidence": ""
+  }
+}

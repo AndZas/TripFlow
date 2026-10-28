@@ -1,0 +1,29 @@
+# Официальные источники
+
+Повторная документальная проверка: **28.10.2026**. Живые ценовые endpoints не вызывались. Документы не подтверждают настройки аккаунта владельца.
+
+**Эксперимент закрыт 28.10.2026.** Итоговое решение — не подключать перечисленных кандидатов в текущий MVP; подробные причины и статус `reject` для MVP / `not_tested` для live приведены в [assessment.md](assessment.md). Таблица ниже сохраняет документальную оценку и статус фактической проверки, а не план дальнейших подключений. Доступ больше не запрашивается.
+
+Уточнения при закрытии:
+
+- Владелец сообщил об остатке **15/15 credits** в кабинете Makcorps; Account API для проверки не вызывался. [Тарифная страница](https://www.makcorps.com/) называет бесплатный пакет тестовым и публикует Basic за $350/месяц; постоянная возобновляемая бесплатная квота не подтверждена.
+- [Страница Skyscanner Travel API](https://www.partners.skyscanner.net/product/travel-api) ориентирует заявки на существующий бизнес с большой аудиторией. По сообщению владельца, форма отклоняет доступные ему Gmail/Яндекс и требует отсутствующий website URL. Это пользовательское наблюдение, не отдельный автоматизированный тест формы. Заявка не подана, доступ не получен.
+- Dataestur отклонён для текущей задачи как ограниченный региональный кандидат с неподтверждённым доступом и правами конкретного набора; источник не объявляется платным либо неработающим.
+
+| Источник | Тип цены / география | Доступ и стоимость | Match и база | Показ / хранение | Решение сейчас |
+|---|---|---|---|---|---|
+| Makcorps | Предложения отдельных отелей; заявляется широкая география | [Регистрация](https://api.makcorps.com/register) — 15 credits без карты; [главная](https://www.makcorps.com/) — 30. Брать остаток кабинета. [Account](https://www.makcorps.com/documentation/account-api/) возвращает requestLimit/requestUsed/remainingLimit; бесплатность account отдельно не установлена. | [Mapping](https://www.makcorps.com/documentation/mapping-api/) возвращает ID, тип и координаты. [Hotel](https://www.makcorps.com/documentation/hotel-api-search-by-hotel-id/) требует даты/гостей/номера/валюту. Это не недатированный ориентир. | [Условия](https://www.makcorps.com/terms/) ограничивают публичный показ материалов сайта; ясное разрешение на API-цены для TripFlow не найдено. `access_or_display_rights_unclear`. | `not_tested` |
+| Makcorps legacy free | Отели из городской выдачи; случайные будущие даты | [Старая документация](https://docs.hotelapi.co/free-hotel-api): JWT, до 30 отелей, даты и гостей задать нельзя. Совместимость с современным API key не доказана. | Пример не устанавливает валюту и знаменатель суммы. Имя без координат даёт только ambiguous. | Те же неустановленные права | `not_tested` |
+| Skyscanner Stays Indicative | Суточные агрегаты по направлению и датам | [Authentication](https://developers.skyscanner.net/docs/getting-started/authentication): заявка Partnerships и одобрение; бесплатность конкретного ключа отдельно подтверждается. | [Overview](https://developers.skyscanner.net/docs/hotels-indicative-prices/overview): cached daily quotes, ежедневный файл по семи дням поисков. [Reference](https://developers.skyscanner.net/api/hotels-indicative/): resultSet.prices, денежный unit, диапазон следующих 12 месяцев, grouping aggregated/by_date/by_month. | [FAQ](https://developers.skyscanner.net/docs/faqs) ограничивает price-only использование Flights. Для Stays нужна отдельная проверка условий. | `not_tested` |
+| Dataestur | Исторические средние по регионам Испании | [Блог](https://www.dataestur.es/en/blog/how-to-track-tourism-data-dataestur-api/) описывает бесплатные выгрузки; [OpenAPI](https://www.dataestur.es/app/themes/mini-mandrake/apidata/openapi.json) объявляет subscription key и server /API-SEGITTUR-v2. Публичный порядок выдачи ключа не найден. | PRECIOS_ALOJAMIENTOS_HOTELEROS_DL — CSV по CCAA/Provincia и периоду; IND_RENTABILIDAD_PUNT_TUR_DL — XLSX по туристическим точкам. Индексы не равны денежным ценам. Фактические колонки/единицы не проверены. | [Legal notice](https://www.dataestur.es/en/legal-notice/) резервирует права и требует учитывать условия отдельных наборов. Нужны права конкретного набора. | `not_tested`; региональный benchmark |
+| DATAtourisme baseline | Опубликованные тарифы во Франции | Новых запросов нет | [Прошлый тест](../../free-api-enrichment-test/reports/assessment.md): 6/15 гостиничных записей с числом, 0/6 с единицей, 3/6 просрочены | Неоднозначность суммы остаётся | `reject` для бюджета |
+
+## Детали запуска
+
+- Skyscanner destination ID: [Stays Autosuggest](https://developers.skyscanner.net/docs/autosuggest/hotels), POST /apiservices/v3/autosuggest/hotels. Только CITY с проверкой имени/координат.
+- [Culture reference](https://developers.skyscanner.net/api/culture): currencies, locales, markets/{locale}. RUB в конкретной выдаче ещё не проверен. Подтверждённого курса для нормализации здесь нет; пересчёт не выполняется автоматически.
+- [Skyscanner rate limits](https://developers.skyscanner.net/docs/getting-started/rate-limits) зависят от ключа; rate limit не равен бесплатной квоте.
+- [Makcorps city](https://www.makcorps.com/documentation/hotel-api-search-by-city-id/) требует ID, даты, валюту, гостей/комнаты; tax=true означает включённые налоги. Стоимость сценариев сверяется в аккаунте.
+- [Dataestur good practices](https://www.dataestur.es/app/uploads/Buenas-practicas-uso-API-Dataestur.pdf) предлагает ориентироваться на 10 запросов/минуту и малые фильтрованные выборки; стенд применяет паузу минимум 6 секунд.
+
+Geoapify: доступны 8 сохранённых гостиничных образцов в четырёх городах, у 7 есть имя, у всех есть ID и координаты. Это не 8 пригодных цен и не доказательство покрытия. Источники валют/геокодирования, Geoapify, DATAtourisme и Amadeus повторно не вызывались. Дополнительные кандидаты не добавлены.

@@ -1,0 +1,7 @@
+reports/runs/
+config.local.json
+*.local.json
+.env
+.env.*
+!.env.example
+__pycache__/
