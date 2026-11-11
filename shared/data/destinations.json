@@ -1,0 +1,15 @@
+{
+  "destinations": [
+    {
+      "id": "ru-moscow",
+      "city": "Москва",
+      "regionName": "Москва",
+      "countryCode": "RU",
+      "countryName": "Россия",
+      "coordinates": {
+        "latitude": 55.75204,
+        "longitude": 37.61781
+      }
+    }
+  ]
+}
