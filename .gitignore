@@ -1,1 +1,15 @@
+# Local configuration
+.env
+.env.*
+!.env.example
+
+# Local editor and system files
 .idea/
+.vs/
+*.suo
+*.user
+.DS_Store
+Thumbs.db
+
+# Local logs
+*.log

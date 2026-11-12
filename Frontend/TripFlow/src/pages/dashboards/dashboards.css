@@ -1,0 +1,84 @@
+.dashboards-hero {
+  display: grid;
+  align-items: center;
+  min-height: 20.25rem;
+  padding: clamp(1.5rem, 5vw, 3.6rem);
+}
+.dashboards-hero h1 { margin-block: .55rem .8rem; }
+.dashboards-hero .hero-action { margin-top: 1.5rem; }
+
+.dashboard-collections {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  margin-top: clamp(1.65rem, 4vw, 2.5rem);
+}
+.collection-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .65rem;
+  min-height: 2.4rem;
+  margin-bottom: .9rem;
+}
+.dashboard-card-list { display: grid; gap: .7rem; margin: 0; padding: 0; list-style: none; }
+.dashboard-card, .demo-card {
+  border: 1px solid var(--atlas-border);
+  border-radius: 1.1rem;
+  background: var(--atlas-surface);
+  color: var(--atlas-ink);
+  box-shadow: var(--atlas-shadow);
+  text-decoration: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.dashboard-card:hover, .demo-card:hover {
+  border-color: #a4b89f;
+  box-shadow: 0 6px 22px #283b241b;
+}
+.dashboard-card { display: flex; align-items: center; gap: .85rem; min-height: 5.3rem; padding: 1rem; }
+.dashboard-card-copy, .demo-card-copy { display: grid; gap: .22rem; min-width: 0; }
+.dashboard-card-title { font: 400 clamp(1.3rem, 2.7vw, 1.55rem)/1.15 var(--atlas-display); overflow-wrap: anywhere; }
+.dashboard-card-description { color: var(--atlas-muted); font-size: .94rem; overflow-wrap: anywhere; }
+.card-arrow { flex: none; margin-left: auto; color: var(--atlas-forest); }
+.demo-card { display: grid; overflow: hidden; }
+.demo-card-art {
+  min-height: 8.3rem;
+  padding: .85rem;
+  background: #dbe3c8 url("../../shared/assets/moscow.svg") center 44% / cover no-repeat;
+}
+.demo-tag, .demo-card-action { display: inline-flex; align-items: center; gap: .35rem; font-weight: 750; }
+.demo-tag {
+  padding: .26rem .58rem;
+  border-radius: 2rem;
+  background: var(--atlas-surface);
+  color: var(--atlas-forest);
+  font-size: .75rem;
+}
+.demo-tag svg { width: .95rem; height: .95rem; }
+.demo-card-copy { padding: 1rem 1.15rem 1.15rem; }
+.demo-card-action { gap: .55rem; color: var(--atlas-forest); font-size: .88rem; margin-top: .45rem; }
+.demo-card-action svg { width: 1rem; height: 1rem; }
+.dashboard-empty {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: .55rem;
+  min-height: 16.25rem;
+  padding: 1.5rem 1rem;
+  border: 1px dashed #aebdaa;
+  border-radius: 1.1rem;
+  background: #fffcf380;
+  text-align: center;
+}
+.dashboard-empty h3 { font-weight: 700; font-size: 1.15rem; }
+.dashboard-empty p { color: var(--atlas-muted); font-size: .94rem; }
+.dashboard-empty button { margin-top: .3rem; }
+@media (max-width: 48rem) {
+  .dashboard-collections { grid-template-columns: 1fr; }
+  .demo-card-art { min-height: clamp(8rem, 25vw, 12rem); }
+  .dashboards-hero { min-height: 17.5rem; }
+}
+@media (max-width: 26rem) {
+  .dashboards-hero .eyebrow { letter-spacing: .075em; }
+}
