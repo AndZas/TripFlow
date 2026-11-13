@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 370" fill="none">
+  <defs>
+    <pattern id="grid" width="33" height="33" patternUnits="userSpaceOnUse">
+      <path d="M33 0H0v33" stroke="#c6d5a7" stroke-opacity=".16"/>
+    </pattern>
+    <path id="ridge" d="M410 149c24-11 45-6 58 6 14 12 14 27 29 34 13 6 29 8 31 22 2 15-12 31-34 37-22 5-44-8-61-7-26 2-48-8-48-27 0-14-14-21-8-38 5-14 21-22 33-27Z"/>
+  </defs>
+  <path fill="url(#grid)" d="M0 0h650v370H0z"/>
+  <g stroke="#c9d7a6" stroke-opacity=".26">
+    <use href="#ridge"/>
+    <use href="#ridge" transform="translate(453 198) scale(1.19) translate(-453 -198)"/>
+    <use href="#ridge" transform="translate(453 198) scale(1.4) translate(-453 -198)"/>
+    <use href="#ridge" transform="translate(453 198) scale(1.62) translate(-453 -198)"/>
+    <use href="#ridge" transform="translate(453 198) scale(1.88) translate(-453 -198)"/>
+    <use href="#ridge" transform="translate(453 198) scale(2.15) translate(-453 -198)"/>
+    <use href="#ridge" transform="translate(453 198) scale(2.43) translate(-453 -198)"/>
+    <use href="#ridge" transform="translate(453 198) scale(2.75) translate(-453 -198)"/>
+    <use href="#ridge" transform="translate(453 198) scale(3.1) translate(-453 -198)"/>
+    <use href="#ridge" transform="translate(453 198) scale(3.48) translate(-453 -198)"/>
+    <use href="#ridge" transform="translate(453 198) scale(3.89) translate(-453 -198)"/>
+    <use href="#ridge" transform="translate(453 198) scale(4.35) translate(-453 -198)"/>
+  </g>
+  <g stroke="#c5d892" stroke-width="1.7">
+    <path d="M174 271c45-5 43-69 100-69 34 0 50 30 82 24 43-8 22-55 54-80 25-19 55 10 84-3 12-5 15-18 20-31" stroke-dasharray="4 7" stroke-linecap="round"/>
+    <circle cx="174" cy="271" r="6" fill="#214936"/>
+    <circle cx="514" cy="88" r="26" stroke-opacity=".25"/>
+    <path d="M528 85c0 11-14 25-14 25s-14-14-14-25a14 14 0 1 1 28 0Z" fill="#234c37"/>
+    <circle cx="514" cy="85" r="4"/>
+  </g>
+  <g transform="translate(230 84)" stroke="#d9e1b8" stroke-opacity=".66">
+    <circle r="24"/>
+    <path d="M0-31v7m31 24h-7M0 31v-7m-31-24h7"/>
+    <path d="m0-16 4 12 12 4-12 4-4 12-4-12-12-4 12-4Z"/>
+    <path d="M0-16V0h16L4-4Z" fill="#d9e1b8"/>
+  </g>
+</svg>
