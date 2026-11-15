@@ -1,0 +1,327 @@
+[
+  {
+    "id": "no-inclusions",
+    "card": {
+      "startDate": "2027-05-19",
+      "endDate": "2027-05-21",
+      "travelers": 2,
+      "budgetRub": 65000,
+      "hotel": {
+        "id": "16",
+        "name": "Золотое кольцо",
+        "city": "Москва",
+        "region": "Москва",
+        "address": "Смоленская улица, 5",
+        "tariffName": "Выбранный тариф без подтверждённого завтрака"
+      },
+      "expenseNotes": {
+        "food": "Завтракаем один раз в день в недорогом кафе, обед и ужин не нужны.",
+        "transport": "Каждый день планируем две поездки на метро на человека.",
+        "other": "Сувениры и другие развлечения не планируем.",
+        "reserve": null
+      },
+      "selectedPlaces": [
+        {
+          "name": "Мемориальный музей космонавтики",
+          "alreadyPriced": true
+        }
+      ]
+    },
+    "expectedGroupRanges": {
+      "food": [
+        7800,
+        9600
+      ],
+      "transport": [
+        840,
+        1080
+      ],
+      "other": [
+        0,
+        0
+      ],
+      "reserve": [
+        1,
+        15000
+      ]
+    }
+  },
+  {
+    "id": "confirmed-breakfast",
+    "card": {
+      "startDate": "2027-05-19",
+      "endDate": "2027-05-21",
+      "travelers": 2,
+      "budgetRub": 65000,
+      "hotel": {
+        "id": "16",
+        "name": "Золотое кольцо",
+        "city": "Москва",
+        "region": "Москва",
+        "address": "Смоленская улица, 5",
+        "tariffName": "Выбранный тариф без подтверждённого завтрака"
+      },
+      "expenseNotes": {
+        "food": "Завтракаем один раз в день в недорогом кафе, обед и ужин не нужны.",
+        "transport": "Каждый день планируем две поездки на метро на человека.",
+        "other": "Сувениры и другие развлечения не планируем.",
+        "reserve": null
+      },
+      "selectedPlaces": [
+        {
+          "name": "Мемориальный музей космонавтики",
+          "alreadyPriced": true
+        }
+      ],
+      "benefits": [
+        {
+          "kind": "breakfast",
+          "status": "confirmed",
+          "coveredDays": 2,
+          "scope": "Завтрак для всех путешественников в два утра после ночёвок",
+          "source": "fixture: тестовый снимок условий выбранного тарифа"
+        }
+      ]
+    },
+    "expectedGroupRanges": {
+      "food": [
+        2400,
+        3400
+      ],
+      "transport": [
+        840,
+        1080
+      ],
+      "other": [
+        0,
+        0
+      ],
+      "reserve": [
+        1,
+        15000
+      ]
+    }
+  },
+  {
+    "id": "unknown-breakfast",
+    "card": {
+      "startDate": "2027-05-19",
+      "endDate": "2027-05-21",
+      "travelers": 2,
+      "budgetRub": 65000,
+      "hotel": {
+        "id": "16",
+        "name": "Золотое кольцо",
+        "city": "Москва",
+        "region": "Москва",
+        "address": "Смоленская улица, 5",
+        "tariffName": "Выбранный тариф без подтверждённого завтрака"
+      },
+      "expenseNotes": {
+        "food": "Завтракаем один раз в день в недорогом кафе, обед и ужин не нужны.",
+        "transport": "Каждый день планируем две поездки на метро на человека.",
+        "other": "Сувениры и другие развлечения не планируем.",
+        "reserve": null
+      },
+      "selectedPlaces": [
+        {
+          "name": "Мемориальный музей космонавтики",
+          "alreadyPriced": true
+        }
+      ],
+      "benefits": [
+        {
+          "kind": "breakfast",
+          "status": "unknown",
+          "coveredDays": 2,
+          "scope": "Неподтверждённое предположение",
+          "source": "fixture: тестовый снимок условий выбранного тарифа"
+        }
+      ]
+    },
+    "expectedGroupRanges": {
+      "food": [
+        7800,
+        9600
+      ],
+      "transport": [
+        840,
+        1080
+      ],
+      "other": [
+        0,
+        0
+      ],
+      "reserve": [
+        1,
+        15000
+      ]
+    }
+  },
+  {
+    "id": "city-shuttle",
+    "card": {
+      "startDate": "2027-05-19",
+      "endDate": "2027-05-21",
+      "travelers": 2,
+      "budgetRub": 65000,
+      "hotel": {
+        "id": "16",
+        "name": "Золотое кольцо",
+        "city": "Москва",
+        "region": "Москва",
+        "address": "Смоленская улица, 5",
+        "tariffName": "Выбранный тариф без подтверждённого завтрака"
+      },
+      "expenseNotes": {
+        "food": "Завтракаем один раз в день в недорогом кафе, обед и ужин не нужны.",
+        "transport": "Каждый день планируем две поездки на метро на человека.",
+        "other": "Сувениры и другие развлечения не планируем.",
+        "reserve": null
+      },
+      "selectedPlaces": [
+        {
+          "name": "Мемориальный музей космонавтики",
+          "alreadyPriced": true
+        }
+      ],
+      "benefits": [
+        {
+          "kind": "local_shuttle",
+          "status": "confirmed",
+          "coveredDays": 3,
+          "scope": "Бесплатный автобус отеля покрывает обе запланированные поездки ежедневно для всей группы",
+          "coversAllPlannedRides": true,
+          "source": "fixture: тестовый снимок условий выбранного тарифа"
+        }
+      ]
+    },
+    "expectedGroupRanges": {
+      "food": [
+        7800,
+        9600
+      ],
+      "transport": [
+        0,
+        0
+      ],
+      "other": [
+        0,
+        0
+      ],
+      "reserve": [
+        1,
+        15000
+      ]
+    }
+  },
+  {
+    "id": "airport-only",
+    "card": {
+      "startDate": "2027-05-19",
+      "endDate": "2027-05-21",
+      "travelers": 2,
+      "budgetRub": 65000,
+      "hotel": {
+        "id": "16",
+        "name": "Золотое кольцо",
+        "city": "Москва",
+        "region": "Москва",
+        "address": "Смоленская улица, 5",
+        "tariffName": "Выбранный тариф без подтверждённого завтрака"
+      },
+      "expenseNotes": {
+        "food": "Завтракаем один раз в день в недорогом кафе, обед и ужин не нужны.",
+        "transport": "Каждый день планируем две поездки на метро на человека.",
+        "other": "Сувениры и другие развлечения не планируем.",
+        "reserve": null
+      },
+      "selectedPlaces": [
+        {
+          "name": "Мемориальный музей космонавтики",
+          "alreadyPriced": true
+        }
+      ],
+      "benefits": [
+        {
+          "kind": "local_shuttle",
+          "status": "confirmed",
+          "coveredDays": 1,
+          "scope": "Только трансфер аэропорт → отель",
+          "source": "fixture: тестовый снимок условий выбранного тарифа"
+        }
+      ]
+    },
+    "expectedGroupRanges": {
+      "food": [
+        7800,
+        9600
+      ],
+      "transport": [
+        840,
+        1080
+      ],
+      "other": [
+        0,
+        0
+      ],
+      "reserve": [
+        1,
+        15000
+      ]
+    }
+  },
+  {
+    "id": "restaurant-and-cinema",
+    "card": {
+      "startDate": "2027-05-19",
+      "endDate": "2027-05-21",
+      "travelers": 2,
+      "budgetRub": 65000,
+      "hotel": {
+        "id": "16",
+        "name": "Золотое кольцо",
+        "city": "Москва",
+        "region": "Москва",
+        "address": "Смоленская улица, 5",
+        "tariffName": "Выбранный тариф без подтверждённого завтрака"
+      },
+      "expenseNotes": {
+        "food": "Каждый день только один ужин в ресторане, остальные приёмы пищи не планируются.",
+        "transport": "Каждый день планируем две поездки на метро на человека.",
+        "other": "Хотим сходить на один сеанс в кино, кроме уже оплаченного посещения музея.",
+        "reserve": "Резерв 5000 ₽ на группу за поездку."
+      },
+      "selectedPlaces": [
+        {
+          "name": "Мемориальный музей космонавтики",
+          "alreadyPriced": true
+        }
+      ],
+      "fixedExpenses": {
+        "reserve": {
+          "amountRub": 5000,
+          "unit": "group_trip"
+        }
+      }
+    },
+    "expectedGroupRanges": {
+      "food": [
+        28800,
+        34800
+      ],
+      "transport": [
+        840,
+        1080
+      ],
+      "other": [
+        950,
+        1350
+      ],
+      "reserve": [
+        5000,
+        5000
+      ]
+    }
+  }
+]

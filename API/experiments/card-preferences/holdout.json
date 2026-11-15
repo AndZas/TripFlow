@@ -1,0 +1,150 @@
+[
+  {
+    "id": "holdout-car-and-hotspot",
+    "preferences": "Едем на машине, у отеля обязательно нужна парковка. Интернет раздадим с телефона, Wi-Fi в отеле не важен. По городу ходим пешком.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "parking", "strength": "required", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": true, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "holdout-no-museums-instead-parks",
+    "preferences": "Музеи в этот раз пропустим, не добавляйте их. Если будет время, хотелось бы погулять в парках. В исторические места тоже с удовольствием заглянем.",
+    "expected": {
+      "filters": [
+        {"kind": "attraction_category", "value": "museums", "strength": "required", "excluded": true},
+        {"kind": "attraction_category", "value": "parks", "strength": "preferred", "excluded": false},
+        {"kind": "attraction_category", "value": "historic", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "holdout-food-outside-hotel",
+    "preferences": "Днём едим в ресторанах города, а завтракаем продуктами из магазина. Наличие ресторана при отеле роли не играет. Для работы обязательно нужен Wi-Fi в отеле.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "wifi", "strength": "required", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": true, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "holdout-hotel-restaurant-no-music",
+    "preferences": "Желателен отель со своим рестораном. В ресторане отеля обязательно без живой музыки по вечерам. Остальные условия для размещения не важны.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "restaurant", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [
+        {"label": "музык", "strength": "required"}
+      ],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "holdout-corrected-strictness",
+    "preferences": "С парковкой передумали: сперва она была обязательной, теперь парковка просто желательна. Wi-Fi тоже сначала хотели, но привезём модем, так что этот фильтр уберите. Из достопримечательностей включите только парки.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "parking", "strength": "preferred", "excluded": false},
+        {"kind": "attraction_category", "value": "parks", "strength": "required", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "holdout-group-budget-reserve",
+    "preferences": "На местный транспорт максимум 2400 рублей на всю группу за поездку, ездим на автобусе. Хотим отложить 6000 рублей резерва на всю группу. Покупок и сувениров не планируем.",
+    "expected": {
+      "filters": [],
+      "extra": [],
+      "expenses": {"food": false, "transport": true, "other": true, "reserve": true},
+      "expenseTerms": {"transport": ["2400", "групп"], "reserve": ["6000", "групп"]}
+    }
+  },
+  {
+    "id": "holdout-breakfast-tariff",
+    "preferences": "Завтрак обязательно должен входить в тариф отеля. Обедать будем в столовых. Из мест хотелось бы музеи, особенно небольшие выставки.",
+    "expected": {
+      "filters": [
+        {"kind": "attraction_category", "value": "museums", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [
+        {"label": "завтрак", "strength": "required"}
+      ],
+      "expenses": {"food": true, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "holdout-park-and-carpark",
+    "preferences": "Парки в маршрут не включайте. У отеля же обязательно должна быть парковка. Музеи смотрим охотно, но без строгого требования.",
+    "expected": {
+      "filters": [
+        {"kind": "attraction_category", "value": "parks", "strength": "required", "excluded": true},
+        {"kind": "hotel_amenity", "value": "parking", "strength": "required", "excluded": false},
+        {"kind": "attraction_category", "value": "museums", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "holdout-hotel-night-quiet",
+    "preferences": "Обязателен Wi-Fi. Номер желательно с окнами во внутренний двор. По городу на метро, а на подарки выделим по 800 рублей на человека.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "wifi", "strength": "required", "excluded": false}
+      ],
+      "extra": [
+        {"label": "двор", "strength": "preferred"}
+      ],
+      "expenses": {"food": false, "transport": true, "other": true, "reserve": false},
+      "expenseTerms": {"other": ["800", "человек"]}
+    }
+  },
+  {
+    "id": "holdout-one-venue-not-all",
+    "preferences": "Музей космонавтики мы уже видели, его не нужно советовать. Другие музеи хотелось бы посмотреть. Отель по возможности с рестораном.",
+    "expected": {
+      "filters": [
+        {"kind": "attraction_category", "value": "museums", "strength": "preferred", "excluded": false},
+        {"kind": "hotel_amenity", "value": "restaurant", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "holdout-late-restaurant-and-taxi",
+    "preferences": "У отеля обязательно должен быть ресторан, а по возможности пусть он работает после 23:00. Поздно вечером по городу поедем на такси. На еду закладываем 1800 рублей на человека в день.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "restaurant", "strength": "required", "excluded": false}
+      ],
+      "extra": [
+        {"label": "ресторан", "strength": "preferred"}
+      ],
+      "expenses": {"food": true, "transport": true, "other": false, "reserve": false},
+      "expenseTerms": {"food": ["1800", "человек", "день"]}
+    }
+  },
+  {
+    "id": "holdout-superseded-ticket-plan",
+    "preferences": "Сначала хотели только музеи, но передумали: музеи не предлагайте вообще, лучше исторические места. До них будем добираться автобусом, а обратно пешком.",
+    "expected": {
+      "filters": [
+        {"kind": "attraction_category", "value": "museums", "strength": "required", "excluded": true},
+        {"kind": "attraction_category", "value": "historic", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": true, "other": false, "reserve": false}
+    }
+  }
+]

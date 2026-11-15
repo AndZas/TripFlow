@@ -1,0 +1,1641 @@
+{
+  "model": "Qwen3.5-9B / LM Studio",
+  "preferences": {
+    "current.jsonl": [
+      {
+        "id": "hotel-live-music",
+        "checks": {
+          "filters": true,
+          "extra": false,
+          "expenses": false
+        },
+        "passed": false
+      },
+      {
+        "id": "mandatory-late-pool",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "latest-wishes-win",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "meals-only",
+        "checks": {
+          "filters": true,
+          "extra": false,
+          "expenses": true
+        },
+        "passed": false
+      },
+      {
+        "id": "all-expense-contexts",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "attractions-and-metro",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": false
+        },
+        "passed": false
+      },
+      {
+        "id": "wifi-plus-late-checkin",
+        "checks": {
+          "filters": true,
+          "extra": false,
+          "expenses": true
+        },
+        "passed": false
+      },
+      {
+        "id": "empty",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      }
+    ],
+    "routed-dev.jsonl": [
+      {
+        "id": "hotel-live-music",
+        "checks": {
+          "filters": true,
+          "extra": false,
+          "expenses": true
+        },
+        "passed": false
+      },
+      {
+        "id": "mandatory-late-pool",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "latest-wishes-win",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "meals-only",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "all-expense-contexts",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "attractions-and-metro",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "wifi-plus-late-checkin",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "empty",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      }
+    ],
+    "final-blind.jsonl": [
+      {
+        "id": "fresh-driver-and-parks",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-hotel-wifi-and-food",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-no-parks",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-cancelled-wifi",
+        "checks": {
+          "filters": false,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": false
+      },
+      {
+        "id": "fresh-city-restaurant-scope",
+        "checks": {
+          "filters": false,
+          "extra": true,
+          "expenses": false
+        },
+        "passed": false
+      },
+      {
+        "id": "fresh-only-exhibitions",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-hotel-accessibility",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-no-hotel-restaurant",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-budget-only",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": false
+        },
+        "passed": false
+      },
+      {
+        "id": "fresh-early-checkin",
+        "passed": false
+      }
+    ],
+    "final-verified.jsonl": [
+      {
+        "id": "fresh-driver-and-parks",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-hotel-wifi-and-food",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-no-parks",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-cancelled-wifi",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-city-restaurant-scope",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-only-exhibitions",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-hotel-accessibility",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-no-hotel-restaurant",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-budget-only",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "fresh-early-checkin",
+        "checks": {
+          "filters": true,
+          "extra": false,
+          "expenses": true
+        },
+        "passed": false
+      }
+    ],
+    "release-blind.jsonl": [
+      {
+        "id": "release-hotel-bike-and-parking",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": false
+        },
+        "passed": false
+      },
+      {
+        "id": "release-wifi-tariff-and-meals",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "release-cancelled-museum-ban",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "release-restaurant-and-child-bed",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "release-not-historic",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "release-cancelled-parking",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "release-parks-no-parking",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "release-museums-hotel-pet",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "release-allocation-only",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": false
+        },
+        "passed": false
+      },
+      {
+        "id": "release-park-opening-time",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      }
+    ],
+    "audit-preferences-before.jsonl": [
+      {
+        "id": "excluded-wifi-and-dining",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "cinema-and-taxi",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": false
+        },
+        "passed": false
+      },
+      {
+        "id": "quiet-with-two-conditions",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "correction-and-unrelated-wifi",
+        "checks": {
+          "filters": false,
+          "extra": false,
+          "expenses": true
+        },
+        "passed": false
+      },
+      {
+        "id": "restaurant-and-meals",
+        "checks": {
+          "filters": false,
+          "extra": false,
+          "expenses": true
+        },
+        "passed": false
+      },
+      {
+        "id": "budget-only",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "only-named-museum",
+        "checks": {
+          "filters": false,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": false
+      },
+      {
+        "id": "transport-and-travel-mixed",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "light-preference",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "unicode-and-indifference",
+        "checks": {
+          "filters": false,
+          "extra": true,
+          "expenses": false
+        },
+        "passed": false
+      }
+    ],
+    "audit-preferences-final.jsonl": [
+      {
+        "id": "excluded-wifi-and-dining",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "cinema-and-taxi",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "quiet-with-two-conditions",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "correction-and-unrelated-wifi",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "restaurant-and-meals",
+        "checks": {
+          "filters": true,
+          "extra": false,
+          "expenses": true
+        },
+        "passed": false
+      },
+      {
+        "id": "budget-only",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "only-named-museum",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "transport-and-travel-mixed",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "light-preference",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "unicode-and-indifference",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      }
+    ],
+    "audit-holdout.jsonl": [
+      {
+        "id": "stage1-mixed-positive",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "stage1-reversal",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      },
+      {
+        "id": "stage1-extra-and-prices",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": false
+        },
+        "passed": false
+      },
+      {
+        "id": "stage1-scopes",
+        "checks": {
+          "filters": false,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": false
+      },
+      {
+        "id": "stage1-blank",
+        "checks": {
+          "filters": true,
+          "extra": true,
+          "expenses": true
+        },
+        "passed": true
+      }
+    ]
+  },
+  "budget": {
+    "budget-live.jsonl": [
+      {
+        "id": "no-inclusions",
+        "checks": {
+          "food": false,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 26022,
+          "transport": 954,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "confirmed-breakfast",
+        "checks": {
+          "food": false,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 26022,
+          "transport": 954,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "unknown-breakfast",
+        "checks": {
+          "food": false,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 26022,
+          "transport": 954,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "city-shuttle",
+        "checks": {
+          "food": false,
+          "transport": false,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 26022,
+          "transport": 7152,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "airport-only",
+        "checks": {
+          "food": false,
+          "transport": false,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 26022,
+          "transport": 2856,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "restaurant-and-cinema",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 31824,
+          "transport": 954,
+          "other": 1128,
+          "reserve": 5000
+        }
+      }
+    ],
+    "budget-final.jsonl": [
+      {
+        "id": "no-inclusions",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 8676,
+          "transport": 948,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "confirmed-breakfast",
+        "checks": {
+          "food": false,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 8676,
+          "transport": 948,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "unknown-breakfast",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 8676,
+          "transport": 948,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "city-shuttle",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 8676,
+          "transport": 0,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "airport-only",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 8676,
+          "transport": 948,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "restaurant-and-cinema",
+        "checks": {
+          "food": false,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 49422,
+          "transport": 948,
+          "other": 1128,
+          "reserve": 5000
+        }
+      }
+    ],
+    "budget-meals.jsonl": [
+      {
+        "id": "no-inclusions",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 8676,
+          "transport": 954,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "confirmed-breakfast",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 2892,
+          "transport": 954,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "unknown-breakfast",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 8676,
+          "transport": 954,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "city-shuttle",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 8676,
+          "transport": 0,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "airport-only",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 8676,
+          "transport": 954,
+          "other": 0,
+          "reserve": 15000
+        }
+      },
+      {
+        "id": "restaurant-and-cinema",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 31824,
+          "transport": 954,
+          "other": 1128,
+          "reserve": 5000
+        }
+      }
+    ],
+    "audit-budget-before.jsonl": [
+      {
+        "id": "walk-and-no-extras",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 13014,
+          "transport": 0,
+          "other": 0,
+          "reserve": 0
+        }
+      },
+      {
+        "id": "one-bus-ride",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 1446,
+          "transport": 83,
+          "other": 0,
+          "reserve": 0
+        }
+      },
+      {
+        "id": "lunch-included-one-day",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 8676,
+          "transport": 0,
+          "other": 0,
+          "reserve": 0
+        }
+      },
+      {
+        "id": "souvenir-budget",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 13014,
+          "transport": 0,
+          "other": 3750,
+          "reserve": 7500
+        }
+      },
+      {
+        "id": "weekday-and-weekend-food",
+        "checks": {
+          "food": false,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 108495,
+          "transport": 0,
+          "other": 0,
+          "reserve": 0
+        }
+      },
+      {
+        "id": "daily-cap-and-theatre",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": false,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 10800,
+          "transport": 1908,
+          "other": 12128,
+          "reserve": 0
+        }
+      },
+      {
+        "id": "one-metro-outing",
+        "checks": {
+          "food": true,
+          "transport": false,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 13014,
+          "transport": 1431,
+          "other": 0,
+          "reserve": 0
+        }
+      },
+      {
+        "id": "partial-shuttle",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 13014,
+          "transport": 954,
+          "other": 0,
+          "reserve": 0
+        }
+      }
+    ],
+    "audit-budget-after.jsonl": [
+      {
+        "id": "walk-and-no-extras",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 13014,
+          "transport": 0,
+          "other": 0,
+          "reserve": 0
+        }
+      },
+      {
+        "id": "one-bus-ride",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 1446,
+          "transport": 83,
+          "other": 0,
+          "reserve": 0
+        }
+      },
+      {
+        "id": "lunch-included-one-day",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 8676,
+          "transport": 0,
+          "other": 0,
+          "reserve": 0
+        }
+      },
+      {
+        "id": "souvenir-budget",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 13014,
+          "transport": 0,
+          "other": 3750,
+          "reserve": 7500
+        }
+      },
+      {
+        "id": "weekday-and-weekend-food",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 36162,
+          "transport": 0,
+          "other": 0,
+          "reserve": 0
+        }
+      },
+      {
+        "id": "daily-cap-and-theatre",
+        "checks": {
+          "food": false,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 17352,
+          "transport": 1908,
+          "other": 12128,
+          "reserve": 0
+        }
+      },
+      {
+        "id": "one-metro-outing",
+        "checks": {
+          "food": true,
+          "transport": false,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 13014,
+          "transport": 711,
+          "other": 0,
+          "reserve": 0
+        }
+      },
+      {
+        "id": "partial-shuttle",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 13014,
+          "transport": 954,
+          "other": 0,
+          "reserve": 0
+        }
+      }
+    ],
+    "audit-budget-targeted.jsonl": [
+      {
+        "id": "daily-cap-and-theatre",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true,
+          "food_cap": true
+        },
+        "groupExpensesRub": {
+          "food": 17352,
+          "transport": 1908,
+          "other": 12128,
+          "reserve": 0
+        }
+      },
+      {
+        "id": "one-metro-outing",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 13014,
+          "transport": 477,
+          "other": 0,
+          "reserve": 0
+        }
+      }
+    ],
+    "audit-budget-holdout.jsonl": [
+      {
+        "id": "both-meals-one-covered",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 16392,
+          "transport": 0,
+          "other": 0,
+          "reserve": 0
+        }
+      },
+      {
+        "id": "fixed-group-and-person-amounts",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 5784,
+          "transport": 0,
+          "other": 2700,
+          "reserve": 4500
+        }
+      },
+      {
+        "id": "trip-bus",
+        "checks": {
+          "food": true,
+          "transport": true,
+          "other": true,
+          "reserve": true
+        },
+        "groupExpensesRub": {
+          "food": 11568,
+          "transport": 988,
+          "other": 0,
+          "reserve": 0
+        }
+      }
+    ]
+  },
+  "evidence": {
+    "judge-final.json": [
+      {
+        "id": "music-schedule",
+        "expected": "confirmed",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "confirmed",
+        "source": "https://hotel-goldenring.ru/newsandoffer/zhivaja-muzyka-v-restorane-panorama/",
+        "judgeSeconds": 2.298
+      },
+      {
+        "id": "music-future-date",
+        "expected": "unknown",
+        "correct": true,
+        "decisiveExcerpt": false,
+        "status": "unknown",
+        "source": null,
+        "judgeSeconds": 1.738
+      },
+      {
+        "id": "cat-policy",
+        "expected": "confirmed",
+        "correct": true,
+        "decisiveExcerpt": false,
+        "status": "confirmed",
+        "source": "https://hotel-goldenring.ru/newsandoffer/",
+        "judgeSeconds": 1.679
+      },
+      {
+        "id": "large-dog",
+        "expected": "contradicted",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "contradicted",
+        "source": "https://hotel-goldenring.ru/newsandoffer/mozhno-s-zhivotnymi/",
+        "judgeSeconds": 1.646
+      },
+      {
+        "id": "parking-fee",
+        "expected": "contradicted",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "contradicted",
+        "source": "https://hotel-goldenring.ru/newsandoffer/",
+        "judgeSeconds": 2.252
+      },
+      {
+        "id": "spa-closed",
+        "expected": "contradicted",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "contradicted",
+        "source": "https://hotel-goldenring.ru/newsandoffer/osobennosti-prebyvanija/",
+        "judgeSeconds": 2.256
+      },
+      {
+        "id": "breakfast-included",
+        "expected": "contradicted",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "contradicted",
+        "source": "https://www.gdom.ru/Dining-at-the-hotel/",
+        "judgeSeconds": 1.323
+      },
+      {
+        "id": "restaurant-delivery",
+        "expected": "confirmed",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "confirmed",
+        "source": "https://www.gdom.ru/Dining-at-the-hotel/",
+        "judgeSeconds": 1.464
+      },
+      {
+        "id": "hotel-live-music-missing",
+        "expected": "unknown",
+        "correct": true,
+        "decisiveExcerpt": false,
+        "status": "unknown",
+        "source": null,
+        "judgeSeconds": 1.896
+      },
+      {
+        "id": "slavyanka-standard-checkin",
+        "expected": "confirmed",
+        "correct": false,
+        "decisiveExcerpt": false,
+        "status": "unknown",
+        "source": null,
+        "judgeSeconds": null
+      }
+    ],
+    "discovery-complete.json": [
+      {
+        "id": "new-hotel-parking",
+        "expected": "confirmed",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "confirmed",
+        "source": "https://akvarel-moscow.official.msk.ru/",
+        "page": null,
+        "judgeSeconds": 1.864
+      },
+      {
+        "id": "new-hotel-breakfast-time",
+        "expected": "confirmed",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "confirmed",
+        "source": "https://hotelakvarel.ru/about/lobby-bar/",
+        "page": null,
+        "judgeSeconds": 1.556
+      },
+      {
+        "id": "js-checkin-slavyanka",
+        "expected": "confirmed",
+        "correct": false,
+        "decisiveExcerpt": false,
+        "status": "unknown",
+        "source": null,
+        "judgeSeconds": 2.259
+      },
+      {
+        "id": "js-early-checkin-guarantee",
+        "expected": "contradicted",
+        "correct": false,
+        "decisiveExcerpt": false,
+        "status": "unknown",
+        "source": null,
+        "judgeSeconds": 2.47
+      },
+      {
+        "id": "ocr-golden-checkout",
+        "expected": "confirmed",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "confirmed",
+        "source": "https://hotel-goldenring.ru/files/pravil-predostavleniya-gostinichnyh-uslug.pdf",
+        "page": 2,
+        "judgeSeconds": 1.628
+      },
+      {
+        "id": "golden-parking-taxi",
+        "expected": "contradicted",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "contradicted",
+        "source": "https://hotel-goldenring.ru/newsandoffer/uvazhaemye-gosti/",
+        "page": null,
+        "judgeSeconds": 1.778
+      },
+      {
+        "id": "new-hotel-music-date",
+        "expected": "unknown",
+        "correct": true,
+        "decisiveExcerpt": false,
+        "status": "unknown",
+        "source": null,
+        "judgeSeconds": 2.422
+      }
+    ],
+    "audit-discovery-after.json": [
+      {
+        "id": "new-hotel-parking",
+        "expected": "confirmed",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "retrievalSeconds": 12.02,
+        "status": "confirmed",
+        "source": "https://akvarel-moscow.official.msk.ru/",
+        "page": null,
+        "judgeSeconds": 2.318
+      },
+      {
+        "id": "new-hotel-breakfast-time",
+        "expected": "confirmed",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "retrievalSeconds": 14.024,
+        "status": "confirmed",
+        "source": "https://hotelakvarel.ru/about/lobby-bar/",
+        "page": null,
+        "judgeSeconds": 1.89
+      },
+      {
+        "id": "js-checkin-slavyanka",
+        "expected": "confirmed",
+        "correct": true,
+        "decisiveExcerpt": false,
+        "retrievalSeconds": 29.908,
+        "status": "confirmed",
+        "source": "https://slavyanka-slavhotels.ru/upload/files/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%B2%20%D0%B3%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B8%D1%86%D0%B5.pdf",
+        "page": 7,
+        "judgeSeconds": 1.919
+      },
+      {
+        "id": "js-early-checkin-guarantee",
+        "expected": "contradicted",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "retrievalSeconds": 16.378,
+        "status": "contradicted",
+        "source": "https://slavyanka-slavhotels.ru/upload/files/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%B2%20%D0%B3%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B8%D1%86%D0%B5.pdf",
+        "page": 9,
+        "judgeSeconds": 3.158
+      },
+      {
+        "id": "ocr-golden-checkout",
+        "expected": "confirmed",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "retrievalSeconds": 31.662,
+        "status": "confirmed",
+        "source": "https://hotel-goldenring.ru/files/pravil-predostavleniya-gostinichnyh-uslug.pdf",
+        "page": 2,
+        "judgeSeconds": 2.578
+      },
+      {
+        "id": "golden-parking-taxi",
+        "expected": "contradicted",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "retrievalSeconds": 5.354,
+        "status": "contradicted",
+        "source": "https://hotel-goldenring.ru/newsandoffer/uvazhaemye-gosti/",
+        "page": null,
+        "judgeSeconds": 2.67
+      },
+      {
+        "id": "new-hotel-music-date",
+        "expected": "unknown",
+        "correct": true,
+        "decisiveExcerpt": false,
+        "retrievalSeconds": 6.655,
+        "status": "unknown",
+        "source": null,
+        "judgeSeconds": 2.538
+      }
+    ],
+    "audit-judge-holdout.json": [
+      {
+        "id": "different-parking-conditions",
+        "expected": "contradicted",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "contradicted",
+        "source": "https://example.com/parking",
+        "page": null,
+        "judgeSeconds": 2.911
+      },
+      {
+        "id": "different-tariff",
+        "expected": "unknown",
+        "correct": false,
+        "decisiveExcerpt": false,
+        "status": "contradicted",
+        "source": "https://example.com/tariffs",
+        "page": null,
+        "judgeSeconds": 1.514
+      },
+      {
+        "id": "contradictory-opening-hours",
+        "expected": "unknown",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "unknown",
+        "source": null,
+        "judgeSeconds": 2.057
+      },
+      {
+        "id": "music-with-exact-date",
+        "expected": "confirmed",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "confirmed",
+        "source": "https://example.com/events",
+        "page": null,
+        "judgeSeconds": 1.77
+      },
+      {
+        "id": "music-with-unrelated-date",
+        "expected": "unknown",
+        "correct": true,
+        "decisiveExcerpt": false,
+        "status": "unknown",
+        "source": null,
+        "judgeSeconds": 2.518
+      },
+      {
+        "id": "single-condition-not-availability",
+        "expected": "unknown",
+        "correct": true,
+        "decisiveExcerpt": false,
+        "status": "unknown",
+        "source": null,
+        "judgeSeconds": 1.682
+      }
+    ],
+    "audit-judge-final.json": [
+      {
+        "id": "different-parking-conditions",
+        "expected": "contradicted",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "contradicted",
+        "source": "https://example.com/parking",
+        "page": null,
+        "judgeSeconds": 4.572
+      },
+      {
+        "id": "different-tariff",
+        "expected": "unknown",
+        "correct": true,
+        "decisiveExcerpt": false,
+        "status": "unknown",
+        "source": "https://example.com/tariffs",
+        "judgeSeconds": 3.825
+      },
+      {
+        "id": "contradictory-opening-hours",
+        "expected": "unknown",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "unknown",
+        "source": null,
+        "judgeSeconds": 2.03
+      },
+      {
+        "id": "music-with-exact-date",
+        "expected": "confirmed",
+        "correct": true,
+        "decisiveExcerpt": true,
+        "status": "confirmed",
+        "source": "https://example.com/events",
+        "page": null,
+        "judgeSeconds": 1.839
+      },
+      {
+        "id": "music-with-unrelated-date",
+        "expected": "unknown",
+        "correct": true,
+        "decisiveExcerpt": false,
+        "status": "unknown",
+        "source": null,
+        "judgeSeconds": 2.507
+      },
+      {
+        "id": "single-condition-not-availability",
+        "expected": "unknown",
+        "correct": true,
+        "decisiveExcerpt": false,
+        "status": "unknown",
+        "source": null,
+        "judgeSeconds": 1.699
+      }
+    ]
+  },
+  "pipeline": {
+    "audit-pipeline.json": {
+      "hotelsReceived": 4,
+      "attractionsReceived": 5,
+      "elapsedSeconds": {
+        "recommendations": 151.86,
+        "budget": 11.05
+      },
+      "recommendationStageSeconds": null,
+      "extraTotalRub": 18130
+    },
+    "audit-pipeline-final.json": {
+      "hotelsReceived": 4,
+      "attractionsReceived": 5,
+      "elapsedSeconds": {
+        "recommendations": 169.77,
+        "budget": 10.63
+      },
+      "recommendationStageSeconds": {
+        "preferences": 32.544,
+        "providers": 1.209,
+        "hotelChecks": 135.675
+      },
+      "extraTotalRub": 18124
+    }
+  }
+}

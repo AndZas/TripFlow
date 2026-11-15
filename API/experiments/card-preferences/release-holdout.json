@@ -1,0 +1,122 @@
+[
+  {
+    "id": "release-hotel-bike-and-parking",
+    "preferences": "У гостиницы обязательно должна быть парковка. Было бы хорошо, если при гостинице можно взять велосипед напрокат. Из мест хочется парки.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "parking", "strength": "required", "excluded": false},
+        {"kind": "attraction_category", "value": "parks", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [{"label": "велосипед", "strength": "preferred"}],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "release-wifi-tariff-and-meals",
+    "preferences": "Wi-Fi в отеле должен быть обязательно. Для питания берём продукты и готовим сами, в кафе есть не планируем. Хотелось бы увидеть исторические места.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "wifi", "strength": "required", "excluded": false},
+        {"kind": "attraction_category", "value": "historic", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": true, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "release-cancelled-museum-ban",
+    "preferences": "Сначала просили без музеев, но поменяли планы. Теперь обязательно добавьте музеи, а парки можно добавить по желанию. К парковке и ресторану в отеле требований нет.",
+    "expected": {
+      "filters": [
+        {"kind": "attraction_category", "value": "museums", "strength": "required", "excluded": false},
+        {"kind": "attraction_category", "value": "parks", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "release-restaurant-and-child-bed",
+    "preferences": "Нужен отель с рестораном. Обязательное условие для отеля — возможность поставить детскую кроватку в номер. По городу будем ездить автобусом.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "restaurant", "strength": "required", "excluded": false}
+      ],
+      "extra": [{"label": "кроват", "strength": "required"}],
+      "expenses": {"food": false, "transport": true, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "release-not-historic",
+    "preferences": "Исторические места в подборку не включайте. Из достопримечательностей хотелось бы музеи. Для работы Wi-Fi при отеле желателен.",
+    "expected": {
+      "filters": [
+        {"kind": "attraction_category", "value": "historic", "strength": "required", "excluded": true},
+        {"kind": "attraction_category", "value": "museums", "strength": "preferred", "excluded": false},
+        {"kind": "hotel_amenity", "value": "wifi", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "release-cancelled-parking",
+    "preferences": "Раньше нужна была парковка, но машины с нами не будет, так что парковка больше не важна. Ресторан при отеле обязателен, Wi-Fi был бы плюсом.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "restaurant", "strength": "required", "excluded": false},
+        {"kind": "hotel_amenity", "value": "wifi", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "release-parks-no-parking",
+    "preferences": "Хочу гулять только по паркам, из других мест ничего не подбирайте. Подберите отель без собственной парковки. Сувениры обойдутся в 500 рублей на человека.",
+    "expected": {
+      "filters": [
+        {"kind": "attraction_category", "value": "parks", "strength": "required", "excluded": false},
+        {"kind": "hotel_amenity", "value": "parking", "strength": "required", "excluded": true}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": false, "other": true, "reserve": false},
+      "expenseTerms": {"other": ["500", "человек"]}
+    }
+  },
+  {
+    "id": "release-museums-hotel-pet",
+    "preferences": "Музеи хотелось бы добавить в маршрут. Нам обязательно нужен отель, где разрешено проживание с собакой. Ресторан при гостинице желателен.",
+    "expected": {
+      "filters": [
+        {"kind": "attraction_category", "value": "museums", "strength": "preferred", "excluded": false},
+        {"kind": "hotel_amenity", "value": "restaurant", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [{"label": "собак", "strength": "required"}],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "release-allocation-only",
+    "preferences": "В запас отложим 3500 рублей на группу. Обеды будем брать с собой, а на городском транспорте хотим ездить редко. К гостинице и списку мест особых требований нет.",
+    "expected": {
+      "filters": [],
+      "extra": [],
+      "expenses": {"food": true, "transport": true, "other": false, "reserve": true},
+      "expenseTerms": {"reserve": ["3500", "групп"]}
+    }
+  },
+  {
+    "id": "release-park-opening-time",
+    "preferences": "Хочется увидеть исторические места и прогуляться в парках. Музеи пока не обсуждали. Из условий для номера достаточно обязательного Wi-Fi в отеле.",
+    "expected": {
+      "filters": [
+        {"kind": "attraction_category", "value": "historic", "strength": "preferred", "excluded": false},
+        {"kind": "attraction_category", "value": "parks", "strength": "preferred", "excluded": false},
+        {"kind": "hotel_amenity", "value": "wifi", "strength": "required", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  }
+]

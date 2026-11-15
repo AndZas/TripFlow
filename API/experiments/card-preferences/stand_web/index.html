@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Конструктор поездки · TripFlow</title>
+  <link rel="stylesheet" href="/stand.css">
+  <script src="/stand.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap bar">
+      <div class="brand"><span class="mark" aria-hidden="true">↗</span>TripFlow</div>
+      <div class="bar-actions"><span id="connection" class="connection">Подключение</span>
+        <button type="button" class="quiet stop" id="stop" disabled>Остановить стенд</button></div>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="intro">
+      <div><h1>Конструктор поездки</h1><p>Задай параметры, выбери места и посмотри, сколько может стоить поездка.</p></div>
+      <div class="route" aria-hidden="true"><i></i><i></i><i></i></div>
+    </div>
+    <nav class="steps" aria-label="Этапы карточки">
+      <a href="#trip" aria-current="step"><span>1</span> Параметры</a>
+      <a href="#choices"><span>2</span> Варианты</a>
+      <a href="#budget"><span>3</span> Бюджет</a>
+    </nav>
+    <div class="layout">
+      <div class="sections">
+        <section class="panel" id="trip">
+          <div class="heading"><h2>Параметры поездки</h2><button type="button" class="quiet" id="example">Заполнить пример</button></div>
+          <form id="trip-form">
+            <fieldset id="trip-fields">
+              <div class="form-grid">
+                <label class="wide">Направление<select name="destination" required></select></label>
+                <label>Начало поездки<input name="startDate" type="date" required></label>
+                <label>Конец поездки<input name="endDate" type="date" required></label>
+                <label>Путешественники<input name="travelers" type="number" min="1" max="50" value="2" required></label>
+                <label>Бюджет всей группы, ₽<input name="budgetRub" type="number" min="1" max="10000000" value="85000" required></label>
+                <label class="wide">Пожелания<textarea name="preferences" rows="4" maxlength="2000" placeholder="Например, только музеи, один обед в кафе в день и две поездки на метро."></textarea></label>
+              </div>
+            </fieldset>
+            <div class="actions"><button type="submit" id="search" disabled>Подобрать варианты <span aria-hidden="true">→</span></button></div>
+          </form>
+        </section>
+        <section class="panel" id="choices">
+          <div class="heading"><h2>Варианты поездки</h2><span id="choice-count" class="muted"></span></div>
+          <p class="placeholder" id="choice-placeholder">Здесь появятся отели и места после подбора.</p>
+          <div id="choice-content" hidden>
+            <details id="analysis"><summary>Как модель поняла пожелания</summary><div id="interpretation"></div></details>
+            <div class="option-heading"><h3>Проживание</h3><span id="hotel-limit" class="muted"></span></div>
+            <div class="cards" id="hotels"></div>
+            <div class="option-heading"><h3>Места</h3><span class="muted">Добавляй по одному</span></div>
+            <div class="cards" id="places"></div>
+            <div class="actions"><button type="button" id="calculate" disabled>Рассчитать бюджет <span aria-hidden="true">→</span></button></div>
+          </div>
+        </section>
+        <section class="panel" id="budget">
+          <div class="heading"><h2>Бюджет поездки</h2></div>
+          <p class="placeholder" id="budget-placeholder">Выбери отель, затем запусти расчёт бюджета.</p>
+          <div id="budget-content" hidden></div>
+        </section>
+      </div>
+      <aside class="panel overview" aria-label="Сводка поездки">
+        <h2>Твоя поездка</h2>
+        <strong id="overview-city">—</strong>
+        <p class="muted" id="overview-dates">Укажи даты поездки</p>
+        <dl>
+          <div><dt>Путешественники</dt><dd id="overview-travelers">2</dd></div>
+          <div><dt>Целевой бюджет</dt><dd id="overview-target">85 000 ₽</dd></div>
+          <div><dt>Отель</dt><dd id="overview-hotel">—</dd></div>
+          <div><dt>Выбрано мест</dt><dd id="overview-places">0</dd></div>
+        </dl>
+        <div id="activity" class="activity" role="status" aria-live="polite">Подключаемся к стенду…</div>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

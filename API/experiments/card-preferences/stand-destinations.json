@@ -1,0 +1,7 @@
+[
+  {"id":"ru-saint-petersburg","city":"Санкт-Петербург","regionName":"Санкт-Петербург","coordinates":{"latitude":59.9343,"longitude":30.3351}},
+  {"id":"ru-kazan","city":"Казань","regionName":"Республика Татарстан","coordinates":{"latitude":55.7963,"longitude":49.1088}},
+  {"id":"ru-nizhny-novgorod","city":"Нижний Новгород","regionName":"Нижегородская область","coordinates":{"latitude":56.3269,"longitude":44.0059}},
+  {"id":"ru-yekaterinburg","city":"Екатеринбург","regionName":"Свердловская область","coordinates":{"latitude":56.8389,"longitude":60.6057}},
+  {"id":"ru-yaroslavl","city":"Ярославль","regionName":"Ярославская область","coordinates":{"latitude":57.6261,"longitude":39.8845}}
+]

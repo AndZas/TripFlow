@@ -1,0 +1,120 @@
+[
+  {
+    "id": "fresh-driver-and-parks",
+    "preferences": "Ночуем в гостинице, у неё обязательно должна быть парковка. В свободное время хотелось бы погулять в парках.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "parking", "strength": "required", "excluded": false},
+        {"kind": "attraction_category", "value": "parks", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "fresh-hotel-wifi-and-food",
+    "preferences": "Wi-Fi в гостинице нужен обязательно, а ресторан при ней — по возможности. Ужинать собираемся в городе, на ужины выделяем по 900 рублей на человека.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "wifi", "strength": "required", "excluded": false},
+        {"kind": "hotel_amenity", "value": "restaurant", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": true, "transport": false, "other": false, "reserve": false},
+      "expenseTerms": {"food": ["900", "человек"]}
+    }
+  },
+  {
+    "id": "fresh-no-parks",
+    "preferences": "Из достопримечательностей нужны музеи, парки не предлагайте. По городу будем ездить на трамвае.",
+    "expected": {
+      "filters": [
+        {"kind": "attraction_category", "value": "museums", "strength": "required", "excluded": false},
+        {"kind": "attraction_category", "value": "parks", "strength": "required", "excluded": true}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": true, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "fresh-cancelled-wifi",
+    "preferences": "Изначально Wi-Fi в гостинице был обязателен, но теперь он нам совсем не важен. Из условий к отелю оставляем только пожелание о парковке.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "parking", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "fresh-city-restaurant-scope",
+    "preferences": "Хотелось бы посмотреть исторические места. По вечерам будем ужинать в городских ресторанах. Наличие ресторана при гостинице для нас значения не имеет.",
+    "expected": {
+      "filters": [
+        {"kind": "attraction_category", "value": "historic", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": true, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "fresh-only-exhibitions",
+    "preferences": "Из мест для посещения нас интересуют только музеи и выставки. Wi-Fi в отеле был бы плюсом. Из сувениров купим что-нибудь недорогое.",
+    "expected": {
+      "filters": [
+        {"kind": "attraction_category", "value": "museums", "strength": "required", "excluded": false},
+        {"kind": "hotel_amenity", "value": "wifi", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": false, "other": true, "reserve": false}
+    }
+  },
+  {
+    "id": "fresh-hotel-accessibility",
+    "preferences": "В отеле обязательно нужен лифт, который вмещает инвалидную коляску. Парковка желательна. Музеи тоже хотелось бы посмотреть.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "parking", "strength": "preferred", "excluded": false},
+        {"kind": "attraction_category", "value": "museums", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [
+        {"label": "лифт", "strength": "required"}
+      ],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "fresh-no-hotel-restaurant",
+    "preferences": "Подбирайте гостиницу только без собственного ресторана. Wi-Fi в гостинице желателен. Завтракать будем бутербродами из магазина.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "restaurant", "strength": "required", "excluded": true},
+        {"kind": "hotel_amenity", "value": "wifi", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": true, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "fresh-budget-only",
+    "preferences": "Требований к отелю и местам нет. На транспорт отводим 3000 рублей на группу за поездку, на резерв — 7000 рублей на всю группу. Покупки пока не обсуждали.",
+    "expected": {
+      "filters": [],
+      "extra": [],
+      "expenses": {"food": false, "transport": true, "other": false, "reserve": true},
+      "expenseTerms": {"transport": ["3000", "групп"], "reserve": ["7000", "групп"]}
+    }
+  },
+  {
+    "id": "fresh-early-checkin",
+    "preferences": "Хорошо бы заселиться в отель в семь утра. К ресторану, парковке и Wi-Fi требований нет. Передвигаться по городу будем на автобусе.",
+    "expected": {
+      "filters": [],
+      "extra": [
+        {"label": "заселен", "strength": "preferred"}
+      ],
+      "expenses": {"food": false, "transport": true, "other": false, "reserve": false}
+    }
+  }
+]

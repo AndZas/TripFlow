@@ -1,0 +1,127 @@
+[
+  {
+    "id": "both-meals-one-covered",
+    "card": {
+      "startDate": "2027-05-19",
+      "endDate": "2027-05-20",
+      "travelers": 2,
+      "budgetRub": 60000,
+      "hotel": {
+        "id": "16",
+        "name": "Золотое кольцо",
+        "city": "Москва"
+      },
+      "expenseNotes": {
+        "food": "Каждый день только один обед в кафе и один ужин в ресторане.",
+        "transport": "Только пешком, платного транспорта не будет.",
+        "other": "Ничего не покупаем и на развлечения не тратимся.",
+        "reserve": "Резерв не нужен."
+      },
+      "benefits": [
+        {
+          "kind": "dinner",
+          "status": "confirmed",
+          "coveredDays": 1,
+          "dayIndices": [
+            1
+          ],
+          "source": "fixture: включённый ужин"
+        }
+      ]
+    },
+    "expectedGroupRanges": {
+      "food": [
+        15300,
+        17600
+      ],
+      "transport": [
+        0,
+        0
+      ],
+      "other": [
+        0,
+        0
+      ],
+      "reserve": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "id": "fixed-group-and-person-amounts",
+    "card": {
+      "startDate": "2027-05-19",
+      "endDate": "2027-05-20",
+      "travelers": 2,
+      "budgetRub": 60000,
+      "hotel": {
+        "id": "16",
+        "name": "Золотое кольцо",
+        "city": "Москва"
+      },
+      "expenseNotes": {
+        "food": "Два дня едим только один обед в кафе.",
+        "transport": "Только пешком, платного транспорта не будет.",
+        "other": "На подарки заложим 1 350 ₽ на человека за поездку.",
+        "reserve": "Резерв ровно 4 500 ₽ на всю группу за поездку."
+      }
+    },
+    "expectedGroupRanges": {
+      "food": [
+        5400,
+        6100
+      ],
+      "transport": [
+        0,
+        0
+      ],
+      "other": [
+        2700,
+        2700
+      ],
+      "reserve": [
+        4500,
+        4500
+      ]
+    }
+  },
+  {
+    "id": "trip-bus",
+    "card": {
+      "startDate": "2027-05-19",
+      "endDate": "2027-05-20",
+      "travelers": 4,
+      "budgetRub": 60000,
+      "hotel": {
+        "id": "16",
+        "name": "Золотое кольцо",
+        "city": "Москва"
+      },
+      "expenseNotes": {
+        "food": "Два дня едим только один обед в кафе.",
+        "transport": "Три поездки на автобусе на человека всего за всю поездку.",
+        "other": "Ничего не покупаем и на развлечения не тратимся.",
+        "reserve": "Резерв не нужен."
+      }
+    },
+    "expectedGroupRanges": {
+      "food": [
+        10800,
+        12100
+      ],
+      "transport": [
+        890,
+        1100
+      ],
+      "other": [
+        0,
+        0
+      ],
+      "reserve": [
+        0,
+        0
+      ]
+    }
+  }
+]

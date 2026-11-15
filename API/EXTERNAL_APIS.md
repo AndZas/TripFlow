@@ -48,3 +48,4 @@ API нейросети выбирается отдельно. Модель бу�
 - [Проверка геокодирования, OpenTripMap и валют](experiments/free-api-gap-test/reports/assessment.md).
 - [Проверка DATAtourisme и Wikimedia](experiments/free-api-enrichment-test/reports/assessment.md).
 - [Наблюдения Russhotels](research/data-coverage-russia-2026-10-28/russhotels-evidence.json) и [ставки Росстата](research/data-coverage-russia-2026-10-28/rosstat-budget-reference-2026-09.json).
+- [Сквозная проверка Russhotels, Geoapify и справочных ставок в стенде карточки](experiments/card-preferences/REPORT.md).

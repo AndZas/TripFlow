@@ -1,0 +1,94 @@
+[
+  {
+    "id": "hotel-live-music",
+    "preferences": "Нужен отель со своим рестораном. Если в этом ресторане по вечерам бывает живая музыка, это было бы здорово. По еде предпочитаем вегетарианские блюда.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "restaurant", "strength": "required", "excluded": false}
+      ],
+      "extra": [
+        {"label": "музык", "strength": "preferred"}
+      ],
+      "expenses": {"food": true, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "mandatory-late-pool",
+    "preferences": "У отеля обязательно должен быть бассейн, в который можно попасть после девяти вечера. Парковка при отеле желательна.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "parking", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [
+        {"label": "бассейн", "strength": "required"}
+      ],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "latest-wishes-win",
+    "preferences": "Сперва думали, что обязательно нужна парковка при отеле, но передумали: парковка больше не важна. Wi-Fi в отеле нужен обязательно. Музеи в этот раз исключите. Парки просто пожелание.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "wifi", "strength": "required", "excluded": false},
+        {"kind": "attraction_category", "value": "museums", "strength": "required", "excluded": true},
+        {"kind": "attraction_category", "value": "parks", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "meals-only",
+    "preferences": "Из пожеланий только питание: один раз в день едим в недорогой столовой, всё остальное берём с собой. К отелю и достопримечательностям особых требований нет.",
+    "expected": {
+      "filters": [],
+      "extra": [],
+      "expenses": {"food": true, "transport": false, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "all-expense-contexts",
+    "preferences": "Обеды хотим брать в столовых, вечером иногда зайдём в кафе. По городу будем ездить на автобусе и метро, такси только если поздно. На сувениры планируем по 1 500 рублей с человека. Ещё отложите 10 000 рублей резерва на всю группу.",
+    "expected": {
+      "filters": [],
+      "extra": [],
+      "expenses": {"food": true, "transport": true, "other": true, "reserve": true},
+      "expenseTerms": {"other": ["1500", "человек"], "reserve": ["10000", "групп"]}
+    }
+  },
+  {
+    "id": "attractions-and-metro",
+    "preferences": "Обязательно включите исторические места, но категорически без музеев. По городу планируем ходить пешком и иногда пользоваться метро.",
+    "expected": {
+      "filters": [
+        {"kind": "attraction_category", "value": "historic", "strength": "required", "excluded": false},
+        {"kind": "attraction_category", "value": "museums", "strength": "required", "excluded": true}
+      ],
+      "extra": [],
+      "expenses": {"food": false, "transport": true, "other": false, "reserve": false}
+    }
+  },
+  {
+    "id": "wifi-plus-late-checkin",
+    "preferences": "Приезжаем после полуночи, поэтому нужна гарантированная возможность заселиться в отель в час ночи. Wi-Fi желательно иметь. Дополнительно хотим заложить деньги на подарки и покупки.",
+    "expected": {
+      "filters": [
+        {"kind": "hotel_amenity", "value": "wifi", "strength": "preferred", "excluded": false}
+      ],
+      "extra": [
+        {"labels": ["заселен", "заезд"], "strength": "required"}
+      ],
+      "expenses": {"food": false, "transport": false, "other": true, "reserve": false}
+    }
+  },
+  {
+    "id": "empty",
+    "preferences": "",
+    "expected": {
+      "filters": [],
+      "extra": [],
+      "expenses": {"food": false, "transport": false, "other": false, "reserve": false}
+    }
+  }
+]
