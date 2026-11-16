@@ -1,0 +1,4 @@
+ddgs==9.16.1
+playwright==1.65.2
+pypdfium2==5.15.2
+pillow==13.0.0

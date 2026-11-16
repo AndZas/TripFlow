@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TripFlow · Веб-подбор поездки</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="top"><div class="shell brand"><span class="brand-mark" aria-hidden="true">↗</span>TripFlow</div></header>
+  <main class="shell">
+    <h1>Куда поедем?</h1>
+    <form id="trip" class="panel trip-form">
+      <div class="form-grid">
+        <label class="destination">Направление<input name="destination" required maxlength="150" list="destinations" placeholder="Город или регион" autocomplete="off"></label>
+        <datalist id="destinations"><option value="Санкт-Петербург"><option value="Москва"><option value="Казань"><option value="Стамбул, Турция"><option value="Киото, Япония"></datalist>
+        <label>Начало поездки<input name="startDate" type="date" required></label>
+        <label>Конец поездки<input name="endDate" type="date" required></label>
+        <label>Путешественники<input name="travelers" type="number" min="1" max="50" value="2" required></label>
+        <label>Бюджет группы, ₽<input name="budgetRub" type="number" min="1" max="100000000" placeholder="45 000" required></label>
+      </div>
+      <label class="wishes">Пожелания<textarea name="preferences" rows="3" maxlength="2000" placeholder="Например, отель рядом с метро и художественные музеи"></textarea></label>
+      <div class="actions"><button id="search" class="primary">Найти варианты</button><button type="button" id="example" class="quiet">Заполнить пример</button></div>
+    </form>
+    <p class="status" id="search-status" role="status" aria-live="polite"></p>
+    <section id="results" hidden aria-labelledby="trip-title">
+      <h2 id="trip-title"></h2>
+      <p id="trip-summary" class="muted"></p>
+      <div class="group"><h3>Отели</h3><div class="cards" id="hotels"></div></div>
+      <div class="group"><h3>Достопримечательности</h3><div class="cards" id="places"></div></div>
+      <div class="action-bar"><span id="selected" class="muted"></span><button id="calculate" class="primary" disabled>Посчитать бюджет</button></div>
+    </section>
+    <p class="status" id="budget-status" role="status" aria-live="polite"></p>
+    <section id="budget" class="panel budget" hidden aria-labelledby="budget-title"></section>
+  </main>
+</body>
+</html>
