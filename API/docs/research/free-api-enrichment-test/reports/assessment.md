@@ -1,6 +1,6 @@
 # Оценка обогащения TripFlow бесплатными API
 
-Проверка 27.10.2026. Основной живой DATAtourisme run: [`20261027T190140094835Z`](evidence/datatourisme-2026-10-27/live-results.md), 14 последовательных запросов, все HTTP 200, без ключей в артефактах. Wikimedia run: [`20261027T130913544966Z`](evidence/wikimedia-2026-10-27/live-results.md), 5 GET, все HTTP 200. Очищенные `results.json` и примеры опубликованы в [evidence](evidence/README.md); промежуточные запуски остаются локальными. DATAtourisme доступен только с полученным владельцем ключом. Amadeus Self-Service [закрыт](https://developers.amadeus.com/toolbox) с 17.07.2026; обновлённый CLI возвращает `skipped_provider_unavailable` без HTTP.
+Проверка 27.10.2026. Основной живой DATAtourisme run: [`20261027T190140094835Z`](../../../../experiments/free-api-enrichment-test/reports/evidence/datatourisme-2026-10-27/live-results.md), 14 последовательных запросов, все HTTP 200, без ключей в артефактах. Wikimedia run: [`20261027T130913544966Z`](../../../../experiments/free-api-enrichment-test/reports/evidence/wikimedia-2026-10-27/live-results.md), 5 GET, все HTTP 200. Очищенные `results.json` и примеры опубликованы в [evidence](../../../../experiments/free-api-enrichment-test/reports/evidence/README.md); промежуточные запуски остаются локальными. DATAtourisme доступен только с полученным владельцем ключом. Amadeus Self-Service [закрыт](https://developers.amadeus.com/toolbox) с 17.07.2026; обновлённый CLI возвращает `skipped_provider_unavailable` без HTTP.
 
 ## Одинаковая городская выборка DATAtourisme
 

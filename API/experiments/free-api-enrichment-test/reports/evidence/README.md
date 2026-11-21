@@ -7,4 +7,4 @@
 | DATAtourisme | `20261027T190140094835Z` | 14, все HTTP 200 | [live-results.md](datatourisme-2026-10-27/live-results.md) | [results.json](datatourisme-2026-10-27/results.json) |
 | Wikidata + Commons | `20261027T130913544966Z` | 5, все HTTP 200 | [live-results.md](wikimedia-2026-10-27/live-results.md) | [results.json](wikimedia-2026-10-27/results.json) |
 
-Интерпретация и ограничения выборки — в [assessment.md](../assessment.md). Структурированные результаты не следует воспринимать как актуальные тарифы или разрешение использовать каждое изображение без проверки условий лицензии.
+Интерпретация и ограничения выборки — в [assessment.md](../../../../docs/research/free-api-enrichment-test/reports/assessment.md). Структурированные результаты не следует воспринимать как актуальные тарифы или разрешение использовать каждое изображение без проверки условий лицензии.
