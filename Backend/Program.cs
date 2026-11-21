@@ -6,6 +6,7 @@ using TripFlow.Backend;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddProblemDetails();
+builder.Services.Configure<RouteHandlerOptions>(options => options.ThrowOnBadRequest = false);
 builder.Services.AddDataProtection().UseEphemeralDataProtectionProvider();
 builder.Services.AddSingleton(TimeProvider.System);
 builder.Services.AddSingleton<SessionStore>();
@@ -18,6 +19,9 @@ builder.Services.AddAuthentication(BearerSessionHandler.SchemeName)
     .AddScheme<AuthenticationSchemeOptions, BearerSessionHandler>(
         BearerSessionHandler.SchemeName, _ => { });
 builder.Services.AddAuthorization();
+builder.Services.AddSingleton(builder.Configuration.GetSection("PythonApi").Get<PythonApiSettings>() ?? new());
+builder.Services.AddHttpClient<PythonApiClient>(client => client.Timeout = TimeSpan.FromSeconds(15))
+    .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler { AllowAutoRedirect = false });
 
 if (builder.Environment.IsDevelopment())
 {
@@ -65,4 +69,5 @@ api.MapGet("/destinations", (DestinationCatalog catalog) => Results.Ok(catalog.D
     .Produces<Destination[]>();
 api.MapAccountEndpoints();
 api.MapDashboardEndpoints();
+app.MapPythonEvents();
 app.Run();

@@ -2,7 +2,7 @@ using System.Security.Claims;
 
 namespace TripFlow.Backend;
 
-internal static class DashboardEndpoints
+internal static partial class DashboardEndpoints
 {
     public static void MapDashboardEndpoints(this RouteGroupBuilder api)
     {
@@ -17,6 +17,9 @@ internal static class DashboardEndpoints
         var dashboard = dashboards.MapGroup("/{dashboardId:guid}");
         dashboard.MapGet("", GetDashboard).WithTags("Дашборды").WithSummary("Открыть дашборд и посмотреть карточки")
             .Produces<DashboardView>();
+        dashboard.MapDelete("", DeleteDashboard).WithTags("Дашборды").WithSummary("Удалить дашборд со всеми карточками")
+            .Produces(StatusCodes.Status204NoContent)
+            .ProducesProblem(StatusCodes.Status403Forbidden).ProducesProblem(StatusCodes.Status404NotFound);
         dashboard.MapPost("/invite", CreateInvite).WithTags("Дашборды").WithSummary("Получить новый токен приглашения")
             .Produces<InviteView>();
         dashboard.MapPost("/cards", CreateCard).WithTags("Карточки и голоса").WithSummary("Создать черновик карточки")
@@ -26,10 +29,14 @@ internal static class DashboardEndpoints
         card.MapGet("", GetCard).WithSummary("Посмотреть карточку").Produces<TripCardView>();
         card.MapPut("", UpdateCard).WithSummary("Изменить параметры карточки")
             .Produces<TripCardView>().ProducesValidationProblem();
+        card.MapDelete("", DeleteCard).WithSummary("Удалить свою карточку")
+            .Produces(StatusCodes.Status204NoContent)
+            .ProducesProblem(StatusCodes.Status403Forbidden).ProducesProblem(StatusCodes.Status404NotFound);
         card.MapPost("/publish", PublishCard).WithSummary("Опубликовать карточку").Produces<TripCardView>();
         card.MapPut("/vote", PutVote).WithSummary("Проголосовать или подтвердить голос")
             .Produces<TripCardView>().ProducesProblem(StatusCodes.Status409Conflict);
         card.MapDelete("/vote", RemoveVote).WithSummary("Снять свой голос").Produces(StatusCodes.Status204NoContent);
+        MapPlanningEndpoints(card);
     }
 
     private static IResult ListDashboards(ClaimsPrincipal user, FileStore store) =>
@@ -71,6 +78,22 @@ internal static class DashboardEndpoints
             return dashboard is null ? Results.NotFound() : Results.Ok(new DashboardView(
                 dashboard.Id, dashboard.Name, dashboard.Description, dashboard.OwnerId, dashboard.MemberIds.Count,
                 dashboard.Cards.Where(card => CanSee(card, accountId)).Select(card => CardView(card, accountId)).ToArray()));
+        });
+    }
+
+    private static IResult DeleteDashboard(Guid dashboardId, ClaimsPrincipal user, FileStore store)
+    {
+        var accountId = user.AccountId();
+        return store.Change(data =>
+        {
+            var dashboard = FindDashboard(data, dashboardId, accountId);
+            if (dashboard is null)
+                return Results.NotFound();
+            if (dashboard.OwnerId != accountId)
+                return Results.Forbid();
+
+            data.Dashboards.Remove(dashboard);
+            return Results.NoContent();
         });
     }
 
@@ -123,19 +146,29 @@ internal static class DashboardEndpoints
         });
     }
 
-    private static IResult GetCard(Guid dashboardId, Guid cardId, ClaimsPrincipal user, FileStore store)
+    private static IResult GetCard(Guid dashboardId, Guid cardId, ClaimsPrincipal user, FileStore store, TimeProvider clock)
     {
         var accountId = user.AccountId();
-        return store.Read(data =>
+        var now = clock.GetUtcNow();
+        var card = store.Read(data => FindCard(data, dashboardId, cardId, accountId));
+        if (card is null)
+            return Results.NotFound();
+        if (!PythonTaskState.HasExpired(card, now))
+            return Results.Ok(CardView(card, accountId, includePlanning: true));
+
+        return store.Change(data =>
         {
-            var card = FindCard(data, dashboardId, cardId, accountId);
-            return card is null ? Results.NotFound() : Results.Ok(CardView(card, accountId));
+            var current = FindCard(data, dashboardId, cardId, accountId);
+            if (current is null)
+                return Results.NotFound();
+            PythonTaskState.Expire(current, now);
+            return Results.Ok(CardView(current, accountId, includePlanning: true));
         });
     }
 
     private static IResult UpdateCard(Guid dashboardId, Guid cardId, TripRequest request, ClaimsPrincipal user,
         FileStore store, DestinationCatalog catalog) =>
-        ChangeOwnCard(dashboardId, cardId, user, store, card =>
+        ChangeOwnCard(dashboardId, cardId, user, store, (_, card) =>
         {
             var errors = ValidateTrip(request, catalog);
             if (errors.Count > 0)
@@ -144,14 +177,22 @@ internal static class DashboardEndpoints
             var trip = ToTripDetails(request);
             if (card.Trip != trip)
             {
+                CardInputsChanged(card);
+                card.Planning.OnTripChanged(card.Trip, trip);
                 card.Trip = trip;
-                card.Version++;
             }
-            return Results.Ok(CardView(card, user.AccountId()));
+            return Results.Ok(CardView(card, user.AccountId(), includePlanning: true));
+        });
+
+    private static IResult DeleteCard(Guid dashboardId, Guid cardId, ClaimsPrincipal user, FileStore store) =>
+        ChangeOwnCard(dashboardId, cardId, user, store, (dashboard, card) =>
+        {
+            dashboard.Cards.Remove(card);
+            return Results.NoContent();
         });
 
     private static IResult PublishCard(Guid dashboardId, Guid cardId, ClaimsPrincipal user, FileStore store) =>
-        ChangeOwnCard(dashboardId, cardId, user, store, card =>
+        ChangeOwnCard(dashboardId, cardId, user, store, (_, card) =>
         {
             card.IsPublished = true;
             return Results.Ok(CardView(card, user.AccountId()));
@@ -189,15 +230,19 @@ internal static class DashboardEndpoints
     }
 
     private static IResult ChangeOwnCard(Guid dashboardId, Guid cardId, ClaimsPrincipal user, FileStore store,
-        Func<TripCard, IResult> change)
+        Func<Dashboard, TripCard, IResult> change)
     {
         var accountId = user.AccountId();
         return store.Change(data =>
         {
-            var card = FindCard(data, dashboardId, cardId, accountId);
+            var dashboard = FindDashboard(data, dashboardId, accountId);
+            if (dashboard is null)
+                return Results.NotFound();
+
+            var card = FindCard(dashboard, cardId, accountId);
             if (card is null)
                 return Results.NotFound();
-            return card.AuthorId == accountId ? change(card) : Results.Forbid();
+            return card.AuthorId == accountId ? change(dashboard, card) : Results.Forbid();
         });
     }
 
@@ -205,18 +250,25 @@ internal static class DashboardEndpoints
         data.Dashboards.Find(dashboard => dashboard.Id == id && dashboard.MemberIds.Contains(accountId));
 
     private static TripCard? FindCard(StoreData data, Guid dashboardId, Guid cardId, Guid accountId) =>
-        FindDashboard(data, dashboardId, accountId)?.Cards.Find(card => card.Id == cardId && CanSee(card, accountId));
+        FindCard(FindDashboard(data, dashboardId, accountId), cardId, accountId);
+
+    private static TripCard? FindCard(Dashboard? dashboard, Guid cardId, Guid accountId) =>
+        dashboard?.Cards.Find(card => card.Id == cardId && CanSee(card, accountId));
 
     private static bool CanSee(TripCard card, Guid accountId) => card.IsPublished || card.AuthorId == accountId;
 
     private static DashboardSummaryView DashboardSummary(Dashboard dashboard) =>
         new(dashboard.Id, dashboard.Name, dashboard.Description, dashboard.OwnerId, dashboard.MemberIds.Count);
 
-    private static TripCardView CardView(TripCard card, Guid accountId)
+    private static TripCardView CardView(TripCard card, Guid accountId, bool includePlanning = false)
     {
         var hasVote = card.Votes.TryGetValue(accountId, out var votedVersion);
+        var plan = card.Planning;
         return new TripCardView(card.Id, card.AuthorId, card.Trip, card.IsPublished, card.Version,
-            card.Votes.Count, hasVote ? votedVersion : null, hasVote && votedVersion != card.Version);
+            card.Votes.Count, hasVote ? votedVersion : null, hasVote && votedVersion != card.Version,
+            includePlanning ? new(RecommendationListView.From(plan.Hotels), RecommendationListView.From(plan.Attractions)) : null,
+            includePlanning ? new(plan.HotelId, plan.AttractionIds) : null,
+            includePlanning ? BudgetView.From(plan.Budget) : null);
     }
 
     private static Dictionary<string, string[]> ValidateTrip(TripRequest request, DestinationCatalog catalog)
@@ -253,6 +305,12 @@ internal static class DashboardEndpoints
     internal sealed record DashboardView(Guid Id, string Name, string? Description, Guid OwnerId, int MemberCount,
         TripCardView[] Cards);
     internal sealed record TripCardView(Guid Id, Guid AuthorId, TripDetails Trip, bool IsPublished, long Version,
-        int VoteCount, long? MyVoteVersion, bool MyVoteNeedsReview);
+        int VoteCount, long? MyVoteVersion, bool MyVoteNeedsReview,
+        [property: System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull)]
+        RecommendationsView? Recommendations,
+        [property: System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull)]
+        SelectionView? Selection,
+        [property: System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull)]
+        BudgetView? Budget);
     internal sealed record InviteView(string Token);
 }

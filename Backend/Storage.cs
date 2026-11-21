@@ -92,6 +92,8 @@ internal sealed class TripCard
     public bool IsPublished { get; set; }
     public long Version { get; set; } = 1;
     public Dictionary<Guid, long> Votes { get; init; } = [];
+    public TripPlanning Planning { get; init; } = new();
+    public List<PythonTask> PythonTasks { get; init; } = [];
 }
 
 internal sealed record TripDetails(string DestinationId, DateOnly StartDate, DateOnly EndDate,
