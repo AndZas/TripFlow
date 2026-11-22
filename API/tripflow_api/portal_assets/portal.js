@@ -1,3 +1,5 @@
+import { setupCardBuilder } from "./card-builder.js";
+
 const $ = (id) => document.getElementById(id);
 const app = $("app");
 const access = $("access");
@@ -8,6 +10,7 @@ const roles = {owner: "Владелец", admin: "Администратор", d
 let account = null;
 let registration = false;
 let noticeTimer;
+const builder = setupCardBuilder(portalRequest);
 
 function showNotice(message, error = false) {
   const notice = $("notice");
@@ -18,23 +21,29 @@ function showNotice(message, error = false) {
   noticeTimer = setTimeout(() => { notice.hidden = true; }, 6500);
 }
 
-async function call(path, body) {
-  const options = { cache: "no-store" };
+async function portalRequest(path, body, signal) {
+  const options = { cache: "no-store", signal };
   if (body !== undefined) {
     options.method = "POST";
     options.headers = { "Content-Type": "application/json", "X-Portal-Request": "1" };
     options.body = JSON.stringify(body);
   }
   const response = await fetch("/portal/data" + path, options);
-  const payload = await response.json();
+  const payload = await response.json().catch(() => ({}));
   if (!response.ok) {
     if (response.status === 401 && account) {
       showAccess(true);
     }
     const message = typeof payload.detail === "string" ? payload.detail : "Проверьте поля формы и повторите действие.";
-    throw new Error(message);
+    const error = new Error(message);
+    error.payload = payload;
+    throw error;
   }
-  return payload;
+  return { payload, response };
+}
+
+async function call(path, body) {
+  return (await portalRequest(path, body)).payload;
 }
 
 async function busy(button, action) {
@@ -65,6 +74,7 @@ function setAccessMode(register) {
 
 function showAccess(enabled) {
   account = null;
+  builder.reset();
   if (dialog.open) dialog.close();
   $("task-rows").replaceChildren();
   $("accounts").replaceChildren();
@@ -189,7 +199,6 @@ async function loadAccounts() {
   $("accounts").replaceChildren();
   $("requests").replaceChildren();
   const labels = {pending: "Ожидает", rejected: "Отклонено", approved: "Доступ открыт", disabled: "Отключено"};
-  const mail = {pending: "Отправка ожидается", failed: "Ошибка отправки", sent: "Принято почтовым сервисом", unconfigured: "Почта не настроена"};
   for (const person of accounts) {
     const node = $("account-template").content.cloneNode(true);
     const role = roles[person.role];
@@ -199,7 +208,6 @@ async function loadAccounts() {
     status.textContent = person.status === "pending" && person.ownerReview ? "Повторная заявка · владельцу" : labels[person.status];
     status.classList.toggle("good", person.active);
     node.querySelector("[data-keys]").textContent = person.keys.api.hint ? "Ключ · •••• " + person.keys.api.hint : "";
-    node.querySelector("[data-mail]").textContent = person.notification ? "Уведомление · " + mail[person.notification] : "";
     const actions = node.querySelector("[data-actions]");
     const path = "/admin/accounts/" + encodeURIComponent(person.id);
     function addAction(label, action) {
@@ -209,8 +217,7 @@ async function loadAccounts() {
       button.textContent = label;
       button.addEventListener("click", () => busy(button, async () => {
         if (action === "disable" && !confirm("Завершить сессии и отозвать ключ? Для восстановления доступа понадобится новая заявка.")) return;
-        if (action === "notify") await call(path + "/notify", {});
-        else await call(path, {action});
+        await call(path, {action});
         await loadAccounts();
       }));
       actions.append(button);
@@ -224,7 +231,6 @@ async function loadAccounts() {
         if (person.role === "developer") addAction("Назначить администратором", "promote");
         else addAction("Снять роль администратора", "demote");
       }
-      if (["pending", "failed", "unconfigured"].includes(person.notification)) addAction("Отправить письмо", "notify");
     }
     const activity = node.querySelector("details");
     activity.addEventListener("toggle", async () => {
@@ -272,6 +278,7 @@ for (const button of document.querySelectorAll("[data-view]")) {
   button.addEventListener("click", () => {
     const view = button.dataset.view;
     selectView(view);
+    if (view === "builder") busy(button, builder.open);
     if (view === "activity") busy(button, loadActivity);
     if (view === "admin") busy(button, loadAccounts);
   });

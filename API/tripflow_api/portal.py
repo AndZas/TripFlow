@@ -1,6 +1,5 @@
 import os
 import re
-import httpx
 import time
 from pathlib import Path
 from typing import Annotated, Literal
@@ -125,7 +124,6 @@ def describe_account(account: Account) -> dict:
         "active": bool(account["active"]),
         "status": account["access_status"],
         "ownerReview": bool(account["owner_review"]),
-        "notification": account["mail_status"],
         "createdAt": account["created_at"],
         "keys": {
             "api": {"hint": account["api_hint"], "issuedAt": account["api_issued"]},
@@ -245,53 +243,15 @@ async def update_account(account_id: str, body: AccountUpdate, actor: Admin, sto
     owner = actor["role"] == "owner"
     if target["role"] == "owner" or (not owner and (target["owner_review"] or action not in ("approve", "reject"))):
         raise HTTPException(403, "Это действие доступно только владельцу.")
-    configured = bool(os.environ.get("RESEND_API_KEY") and os.environ.get("TRIPFLOW_EMAIL_FROM"))
     if action == "disable":
         changed = store.disable(account_id)
     elif action in ("promote", "demote"):
         changed = store.change_role(account_id, action)
     else:
-        changed = store.decide(account_id, action, actor["role"], configured)
+        changed = store.decide(account_id, action, actor["role"])
     if not changed:
         raise HTTPException(409, "Статус или роль аккаунта уже изменились. Обновите список.")
-    if configured and action == "approve":
-        await notify_approval(account_id, store)
     return {"ok": True}
-
-
-async def notify_approval(account_id: str, store: PortalStore):
-    row = store.one("SELECT email, mail_id, mail_status FROM portal_accounts WHERE id = ? AND access_status = 'approved'", (account_id,))
-    if not row or row["mail_status"] not in ("pending", "failed", "unconfigured"):
-        raise HTTPException(409, "Нет письма для отправки.")
-    key = os.environ.get("RESEND_API_KEY")
-    sender = os.environ.get("TRIPFLOW_EMAIL_FROM")
-    if not key or not sender:
-        raise HTTPException(503, "Для отправки настройте RESEND_API_KEY и TRIPFLOW_EMAIL_FROM.")
-    portal_url = os.environ.get("RENDER_EXTERNAL_URL")
-    message = "Ваша заявка подтверждена. Войдите в кабинет TripFlow API с указанными при регистрации email и паролем."
-    if portal_url:
-        message += "\n\n" + portal_url.rstrip("/") + "/portal"
-    try:
-        async with httpx.AsyncClient(timeout=8) as client:
-            reply = await client.post(
-                "https://api.resend.com/emails",
-                headers={"Authorization": f"Bearer {key}", "Idempotency-Key": row["mail_id"]},
-                json={"from": sender, "to": [row["email"]], "subject": "Доступ к TripFlow API одобрен",
-                      "text": message},
-            )
-            reply.raise_for_status()
-        status = "sent"
-    except httpx.HTTPError:
-        status = "failed"
-    store.db.execute("UPDATE portal_accounts SET mail_status = ? WHERE id = ? AND mail_id = ? AND mail_status <> 'sent'",
-                     (status, account_id, row["mail_id"]))
-    return {"notification": status}
-
-
-@data.post("/admin/accounts/{account_id}/notify")
-async def retry_notification(account_id: str, actor: Admin, store: Store) -> dict:
-    managed_account(account_id, actor, store)
-    return await notify_approval(account_id, store)
 
 
 @data.get("/admin/accounts/{account_id}/activity")

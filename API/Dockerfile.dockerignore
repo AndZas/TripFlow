@@ -7,6 +7,7 @@
 !API/tripflow_api/portal_assets/index.html
 !API/tripflow_api/portal_assets/portal.css
 !API/tripflow_api/portal_assets/portal.js
+!API/tripflow_api/portal_assets/card-builder.js
 !shared/
 !shared/data/
 !shared/data/destinations.json

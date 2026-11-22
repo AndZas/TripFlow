@@ -8,6 +8,10 @@
 путешествия, а также предлагать альтернативные варианты направлений с
 учётом голосования участников, бюджета и других предпочтений.
 
-## Исследование Python API
+## Python API
 
-Исследовательские материалы по внешним источникам данных находятся в [`API/experiments/`](API/README.md). В частности, [Free API Gap Test](API/experiments/free-api-gap-test/README.md) проверяет новые источники и дополняет более ранний [обзор данных](API/experiments/data-source-survey/API_DATA_SUMMARY.md). Это результаты небольших экспериментов, а не утверждённый production-контракт.
+FastAPI принимает задачи подбора и расчёта сметы, использует тестовый каталог Москвы и возвращает результат через опрос по ID. Для тестирования на Render сначала запросите доступ в кабинете и выпустите API-ключ. Публичный Swagger показывает схему опубликованного релиза. [Кабинет](https://tripflow-api-x1p5.onrender.com/portal) · [Swagger](https://tripflow-api-x1p5.onrender.com/docs) · [Пошаговый гайд](API/docs/PORTAL.md)
+
+Актуальные формы запросов, примеры и правила polling описаны в документации Python. Клиент C# пока ожидает callback. [Запуск Python API](API/README.md) · [Контракт](API/docs/CONTRACT.md) · [Состояние C#](Backend/README.md#связь-с-python)
+
+Исследования внешних источников и модели собраны отдельно. [Индекс исследований](API/docs/RESEARCH.md) · [Обзор источников](API/docs/EXTERNAL_APIS.md)

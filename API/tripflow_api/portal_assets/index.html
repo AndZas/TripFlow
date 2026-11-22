@@ -48,6 +48,7 @@
       <div class="brand"><span class="brand-mark">TF</span><span>TripFlow <small>API</small></span></div>
       <nav aria-label="Разделы кабинета">
         <button class="nav-item" type="button" data-view="keys" aria-current="page">Ключ доступа</button>
+        <button class="nav-item" type="button" data-view="builder">Конструктор карточки</button>
         <button class="nav-item" type="button" data-view="activity">Журнал задач</button>
         <button class="nav-item" id="admin-nav" type="button" data-view="admin" hidden>Заявки и пользователи</button>
       </nav>
@@ -77,6 +78,52 @@
             </article>
           </div>
         </section>
+        <section data-section="builder" hidden>
+          <div class="page-heading">
+            <h1>Конструктор карточки</h1>
+            <p>Проверьте подбор и смету на тестовых данных. Запрос и ответ каждой задачи доступны в JSON.</p>
+          </div>
+          <div class="builder-layout">
+            <form id="builder-form" class="panel builder-form">
+              <fieldset id="builder-inputs">
+                <div class="card-heading">
+                  <h2>Параметры поездки</h2>
+                  <button class="text-button" id="builder-example" type="button">Заполнить пример</button>
+                </div>
+                <div class="builder-fields" data-trip>
+                  <label class="builder-wide">Город<select name="destinationId" required></select></label>
+                  <label>Начало поездки<input type="date" name="startDate" required></label>
+                  <label>Конец поездки<input type="date" name="endDate" required></label>
+                  <label>Путешественники<input type="number" name="travelers" min="1" step="1" required></label>
+                  <label>Бюджет группы, ₽<input type="number" name="budgetRub" min="1" step="1" required></label>
+                  <label class="builder-wide">Пожелания<textarea name="preferences" rows="3"></textarea></label>
+                </div>
+                <details class="builder-options">
+                  <summary>Настройки подбора</summary>
+                  <div class="builder-settings" id="builder-settings"></div>
+                </details>
+                <button class="button primary wide" type="submit">Подобрать отели и места</button>
+              </fieldset>
+            </form>
+            <div class="builder-results">
+              <p class="panel empty" id="builder-empty">Заполните параметры поездки и запустите подбор.</p>
+              <div id="builder-recommendations" class="builder-results" hidden></div>
+              <article id="builder-budget" class="panel builder-result" hidden>
+                <div class="card-heading"><h2>Смета поездки</h2><span class="pill" data-builder-status hidden></span></div>
+                <p class="metadata" id="builder-selection"></p>
+                <button class="button primary" id="builder-estimate" type="button">Рассчитать смету</button>
+                <p data-builder-message aria-live="polite" hidden></p>
+                <dl id="builder-expenses" class="usage" hidden></dl>
+                <details class="builder-json" data-builder-trace hidden>
+                  <summary>Запрос и результат JSON</summary>
+                  <p class="metadata"><code data-builder-endpoint></code> · <code data-builder-id></code></p>
+                  <h3>Тело запроса</h3><pre><code data-builder-request></code></pre>
+                  <h3>Ответ API</h3><pre><code data-builder-response></code></pre>
+                </details>
+              </article>
+            </div>
+          </div>
+        </section>
         <section data-section="activity" hidden>
           <div class="page-heading split"><div><h1>Журнал задач</h1><p>Последние 30 задач этого аккаунта.</p></div><button class="button secondary" id="refresh-tasks" type="button">Обновить</button></div>
           <p class="activity-summary" id="activity-summary"></p>
@@ -96,6 +143,32 @@
     </div>
   </div>
 
+  <template id="builder-settings-template">
+    <fieldset class="builder-target-settings">
+      <legend data-builder-label></legend>
+      <div class="builder-fields">
+        <label>До вариантов<input data-builder-count type="number" value="2" min="1" step="1" required></label>
+        <label>Лимит на вариант, ₽<input data-builder-limit type="number" min="0" step="1"></label>
+        <label class="builder-wide">Уточнение<textarea data-builder-refinement rows="2"></textarea></label>
+      </div>
+    </fieldset>
+  </template>
+
+  <template id="builder-result-template">
+    <article class="panel builder-result">
+      <div class="card-heading"><h2 data-builder-label></h2><span class="pill" data-builder-status hidden></span></div>
+      <p data-builder-message aria-live="polite" hidden></p>
+      <div class="builder-candidates" data-builder-candidates></div>
+      <button class="button secondary" data-builder-more type="button" hidden>Подобрать ещё</button>
+      <details class="builder-json" data-builder-trace hidden>
+        <summary>Запрос и результат JSON</summary>
+        <p class="metadata"><code data-builder-endpoint></code> · <code data-builder-id></code></p>
+        <h3>Тело запроса</h3><pre><code data-builder-request></code></pre>
+        <h3>Ответ API</h3><pre><code data-builder-response></code></pre>
+      </details>
+    </article>
+  </template>
+
   <template id="account-template">
     <article class="panel developer">
       <div class="card-heading">
@@ -103,7 +176,6 @@
         <span class="pill" data-status></span>
       </div>
       <div class="metadata" data-keys></div>
-      <p class="metadata" data-mail></p>
       <div class="actions" data-actions></div>
       <details class="account-activity">
         <summary>Активность API</summary>

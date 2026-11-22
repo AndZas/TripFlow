@@ -1,3 +1,3 @@
 # TripFlow — локальная демонстрация внешних источников
 
-[Документ перенесён в docs/research/demo/README.md](../docs/research/demo/README.md).
+Демо внешних источников запускается отдельно. [Инструкция к демо](../docs/research/demo/README.md) · [Гайд по кабинету Python API на Render](../docs/PORTAL.md)

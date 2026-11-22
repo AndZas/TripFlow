@@ -13,9 +13,7 @@ from pydantic import (
     UrlConstraints,
     ValidationInfo,
     field_validator,
-    with_config,
 )
-from typing_extensions import TypedDict
 
 
 
@@ -75,28 +73,6 @@ class TripContext(RequestModel):
         return value
 
 
-class RecommendationTarget(RequestModel):
-    count: PositiveInteger
-    maxTotalRub: Rubles | None
-    refinement: NullableText = None
-    excludedObjectIds: list[Identifier] = Field(
-        default_factory=list, json_schema_extra={"uniqueItems": True}
-    )
-
-    @field_validator("excludedObjectIds")
-    @classmethod
-    def validate_exclusions(cls, value: list[str]) -> list[str]:
-        if len(value) != len(set(value)):
-            raise ValueError("must contain unique object IDs")
-        return sorted(value)
-
-
-@with_config(ConfigDict(extra="forbid"))
-class RecommendationTargets(TypedDict, total=False):
-    hotels: RecommendationTarget
-    attractions: RecommendationTarget
-
-
 class AdmissionPriceQuote(RequestModel):
     amountRub: Rubles
     basis: Literal["person_admission", "group_admission"]
@@ -105,29 +81,9 @@ class AdmissionPriceQuote(RequestModel):
     sourceUrl: NullableHttpsUrl = None
 
 
-class IncludedService(RequestModel):
-    service: Identifier
-    status: Literal["confirmed", "contradicted", "unknown"]
-    dates: list[CalendarDate] | None
-    sourceUrl: NullableHttpsUrl
-
-    @field_validator("sourceUrl")
-    @classmethod
-    def validate_source(cls, value: HttpsUrl | None, info: ValidationInfo) -> HttpsUrl | None:
-        if value is None and info.data.get("status") == "confirmed":
-            raise ValueError("is required for a confirmed service")
-        return value
-
-
-class TariffSnapshot(RequestModel):
-    name: NullableText
-    includedServices: list[IncludedService]
-
-
 class SelectedHotel(RequestModel):
     objectId: Identifier
     price: Rubles | None
-    tariff: TariffSnapshot
 
 
 class SelectedAttraction(RequestModel):
@@ -142,14 +98,20 @@ class TaskRequest(RequestModel):
 
 
 class RecommendationsRequest(TaskRequest):
-    targets: RecommendationTargets = Field(json_schema_extra={"minProperties": 1})
+    targets: Literal["hotels", "attractions"]
+    count: PositiveInteger
+    maxTotalRub: Rubles | None
+    refinement: NullableText
+    excludedObjectIds: list[Identifier] | None = Field(json_schema_extra={"uniqueItems": True})
 
-    @field_validator("targets")
+    @field_validator("excludedObjectIds")
     @classmethod
-    def validate_targets(cls, value: RecommendationTargets) -> RecommendationTargets:
-        if not value:
-            raise ValueError("request hotels, attractions, or both")
-        return value
+    def validate_exclusions(cls, value: list[str] | None) -> list[str]:
+        if value is None:
+            return []
+        if len(value) != len(set(value)):
+            raise ValueError("must contain unique object IDs")
+        return sorted(value)
 
 
 class BudgetRequest(TaskRequest):

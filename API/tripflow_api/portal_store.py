@@ -38,14 +38,12 @@ class PortalStore:
                     id TEXT PRIMARY KEY, email TEXT NOT NULL UNIQUE, password_hash TEXT NOT NULL,
                     role TEXT NOT NULL, active INTEGER NOT NULL DEFAULT 0, created_at INTEGER NOT NULL,
                     api_hash TEXT UNIQUE, api_hint TEXT, api_issued INTEGER,
-                    access_status TEXT NOT NULL, mail_status TEXT, mail_id TEXT,
+                    access_status TEXT NOT NULL,
                     owner_review INTEGER NOT NULL DEFAULT 0
                 )
             """)
             if "access_status" not in database.columns("portal_accounts"):
                 database.execute("ALTER TABLE portal_accounts ADD COLUMN access_status TEXT")
-                database.execute("ALTER TABLE portal_accounts ADD COLUMN mail_status TEXT")
-                database.execute("ALTER TABLE portal_accounts ADD COLUMN mail_id TEXT")
                 database.execute("UPDATE portal_accounts SET access_status = CASE WHEN active = 1 THEN 'approved' ELSE 'disabled' END")
             if "owner_review" not in database.columns("portal_accounts"):
                 database.execute("ALTER TABLE portal_accounts ADD COLUMN owner_review INTEGER NOT NULL DEFAULT 0")
@@ -102,7 +100,7 @@ class PortalStore:
 
     def reapply(self, account_id: str, password_hash: str) -> bool:
         changed = self.db.execute(
-            "UPDATE portal_accounts SET access_status = 'pending', mail_status = NULL, mail_id = NULL "
+            "UPDATE portal_accounts SET access_status = 'pending' "
             "WHERE id = ? AND role = 'developer' AND password_hash = ? AND access_status IN ('disabled', 'rejected')",
             (account_id, password_hash),
         )
@@ -164,7 +162,7 @@ class PortalStore:
         with self.db.transaction():
             changed = self.db.execute(
                 "UPDATE portal_accounts SET active = 0, access_status = 'disabled', role = 'developer', "
-                "owner_review = 1, mail_status = NULL, mail_id = NULL "
+                "owner_review = 1 "
                 "WHERE id = ? AND role IN ('developer', 'admin') AND access_status = 'approved'",
                 (account_id,),
             )
@@ -173,14 +171,12 @@ class PortalStore:
                 self.revoke_key(account_id)
         return bool(changed.rowcount)
 
-    def decide(self, account_id: str, action: str, actor_role: str, mail_configured: bool) -> bool:
+    def decide(self, account_id: str, action: str, actor_role: str) -> bool:
         approved = action == "approve"
-        notification = ("pending" if mail_configured else "unconfigured") if approved else None
         changed = self.db.execute(
-            "UPDATE portal_accounts SET active = ?, access_status = ?, mail_status = ?, mail_id = ?, "
+            "UPDATE portal_accounts SET active = ?, access_status = ?, "
             "owner_review = CASE WHEN ? = 1 THEN 0 ELSE owner_review END "
             "WHERE id = ? AND role = 'developer' AND access_status = 'pending' AND (owner_review = 0 OR ? = 'owner')",
-            (int(approved), "approved" if approved else "rejected", notification,
-             uuid4().hex if approved else None, int(approved), account_id, actor_role),
+            (int(approved), "approved" if approved else "rejected", int(approved), account_id, actor_role),
         )
         return bool(changed.rowcount)

@@ -16,19 +16,21 @@ from fastapi.security import APIKeyHeader
 from fastapi.staticfiles import StaticFiles
 
 from .database import Database
-from .portal import ASSETS, configure_portal, data as portal_data, router as portal_router
+from .portal import ASSETS, Account, configure_portal, data as portal_data, router as portal_router, signed_in
 from .schemas import BudgetRequest, ErrorDetail, ErrorResponse, RecommendationsRequest, TaskAccepted, TaskRequest, TaskStatus
 from .tasks import TaskConflict, TaskStore
 
 
 API_DIR = Path(__file__).resolve().parents[1]
 logger = logging.getLogger("uvicorn.error")
+BUILDER_PREFIX = "/portal/data/builder"
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     destinations_file = API_DIR.parent / "shared" / "data" / "destinations.json"
     destinations = json.loads(destinations_file.read_text(encoding="utf-8"))["destinations"]
+    app.state.destinations = destinations
     app.state.destination_ids = {destination["id"] for destination in destinations}
     on_render = os.environ.get("RENDER") == "true"
     if on_render and not os.environ.get("DATABASE_URL"):
@@ -53,7 +55,6 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="TripFlow Mock API", version="1.0.0", lifespan=lifespan)
 app.include_router(portal_router)
-app.include_router(portal_data)
 app.mount("/portal/assets", StaticFiles(directory=ASSETS), name="portal-assets")
 api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
 error_responses = {
@@ -66,22 +67,26 @@ error_responses = {
 @app.middleware("http")
 async def record_api_usage(request: Request, call_next):
     path = request.url.path
-    tracked = (request.method == "POST" and path in ("/v1/recommendations", "/v1/budget")) or (
-        request.method == "GET" and path.startswith("/v1/tasks/")
+    builder = path.startswith(BUILDER_PREFIX + "/")
+    task_path = path.removeprefix(BUILDER_PREFIX if builder else "/v1")
+    tracked = (builder or path.startswith("/v1/")) and (
+        (request.method == "POST" and task_path in ("/recommendations", "/budget"))
+        or (request.method == "GET" and task_path.startswith("/tasks/"))
     )
     if not tracked:
         return await call_next(request)
 
-    portal = request.app.state.portal
-    key = request.headers.get("X-API-Key")
-    client = portal.client_by_key(key) if portal is not None and key else None
-    request.state.api_client = client
+    if not builder:
+        portal = request.app.state.portal
+        key = request.headers.get("X-API-Key")
+        request.state.api_client = portal.client_by_key(key) if portal is not None and key else None
     status = 500
     try:
         response = await call_next(request)
         status = response.status_code
         return response
     finally:
+        client = getattr(request.state, "api_client", None)
         if client is not None:
             tasks = request.app.state.tasks
             try:
@@ -132,7 +137,8 @@ async def require_api_key(request: Request, key: Annotated[str | None, Depends(a
 
 
 def accept_task(
-    request: Request, response: Response, background: BackgroundTasks, operation: str, body: TaskRequest, client: str
+    request: Request, response: Response, background: BackgroundTasks, operation: str, body: TaskRequest, client: str,
+    *, prefix: str = "/v1",
 ) -> TaskAccepted:
     if body.trip.destinationId not in request.app.state.destination_ids:
         detail = ErrorDetail(
@@ -149,7 +155,7 @@ def accept_task(
         raise ApiError(409, body.taskId, detail) from None
     if created:
         background.add_task(tasks.run, client, body.taskId)
-    response.headers["Location"] = "/v1/tasks/" + quote(body.taskId, safe="")
+    response.headers["Location"] = prefix + "/tasks/" + quote(body.taskId, safe="")
     response.headers["Retry-After"] = "2"
     return TaskAccepted(taskId=body.taskId)
 
@@ -159,15 +165,18 @@ example_trip = {"destinationId": "ru-moscow", "startDate": "2027-06-10", "endDat
 recommendation_examples = {
     target: {"summary": label, "value": {
         "taskId": f"{target}-001", "trip": example_trip,
-        "targets": {target: {"count": 2, "maxTotalRub": limit}},
+        "targets": target, "count": 2, "maxTotalRub": limit,
+        "refinement": refinement, "excludedObjectIds": [],
     }}
-    for target, label, limit in (("hotels", "Отели", 40000), ("attractions", "Достопримечательности", 5000))
+    for target, label, limit, refinement in (
+        ("hotels", "Отели", 40000, "Можно дальше от центра"),
+        ("attractions", "Достопримечательности", 5000, "Музеи и парки"),
+    )
 }
 budget_examples = {"budget": {"summary": "Смета поездки", "value": {
     "taskId": "budget-001", "trip": example_trip,
     "selectedHotel": {
         "objectId": "hotel-boulevard", "price": 16200,
-        "tariff": {"name": "Без питания", "includedServices": []},
     },
     "selectedAttractions": [],
 }}}
@@ -194,13 +203,52 @@ async def create_budget(
          responses={401: {"model": ErrorResponse}, 404: {"model": ErrorResponse}})
 async def task_status(taskId: str, request: Request, response: Response,
                       client: Annotated[str, Depends(require_api_key)]) -> dict:
-    status = request.app.state.tasks.status(client, taskId)
+    return read_task(taskId, request, response, client)
+
+
+def read_task(task_id: str, request: Request, response: Response, client: str) -> dict:
+    status = request.app.state.tasks.status(client, task_id)
     if status is None:
-        raise ApiError(404, taskId, ErrorDetail(code="TASK_NOT_FOUND", message="Unknown task"))
+        raise ApiError(404, task_id, ErrorDetail(code="TASK_NOT_FOUND", message="Unknown task"))
     response.headers["Cache-Control"] = "no-store"
     if status["status"] == "pending":
         response.headers["Retry-After"] = "2"
     return status
+
+
+async def builder_client(request: Request, account: Annotated[Account, Depends(signed_in)]) -> str:
+    request.state.api_client = account["id"]
+    return account["id"]
+
+
+BuilderClient = Annotated[str, Depends(builder_client)]
+
+
+@portal_data.get("/builder/destinations")
+async def builder_destinations(request: Request, _client: BuilderClient) -> list[dict]:
+    return request.app.state.destinations
+
+
+@portal_data.post("/builder/recommendations", status_code=202)
+async def builder_recommendations(
+    request: Request, response: Response, background: BackgroundTasks, body: RecommendationsRequest, client: BuilderClient,
+) -> TaskAccepted:
+    return accept_task(request, response, background, "recommendations", body, client, prefix=BUILDER_PREFIX)
+
+
+@portal_data.post("/builder/budget", status_code=202)
+async def builder_budget(
+    request: Request, response: Response, background: BackgroundTasks, body: BudgetRequest, client: BuilderClient,
+) -> TaskAccepted:
+    return accept_task(request, response, background, "budget", body, client, prefix=BUILDER_PREFIX)
+
+
+@portal_data.get("/builder/tasks/{taskId:path}", response_model=TaskStatus)
+async def builder_task_status(taskId: str, request: Request, response: Response, client: BuilderClient) -> dict:
+    return read_task(taskId, request, response, client)
+
+
+app.include_router(portal_data)
 
 
 @app.get("/health", include_in_schema=False)

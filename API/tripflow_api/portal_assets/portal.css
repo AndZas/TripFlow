@@ -143,3 +143,35 @@ dialog input { margin-top: .4rem; font-family: "Cascadia Mono", Consolas, monosp
 .usage div { padding: .7rem; background: #f3f6fb; border-radius: .5rem; }
 .usage dt { color: var(--muted); font-size: .8rem; }
 .usage dd { margin: .25rem 0 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.builder-layout { display: grid; grid-template-columns: minmax(18rem, .82fr) minmax(0, 1.18fr); gap: 1rem; align-items: start; }
+.builder-form fieldset { margin: 0; border: 0; padding: 0; min-inline-size: 0; }
+.builder-form > fieldset, .builder-settings, .builder-results { display: grid; gap: 1rem; min-width: 0; }
+.builder-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .85rem; }
+.builder-wide { grid-column: 1 / -1; }
+.builder-fields label { min-width: 0; }
+.builder-fields select { width: 100%; font: inherit; font-weight: 400; padding: .7rem .82rem; border: 1px solid #c4d1e4; border-radius: .58rem; background: #fff; color: #142038; }
+.builder-options, .builder-json { border-top: 1px solid var(--line); padding-top: .85rem; }
+.builder-options summary, .builder-json summary { color: #244edb; cursor: pointer; font-size: .9rem; font-weight: 650; }
+.builder-settings { margin-top: .85rem; }
+.builder-target-settings legend { font-weight: 700; margin-bottom: .5rem; }
+.builder-result { display: grid; gap: .85rem; min-width: 0; }
+.builder-result > .button { justify-self: start; }
+.builder-result p { overflow-wrap: anywhere; }
+.builder-candidates { display: grid; gap: .45rem; }
+.builder-candidates:empty { display: none; }
+.builder-choice { display: flex; align-items: flex-start; gap: .7rem; border: 1px solid var(--line); border-radius: .6rem; padding: .7rem .8rem; cursor: pointer; overflow-wrap: anywhere; }
+.builder-choice:has(input:checked) { background: #edf3ff; border-color: #7694e2; }
+.builder-choice input { width: 1rem; height: 1rem; margin: .15rem 0 0; accent-color: var(--accent); flex: none; }
+.builder-choice span { display: grid; gap: .22rem; }
+.builder-json p, .builder-json h3 { margin: .7rem 0 .35rem; overflow-wrap: anywhere; }
+.builder-json h3 { font-size: .9rem; }
+.builder-json pre { margin: .4rem 0 0; max-height: 18rem; overflow: auto; padding: .75rem; border-radius: .5rem; background: #f3f6fb; }
+.builder-json code { font-size: .84rem; }
+#builder-expenses { margin: 0; }
+@media (max-width: 66rem) {
+  .builder-layout { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 30rem) {
+  .builder-fields { grid-template-columns: minmax(0, 1fr); }
+}

@@ -1,8 +1,9 @@
 import json
 import logging
-from .database import Database
 import time
+
 from . import mock_results
+from .database import Database
 from .schemas import BudgetRequest, RecommendationsRequest, TaskRequest
 
 
@@ -120,15 +121,19 @@ class TaskStore:
         ).fetchone()
         if row is None:
             return None
-        return {"taskId": task_id, "status": "completed" if row[0] else "pending",
-                "result": json.loads(row[0]) if row[0] else None}
+        if row[0] is None:
+            return {"taskId": task_id, "status": "pending", "result": None}
+        result = json.loads(row[0])
+        for hotel in result.get("results", {}).get("hotels", {}).get("items", []):
+            hotel.pop("tariff", None)  # Results saved before the contract change.
+        return {"taskId": task_id, "status": "completed", "result": result}
 
     async def run(self, client_id: str, task_id: str) -> None:
         operation, payload, result = self.load(client_id, task_id)
         if result is None:
             body = json.loads(payload)
             body.pop("callbackUrl", None)
-            result = json.dumps(build_result(task_id, operation, json.dumps(body)), ensure_ascii=False)
+            result = json.dumps(build_result(task_id, operation, body), ensure_ascii=False)
             self.connection.execute(
                 "UPDATE tasks SET result = ?, finished = 1 WHERE client_id = ? AND task_id = ?",
                 (result, client_id, task_id),
@@ -152,31 +157,48 @@ class TaskStore:
         ]
 
 
-def build_result(task_id: str, operation: str, payload: str) -> dict:
-    try:
-        if operation == "budget":
-            return mock_results.budget(BudgetRequest.model_validate_json(payload))
-        return mock_results.recommendations(RecommendationsRequest.model_validate_json(payload))
-    except Exception:
-        logger.exception("Mock task %r failed", task_id)
-        if operation == "budget":
-            return {
-                "taskId": task_id,
-                "event": "budget.finished",
-                "status": "failed",
-                "expenses": None,
-                "error": {"code": "BUDGET_ESTIMATE_FAILED", "message": "Mock budget failed"},
+def build_result(task_id: str, operation: str, body: dict) -> dict:
+    if operation == "recommendations":
+        targets = body["targets"]
+        # Recover jobs accepted before the request was limited to one category.
+        if isinstance(targets, dict):
+            requests = {
+                kind: {"taskId": task_id, "trip": body["trip"], "targets": kind,
+                       "refinement": None, "excludedObjectIds": None, **settings}
+                for kind, settings in targets.items()
             }
+        else:
+            requests = {targets: body}
         return {
             "taskId": task_id,
             "event": "recommendations.finished",
-            "results": {
-                kind: {
-                    "status": "failed",
-                    "items": [],
-                    "hasMore": None,
-                    "error": {"code": "RECOMMENDATIONS_FAILED", "message": "Mock search failed"},
-                }
-                for kind in json.loads(payload)["targets"]
-            },
+            "results": {kind: build_recommendation_result(request) for kind, request in requests.items()},
+        }
+
+    try:
+        hotel = body.get("selectedHotel")
+        if isinstance(hotel, dict):
+            hotel.pop("tariff", None)
+        return mock_results.budget(BudgetRequest.model_validate(body))
+    except Exception:
+        logger.exception("Budget task %r failed", task_id)
+        return {
+            "taskId": task_id,
+            "event": "budget.finished",
+            "status": "failed",
+            "expenses": None,
+            "error": {"code": "BUDGET_ESTIMATE_FAILED", "message": "Mock budget failed"},
+        }
+
+
+def build_recommendation_result(body: dict) -> dict:
+    try:
+        return mock_results.recommendations(RecommendationsRequest.model_validate(body))
+    except Exception:
+        logger.exception("Recommendations task %r failed", body["taskId"])
+        return {
+            "status": "failed",
+            "items": [],
+            "hasMore": None,
+            "error": {"code": "RECOMMENDATIONS_FAILED", "message": "Mock search failed"},
         }
