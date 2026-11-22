@@ -1,0 +1,18 @@
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: API/Dockerfile
+    ports:
+      - "127.0.0.1:${TRIPFLOW_API_PORT:-8000}:8000"
+    environment:
+      TRIPFLOW_PORTAL_ADMIN_EMAIL: ${TRIPFLOW_PORTAL_ADMIN_EMAIL:-}
+      TRIPFLOW_PORTAL_ADMIN_PASSWORD: ${TRIPFLOW_PORTAL_ADMIN_PASSWORD:-}
+      DATABASE_URL: ${DATABASE_URL:-}
+      RESEND_API_KEY: ${RESEND_API_KEY:-}
+      TRIPFLOW_EMAIL_FROM: ${TRIPFLOW_EMAIL_FROM:-}
+    volumes:
+      - api-state:/app/API/.state
+
+volumes:
+  api-state:

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TripFlow API · Кабинет разработчика</title>
+  <meta name="description" content="Доступ и история задач для интеграции с TripFlow API.">
+  <link rel="stylesheet" href="/portal/assets/portal.css">
+  <script type="module" src="/portal/assets/portal.js"></script>
+</head>
+<body>
+  <div class="notice" id="notice" role="status" hidden></div>
+  <main id="boot" class="boot">Загрузка кабинета TripFlow…</main>
+
+  <main id="access" class="access" hidden>
+    <section class="access-side">
+      <div class="brand"><span class="brand-mark">TF</span><span>TripFlow <small>API</small></span></div>
+      <div class="access-intro">
+        <h1>Кабинет разработчика</h1>
+        <p>Управляйте доступом к API подбора поездок и следите за своими задачами.</p>
+        <div class="protocol">
+          <div><span>Создать задачу</span><code>POST /v1/recommendations</code></div>
+          <div><span>Получить результат</span><code>GET /v1/tasks/{taskId}</code></div>
+        </div>
+      </div>
+      <a class="access-docs" href="/docs">Документация API</a>
+    </section>
+    <section class="access-main">
+      <div id="unconfigured" hidden>
+        <h2>Кабинет ещё не настроен</h2>
+        <p>При первом запуске задайте TRIPFLOW_PORTAL_ADMIN_EMAIL и TRIPFLOW_PORTAL_ADMIN_PASSWORD. После создания владелец хранится в базе.</p>
+        <a class="button secondary" href="/docs">Открыть Swagger</a>
+      </div>
+      <form id="access-form" hidden>
+        <h2 id="access-title">Вход в кабинет</h2>
+        <p id="access-description">Войдите, чтобы управлять ключами интеграции.</p>
+        <label>Email<input name="email" type="email" autocomplete="email" maxlength="254" required></label>
+        <label>Пароль<input name="password" type="password" autocomplete="current-password" maxlength="128" required aria-describedby="access-description"></label>
+        <p id="request-feedback" role="status" hidden></p>
+        <button class="button primary wide" id="access-submit" type="submit">Войти</button>
+        <button class="text-button" id="access-switch" type="button">Запросить доступ</button>
+      </form>
+    </section>
+  </main>
+
+  <div class="app" id="app" hidden>
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">TF</span><span>TripFlow <small>API</small></span></div>
+      <nav aria-label="Разделы кабинета">
+        <button class="nav-item" type="button" data-view="keys" aria-current="page">Ключ доступа</button>
+        <button class="nav-item" type="button" data-view="activity">Журнал задач</button>
+        <button class="nav-item" id="admin-nav" type="button" data-view="admin" hidden>Заявки и пользователи</button>
+      </nav>
+      <div class="sidebar-footer"><a href="/docs">Документация API</a><button class="text-button" id="logout" type="button">Выйти</button></div>
+    </aside>
+    <div class="workspace">
+      <header class="header">
+        <span class="header-label">Кабинет разработчика</span>
+        <div class="account"><span class="avatar" id="initials"></span><div><strong id="account-email"></strong><span id="account-role"></span></div></div>
+      </header>
+      <main class="content" id="workspace-content">
+        <section data-section="keys">
+          <div class="page-heading"><h1>Ключ доступа</h1><p>Добавьте ключ в заголовок X-API-Key при создании задачи и чтении результата.</p></div>
+          <div class="key-grid">
+            <article class="panel key-card" data-key="api">
+              <div class="card-heading"><code class="key-label">X-API-Key</code><span class="pill" data-key-status></span></div>
+              <h2>Ключ запросов</h2>
+              <p>Полное значение доступно один раз при выпуске. Сохраните его в конфигурации C#.</p>
+              <div class="key-meta"><strong data-key-hint></strong><span data-key-issued></span></div>
+              <div class="actions"><button class="button primary" type="button" data-key-action="issue">Выпустить ключ</button><button class="button secondary" type="button" data-key-action="revoke" hidden>Отозвать</button></div>
+            </article>
+            <article class="panel key-card">
+              <h2>Подключение к API</h2>
+              <p>Базовый адрес сервиса</p><code id="base-url"></code>
+              <p>В Swagger нажмите Authorize, вставьте ключ и выберите пример запроса. Скопируйте taskId в GET /v1/tasks/{taskId}.</p>
+              <a href="/docs">Открыть Swagger →</a>
+            </article>
+          </div>
+        </section>
+        <section data-section="activity" hidden>
+          <div class="page-heading split"><div><h1>Журнал задач</h1><p>Последние 30 задач этого аккаунта.</p></div><button class="button secondary" id="refresh-tasks" type="button">Обновить</button></div>
+          <p class="activity-summary" id="activity-summary"></p>
+          <div class="panel table-wrap">
+            <table id="task-table" hidden><thead><tr><th scope="col">Задача</th><th scope="col">Операция</th><th scope="col">Создана</th><th scope="col">Статус</th></tr></thead><tbody id="task-rows"></tbody></table>
+            <p id="tasks-empty" class="empty">Задач пока нет.</p>
+          </div>
+        </section>
+        <section data-section="admin" hidden>
+          <div class="page-heading split"><h1>Заявки и пользователи</h1><button class="button secondary" id="refresh-accounts" type="button">Обновить</button></div>
+          <h2>Ожидают решения</h2>
+          <div id="requests" class="account-list"></div>
+          <h2>Пользователи</h2>
+          <div id="accounts" class="account-list"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <template id="account-template">
+    <article class="panel developer">
+      <div class="card-heading">
+        <div><h2 data-email></h2><p class="metadata" data-role></p></div>
+        <span class="pill" data-status></span>
+      </div>
+      <div class="metadata" data-keys></div>
+      <p class="metadata" data-mail></p>
+      <div class="actions" data-actions></div>
+      <details class="account-activity">
+        <summary>Активность API</summary>
+        <dl class="usage">
+          <div><dt>Запросы за 24 ч</dt><dd data-metric="last24h"></dd></div>
+          <div><dt>Запросы запуска за 7 дней</dt><dd data-metric="submissions"></dd></div>
+          <div><dt>Опросы за 7 дней</dt><dd data-metric="polls"></dd></div>
+          <div><dt>Ошибки за 7 дней</dt><dd data-metric="errors"></dd></div>
+          <div><dt>Пик за час</dt><dd data-metric="peakPerHour"></dd></div>
+          <div><dt>Час последнего запроса</dt><dd data-metric="lastRequestHour"></dd></div>
+        </dl>
+        <p class="metadata" data-task-total></p>
+        <div class="table-wrap">
+          <table hidden><thead><tr><th scope="col">Задача</th><th scope="col">Операция</th><th scope="col">Создана</th><th scope="col">Статус</th></tr></thead><tbody></tbody></table>
+          <p data-empty>Задач пока нет.</p>
+        </div>
+      </details>
+    </article>
+  </template>
+
+  <dialog id="secret-dialog" aria-labelledby="secret-title">
+    <form method="dialog">
+      <h2 id="secret-title"></h2>
+      <p id="secret-description"></p>
+      <label id="secret-label" for="secret-value">Значение</label>
+      <input id="secret-value" type="text" readonly autocomplete="off" spellcheck="false">
+      <div class="actions">
+        <button class="button primary" id="copy-secret" type="button">Копировать</button>
+        <button class="button secondary" value="close">Готово</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

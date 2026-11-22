@@ -1,5 +1,6 @@
 # Python environments and generated files
 .venv/
+.venv-api/
 venv/
 env/
 __pycache__/
@@ -38,3 +39,10 @@ secrets/
 **/data/*.local.yaml
 **/data/*.local.yml
 *.log
+
+# Local API state and database copies
+/.state/
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.sqlite3-*

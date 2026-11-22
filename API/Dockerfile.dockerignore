@@ -1,0 +1,12 @@
+**
+!API/
+!API/requirements.txt
+!API/tripflow_api/
+!API/tripflow_api/*.py
+!API/tripflow_api/portal_assets/
+!API/tripflow_api/portal_assets/index.html
+!API/tripflow_api/portal_assets/portal.css
+!API/tripflow_api/portal_assets/portal.js
+!shared/
+!shared/data/
+!shared/data/destinations.json
