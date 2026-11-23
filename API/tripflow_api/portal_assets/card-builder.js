@@ -1,17 +1,12 @@
-const labels = { hotels: "Отели", attractions: "Достопримечательности" };
+import { element, preferenceAttempts, preferenceInterpretation, preferencePath, scopes } from "./preference-view.js";
+
+const labels = { hotels: scopes.hotels, attractions: scopes.attractions };
 const money = new Intl.NumberFormat("ru-RU", { style: "currency", currency: "RUB", maximumFractionDigits: 0 });
 const expenses = {
   foodTotalRub: "Питание", localTransportTotalRub: "Городской транспорт",
   otherExpensesTotalRub: "Прочие расходы", reserveTotalRub: "Резерв",
 };
 const pollTimeoutMs = 120_000;
-
-function element(tag, text, className) {
-  const node = document.createElement(tag);
-  if (text !== undefined) node.textContent = text;
-  if (className) node.className = className;
-  return node;
-}
 
 function status(panel, label, message = "", style = "") {
   const badge = panel.querySelector("[data-builder-status]");
@@ -81,6 +76,8 @@ export function setupCardBuilder(request) {
   const budget = byId("builder-budget");
   const estimate = byId("builder-estimate");
   const expenseList = byId("builder-expenses");
+  const tabs = [...byId("builder-tabs").querySelectorAll("[role=tab]")];
+  const preferencePanel = byId("builder-preferences");
   const groups = Object.entries(labels).map(([kind, label]) => {
     const settings = byId("builder-settings-template").content.firstElementChild.cloneNode(true);
     const panel = byId("builder-result-template").content.firstElementChild.cloneNode(true);
@@ -100,6 +97,48 @@ export function setupCardBuilder(request) {
   let working = false;
   let selectedHotel = null;
   const selectedAttractions = new Set();
+
+  function selectTab(tab) {
+    for (const button of tabs) {
+      const active = button === tab;
+      button.setAttribute("aria-selected", active);
+      button.tabIndex = active ? 0 : -1;
+      byId(button.getAttribute("aria-controls")).hidden = !active;
+    }
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => selectTab(tab));
+    tab.addEventListener("keydown", (event) => {
+      const keys = { ArrowRight: 1 - index, ArrowLeft: 1 - index, Home: 0, End: 1 };
+      if (!Object.hasOwn(keys, event.key)) return;
+      event.preventDefault();
+      const next = tabs[keys[event.key]];
+      selectTab(next);
+      next.focus();
+    });
+  });
+
+  function renderPreferences() {
+    const submissions = groups.map((group) => group.submission).filter(Boolean);
+    const interpretation = preferenceInterpretation(submissions.map(({ body, analysis }) => ({
+      category: body.targets, preferences: body.trip.preferences, refinement: body.refinement, analysis,
+    })));
+    for (const { body, analysis } of submissions) {
+      if (analysis.stages.length) interpretation.append(preferenceAttempts(analysis, body.taskId));
+    }
+    preferencePanel.replaceChildren(interpretation);
+  }
+
+  async function readPreferences(group, submission, signal) {
+    try {
+      const { payload } = await request(preferencePath(submission.body.taskId), undefined, signal);
+      submission.analysis = payload;
+    } catch {
+      submission.analysis = { status: "unavailable", stages: [] };
+    }
+    if (!signal.aborted && group.submission === submission) renderPreferences();
+  }
 
   function tripSnapshot() {
     return {
@@ -125,6 +164,7 @@ export function setupCardBuilder(request) {
   function resetResults() {
     for (const group of groups) {
       group.items.clear();
+      group.submission = null;
       group.more.hidden = true;
       group.panel.querySelector("[data-builder-candidates]").replaceChildren();
       status(group.panel, "");
@@ -134,8 +174,9 @@ export function setupCardBuilder(request) {
     selectedAttractions.clear();
     resetEstimate();
     byId("builder-empty").hidden = false;
-    recommendations.hidden = true;
-    budget.hidden = true;
+    byId("builder-tabs").hidden = true;
+    for (const tab of tabs) byId(tab.getAttribute("aria-controls")).hidden = true;
+    renderPreferences();
   }
 
   function fillExample() {
@@ -267,8 +308,13 @@ export function setupCardBuilder(request) {
       refinement: group.settings.querySelector("[data-builder-refinement]").value.trim() || null,
       excludedObjectIds: [...group.items.keys()],
     };
+    const submission = { body, analysis: { status: "pending", stages: [] } };
+    group.submission = submission;
+    renderPreferences();
     const result = await runTask(group.panel, "recommendations", body, signal);
-    if (signal.aborted || !result) return;
+    if (signal.aborted || group.submission !== submission) return;
+    void readPreferences(group, submission, signal);
+    if (!result) return;
     const batch = result.results?.[group.kind];
     if (!batch || batch.status === "failed") {
       status(group.panel, "Ошибка", batch?.error?.message ?? "Подбор завершился ошибкой.", "bad");
@@ -299,8 +345,8 @@ export function setupCardBuilder(request) {
     const trip = tripSnapshot();
     resetResults();
     byId("builder-empty").hidden = true;
-    recommendations.hidden = false;
-    budget.hidden = false;
+    byId("builder-tabs").hidden = false;
+    selectTab(tabs[0]);
     work((signal) => Promise.all(groups.map((group) => find(group, trip, signal))));
   });
   estimate.addEventListener("click", () => {

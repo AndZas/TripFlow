@@ -1,4 +1,5 @@
 import { setupCardBuilder } from "./card-builder.js";
+import { element, preferenceAttempts, preferenceInterpretation, preferencePath, preferenceSummary } from "./preference-view.js";
 
 const $ = (id) => document.getElementById(id);
 const app = $("app");
@@ -11,6 +12,7 @@ let account = null;
 let registration = false;
 let noticeTimer;
 const builder = setupCardBuilder(portalRequest);
+let selectedPreference = null;
 
 function showNotice(message, error = false) {
   const notice = $("notice");
@@ -77,6 +79,9 @@ function showAccess(enabled) {
   builder.reset();
   if (dialog.open) dialog.close();
   $("task-rows").replaceChildren();
+  $("preference-summary").replaceChildren();
+  $("preference-summary-panel").hidden = true;
+  clearPreferenceTask();
   $("accounts").replaceChildren();
   $("requests").replaceChildren();
   form.reset();
@@ -161,7 +166,7 @@ function selectView(view) {
   }
 }
 
-function renderActivity(tasks, table, empty) {
+function renderActivity(tasks, table, empty, openPreferences) {
   const rows = tasks.map((task) => {
     const row = document.createElement("tr");
     const id = document.createElement("code");
@@ -174,6 +179,16 @@ function renderActivity(tasks, table, empty) {
     status.classList.toggle("good", task.status === "completed");
     status.textContent = task.status === "completed" ? "Завершена" : "В обработке";
     row.insertCell().append(status);
+    if (openPreferences) {
+      const cell = row.insertCell();
+      if (task.operation === "recommendations") {
+        const button = element("button", "Детали", "text-button");
+        button.type = "button";
+        button.setAttribute("aria-label", "Разбор задачи " + task.taskId);
+        button.addEventListener("click", () => openPreferences(task.taskId));
+        cell.append(button);
+      }
+    }
     return row;
   });
   table.querySelector("tbody").replaceChildren(...rows);
@@ -181,10 +196,47 @@ function renderActivity(tasks, table, empty) {
   empty.hidden = Boolean(rows.length);
 }
 
+function clearPreferenceTask() {
+  selectedPreference = null;
+  $("preference-task").replaceChildren();
+  $("preference-task").hidden = true;
+}
+
+async function openPreferenceTask(taskId) {
+  const selection = { taskId };
+  selectedPreference = selection;
+  const panel = $("preference-task");
+  const heading = element("h2", "Разбор пожеланий в задаче");
+  const task = element("code", taskId);
+  panel.replaceChildren(heading, task, element("p", "Загрузка…"));
+  panel.hidden = false;
+  panel.focus();
+  try {
+    const record = await call(preferencePath(taskId));
+    if (selectedPreference !== selection) return;
+    const interpretation = preferenceInterpretation([{
+      category: record.category, preferences: record.preferences, refinement: record.refinement, analysis: record,
+    }]);
+    if (record.status !== "historical") {
+      const attempts = preferenceAttempts(record, taskId);
+      attempts.open = true;
+      interpretation.append(attempts);
+    }
+    panel.replaceChildren(heading, task, interpretation);
+  } catch (error) {
+    if (selectedPreference === selection) panel.replaceChildren(heading, task, element("p", error.message));
+  }
+}
+
 async function loadActivity() {
-  const { tasks, summary } = await call("/activity");
+  const current = account?.id;
+  const { tasks, summary, preferences } = await call("/activity");
+  if (account?.id !== current) return;
   $("activity-summary").textContent = "Всего задач · " + summary.total + "　 В обработке · " + summary.pending + "　 Завершено · " + (summary.total - summary.pending);
-  renderActivity(tasks, $("task-table"), $("tasks-empty"));
+  $("preference-summary").replaceChildren(preferenceSummary(preferences));
+  $("preference-summary-panel").hidden = false;
+  renderActivity(tasks, $("task-table"), $("tasks-empty"), openPreferenceTask);
+  if (selectedPreference) await openPreferenceTask(selectedPreference.taskId);
 }
 
 async function loadAccounts() {

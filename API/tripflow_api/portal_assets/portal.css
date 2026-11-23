@@ -169,6 +169,20 @@ dialog input { margin-top: .4rem; font-family: "Cascadia Mono", Consolas, monosp
 .builder-json pre { margin: .4rem 0 0; max-height: 18rem; overflow: auto; padding: .75rem; border-radius: .5rem; background: #f3f6fb; }
 .builder-json code { font-size: .84rem; }
 #builder-expenses { margin: 0; }
+.builder-tabs { display: flex; flex-wrap: wrap; gap: .4rem; border-bottom: 1px solid var(--line); }
+.builder-tabs button { padding: .65rem .7rem; border: 0; border-bottom: 2px solid transparent; background: none; color: var(--muted); font: inherit; font-weight: 650; }
+.builder-tabs button[aria-selected="true"] { border-bottom-color: var(--accent); color: var(--accent); }
+.preference-stack { display: grid; gap: .8rem; min-width: 0; overflow-wrap: anywhere; }
+.preference-text p, .preference-conditions q { white-space: pre-wrap; }
+.preference-conditions { display: grid; gap: .45rem; padding: 0; margin: .35rem 0 0; list-style: none; }
+.preference-conditions li { padding: .55rem .7rem; border-radius: .5rem; background: #f3f6fb; }
+.preference-conditions li p { margin-block: .2rem; }
+.preference-attempts { border-top: 1px solid var(--line); padding-top: .65rem; }
+.preference-attempts summary { cursor: pointer; color: var(--accent); font-weight: 650; }
+.preference-attempts p, .preference-attempts h3 { margin-top: .35rem; }
+.preference-stack h4 { margin: 0 0 .2rem; font-size: .95rem; }
+.preference-history > div { margin-top: .75rem; }
+#preference-summary-panel, #preference-task { margin-block: .85rem; }
 @media (max-width: 66rem) {
   .builder-layout { grid-template-columns: minmax(0, 1fr); }
 }

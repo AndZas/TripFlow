@@ -107,30 +107,45 @@
             </form>
             <div class="builder-results">
               <p class="panel empty" id="builder-empty">Заполните параметры поездки и запустите подбор.</p>
-              <div id="builder-recommendations" class="builder-results" hidden></div>
-              <article id="builder-budget" class="panel builder-result" hidden>
-                <div class="card-heading"><h2>Смета поездки</h2><span class="pill" data-builder-status hidden></span></div>
-                <p class="metadata" id="builder-selection"></p>
-                <button class="button primary" id="builder-estimate" type="button">Рассчитать смету</button>
-                <p data-builder-message aria-live="polite" hidden></p>
-                <dl id="builder-expenses" class="usage" hidden></dl>
-                <details class="builder-json" data-builder-trace hidden>
-                  <summary>Запрос и результат JSON</summary>
-                  <p class="metadata"><code data-builder-endpoint></code> · <code data-builder-id></code></p>
-                  <h3>Тело запроса</h3><pre><code data-builder-request></code></pre>
-                  <h3>Ответ API</h3><pre><code data-builder-response></code></pre>
-                </details>
-              </article>
+              <div id="builder-tabs" class="builder-tabs" role="tablist" aria-label="Результаты подбора" hidden>
+                <button type="button" role="tab" id="builder-options-tab" aria-controls="builder-options-panel" aria-selected="true">Варианты и смета</button>
+                <button type="button" role="tab" id="builder-preferences-tab" aria-controls="builder-preferences-panel" aria-selected="false" tabindex="-1">Как модель поняла запрос</button>
+              </div>
+              <div id="builder-options-panel" class="builder-results" role="tabpanel" aria-labelledby="builder-options-tab" hidden>
+                <div id="builder-recommendations" class="builder-results"></div>
+                <article id="builder-budget" class="panel builder-result">
+                  <div class="card-heading"><h2>Смета поездки</h2><span class="pill" data-builder-status hidden></span></div>
+                  <p class="metadata" id="builder-selection"></p>
+                  <button class="button primary" id="builder-estimate" type="button">Рассчитать смету</button>
+                  <p data-builder-message aria-live="polite" hidden></p>
+                  <dl id="builder-expenses" class="usage" hidden></dl>
+                  <details class="builder-json" data-builder-trace hidden>
+                    <summary>Запрос и результат JSON</summary>
+                    <p class="metadata"><code data-builder-endpoint></code> · <code data-builder-id></code></p>
+                    <h3>Тело запроса</h3><pre><code data-builder-request></code></pre>
+                    <h3>Ответ API</h3><pre><code data-builder-response></code></pre>
+                  </details>
+                </article>
+              </div>
+              <section id="builder-preferences-panel" class="panel builder-result" role="tabpanel" aria-labelledby="builder-preferences-tab" tabindex="0" hidden>
+                <p class="metadata">Здесь показана интерпретация отправленного текста. Подбор и смета работают на тестовых данных.</p>
+                <div id="builder-preferences" class="preference-stack" aria-live="polite"></div>
+              </section>
             </div>
           </div>
         </section>
         <section data-section="activity" hidden>
           <div class="page-heading split"><div><h1>Журнал задач</h1><p>Последние 30 задач этого аккаунта.</p></div><button class="button secondary" id="refresh-tasks" type="button">Обновить</button></div>
           <p class="activity-summary" id="activity-summary"></p>
+          <section class="panel preference-stack" id="preference-summary-panel" hidden>
+            <h2>Разбор пожеланий</h2>
+            <div id="preference-summary" class="preference-stack"></div>
+          </section>
           <div class="panel table-wrap">
-            <table id="task-table" hidden><thead><tr><th scope="col">Задача</th><th scope="col">Операция</th><th scope="col">Создана</th><th scope="col">Статус</th></tr></thead><tbody id="task-rows"></tbody></table>
+            <table id="task-table" hidden><thead><tr><th scope="col">Задача</th><th scope="col">Операция</th><th scope="col">Создана</th><th scope="col">Статус</th><th scope="col">Пожелания</th></tr></thead><tbody id="task-rows"></tbody></table>
             <p id="tasks-empty" class="empty">Задач пока нет.</p>
           </div>
+          <section class="panel preference-stack" id="preference-task" tabindex="-1" aria-live="polite" hidden></section>
         </section>
         <section data-section="admin" hidden>
           <div class="page-heading split"><h1>Заявки и пользователи</h1><button class="button secondary" id="refresh-accounts" type="button">Обновить</button></div>
@@ -149,7 +164,9 @@
       <div class="builder-fields">
         <label>До вариантов<input data-builder-count type="number" value="2" min="1" step="1" required></label>
         <label>Лимит на вариант, ₽<input data-builder-limit type="number" min="0" step="1"></label>
-        <label class="builder-wide">Уточнение<textarea data-builder-refinement rows="2"></textarea></label>
+        <label class="builder-wide">Полный текст уточнений<textarea data-builder-refinement rows="2"></textarea>
+          <span class="metadata">Добавляйте новые уточнения в конец. Это поле целиком отправляется при подборе.</span>
+        </label>
       </div>
     </fieldset>
   </template>

@@ -1,6 +1,7 @@
 anyio>=4,<5
 argon2-cffi==25.1.0
 fastapi==0.165.0
+httpx==0.28.1
 pydantic>=2.12.3,<3
 typing-extensions>=4.12,<5
 uvicorn==0.54.0

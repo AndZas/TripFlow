@@ -2,8 +2,11 @@ import json
 import logging
 import time
 
+import httpx
+
 from . import mock_results
 from .database import Database
+from .preferences import PreferenceAnalysis
 from .schemas import BudgetRequest, RecommendationsRequest, TaskRequest
 
 
@@ -31,7 +34,7 @@ class TaskConflict(Exception):
 
 
 class TaskStore:
-    def __init__(self, connection: Database):
+    def __init__(self, connection: Database, provider: httpx.AsyncClient, configured: bool):
         self.connection = connection
         with connection.transaction():
             columns = connection.columns("tasks")
@@ -55,6 +58,7 @@ class TaskStore:
                     PRIMARY KEY (client_id, hour)
                 )
             """)
+        self.preferences = PreferenceAnalysis(connection, provider, configured)
 
     def record_usage(self, client_id: str, method: str, status_code: int) -> None:
         hour = int(time.time()) // HOUR_SECONDS
@@ -96,6 +100,8 @@ class TaskStore:
                 (client_id, request.taskId, operation, payload, int(time.time())),
             )
             if inserted.rowcount:
+                if operation == "recommendations":
+                    self.preferences.register(client_id, request.taskId)
                 return True
             previous = self.connection.execute(
                 "SELECT operation, payload FROM tasks WHERE client_id = ? AND task_id = ?",
@@ -133,6 +139,17 @@ class TaskStore:
         if result is None:
             body = json.loads(payload)
             body.pop("callbackUrl", None)
+            if operation == "recommendations":
+                started = time.monotonic()
+                try:
+                    await self.preferences.run(client_id, task_id, body)
+                except Exception:
+                    logger.error("Preference analysis failed internally")
+                    try:
+                        self.preferences.finish_task(client_id, task_id, "failed",
+                                                     round((time.monotonic() - started) * 1000), "internal")
+                    except Exception:
+                        logger.error("Could not save the preference analysis status")
             result = json.dumps(build_result(task_id, operation, body), ensure_ascii=False)
             self.connection.execute(
                 "UPDATE tasks SET result = ?, finished = 1 WHERE client_id = ? AND task_id = ?",

@@ -3,11 +3,12 @@ import json
 import logging
 import os
 import time
-from contextlib import asynccontextmanager, closing
+from contextlib import AsyncExitStack, asynccontextmanager, closing
 from pathlib import Path
 from urllib.parse import quote
 from typing import Annotated
 
+import httpx
 from anyio import CapacityLimiter
 from fastapi import Body, BackgroundTasks, Depends, FastAPI, Request, Response
 from fastapi.exceptions import RequestValidationError
@@ -36,13 +37,17 @@ async def lifespan(app: FastAPI):
     if on_render and not os.environ.get("DATABASE_URL"):
         raise ValueError("Set DATABASE_URL to a persistent PostgreSQL database on Render")
     state_path = Path(os.environ.get("TRIPFLOW_STATE_PATH", API_DIR / ".state" / "tasks.sqlite3"))
-    with closing(Database(state_path)) as database:
+    key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+    headers = {"Authorization": f"Bearer {key}"} if key else {}
+    async with AsyncExitStack() as resources:
+        database = resources.enter_context(closing(Database(state_path)))
+        provider = await resources.enter_async_context(httpx.AsyncClient(base_url="https://api.deepseek.com", headers=headers))
         app.state.portal = configure_portal(database)
         if on_render and app.state.portal is None:
             raise ValueError("Set the portal owner credentials for the first startup on Render")
         app.state.password_limit = CapacityLimiter(2)
         app.state.portal_attempts = {}
-        tasks = TaskStore(database)
+        tasks = TaskStore(database, provider, bool(key))
         app.state.tasks = tasks
         tasks.prune_usage()
         app.state.usage_pruned = int(time.time()) // 86400

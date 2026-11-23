@@ -24,6 +24,7 @@ class PollingTest(unittest.TestCase):
             "TRIPFLOW_PORTAL_ADMIN_PASSWORD": self.admin["password"],
             "TRIPFLOW_STATE_PATH": str(Path(directory) / "tasks.sqlite3"),
             "DATABASE_URL": os.getenv("TRIPFLOW_TEST_DATABASE_URL", ""),
+            "DEEPSEEK_API_KEY": "",
         }))
         self.client = self.resources.enter_context(TestClient(app))
         self.client.headers["X-Portal-Request"] = "1"
@@ -176,6 +177,8 @@ class PollingTest(unittest.TestCase):
         self.client.portal.call(persist, "recommendations", dict(old_body, taskId=saved_id), saved)
         item = self.client.get("/v1/tasks/" + saved_id, headers=key).json()["result"]["results"]["hotels"]["items"][0]
         self.assertNotIn("tariff", item)
+        diagnostics = self.client.get("/portal/data/preferences/tasks/" + saved_id).json()
+        self.assertEqual(diagnostics, {"status": "historical", "stages": []})
 
         budget_id = uuid4().hex
         budget = budget_examples["budget"]["value"]

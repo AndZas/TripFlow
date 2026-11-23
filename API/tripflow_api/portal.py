@@ -1,3 +1,4 @@
+import json
 import os
 import re
 import time
@@ -217,7 +218,18 @@ async def revoke_key(
 @data.get("/activity")
 async def activity(request: Request, account: Annotated[Account, Depends(signed_in)]) -> dict:
     store = request.app.state.tasks
-    return {"tasks": store.recent(account["id"]), "summary": store.summary(account["id"])}
+    client_id = account["id"]
+    return {"tasks": store.recent(client_id), "summary": store.summary(client_id),
+            "preferences": store.preferences.summary(client_id)}
+
+
+@data.get("/preferences/tasks/{task_id:path}")
+async def task_preferences(task_id: str, request: Request, account: Annotated[Account, Depends(signed_in)]) -> dict:
+    store = request.app.state.tasks
+    row = store.load(account["id"], task_id)
+    if row is None or row[0] != "recommendations":
+        raise HTTPException(404, "Задача подбора не найдена.")
+    return store.preferences.details(account["id"], task_id, json.loads(row[1]))
 
 
 Admin = Annotated[Account, Depends(admin_only)]
