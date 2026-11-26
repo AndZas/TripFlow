@@ -1,4 +1,6 @@
 **
 !Backend/*.cs
+!Backend/Migrations/
+!Backend/Migrations/*.cs
 !Backend/TripFlow.Backend.csproj
 !shared/data/destinations.json

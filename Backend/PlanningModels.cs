@@ -98,21 +98,26 @@ internal sealed class PythonTask
     public const string Budget = "budget";
 
     public required Guid Id { get; init; }
+    public required Guid CardId { get; init; }
+    public TripCard Card { get; private set; } = null!;
     public required string Kind { get; init; }
     public required long CardVersion { get; init; }
     public required JsonElement Payload { get; init; }
     public DateTimeOffset Deadline { get; init; }
     public CardGenerationInput? Generation { get; init; }
+    public Guid? GenerationBatchId { get; init; }
     public Dictionary<string, RecommendationTaskTarget> Targets { get; init; } = [];
+    public DateTimeOffset? NextAttemptAt { get; set; }
+    public string? PollPath { get; set; }
     public bool Accepted { get; set; }
     public bool Finished { get; set; }
-    public bool CallbackReceived { get; set; }
 }
 
 internal sealed record RecommendationTaskTarget(int Count, SearchCriteria? Criteria, string[]? Exclusions);
 internal sealed record CardGenerationInput(string? Target, string? Refinement, Guid? ReplaceAttractionId);
 internal sealed record SearchCriteria(long? MaxTotalRub, string? Refinement);
-internal sealed record RecommendationRequestTarget(int Count, long? MaxTotalRub, string? Refinement, string[] ExcludedObjectIds);
+internal sealed record PythonRecommendationRequest(Guid TaskId, TripDetails Trip, string Targets,
+    int Count, long? MaxTotalRub, string? Refinement, string[] ExcludedObjectIds);
 internal sealed record HotelSelectionInput([property: JsonRequired] Guid? HotelId);
 internal sealed record AttractionSelectionInput(Guid[]? AttractionIds);
 
@@ -192,5 +197,5 @@ internal static class PlanningBudget
 
 internal sealed record PythonBudgetRequest(Guid TaskId, TripDetails Trip, PythonSelectedHotel? SelectedHotel,
     PythonSelectedAttraction[] SelectedAttractions);
-internal sealed record PythonSelectedHotel(string ObjectId, long? Price, TariffSnapshot Tariff);
+internal sealed record PythonSelectedHotel(string ObjectId, long? Price);
 internal sealed record PythonSelectedAttraction(string ObjectId, AdmissionPriceQuote? Price);
