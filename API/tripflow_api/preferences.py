@@ -257,6 +257,13 @@ class PreferenceAnalysis:
         return {**task[0], "preferences": body["trip"].get("preferences"), "refinement": body.get("refinement"),
                 "category": body["targets"], "stages": stages}
 
+    def hotel_conditions(self, client_id: str, task_id: str, *, refined: bool) -> list[dict] | None:
+        stage = "refinement" if refined else "preferences"
+        run = next((run for run in self.linked(client_id, task_id) if run["stage"] == stage), None)
+        if run is None or run["status"] not in ("empty", "succeeded"):
+            return None
+        return [item for item in json.loads(run["result"])["conditions"] if item["scope"] == "hotels"]
+
     def summary(self, client_id: str) -> dict:
         end = int(time.time())
         start = end - WINDOW_SECONDS

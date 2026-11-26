@@ -10,7 +10,7 @@ from typing import Annotated
 
 import httpx
 from anyio import CapacityLimiter
-from fastapi import Body, BackgroundTasks, Depends, FastAPI, Request, Response
+from fastapi import Body, BackgroundTasks, Depends, FastAPI, Query, Request, Response
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from fastapi.security import APIKeyHeader
@@ -18,8 +18,12 @@ from fastapi.staticfiles import StaticFiles
 
 from .database import Database
 from .portal import ASSETS, Account, configure_portal, data as portal_data, router as portal_router, signed_in
-from .schemas import BudgetRequest, ErrorDetail, ErrorResponse, RecommendationsRequest, TaskAccepted, TaskRequest, TaskStatus
+from .schemas import (
+    BudgetRequest, Destination, ErrorDetail, ErrorResponse, LegacyTrip, RecommendationsRequest, TaskAccepted,
+    TaskRequest, TaskStatus,
+)
 from .tasks import TaskConflict, TaskStore
+from .cities import city_suggestions
 
 
 API_DIR = Path(__file__).resolve().parents[1]
@@ -27,12 +31,29 @@ logger = logging.getLogger("uvicorn.error")
 BUILDER_PREFIX = "/portal/data/builder"
 
 
+async def recover_hotels(tasks: TaskStore) -> None:
+    active = set()
+    try:
+        while True:
+            for identity in tasks.runnable_hotels():
+                worker = asyncio.create_task(tasks.run(*identity))
+                active.add(worker)
+                worker.add_done_callback(active.discard)
+            await asyncio.sleep(2)
+    finally:
+        for worker in active:
+            worker.cancel()
+        await asyncio.gather(*active, return_exceptions=True)
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     destinations_file = API_DIR.parent / "shared" / "data" / "destinations.json"
     destinations = json.loads(destinations_file.read_text(encoding="utf-8"))["destinations"]
     app.state.destinations = destinations
-    app.state.destination_ids = {destination["id"] for destination in destinations}
+    legacy = {row["id"]: Destination(city=row["city"], countryCode=row["countryCode"], **row["coordinates"])
+              for row in destinations}
+    app.state.destination_ids = set(legacy)
     on_render = os.environ.get("RENDER") == "true"
     if on_render and not os.environ.get("DATABASE_URL"):
         raise ValueError("Set DATABASE_URL to a persistent PostgreSQL database on Render")
@@ -42,23 +63,32 @@ async def lifespan(app: FastAPI):
     async with AsyncExitStack() as resources:
         database = resources.enter_context(closing(Database(state_path)))
         provider = await resources.enter_async_context(httpx.AsyncClient(base_url="https://api.deepseek.com", headers=headers))
+        external = await resources.enter_async_context(httpx.AsyncClient())
+        app.state.external = external
+        app.state.geoapify_key = os.environ.get("GEOAPIFY_API_KEY", "").strip()
         app.state.portal = configure_portal(database)
         if on_render and app.state.portal is None:
             raise ValueError("Set the portal owner credentials for the first startup on Render")
         app.state.password_limit = CapacityLimiter(2)
         app.state.portal_attempts = {}
-        tasks = TaskStore(database, provider, bool(key))
+        tasks = TaskStore(database, provider, bool(key), external, legacy)
         app.state.tasks = tasks
         tasks.prune_usage()
         app.state.usage_pruned = int(time.time()) // 86400
         recovery = [asyncio.create_task(tasks.run(*identity)) for identity in tasks.pending()]
+        recovery.append(asyncio.create_task(recover_hotels(tasks)))
         try:
             yield
         finally:
-            await asyncio.gather(*recovery)
+            recovery[-1].cancel()
+            await asyncio.gather(*recovery, return_exceptions=True)
 
 
-app = FastAPI(title="TripFlow Mock API", version="1.0.0", lifespan=lifespan)
+app = FastAPI(title="TripFlow API", version="1.1.0", lifespan=lifespan, description=(
+    "Stage 2: hotel recommendations use verified web sources and return a group price in RUB "
+    "for one separate room per traveler and all nights. Attractions and budget are test data. "
+    "Follow the relative Location after 202. The hotels category may complete with partial results."
+))
 app.include_router(portal_router)
 app.mount("/portal/assets", StaticFiles(directory=ASSETS), name="portal-assets")
 api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
@@ -122,7 +152,7 @@ async def request_validation_handler(request: Request, error: RequestValidationE
         task_id = None
     fields: dict[str, list[str]] = {}
     for problem in error.errors():
-        path = ".".join(str(part) for part in problem["loc"][1:]) or "body"
+        path = ".".join(str(part) for part in problem["loc"][1:] if part not in ("LocatedTrip", "LegacyTrip")) or "body"
         fields.setdefault(path, []).append(problem["msg"])
     detail = ErrorDetail(code="VALIDATION_ERROR", message="Invalid request", fields=fields)
     return await api_error_handler(request, ApiError(422, task_id, detail))
@@ -145,7 +175,7 @@ def accept_task(
     request: Request, response: Response, background: BackgroundTasks, operation: str, body: TaskRequest, client: str,
     *, prefix: str = "/v1",
 ) -> TaskAccepted:
-    if body.trip.destinationId not in request.app.state.destination_ids:
+    if isinstance(body.trip, LegacyTrip) and body.trip.destinationId not in request.app.state.destination_ids:
         detail = ErrorDetail(
             code="VALIDATION_ERROR",
             message="Invalid request",
@@ -165,7 +195,8 @@ def accept_task(
     return TaskAccepted(taskId=body.taskId)
 
 
-example_trip = {"destinationId": "ru-moscow", "startDate": "2027-06-10", "endDate": "2027-06-13",
+example_trip = {"destination": {"city": "Киото", "countryCode": "JP", "latitude": 35.01, "longitude": 135.77},
+                "startDate": "2027-06-10", "endDate": "2027-06-13",
                 "travelers": 2, "budgetRub": 85000, "preferences": "Отель рядом с метро и прогулки по городу"}
 recommendation_examples = {
     target: {"summary": label, "value": {
@@ -174,7 +205,7 @@ recommendation_examples = {
         "refinement": refinement, "excludedObjectIds": [],
     }}
     for target, label, limit, refinement in (
-        ("hotels", "Отели", 40000, "Можно дальше от центра"),
+        ("hotels", "Отели", 50000, "Можно дальше от центра"),
         ("attractions", "Достопримечательности", 5000, "Музеи и парки"),
     )
 }
@@ -232,6 +263,12 @@ BuilderClient = Annotated[str, Depends(builder_client)]
 @portal_data.get("/builder/destinations")
 async def builder_destinations(request: Request, _client: BuilderClient) -> list[dict]:
     return request.app.state.destinations
+
+
+@portal_data.get("/builder/cities")
+async def builder_cities(request: Request, _client: BuilderClient, q: Annotated[str, Query(max_length=120)] = "") -> dict:
+    return await city_suggestions(request.app.state.external, request.app.state.geoapify_key, q.strip(),
+                                  request.app.state.tasks.hotels.remember_place)
 
 
 @portal_data.post("/builder/recommendations", status_code=202)

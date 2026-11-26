@@ -10,9 +10,11 @@ from pydantic import (
     Field,
     StrictBool,
     StrictStr,
+    StringConstraints,
     UrlConstraints,
     ValidationInfo,
     field_validator,
+    model_validator,
 )
 
 
@@ -56,8 +58,22 @@ class RequestModel(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
 
-class TripContext(RequestModel):
-    destinationId: Identifier
+class Coordinates(RequestModel):
+    latitude: Annotated[float, Field(strict=True, allow_inf_nan=False, ge=-90, le=90)]
+    longitude: Annotated[float, Field(strict=True, allow_inf_nan=False, ge=-180, le=180)]
+
+
+class Destination(Coordinates):
+    city: Annotated[StrictStr, StringConstraints(strip_whitespace=True, min_length=1)]
+    countryCode: Annotated[StrictStr, StringConstraints(pattern=r"^[A-Za-z]{2}$")]
+
+    @field_validator("countryCode")
+    @classmethod
+    def uppercase_country(cls, value: str) -> str:
+        return value.upper()
+
+
+class TripDates(RequestModel):
     startDate: CalendarDate
     endDate: CalendarDate
     travelers: PositiveInteger
@@ -71,6 +87,17 @@ class TripContext(RequestModel):
         if start_date is not None and value < start_date:
             raise ValueError("must be on or after startDate")
         return value
+
+
+class LegacyTrip(TripDates):
+    destinationId: Identifier
+
+
+class LocatedTrip(TripDates):
+    destination: Destination
+
+
+TripContext = LocatedTrip | LegacyTrip
 
 
 class AdmissionPriceQuote(RequestModel):
@@ -101,6 +128,8 @@ class RecommendationsRequest(TaskRequest):
     targets: Literal["hotels", "attractions"]
     count: PositiveInteger
     maxTotalRub: Rubles | None
+    targetHotelTotalRub: PositiveInteger | None = Field(
+        default=None, description="Desired total lodging cost in RUB for all travelers and nights. Used to rank hotels.")
     refinement: NullableText
     excludedObjectIds: list[Identifier] | None = Field(json_schema_extra={"uniqueItems": True})
 
@@ -117,6 +146,13 @@ class RecommendationsRequest(TaskRequest):
 class BudgetRequest(TaskRequest):
     selectedHotel: SelectedHotel | None
     selectedAttractions: list[SelectedAttraction]
+
+    @field_validator("selectedHotel")
+    @classmethod
+    def require_known_price(cls, value: SelectedHotel | None, info: ValidationInfo) -> SelectedHotel | None:
+        if isinstance(info.data.get("trip"), LocatedTrip) and value is not None and value.price is None:
+            raise ValueError("expected a known group price for the selected hotel")
+        return value
 
 
 class TaskAccepted(BaseModel):
@@ -135,7 +171,52 @@ class ErrorResponse(BaseModel):
     error: ErrorDetail
 
 
+class HotelItem(RequestModel):
+    objectId: Identifier
+    name: Identifier
+    price: Rubles
+    stars: Annotated[int, Field(strict=True, ge=1, le=5)] | None
+    address: Identifier | None
+    coordinates: Coordinates | None
+    imageUrl: HttpsUrl | None
+    sourceUrl: HttpsUrl
+
+
+class HotelSearchError(RequestModel):
+    code: str
+    message: str
+
+
+class HotelBatch(RequestModel):
+    status: Literal["succeeded", "partial", "failed"]
+    items: list[HotelItem]
+    hasMore: StrictBool | None
+    error: HotelSearchError | None = None
+
+    @model_validator(mode="after")
+    def check_outcome(self):
+        if self.status == "succeeded":
+            if self.error:
+                raise ValueError("successful search cannot have an error")
+        elif self.error is None or self.hasMore is not None or bool(self.items) != (self.status == "partial"):
+            raise ValueError("inconsistent interrupted search")
+        return self
+
+
+class HotelResults(RequestModel):
+    hotels: HotelBatch
+
+
+class HotelResult(RequestModel):
+    taskId: Identifier
+    event: Literal["recommendations.finished"] = "recommendations.finished"
+    results: HotelResults
+
+
 class TaskStatus(BaseModel):
     taskId: str
     status: Literal["pending", "completed"]
-    result: dict | None
+    result: dict | HotelResult | None = Field(
+        description="Saved task result. HotelResult documents Stage 2 hotel responses. "
+                    "Historical results, attractions and budget use their existing formats."
+    )

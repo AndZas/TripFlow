@@ -1,5 +1,5 @@
 import { setupCardBuilder } from "./card-builder.js";
-import { element, preferenceAttempts, preferenceInterpretation, preferencePath, preferenceSummary } from "./preference-view.js";
+import { element, hotelDiagnostics, preferenceAttempts, preferenceInterpretation, preferencePath, preferenceSummary } from "./preference-view.js";
 
 const $ = (id) => document.getElementById(id);
 const app = $("app");
@@ -39,6 +39,7 @@ async function portalRequest(path, body, signal) {
     const message = typeof payload.detail === "string" ? payload.detail : "Проверьте поля формы и повторите действие.";
     const error = new Error(message);
     error.payload = payload;
+    error.status = response.status;
     throw error;
   }
   return { payload, response };
@@ -206,7 +207,7 @@ async function openPreferenceTask(taskId) {
   const selection = { taskId };
   selectedPreference = selection;
   const panel = $("preference-task");
-  const heading = element("h2", "Разбор пожеланий в задаче");
+  const heading = element("h2", "Детали задачи");
   const task = element("code", taskId);
   panel.replaceChildren(heading, task, element("p", "Загрузка…"));
   panel.hidden = false;
@@ -222,6 +223,7 @@ async function openPreferenceTask(taskId) {
       attempts.open = true;
       interpretation.append(attempts);
     }
+    if (record.hotels) interpretation.append(hotelDiagnostics(record.hotels));
     panel.replaceChildren(heading, task, interpretation);
   } catch (error) {
     if (selectedPreference === selection) panel.replaceChildren(heading, task, element("p", error.message));

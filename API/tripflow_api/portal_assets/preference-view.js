@@ -1,5 +1,208 @@
 export const preferencePath = (taskId) => "/preferences/tasks/" + encodeURIComponent(taskId);
 
+export function hotelAvailability(availability) {
+  return {
+    available: "Источник подтвердил наличие номеров на выбранные даты",
+    unavailable: "Источник сообщает, что на выбранные даты мест нет",
+    unknown: "Доступность на выбранные даты не проверена",
+  }[availability?.state];
+}
+
+export function hotelPriceBasis(price) {
+  const observation = price?.rate?.observedOn;
+  const period = price?.rate?.start && price?.rate?.end ? price.rate.start + " — " + price.rate.end : null;
+  if (price?.level === "room_reference") {
+    const reference = "Ориентир по цене отдельного номера в этой гостинице";
+    return price.basis === "other_period" ? reference + " · другой период" + (observation || period ? " (" + (observation || period) + ")" : "") : reference;
+  }
+  if (price?.level === "market") return "Оценка по другим объектам города";
+  return {
+    dated: "Тариф для выбранных дат",
+    published: price?.rate?.variableQuote ? "Оценка по изменяемому тарифу" : "Оценка по опубликованному прайсу",
+    other_period: "Оценка по тарифу другого периода" + (observation || period ? " (" + (observation || period) + ")" : ""),
+    analogs: "Оценка по сопоставимым отелям",
+  }[price?.basis];
+}
+
+export function hotelCoverage(report, batch) {
+  const messages = [];
+  if (batch.error?.message) messages.push(batch.error.message);
+  if (!batch.items.length && report?.considered != null) {
+    if (report.coverage) {
+      messages.push("Обнаружено " + report.coverage.discovered + ", подтверждён город у " + report.coverage.cityConfirmed + " объектов.");
+    } else if (!report.stop) {
+      messages.push("Проверено объектов: " + report.considered + ".");
+    }
+    if (report.considered && !report.priced) {
+      const missingDonors = report.rejected?.some(item => item.priceGap === "insufficient_donors");
+      messages.push(missingDonors ? "Не удалось подтвердить тариф или найти две сопоставимые местные цены."
+        : "Не удалось обосновать стоимость проживания.");
+    }
+    if (!report.stop && report.priced) messages.push("С обоснованной оценкой: " + report.priced + ".");
+    if (report.failedConditions) messages.push("Отсеяно обязательными условиями: " + report.failedConditions + ".");
+    if (report.overCeiling) messages.push("Выше лимита отеля: " + report.overCeiling + ".");
+  }
+  if (report?.targetGap) messages.push("В текущих источниках не нашлось цены в пределах 30% от цели. Показаны ближайшие подходящие предложения.");
+  if (batch.hasMore === null) messages.push("За пределами этой попытки число вариантов неизвестно.");
+  return messages.join(" ");
+}
+
+export function hotelDiagnostics(report) {
+  const details = element("details", undefined, "builder-json");
+  const labels = { published: "Опубликованная ставка", from: "Ставка «от»", range: "Нижняя граница диапазона",
+    analogs: "Оценка по аналогам" };
+  const units = { room_night: "за номер за ночь", room_stay: "за номер за период",
+    group_night: "за группу номеров за ночь", group_stay: "за группу за период" };
+  const verdicts = { confirmed: "подтверждено", refuted: "опровергнуто", unknown: "неизвестно" };
+  const link = (url, label = "Источник") => {
+    const result = element("a", label);
+    result.href = url;
+    result.target = "_blank";
+    result.rel = "noopener noreferrer";
+    return result;
+  };
+  const rubles = (value) => new Intl.NumberFormat("ru-RU").format(value) + " ₽";
+  details.append(element("summary", "Источники, расчёт и обращения к сервисам"));
+  const calls = report.calls;
+  const seconds = report.elapsedMs == null ? "выполняется" : (report.elapsedMs / 1000).toLocaleString("ru-RU") + " с";
+  details.append(element("p", [
+    seconds, "обращений к каталогу " + (report.catalogLookups ?? "—"), "вариантов из каталога " + (report.catalogMatches ?? "—"),
+    "Search " + calls.search, "Fetch " + calls.fetch, "Flash " + calls.flash, "ЦБ " + calls.fx, "повторов " + report.retries,
+  ].join(" · "), "metadata"));
+  const tokens = report.usage;
+  const usage = (value) => value == null ? "неизвестно" : String(value);
+  details.append(element("p", "Токены гостиничного поиска · вход " + usage(tokens.inputTokens)
+    + " · выход " + usage(tokens.outputTokens) + (report.usageIncomplete ? " · данные неполные" : ""), "metadata"));
+  if (report.considered != null) {
+    details.append(element("p", "В каталоге на старте " + report.catalogAtStart + " · новых объектов " + report.discovered
+      + " · проверено " + report.considered + " · с обоснованной оценкой " + report.priced
+      + " · отсеяно по условиям " + report.failedConditions + " · выше лимита " + report.overCeiling
+      + " · выдано " + report.returned, "metadata"));
+  }
+  if (report.coverage) {
+    const { discovered, cityConfirmed, priceLevels, returned } = report.coverage;
+    details.append(element("p", "Обнаружено " + discovered + " · подтверждён город у " + cityConfirmed
+      + " · тариф предложения " + (priceLevels.offer ?? 0) + " · ориентир по номеру " + (priceLevels.room_reference ?? 0)
+      + " · оценка по городу " + (priceLevels.market ?? 0) + " · выдано " + returned, "metadata"));
+  }
+  if (report.profile && report.discoverySources) {
+    const found = report.discoverySources;
+    const sources = report.sourceCalls;
+    const prices = report.priceSources ?? {};
+    details.append(element("p", "Профиль " + report.profile + (report.usedExtension ? " · использован расширенный бюджет" : "")
+      + (report.destinationRegion ? " · " + report.destinationRegion : ""), "metadata"));
+    details.append(element("p", "Geoapify " + found.geoapify + " · Russhotels " + found.russhotels
+      + " · новых из веба " + report.newWebObjects + " · пригодные цены по источникам "
+      + Object.entries(prices).map(([source, count]) => source + " " + count).join(", "), "metadata"));
+    if (sources) details.append(element("p", "Геокодирование " + sources.geocode
+      + " · Places " + sources.places + " · Russhotels " + sources.russhotels, "metadata"));
+  }
+  if (report.error) {
+    const stop = report.stop;
+    const reasons = { input_bytes: "объём входного текста, байты", output_reserve: "резерв выходных токенов",
+      calls: "число вызовов", time: "время, мс" };
+    const provider = { authorization: "провайдер отклонил авторизацию", balance: "исчерпан баланс провайдера",
+      invalid_response: "ответ провайдера не прошёл проверку", flash_response: "непригодный ответ модели",
+      flash_truncated: "ответ модели оборвался", timeout: "провайдер не ответил вовремя",
+      fx_unavailable: "курс валют недоступен" };
+    const stage = report.attempts.findLast((attempt) => attempt.error === report.error)?.kind;
+    const reason = stop ? stop.stage.toUpperCase() + " · " + reasons[stop.unit] + " · "
+      + stop.used + " из " + stop.limit + (stop.requested ? " · следующий шаг требует " + stop.requested : "")
+      : [stage?.toUpperCase(), provider[report.error] ?? report.error].filter(Boolean).join(" · ");
+    details.append(element("p", "Причина остановки · " + reason, "metadata"));
+  }
+  if (report.reusedCalls && Object.values(report.reusedCalls).some(Boolean)) {
+    const { search, fetch, flash } = report.reusedCalls;
+    details.append(element("p", "Переиспользованы ответы прежней задачи · Search " + search + " · Fetch " + fetch
+      + " · Flash " + flash, "metadata"));
+  }
+  const currencyReasons = { fx_unavailable: "сервис курса недоступен", fx_currency_missing: "валюта отсутствует в документе ЦБ",
+    fx_invalid_rate: "курс или номинал не прошёл проверку", unknown_currency: "неизвестный код валюты" };
+  for (const entry of report.currencyIssues ?? []) {
+    details.append(element("p", entry.name + " · " + entry.currencies.map(({ currency, reason }) =>
+      currency + " · " + (currencyReasons[reason] ?? reason)).join(", "), "metadata"));
+  }
+  if (report.enrichmentCalls) {
+    const { search, fetch } = report.enrichmentCalls;
+    details.append(element("p", "Обогащение карточек · Search " + search + " · страницы " + fetch, "metadata"));
+  }
+  for (const hotel of report.hotels ?? []) {
+    const price = hotel.price;
+    details.append(element("h3", hotel.item.name), link(hotel.item.sourceUrl,
+      price.level === "market" ? "Источник сведений об отеле" : "Источник цены"));
+    if (hotel.metadata?.website) details.append(link(hotel.metadata.website.value, "Сайт гостиницы"));
+    if (hotel.metadata?.image) details.append(link(hotel.metadata.image.sourceUrl, "Источник фото"));
+    if (price.roomCategory) details.append(element("p", price.roomCategory, "metadata"));
+    if (price.targetRub != null) details.append(element("p", "Цель " + rubles(price.targetRub)
+      + " · отклонение " + (price.differenceRub > 0 ? "+" : "") + rubles(price.differenceRub), "metadata"));
+    details.append(element("p", labels[price.type] + " · " + price.rooms + " ном. × " + price.nights + " ноч. · " + rubles(price.totalRub)));
+    for (const text of [hotelPriceBasis(price), hotelAvailability(hotel.availability)].filter(Boolean)) {
+      details.append(element("p", text, "metadata"));
+    }
+    if (hotel.availability?.sourceUrl) {
+      const proof = element("p");
+      proof.append(element("q", hotel.availability.quote), document.createTextNode(" "), link(hotel.availability.sourceUrl));
+      details.append(proof);
+    }
+    if (price.rate) {
+      const rate = price.rate;
+      const line = element("p", rate.amount + (rate.upper ? "–" + rate.upper : "") + " " + rate.currency + " " + units[rate.basis] + " · ");
+      line.append(link(rate.sourceUrl, "Тариф"), document.createTextNode(" · "), element("q", rate.quote));
+      details.append(line);
+      if (rate.provider === "russhotels") {
+        details.append(element("p", "Russhotels · " + rate.providerRoom + " · " + rate.providerPlacement
+          + " · price_client " + rate.providerAmount, "metadata"), link(rate.documentationUrl, "Единица цены в API"));
+      }
+      for (const phrase of rate.support ?? []) details.append(element("q", phrase));
+      if (rate.originalOccupancy) details.append(element("p", rate.originalOccupancy, "metadata"));
+      if (rate.periodQuote) details.append(element("q", rate.periodQuote));
+      if (rate.variableQuote) details.append(element("q", rate.variableQuote));
+      if (rate.scope && !price.basis) {
+        const period = rate.scope === "general" ? "Общий прайс" : (rate.scope === "offer" ? "Цена на выбранные даты" : "Период тарифа")
+          + " · " + rate.start + " — " + rate.end;
+        details.append(element("p", period, "metadata"));
+      }
+      const policies = { no_meals: "без питания", breakfast_included: "завтрак включён",
+        breakfast_extra: "завтрак за доплату", nonrefundable: "невозвратный тариф", free_cancellation: "бесплатная отмена" };
+      if (rate.policies?.length) details.append(element("p", rate.policies.map((policy) => policies[policy]).join(" · "), "metadata"));
+      const fx = price.exchange;
+      if (fx.sourceUrl) {
+        const conversion = element("p", fx.nominal + " " + fx.currency + " = " + fx.valueRub + " ₽ · " + fx.date + " · ");
+        conversion.append(link(fx.sourceUrl, "Банк России"));
+        details.append(conversion);
+      }
+    } else {
+      const spread = price.spreadRubPerRoomNight;
+      details.append(element("p", "Медиана за номер за ночь " + rubles(price.rateRubPerRoomNight)
+        + (spread ? " · диапазон " + rubles(spread[0]) + " — " + rubles(spread[1]) : "")
+        + (price.zone === "nearby" ? " · близкие отели" : "")));
+      for (const example of price.analogs) {
+        const row = element("p");
+        row.append(link(example.rate.sourceUrl, example.name), document.createTextNode(
+          example.nightlyRub ? " · " + rubles(example.nightlyRub) + " за ночь · " : " · "), element("q", example.rate.quote));
+        details.append(row);
+      }
+    }
+    for (const check of hotel.conditions) {
+      const row = element("p", check.travelerQuote + " · " + verdicts[check.verdict]);
+      for (const evidence of check.evidence) {
+        row.append(document.createTextNode(" · "), element("q", evidence.quote), document.createTextNode(" "), link(evidence.sourceUrl));
+      }
+      details.append(row);
+    }
+  }
+  if (report.attempts.length || report.rejected?.length || report.sourceIssues?.length || report.focused?.length) {
+    const raw = element("details", undefined, "builder-json");
+    const pre = element("pre");
+    pre.append(element("code", JSON.stringify({ attempts: report.attempts, focused: report.focused ?? [],
+      rejected: report.rejected ?? [], sourceIssues: report.sourceIssues ?? [], marketSearch: report.marketSearch,
+      budget: report.budget }, null, 2)));
+    raw.append(element("summary", "Попытки и исключённые варианты"), pre);
+    details.append(raw);
+  }
+  return details;
+}
+
 export const scopes = { hotels: "Отели", attractions: "Достопримечательности", budget: "Смета" };
 const roles = { required: "Обязательно", preferred: "Желательно", excluded: "Исключение", note: "Заметка" };
 const errors = {

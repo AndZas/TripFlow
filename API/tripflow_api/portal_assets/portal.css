@@ -150,7 +150,10 @@ dialog input { margin-top: .4rem; font-family: "Cascadia Mono", Consolas, monosp
 .builder-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .85rem; }
 .builder-wide { grid-column: 1 / -1; }
 .builder-fields label { min-width: 0; }
-.builder-fields select { width: 100%; font: inherit; font-weight: 400; padding: .7rem .82rem; border: 1px solid #c4d1e4; border-radius: .58rem; background: #fff; color: #142038; }
+.builder-city-options { display: grid; gap: .3rem; margin: .3rem 0; }
+.builder-city-options button { text-align: left; }
+.builder-hotel-photo { display: block; width: 100%; max-height: 12rem; aspect-ratio: 16 / 8; object-fit: cover; border-radius: .6rem; margin-bottom: .35rem; }
+.builder-hotel-links { display: flex; flex-wrap: wrap; gap: .3rem 1rem; padding: .22rem .8rem; }
 .builder-options, .builder-json { border-top: 1px solid var(--line); padding-top: .85rem; }
 .builder-options summary, .builder-json summary { color: #244edb; cursor: pointer; font-size: .9rem; font-weight: 650; }
 .builder-settings { margin-top: .85rem; }

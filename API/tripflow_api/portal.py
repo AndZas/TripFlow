@@ -67,7 +67,7 @@ async def portal_page() -> FileResponse:
     return FileResponse(ASSETS / "index.html", headers={
         "Cache-Control": "no-cache",
         "Content-Security-Policy": (
-            "default-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"
+            "default-src 'self'; img-src 'self' https:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"
         ),
         "X-Content-Type-Options": "nosniff",
         "Referrer-Policy": "no-referrer",
@@ -229,7 +229,11 @@ async def task_preferences(task_id: str, request: Request, account: Annotated[Ac
     row = store.load(account["id"], task_id)
     if row is None or row[0] != "recommendations":
         raise HTTPException(404, "Задача подбора не найдена.")
-    return store.preferences.details(account["id"], task_id, json.loads(row[1]))
+    report = store.preferences.details(account["id"], task_id, json.loads(row[1]))
+    hotels = store.hotels.details((account["id"], task_id))
+    if hotels is not None:
+        report["hotels"] = hotels
+    return report
 
 
 Admin = Annotated[Account, Depends(admin_only)]

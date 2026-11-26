@@ -7,7 +7,10 @@ from pathlib import Path
 from unittest.mock import patch
 from uuid import uuid4
 
+import httpx
 from fastapi.testclient import TestClient
+from hotel_fixtures import HotelProvider
+from test_hotels import isolated_test_url
 
 from tripflow_api.main import app, budget_examples, recommendation_examples
 from tripflow_api.schemas import BudgetRequest
@@ -23,9 +26,13 @@ class PollingTest(unittest.TestCase):
             "TRIPFLOW_PORTAL_ADMIN_EMAIL": self.admin["email"],
             "TRIPFLOW_PORTAL_ADMIN_PASSWORD": self.admin["password"],
             "TRIPFLOW_STATE_PATH": str(Path(directory) / "tasks.sqlite3"),
-            "DATABASE_URL": os.getenv("TRIPFLOW_TEST_DATABASE_URL", ""),
-            "DEEPSEEK_API_KEY": "",
+            "DATABASE_URL": isolated_test_url(self.resources),
+            "DEEPSEEK_API_KEY": "fixture-key", "HOTEL_ENRICHMENT": "off",
         }))
+        original = httpx.AsyncClient
+        self.hotel_provider = HotelProvider()
+        self.resources.enter_context(patch("tripflow_api.main.httpx.AsyncClient", side_effect=lambda **kwargs:
+                                           original(transport=httpx.MockTransport(self.hotel_provider), **kwargs)))
         self.client = self.resources.enter_context(TestClient(app))
         self.client.headers["X-Portal-Request"] = "1"
 
@@ -135,11 +142,13 @@ class PollingTest(unittest.TestCase):
         for targets in ({"hotels": {"count": 2, "maxTotalRub": None}}, ["hotels", "attractions"]):
             self.assertEqual(self.client.post(endpoint, json=dict(body, targets=targets), headers=key).status_code, 422)
 
-        filtered = dict(body, taskId=uuid4().hex, excludedObjectIds=["hotel-boulevard"])
+        first = self.client.get(created.headers["Location"], headers=key).json()["result"]["results"]["hotels"]["items"][0]
+        filtered = dict(body, taskId=uuid4().hex, excludedObjectIds=[first["objectId"]])
         created = self.client.post(endpoint, json=filtered, headers=key)
         self.assertEqual(created.status_code, 202)
         items = self.client.get(created.headers["Location"], headers=key).json()["result"]["results"]["hotels"]["items"]
-        self.assertEqual([item["objectId"] for item in items], ["hotel-metro", "hotel-garden"])
+        self.assertEqual(len(items), 2)
+        self.assertNotIn(first["objectId"], [item["objectId"] for item in items])
 
         budget = budget_examples["budget"]["value"]
         with_tariff = dict(budget, selectedHotel=dict(budget["selectedHotel"], tariff={"name": "Old"}))
@@ -149,7 +158,8 @@ class PollingTest(unittest.TestCase):
         admin_id = self.login(self.admin).json()["account"]["id"]
         key = {"X-API-Key": self.post("keys/api/issue").json()["key"]}
         store = app.state.tasks
-        trip = budget_examples["budget"]["value"]["trip"]
+        trip = dict(budget_examples["budget"]["value"]["trip"], destinationId="ru-moscow")
+        del trip["destination"]
         task_id = uuid4().hex
         old_body = {
             "taskId": task_id, "trip": trip,

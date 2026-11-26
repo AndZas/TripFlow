@@ -14,6 +14,7 @@ from uuid import uuid4
 
 import httpx
 from fastapi.testclient import TestClient
+from hotel_fixtures import HotelProvider
 
 from tripflow_api.main import app, budget_examples, recommendation_examples
 from tripflow_api.preference_model import PROMPT_VERSION, AnalysisError, parse_conditions
@@ -271,16 +272,20 @@ class PreferenceApiTest(unittest.TestCase):
         self.resources.enter_context(patch.dict(os.environ, {
             "TRIPFLOW_STATE_PATH": str(Path(directory) / "state.sqlite3"), "DATABASE_URL": url,
             "TRIPFLOW_PORTAL_ADMIN_EMAIL": self.owner["email"], "TRIPFLOW_PORTAL_ADMIN_PASSWORD": self.owner["password"],
-            "DEEPSEEK_API_KEY": "test-provider-key", "RENDER": "",
+            "DEEPSEEK_API_KEY": "test-provider-key", "HOTEL_ENRICHMENT": "off", "RENDER": "",
         }))
         self.calls = []
+        self.hotel_provider = HotelProvider()
         self.handle = lambda _: reply({"conditions": BASE})
         self.start()
 
     async def transport(self, request):
-        self.assertEqual(str(request.url), "https://api.deepseek.com/chat/completions")
+        if request.url.host != "api.deepseek.com":
+            return self.hotel_provider(request)
         self.assertEqual(request.headers["Authorization"], "Bearer test-provider-key")
         body = json.loads(request.content)
+        if request.url.path != "/chat/completions" or "destination" in json.loads(body["messages"][1]["content"]):
+            return self.hotel_provider(request)
         self.calls.append(body)
         response = self.handle(body)
         return await response if inspect.isawaitable(response) else response
@@ -337,7 +342,7 @@ class PreferenceApiTest(unittest.TestCase):
         self.assertEqual([item["error"] for item in stage["attempts"]], [None])
         self.assertEqual(self.summary()["usage"]["totalTokens"], 30)
 
-    def test_missing_inherited_clock_retries_without_losing_provider_usage_or_mock(self):
+    def test_missing_inherited_clock_retries_and_fails_search_when_unresolved(self):
         base = "Обязателен завтрак до 07:00"
         refinement = "Время не меняем, но теперь это пожелание"
         refinement_calls = []
@@ -354,7 +359,7 @@ class PreferenceApiTest(unittest.TestCase):
 
         self.handle = answer
         corrected = recommendation(base, refinement)
-        mock = self.submit(corrected)["results"]
+        self.assertTrue(self.submit(corrected)["results"]["hotels"]["items"])
         record = self.details(corrected["taskId"])
         self.assertEqual(record["status"], "succeeded")
         stage = record["stages"][-1]
@@ -364,7 +369,7 @@ class PreferenceApiTest(unittest.TestCase):
         self.assertEqual((current["role"], current["meaning"]), ("preferred", "Желателен завтрак до 07:00"))
 
         exhausted = recommendation(base, refinement + ". Остальное без изменений")
-        self.assertEqual(self.submit(exhausted)["results"], mock)
+        self.assertEqual(self.submit(exhausted)["results"]["hotels"]["error"]["code"], "HOTEL_PREFERENCES")
         record = self.details(exhausted["taskId"])
         self.assertEqual((record["status"], record["error"]), ("failed", "numeric_conflict"))
         self.assertEqual(record["stages"][0]["source"], "reused")
@@ -389,7 +394,7 @@ class PreferenceApiTest(unittest.TestCase):
 
         self.handle = lambda _: reply({"conditions": [condition("hotels", "required", quote, "Breakfast after 09:00")]})
         body = recommendation("Хотим отель. " + quote)
-        self.assertTrue(self.submit(body)["results"]["hotels"]["items"])
+        self.assertEqual(self.submit(body)["results"]["hotels"]["items"], [])
         record = self.details(body["taskId"])
         self.assertEqual((record["status"], record["error"]), ("failed", "numeric_conflict"))
         self.assertIsNone(record["stages"][0]["result"])
@@ -466,10 +471,10 @@ class PreferenceApiTest(unittest.TestCase):
         self.assertEqual(self.summary()["attempts"], 3)
         self.assertEqual(self.summary()["reused"], 4)
 
-    def test_invalid_response_and_quote_keep_both_attempts_and_mock(self):
+    def test_invalid_response_and_quote_keep_both_attempts_and_fail_hotel_search(self):
         self.handle = lambda _: reply("{") if len(self.calls) == 1 else reply({"conditions": [{**BASE[0], "quote": "выдуманная цитата"}]})
         body = recommendation()
-        self.assertEqual(self.submit(body)["results"], self.submit(recommendation(None))["results"])
+        self.assertEqual(self.submit(body)["results"]["hotels"]["status"], "failed")
         record = self.details(body["taskId"])
         self.assertEqual((record["status"], record["error"]), ("failed", "invalid_quote"))
         self.assertEqual([attempt["error"] for attempt in record["stages"][0]["attempts"]], ["invalid_response", "invalid_quote"])
@@ -487,7 +492,7 @@ class PreferenceApiTest(unittest.TestCase):
 
         self.handle = answer
         body = recommendation(refinement="Завтрак необязателен")
-        self.assertTrue(self.submit(body)["results"]["hotels"]["items"])
+        self.assertEqual(self.submit(body)["results"]["hotels"]["items"], [])
         record = self.details(body["taskId"])
         self.assertEqual(record["status"], "failed")
         self.assertEqual([stage["status"] for stage in record["stages"]], ["succeeded", "failed"])

@@ -1,6 +1,6 @@
 from collections.abc import Collection
 
-from .schemas import BudgetRequest, RecommendationsRequest, TripContext
+from .schemas import BudgetRequest, RecommendationsRequest, TripDates
 
 
 MOCK_DESTINATION = "ru-moscow"
@@ -33,7 +33,7 @@ def within_limit(price: int | None, limit: int | None) -> bool:
     return limit is None or (price is not None and price <= limit)
 
 
-def mock_hotels(trip: TripContext, limit: int | None, excluded: Collection[str]) -> list[dict]:
+def mock_hotels(trip: TripDates, limit: int | None, excluded: Collection[str]) -> list[dict]:
     nights = (trip.endDate - trip.startDate).days
     if nights == 0:
         return []
@@ -50,7 +50,7 @@ def mock_hotels(trip: TripContext, limit: int | None, excluded: Collection[str])
     return items
 
 
-def mock_attractions(trip: TripContext, limit: int | None, excluded: Collection[str]) -> list[dict]:
+def mock_attractions(trip: TripDates, limit: int | None, excluded: Collection[str]) -> list[dict]:
     items = []
     for object_id, name, category, amount, basis in ATTRACTIONS:
         price = None
@@ -63,10 +63,10 @@ def mock_attractions(trip: TripContext, limit: int | None, excluded: Collection[
     return items
 
 
-def recommendations(request: RecommendationsRequest) -> dict:
+def recommendations(request: RecommendationsRequest, *, historical: bool) -> dict:
     builders = {"hotels": mock_hotels, "attractions": mock_attractions}
     items = []
-    if request.trip.destinationId == MOCK_DESTINATION:
+    if not historical or getattr(request.trip, "destinationId", None) == MOCK_DESTINATION:
         excluded = set(request.excludedObjectIds or ())
         items = builders[request.targets](request.trip, request.maxTotalRub, excluded)
     return {
