@@ -38,6 +38,17 @@ docker compose exec postgres psql -U tripflow -d tripflow -c "SELECT 1;"
 
 `docker compose stop postgres` остановит базу. `docker compose down postgres` удалит контейнер с сохранением тома `postgres-data`. Удаление самого тома удаляет данные PostgreSQL.
 
+## Деплой TripFlow на Render
+
+[Blueprint](render.yaml) описывает один Docker Web Service с React и C# Backend и отдельную PostgreSQL. React обращается к `/api` на том же домене. Backend применяет миграции при старте и использует `TRIPFLOW_DATABASE_URL`, который Render берёт из настроек базы.
+
+1. В Render Dashboard выберите **New → Blueprint** и подключите репозиторий TripFlow.
+2. Выберите ветку с файлами деплоя и укажите `Backend/render.yaml` в **Blueprint Path**.
+3. В поле `PythonApi__ApiKey` укажите ключ TripFlow Python API. При локальной настройке он хранится как `API_TRIPFLOW` в `Backend/.env`. Render передаёт ключ только C# Backend.
+4. Убедитесь, что Web Service и PostgreSQL выбраны на плане **Free**, затем запустите деплой. По завершении откройте выданный Render адрес и проверьте `/api/health`.
+
+Бесплатная Render PostgreSQL действует 30 дней. В одном workspace может быть одна активная бесплатная база. [Настройка Blueprint](https://render.com/docs/infrastructure-as-code) · [Условия бесплатного тарифа](https://render.com/docs/free)
+
 ## Проверка через Swagger
 
 Откройте [Swagger UI](http://127.0.0.1:5080/swagger). Страница доступна в режиме `Development`.

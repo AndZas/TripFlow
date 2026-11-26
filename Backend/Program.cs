@@ -58,6 +58,13 @@ await using (var data = await app.Services.GetRequiredService<IDbContextFactory<
 
 app.UseExceptionHandler();
 app.UseStatusCodePages();
+var servesFrontend = Directory.Exists(app.Environment.WebRootPath);
+if (servesFrontend)
+{
+    app.UseDefaultFiles();
+    app.UseStaticFiles();
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -79,4 +86,9 @@ api.MapGet("/destinations", (DestinationCatalog catalog) => Results.Ok(catalog.D
     .Produces<Destination[]>();
 api.MapAccountEndpoints();
 api.MapDashboardEndpoints();
+if (servesFrontend)
+{
+    app.MapFallback("/api/{**path}", () => Results.NotFound());
+    app.MapFallbackToFile("index.html");
+}
 app.Run();

@@ -3,6 +3,7 @@ services:
     build:
       context: ..
       dockerfile: Backend/Dockerfile
+      target: backend-runtime
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       PythonApi__BaseUrl: ${PythonApi__BaseUrl:-https://tripflow-api-x1p5.onrender.com}

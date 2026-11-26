@@ -124,6 +124,10 @@ internal static class PostgresConfiguration
         if (!string.IsNullOrWhiteSpace(connectionString))
             return connectionString;
 
+        var databaseUrl = configuration["TRIPFLOW_DATABASE_URL"];
+        if (!string.IsNullOrWhiteSpace(databaseUrl))
+            return FromDatabaseUrl(databaseUrl);
+
         var file = Path.Combine(contentRoot, ".env");
         var password = configuration["TRIPFLOW_POSTGRES_PASSWORD"]
             ?? LocalEnvironment.ReadValue(file, "TRIPFLOW_POSTGRES_PASSWORD");
@@ -143,6 +147,27 @@ internal static class PostgresConfiguration
             Database = "tripflow",
             Username = "tripflow",
             Password = password
+        }.ConnectionString;
+    }
+
+    private static string FromDatabaseUrl(string value)
+    {
+        if (!Uri.TryCreate(value, UriKind.Absolute, out var uri)
+            || uri.Scheme is not ("postgres" or "postgresql") || string.IsNullOrEmpty(uri.Host)
+            || uri.AbsolutePath.Length <= 1 || uri.Query.Length > 0 || uri.Fragment.Length > 0)
+            throw new InvalidOperationException("TRIPFLOW_DATABASE_URL must be an internal PostgreSQL URL.");
+
+        var credentials = uri.UserInfo.Split(':', 2);
+        if (credentials.Length != 2 || credentials.Any(string.IsNullOrEmpty))
+            throw new InvalidOperationException("TRIPFLOW_DATABASE_URL must contain a PostgreSQL user and password.");
+
+        return new NpgsqlConnectionStringBuilder
+        {
+            Host = uri.Host,
+            Port = uri.IsDefaultPort ? 5432 : uri.Port,
+            Database = Uri.UnescapeDataString(uri.AbsolutePath[1..]),
+            Username = Uri.UnescapeDataString(credentials[0]),
+            Password = Uri.UnescapeDataString(credentials[1])
         }.ConnectionString;
     }
 }

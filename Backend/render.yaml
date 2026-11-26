@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: tripflow-web
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Backend/Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: PORT
+        value: "8080"
+      - key: TRIPFLOW_DATABASE_URL
+        fromDatabase:
+          name: tripflow-web-db
+          property: connectionString
+      - key: PythonApi__ApiKey
+        sync: false
+
+databases:
+  - name: tripflow-web-db
+    plan: free
+    region: frankfurt
+    postgresMajorVersion: "18"
+    databaseName: tripflow
+    user: tripflow
+    ipAllowList: []

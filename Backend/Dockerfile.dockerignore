@@ -3,4 +3,13 @@
 !Backend/Migrations/
 !Backend/Migrations/*.cs
 !Backend/TripFlow.Backend.csproj
+!Frontend/TripFlow/package.json
+!Frontend/TripFlow/package-lock.json
+!Frontend/TripFlow/index.html
+!Frontend/TripFlow/tsconfig.json
+!Frontend/TripFlow/vite.config.ts
+!Frontend/TripFlow/src/
+!Frontend/TripFlow/src/**
+!Frontend/TripFlow/public/
+!Frontend/TripFlow/public/**
 !shared/data/destinations.json
