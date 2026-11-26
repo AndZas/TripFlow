@@ -5,10 +5,33 @@ services:
       dockerfile: Backend/Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+      PythonApi__BaseUrl: ${PythonApi__BaseUrl:-https://tripflow-api-x1p5.onrender.com}
+      PythonApi__ApiKey: ${PythonApi__ApiKey:-${API_TRIPFLOW:-}}
+      PythonApi__TaskTimeoutSeconds: ${PythonApi__TaskTimeoutSeconds:-300}
+      TRIPFLOW_POSTGRES_HOST: postgres
+      TRIPFLOW_POSTGRES_PORT: "5432"
+      TRIPFLOW_POSTGRES_PASSWORD: ${TRIPFLOW_POSTGRES_PASSWORD:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
     ports:
       - "127.0.0.1:5080:8080"
+
+  postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: tripflow
+      POSTGRES_USER: tripflow
+      POSTGRES_PASSWORD: ${TRIPFLOW_POSTGRES_PASSWORD:-}
+    ports:
+      - "127.0.0.1:${TRIPFLOW_POSTGRES_PORT:-5433}:5432"
     volumes:
-      - backend-data:/app/App_Data
+      - postgres-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "127.0.0.1", "-U", "tripflow", "-d", "tripflow"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
 
 volumes:
-  backend-data:
+  postgres-data:

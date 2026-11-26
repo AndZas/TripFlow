@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 
 namespace TripFlow.Backend;
 
@@ -39,12 +40,13 @@ internal static partial class DashboardEndpoints
         MapPlanningEndpoints(card);
     }
 
-    private static IResult ListDashboards(ClaimsPrincipal user, FileStore store) =>
-        store.Read(data => Results.Ok(data.Dashboards
-            .Where(dashboard => dashboard.MemberIds.Contains(user.AccountId()))
-            .Select(DashboardSummary).ToArray()));
+    private static IResult ListDashboards(ClaimsPrincipal user, PostgresStore store) =>
+        store.Read(data => Results.Ok(AccessibleDashboards(data, user.AccountId())
+            .Select(dashboard => new DashboardSummaryView(
+                dashboard.Id, dashboard.Name, dashboard.Description, dashboard.OwnerId, dashboard.Members.Count))
+            .ToArray()));
 
-    private static IResult CreateDashboard(DashboardRequest request, ClaimsPrincipal user, FileStore store)
+    private static IResult CreateDashboard(DashboardRequest request, ClaimsPrincipal user, PostgresStore store)
     {
         var name = request.Name?.Trim();
         var description = CleanOptional(request.Description);
@@ -59,29 +61,34 @@ internal static partial class DashboardEndpoints
         var ownerId = user.AccountId();
         return store.Change(data =>
         {
+            var dashboardId = Guid.NewGuid();
             var dashboard = new Dashboard
             {
-                Id = Guid.NewGuid(), Name = name!, Description = description, OwnerId = ownerId,
-                MemberIds = [ownerId]
+                Id = dashboardId, Name = name!, Description = description, OwnerId = ownerId,
+                Members = [new DashboardMember(dashboardId, ownerId)]
             };
             data.Dashboards.Add(dashboard);
             return Results.Created($"/api/dashboards/{dashboard.Id}", DashboardSummary(dashboard));
         });
     }
 
-    private static IResult GetDashboard(Guid dashboardId, ClaimsPrincipal user, FileStore store)
+    private static IResult GetDashboard(Guid dashboardId, ClaimsPrincipal user, PostgresStore store)
     {
         var accountId = user.AccountId();
         return store.Read(data =>
         {
-            var dashboard = FindDashboard(data, dashboardId, accountId);
+            var dashboard = AccessibleDashboards(data, accountId)
+                .Include(dashboard => dashboard.Members)
+                .Include(dashboard => dashboard.Cards.Where(card => card.IsPublished || card.AuthorId == accountId))
+                .ThenInclude(card => card.Votes).AsSplitQuery()
+                .SingleOrDefault(dashboard => dashboard.Id == dashboardId);
             return dashboard is null ? Results.NotFound() : Results.Ok(new DashboardView(
-                dashboard.Id, dashboard.Name, dashboard.Description, dashboard.OwnerId, dashboard.MemberIds.Count,
-                dashboard.Cards.Where(card => CanSee(card, accountId)).Select(card => CardView(card, accountId)).ToArray()));
+                dashboard.Id, dashboard.Name, dashboard.Description, dashboard.OwnerId, dashboard.Members.Count,
+                dashboard.Cards.Select(card => CardView(card, accountId)).ToArray()));
         });
     }
 
-    private static IResult DeleteDashboard(Guid dashboardId, ClaimsPrincipal user, FileStore store)
+    private static IResult DeleteDashboard(Guid dashboardId, ClaimsPrincipal user, PostgresStore store)
     {
         var accountId = user.AccountId();
         return store.Change(data =>
@@ -97,7 +104,7 @@ internal static partial class DashboardEndpoints
         });
     }
 
-    private static IResult CreateInvite(Guid dashboardId, ClaimsPrincipal user, FileStore store) =>
+    private static IResult CreateInvite(Guid dashboardId, ClaimsPrincipal user, PostgresStore store) =>
         store.Change(data =>
         {
             var dashboard = FindDashboard(data, dashboardId, user.AccountId());
@@ -111,24 +118,27 @@ internal static partial class DashboardEndpoints
             return Results.Ok(new InviteView(token));
         });
 
-    private static IResult JoinDashboard(InviteRequest request, ClaimsPrincipal user, FileStore store)
+    private static IResult JoinDashboard(InviteRequest request, ClaimsPrincipal user, PostgresStore store)
     {
         if (request.Token is not { Length: 64 })
             return Results.NotFound();
 
         var hash = SecretTokens.Hash(request.Token);
+        var accountId = user.AccountId();
         return store.Change(data =>
         {
-            var dashboard = data.Dashboards.Find(dashboard => dashboard.InviteHash == hash);
+            var dashboard = data.Dashboards.Include(dashboard => dashboard.Members)
+                .SingleOrDefault(dashboard => dashboard.InviteHash == hash);
             if (dashboard is null)
                 return Results.NotFound();
-            dashboard.MemberIds.Add(user.AccountId());
+            if (!dashboard.Members.Any(member => member.AccountId == accountId))
+                dashboard.Members.Add(new DashboardMember(dashboard.Id, accountId));
             return Results.Ok(DashboardSummary(dashboard));
         });
     }
 
     private static IResult CreateCard(Guid dashboardId, TripRequest request, ClaimsPrincipal user,
-        FileStore store, DestinationCatalog catalog)
+        PostgresStore store, DestinationCatalog catalog)
     {
         var accountId = user.AccountId();
         return store.Change(data =>
@@ -140,13 +150,16 @@ internal static partial class DashboardEndpoints
             if (errors.Count > 0)
                 return Results.ValidationProblem(errors);
 
-            var card = new TripCard { Id = Guid.NewGuid(), AuthorId = accountId, Trip = ToTripDetails(request) };
+            var card = new TripCard
+            {
+                Id = Guid.NewGuid(), DashboardId = dashboardId, AuthorId = accountId, Trip = ToTripDetails(request)
+            };
             dashboard.Cards.Add(card);
             return Results.Created($"/api/dashboards/{dashboardId}/cards/{card.Id}", CardView(card, accountId));
         });
     }
 
-    private static IResult GetCard(Guid dashboardId, Guid cardId, ClaimsPrincipal user, FileStore store, TimeProvider clock)
+    private static IResult GetCard(Guid dashboardId, Guid cardId, ClaimsPrincipal user, PostgresStore store, TimeProvider clock)
     {
         var accountId = user.AccountId();
         var now = clock.GetUtcNow();
@@ -167,7 +180,7 @@ internal static partial class DashboardEndpoints
     }
 
     private static IResult UpdateCard(Guid dashboardId, Guid cardId, TripRequest request, ClaimsPrincipal user,
-        FileStore store, DestinationCatalog catalog) =>
+        PostgresStore store, DestinationCatalog catalog) =>
         ChangeOwnCard(dashboardId, cardId, user, store, (_, card) =>
         {
             var errors = ValidateTrip(request, catalog);
@@ -184,14 +197,14 @@ internal static partial class DashboardEndpoints
             return Results.Ok(CardView(card, user.AccountId(), includePlanning: true));
         });
 
-    private static IResult DeleteCard(Guid dashboardId, Guid cardId, ClaimsPrincipal user, FileStore store) =>
-        ChangeOwnCard(dashboardId, cardId, user, store, (dashboard, card) =>
+    private static IResult DeleteCard(Guid dashboardId, Guid cardId, ClaimsPrincipal user, PostgresStore store) =>
+        ChangeOwnCard(dashboardId, cardId, user, store, (data, card) =>
         {
-            dashboard.Cards.Remove(card);
+            data.Cards.Remove(card);
             return Results.NoContent();
         });
 
-    private static IResult PublishCard(Guid dashboardId, Guid cardId, ClaimsPrincipal user, FileStore store) =>
+    private static IResult PublishCard(Guid dashboardId, Guid cardId, ClaimsPrincipal user, PostgresStore store) =>
         ChangeOwnCard(dashboardId, cardId, user, store, (_, card) =>
         {
             card.IsPublished = true;
@@ -199,73 +212,82 @@ internal static partial class DashboardEndpoints
         });
 
     private static IResult PutVote(Guid dashboardId, Guid cardId, VoteRequest request, ClaimsPrincipal user,
-        FileStore store)
+        PostgresStore store)
     {
         var accountId = user.AccountId();
         return store.Change(data =>
         {
-            var card = FindCard(data, dashboardId, cardId, accountId);
+            var card = FindCard(data, dashboardId, cardId, accountId, includeTasks: false);
             if (card is not { IsPublished: true })
                 return Results.NotFound();
             if (request.CardVersion != card.Version)
                 return Results.Problem(statusCode: 409, title: "The card has changed. Read the current version before voting.");
 
-            card.Votes[accountId] = card.Version;
+            var vote = card.Votes.Find(vote => vote.AccountId == accountId);
+            if (vote is null)
+                card.Votes.Add(new CardVote(card.Id, accountId, card.Version));
+            else
+                vote.CardVersion = card.Version;
             return Results.Ok(CardView(card, accountId));
         });
     }
 
-    private static IResult RemoveVote(Guid dashboardId, Guid cardId, ClaimsPrincipal user, FileStore store)
+    private static IResult RemoveVote(Guid dashboardId, Guid cardId, ClaimsPrincipal user, PostgresStore store)
+    {
+        var accountId = user.AccountId();
+        return store.Change(data =>
+        {
+            var card = FindCard(data, dashboardId, cardId, accountId, includeTasks: false);
+            if (card is not { IsPublished: true })
+                return Results.NotFound();
+
+            var vote = card.Votes.Find(vote => vote.AccountId == accountId);
+            if (vote is not null)
+                data.Remove(vote);
+            return Results.NoContent();
+        });
+    }
+
+    private static IResult ChangeOwnCard(Guid dashboardId, Guid cardId, ClaimsPrincipal user, PostgresStore store,
+        Func<TripFlowDbContext, TripCard, IResult> change)
     {
         var accountId = user.AccountId();
         return store.Change(data =>
         {
             var card = FindCard(data, dashboardId, cardId, accountId);
-            if (card is not { IsPublished: true })
-                return Results.NotFound();
-
-            card.Votes.Remove(accountId);
-            return Results.NoContent();
-        });
-    }
-
-    private static IResult ChangeOwnCard(Guid dashboardId, Guid cardId, ClaimsPrincipal user, FileStore store,
-        Func<Dashboard, TripCard, IResult> change)
-    {
-        var accountId = user.AccountId();
-        return store.Change(data =>
-        {
-            var dashboard = FindDashboard(data, dashboardId, accountId);
-            if (dashboard is null)
-                return Results.NotFound();
-
-            var card = FindCard(dashboard, cardId, accountId);
             if (card is null)
                 return Results.NotFound();
-            return card.AuthorId == accountId ? change(dashboard, card) : Results.Forbid();
+            return card.AuthorId == accountId ? change(data, card) : Results.Forbid();
         });
     }
 
-    private static Dashboard? FindDashboard(StoreData data, Guid id, Guid accountId) =>
-        data.Dashboards.Find(dashboard => dashboard.Id == id && dashboard.MemberIds.Contains(accountId));
+    private static IQueryable<Dashboard> AccessibleDashboards(TripFlowDbContext data, Guid accountId) =>
+        data.Dashboards.Where(dashboard => dashboard.Members.Any(member => member.AccountId == accountId));
 
-    private static TripCard? FindCard(StoreData data, Guid dashboardId, Guid cardId, Guid accountId) =>
-        FindCard(FindDashboard(data, dashboardId, accountId), cardId, accountId);
+    private static Dashboard? FindDashboard(TripFlowDbContext data, Guid id, Guid accountId) =>
+        AccessibleDashboards(data, accountId).SingleOrDefault(dashboard => dashboard.Id == id);
 
-    private static TripCard? FindCard(Dashboard? dashboard, Guid cardId, Guid accountId) =>
-        dashboard?.Cards.Find(card => card.Id == cardId && CanSee(card, accountId));
-
-    private static bool CanSee(TripCard card, Guid accountId) => card.IsPublished || card.AuthorId == accountId;
+    private static TripCard? FindCard(TripFlowDbContext data, Guid dashboardId, Guid cardId, Guid accountId,
+        bool includeTasks = true)
+    {
+        var accessible = AccessibleDashboards(data, accountId);
+        IQueryable<TripCard> cards = data.Cards.Include(card => card.Votes);
+        if (includeTasks)
+            cards = cards.Include(card => card.PythonTasks).AsSplitQuery();
+        return cards.SingleOrDefault(card => card.Id == cardId && card.DashboardId == dashboardId
+            && (card.IsPublished || card.AuthorId == accountId)
+            && accessible.Any(dashboard => dashboard.Id == card.DashboardId));
+    }
 
     private static DashboardSummaryView DashboardSummary(Dashboard dashboard) =>
-        new(dashboard.Id, dashboard.Name, dashboard.Description, dashboard.OwnerId, dashboard.MemberIds.Count);
+        new(dashboard.Id, dashboard.Name, dashboard.Description, dashboard.OwnerId, dashboard.Members.Count);
 
     private static TripCardView CardView(TripCard card, Guid accountId, bool includePlanning = false)
     {
-        var hasVote = card.Votes.TryGetValue(accountId, out var votedVersion);
+        var votedVersion = card.Votes.Find(vote => vote.AccountId == accountId)?.CardVersion;
         var plan = card.Planning;
         return new TripCardView(card.Id, card.AuthorId, card.Trip, card.IsPublished, card.Version,
-            card.Votes.Count, hasVote ? votedVersion : null, hasVote && votedVersion != card.Version,
+            card.Votes.Count, votedVersion, votedVersion is not null && votedVersion != card.Version,
             includePlanning ? new(RecommendationListView.From(plan.Hotels), RecommendationListView.From(plan.Attractions)) : null,
             includePlanning ? new(plan.HotelId, plan.AttractionIds) : null,
             includePlanning ? BudgetView.From(plan.Budget) : null);

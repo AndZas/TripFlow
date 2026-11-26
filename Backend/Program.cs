@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi;
 using TripFlow.Backend;
 
@@ -12,16 +13,19 @@ builder.Services.AddSingleton(TimeProvider.System);
 builder.Services.AddSingleton<SessionStore>();
 builder.Services.AddSingleton<IPasswordHasher<Account>, PasswordHasher<Account>>();
 builder.Services.AddSingleton(new DestinationCatalog());
-builder.Services.AddSingleton(new FileStore(
-    builder.Configuration["TripFlow:StorePath"]
-        ?? Path.Combine(builder.Environment.ContentRootPath, "App_Data", "tripflow.json")));
+var connectionString = PostgresConfiguration.ConnectionString(builder.Configuration, builder.Environment.ContentRootPath);
+builder.Services.AddDbContextFactory<TripFlowDbContext>(options => options.UseNpgsql(connectionString));
+builder.Services.AddSingleton<PostgresStore>();
 builder.Services.AddAuthentication(BearerSessionHandler.SchemeName)
     .AddScheme<AuthenticationSchemeOptions, BearerSessionHandler>(
         BearerSessionHandler.SchemeName, _ => { });
 builder.Services.AddAuthorization();
-builder.Services.AddSingleton(builder.Configuration.GetSection("PythonApi").Get<PythonApiSettings>() ?? new());
-builder.Services.AddHttpClient<PythonApiClient>(client => client.Timeout = TimeSpan.FromSeconds(15))
+builder.Services.AddSingleton(PythonApiSettings.Load(builder.Configuration, builder.Environment.ContentRootPath));
+builder.Services.AddHttpClient(PythonApiClient.HttpClientName, client => client.Timeout = TimeSpan.FromSeconds(15))
     .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler { AllowAutoRedirect = false });
+builder.Services.AddSingleton<PythonApiClient>();
+builder.Services.AddSingleton<PythonTaskWorker>();
+builder.Services.AddHostedService(services => services.GetRequiredService<PythonTaskWorker>());
 
 if (builder.Environment.IsDevelopment())
 {
@@ -49,6 +53,9 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
     policy.WithOrigins(origins).AllowAnyHeader().AllowAnyMethod()));
 
 var app = builder.Build();
+await using (var data = await app.Services.GetRequiredService<IDbContextFactory<TripFlowDbContext>>().CreateDbContextAsync())
+    await data.Database.MigrateAsync();
+
 app.UseExceptionHandler();
 app.UseStatusCodePages();
 if (app.Environment.IsDevelopment())
@@ -62,12 +69,14 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 var api = app.MapGroup("/api");
-api.MapGet("/health", () => Results.Ok(new { status = "ok" }))
-    .WithTags("Справочные маршруты").WithSummary("Проверить работу сервера");
+api.MapGet("/health", async (TripFlowDbContext data, CancellationToken cancellationToken) =>
+        await data.Database.CanConnectAsync(cancellationToken)
+            ? Results.Ok(new { status = "ok" })
+            : Results.Problem(statusCode: 503, title: "PostgreSQL is unavailable."))
+    .WithTags("Справочные маршруты").WithSummary("Проверить работу сервера и базы данных");
 api.MapGet("/destinations", (DestinationCatalog catalog) => Results.Ok(catalog.Destinations))
     .WithTags("Справочные маршруты").WithSummary("Получить список направлений")
     .Produces<Destination[]>();
 api.MapAccountEndpoints();
 api.MapDashboardEndpoints();
-app.MapPythonEvents();
 app.Run();

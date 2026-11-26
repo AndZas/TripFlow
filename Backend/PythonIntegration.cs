@@ -1,24 +1,41 @@
 using System.Net;
 using System.Net.Http.Json;
-using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Microsoft.EntityFrameworkCore;
 
 namespace TripFlow.Backend;
 
 internal sealed record PythonApiSettings
 {
-    public string? BaseUrl { get; init; }
+    private const string LocalKeyName = "API_TRIPFLOW";
+
+    public string? BaseUrl { get; init; } = "https://tripflow-api-x1p5.onrender.com";
     public string? ApiKey { get; init; }
-    public string? CallbackKey { get; init; }
     public int TaskTimeoutSeconds { get; init; } = 300;
+
+    public static PythonApiSettings Load(IConfiguration configuration, string contentRoot)
+    {
+        var settings = configuration.GetSection("PythonApi").Get<PythonApiSettings>() ?? new();
+        var key = settings.ApiKey;
+        if (string.IsNullOrWhiteSpace(key))
+            key = configuration[LocalKeyName];
+        if (string.IsNullOrWhiteSpace(key))
+            key = LocalEnvironment.ReadValue(Path.Combine(contentRoot, ".env"), LocalKeyName);
+        return settings with { ApiKey = key?.Trim() };
+    }
 }
 
-internal sealed class PythonApiClient(HttpClient http, PythonApiSettings settings, IWebHostEnvironment environment,
-    TimeProvider clock)
+internal sealed record PythonResponse(int Status, TimeSpan Delay, string? PollPath = null,
+    JsonElement? Result = null, ErrorDetail? Error = null);
+
+internal sealed class PythonApiClient(IHttpClientFactory clients, PythonApiSettings settings,
+    IWebHostEnvironment environment, TimeProvider clock)
 {
+    public const string HttpClientName = "PythonApi";
     internal static readonly JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web);
+
     private Uri? BaseUri => Uri.TryCreate(settings.BaseUrl, UriKind.Absolute, out var uri)
         && uri.UserInfo.Length == 0 && uri.Query.Length == 0 && uri.Fragment.Length == 0
         && (uri.Scheme == Uri.UriSchemeHttps
@@ -26,114 +43,127 @@ internal sealed class PythonApiClient(HttpClient http, PythonApiSettings setting
         ? uri
         : null;
 
-    public bool IsConfigured => BaseUri is not null && !string.IsNullOrWhiteSpace(settings.ApiKey)
-        && !string.IsNullOrWhiteSpace(settings.CallbackKey);
+    public bool IsConfigured => BaseUri is not null && !string.IsNullOrWhiteSpace(settings.ApiKey);
 
-    public DateTimeOffset Deadline(DateTimeOffset now) => now.AddSeconds(Math.Clamp(settings.TaskTimeoutSeconds, 1, 86400));
+    public DateTimeOffset Deadline(DateTimeOffset now) =>
+        now.AddSeconds(Math.Clamp(settings.TaskTimeoutSeconds, 1, 86400));
 
     public static IResult Unavailable() => Results.Problem(statusCode: 503, title: "Python integration is unavailable.");
 
-    public async Task<IResult> Submit(PythonTask task, FileStore store, Func<TripCard, object> cardView,
-        CancellationToken cancellationToken)
-    {
-        if (!IsConfigured)
-            return Unavailable();
+    public static string TaskPath(Guid taskId) => $"/v1/tasks/{taskId:D}";
 
-        var url = new Uri(BaseUri!.AbsoluteUri.TrimEnd('/') + "/v1/" + task.Kind);
-        using var request = new HttpRequestMessage(HttpMethod.Post, url)
-        {
-            Content = new StringContent(JsonSerializer.Serialize(task.Payload, JsonOptions), Encoding.UTF8, "application/json")
-        };
+    public async Task<PythonResponse> Send(PythonTask task, CancellationToken cancellationToken)
+    {
+        var baseUri = BaseUri!;
+        // Tasks saved by the old client do not have a Location. Try reading them by ID.
+        var pollPath = task.PollPath ?? (task.NextAttemptAt is null ? TaskPath(task.Id) : null);
+        var polling = pollPath is not null;
+        var url = polling
+            ? ResolvePollLocation(baseUri, pollPath, task.Id)
+            : new Uri(baseUri.AbsoluteUri.TrimEnd('/') + "/v1/" + task.Kind);
+        if (url is null)
+            return InvalidResult();
+
+        using var http = clients.CreateClient(HttpClientName);
+        using var request = new HttpRequestMessage(polling ? HttpMethod.Get : HttpMethod.Post, url);
+        if (!polling)
+            request.Content = new StringContent(JsonSerializer.Serialize(task.Payload, JsonOptions), Encoding.UTF8, "application/json");
         request.Headers.Add("X-API-Key", settings.ApiKey);
 
-        var accepted = false;
-        ErrorDetail? rejection = null;
-        var failureStatus = StatusCodes.Status502BadGateway;
         try
         {
             using var response = await http.SendAsync(request, cancellationToken);
-            if (response.StatusCode == HttpStatusCode.Accepted)
+            var retryAfter = response.Headers.RetryAfter;
+            var delay = retryAfter?.Delta ?? (retryAfter?.Date - clock.GetUtcNow());
+            var normalDelay = delay ?? TimeSpan.FromSeconds(2);
+            var retryDelay = delay ?? TimeSpan.FromSeconds(5);
+            var status = (int)response.StatusCode;
+
+            if (!polling && response.StatusCode == HttpStatusCode.Accepted)
             {
                 var receipt = await response.Content.ReadFromJsonAsync<UpstreamAcceptance>(JsonOptions, cancellationToken);
-                accepted = receipt?.TaskId == task.Id && receipt.Status == "accepted";
+                var location = ResolvePollLocation(url, response.Headers.Location?.OriginalString, task.Id);
+                if (receipt?.TaskId == task.Id && receipt.Status == "accepted" && location is not null)
+                    return new(202, normalDelay, PollPath: location.AbsolutePath);
+                return new(502, retryDelay);
             }
-            else if ((int)response.StatusCode is >= 400 and < 500 and not (408 or 429))
+
+            if (polling && response.StatusCode == HttpStatusCode.OK)
             {
-                rejection = new ErrorDetail("PYTHON_REJECTED", "Python rejected the task.");
-                var body = await response.Content.ReadFromJsonAsync<UpstreamError>(JsonOptions, cancellationToken);
-                if ((body?.TaskId is null || body.TaskId == task.Id) && ErrorDetail.IsValid(body?.Error))
-                    rejection = body!.Error;
+                var body = await response.Content.ReadFromJsonAsync<UpstreamTaskStatus>(JsonOptions, cancellationToken);
+                if (body?.TaskId != task.Id)
+                    return InvalidResult();
+                return body.Status switch
+                {
+                    "pending" when body.Result is null => new(202, normalDelay, PollPath: pollPath),
+                    "completed" when body.Result is { ValueKind: JsonValueKind.Object } => new(202, normalDelay, pollPath, body.Result),
+                    _ => InvalidResult()
+                };
             }
+
+            if (status is >= 400 and < 500 and not (408 or 429))
+                return new(502, TimeSpan.Zero, Error: await ReadRejection(response, task.Id, polling, cancellationToken));
+            return new(status is 408 or 504 ? 504 : 502, retryDelay);
         }
         catch (OperationCanceledException) when (!cancellationToken.IsCancellationRequested)
         {
-            failureStatus = StatusCodes.Status504GatewayTimeout;
+            return new(504, TimeSpan.FromSeconds(5));
         }
         catch (HttpRequestException)
         {
-            // The saved task is reused if the caller retries after an uncertain acceptance.
+            return new(502, TimeSpan.FromSeconds(5));
         }
         catch (JsonException)
         {
-            // A malformed response cannot confirm acceptance or replace a known rejection.
+            return polling ? InvalidResult() : new(502, TimeSpan.FromSeconds(5));
         }
-
-        var now = clock.GetUtcNow();
-        var result = store.Change(data =>
-        {
-            if (PythonTaskState.Find(data, task.Id) is not { } match)
-                return Results.NotFound();
-            if (match.Task.CardVersion != match.Card.Version)
-                return Results.Problem(statusCode: 409, title: "The task inputs have changed.");
-            if (match.Task.CallbackReceived)
-                return Results.Accepted(value: cardView(match.Card));
-            if (match.Task.Finished)
-                return Results.Problem(statusCode: 409, title: "This task already ended.");
-            if (match.Task.Deadline <= now)
-            {
-                PythonTaskState.Fail(match.Card, match.Task, PythonTaskState.TimedOut);
-                failureStatus = StatusCodes.Status504GatewayTimeout;
-                return Results.NoContent();
-            }
-            if (match.Task.Accepted || accepted)
-            {
-                match.Task.Accepted = true;
-                return Results.Accepted(value: cardView(match.Card));
-            }
-            if (rejection is not null)
-            {
-                PythonTaskState.Fail(match.Card, match.Task, rejection);
-                return Results.NoContent();
-            }
-            return SubmissionError(failureStatus, task.Id, "Python acceptance could not be confirmed. Retry the same request.");
-        });
-        return result is IStatusCodeHttpResult { StatusCode: 204 }
-            ? SubmissionError(failureStatus, task.Id,
-                failureStatus == 504 ? PythonTaskState.TimedOut.Message : "Python rejected the task.")
-            : result;
     }
 
-    private static IResult SubmissionError(int status, Guid taskId, string title) =>
-        Results.Problem(statusCode: status, title: title,
-            extensions: new Dictionary<string, object?> { ["taskId"] = taskId });
+    private static Uri? ResolvePollLocation(Uri source, string? location, Guid taskId)
+    {
+        if (!Uri.TryCreate(location, UriKind.Relative, out var relative)
+            || !Uri.TryCreate(source, relative, out var uri)
+            || uri.GetLeftPart(UriPartial.Authority) != source.GetLeftPart(UriPartial.Authority)
+            || uri.UserInfo.Length > 0 || uri.Query.Length > 0 || uri.Fragment.Length > 0
+            || !uri.AbsolutePath.EndsWith(TaskPath(taskId), StringComparison.Ordinal))
+            return null;
+        return uri;
+    }
+
+    private static async Task<ErrorDetail> ReadRejection(HttpResponseMessage response, Guid taskId, bool polling,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            var body = await response.Content.ReadFromJsonAsync<UpstreamError>(JsonOptions, cancellationToken);
+            if ((body?.TaskId is null || body.TaskId == taskId) && ErrorDetail.IsValid(body?.Error))
+                return body!.Error!;
+        }
+        catch (JsonException)
+        {
+            // An HTTP rejection is conclusive even if the error body is invalid.
+        }
+        return polling
+            ? new("PYTHON_POLL_REJECTED", "Python rejected the status request.")
+            : new("PYTHON_REJECTED", "Python rejected the task.");
+    }
+
+    private static PythonResponse InvalidResult() =>
+        new(502, TimeSpan.Zero, Error: new("INVALID_PYTHON_RESULT", "Python returned an invalid task status."));
 
     private sealed record UpstreamAcceptance(Guid TaskId, string? Status);
     private sealed record UpstreamError(Guid? TaskId, ErrorDetail? Error);
+    private sealed record UpstreamTaskStatus(Guid TaskId, string? Status, [property: JsonRequired] JsonElement? Result);
 }
 
 internal static class PythonTaskState
 {
     public static readonly ErrorDetail TimedOut = new("TASK_TIMEOUT", "The Python result did not arrive before the deadline.");
 
-    public static (TripCard Card, PythonTask Task)? Find(StoreData data, Guid taskId)
+    public static (TripCard Card, PythonTask Task)? Find(TripFlowDbContext data, Guid taskId)
     {
-        foreach (var card in data.Dashboards.SelectMany(dashboard => dashboard.Cards))
-        {
-            var task = card.PythonTasks.Find(task => task.Id == taskId);
-            if (task is not null)
-                return (card, task);
-        }
-        return null;
+        var task = data.PythonTasks.Include(task => task.Card).SingleOrDefault(task => task.Id == taskId);
+        return task is null ? null : (task.Card, task);
     }
 
     public static bool HasExpired(TripCard card, DateTimeOffset now) =>
@@ -144,6 +174,11 @@ internal static class PythonTaskState
         foreach (var task in card.PythonTasks.Where(task => !task.Finished && task.Deadline <= now))
             Fail(card, task, TimedOut);
     }
+
+    public static bool IsCurrent(TripCard card, PythonTask task) =>
+        task.CardVersion == card.Version && (task.Kind == PythonTask.Budget
+            ? card.Planning.Budget.TaskId == task.Id
+            : task.Targets.Count > 0 && task.Targets.Keys.All(key => card.Planning.Queue(key).TaskId == task.Id));
 
     public static void Fail(TripCard card, PythonTask task, ErrorDetail error)
     {
@@ -169,83 +204,28 @@ internal static class PythonTaskState
     }
 }
 
-internal static class PythonEventEndpoints
+internal static class PythonTaskResult
 {
-    public static void MapPythonEvents(this WebApplication app) =>
-        app.MapPost("/internal/tripflow/events", ReceiveEvent)
-            .WithTags("Python API").WithSummary("Принять итог подбора или расчёта бюджета")
-            .Accepts<JsonElement>("application/json")
-            .Produces(StatusCodes.Status204NoContent)
-            .ProducesProblem(StatusCodes.Status400BadRequest).ProducesProblem(StatusCodes.Status401Unauthorized)
-            .ProducesProblem(StatusCodes.Status404NotFound).Produces(StatusCodes.Status415UnsupportedMediaType);
-
-    private static async Task<IResult> ReceiveEvent(HttpRequest request, PythonApiSettings settings,
-        FileStore store, TimeProvider clock, CancellationToken cancellationToken)
+    public static string? Apply(TripCard card, PythonTask task, JsonElement payload)
     {
-        if (string.IsNullOrWhiteSpace(settings.CallbackKey) ||
-            !request.Headers.TryGetValue("X-Callback-Key", out var keys) || keys.Count != 1 ||
-            !CryptographicOperations.FixedTimeEquals(Encoding.UTF8.GetBytes(keys[0]!),
-                Encoding.UTF8.GetBytes(settings.CallbackKey)))
-            return Results.Unauthorized();
-        if (!request.HasJsonContentType())
-            return Results.StatusCode(StatusCodes.Status415UnsupportedMediaType);
-
-        JsonElement payload;
-        PythonEvent? message;
         try
         {
-            payload = await request.ReadFromJsonAsync<JsonElement>(cancellationToken);
-            message = payload.Deserialize<PythonEvent>(PythonApiClient.JsonOptions);
+            var message = payload.Deserialize<PythonResultHeader>(PythonApiClient.JsonOptions);
+            if (message?.TaskId != task.Id)
+                return "The result does not match the task ID.";
+            return (task.Kind, message.Event) switch
+            {
+                (PythonTask.Recommendations, "recommendations.finished") => ApplyRecommendations(card, task,
+                    payload.Deserialize<RecommendationsFinished>(PythonApiClient.JsonOptions)!),
+                (PythonTask.Budget, "budget.finished") => ApplyBudget(card, task,
+                    payload.Deserialize<BudgetFinished>(PythonApiClient.JsonOptions)!),
+                _ => "The result type does not match the task."
+            };
         }
         catch (JsonException)
         {
-            return InvalidEvent("Invalid callback JSON.");
+            return "The result fields do not match the task schema.";
         }
-        if (string.IsNullOrWhiteSpace(message?.TaskId) || string.IsNullOrWhiteSpace(message.Event))
-            return InvalidEvent("An event requires a task ID and event type.");
-        if (!Guid.TryParseExact(message.TaskId, "D", out var taskId))
-            return Results.NotFound();
-
-        var now = clock.GetUtcNow();
-        return store.Change(data =>
-        {
-            if (PythonTaskState.Find(data, taskId) is not { } match)
-                return Results.NotFound();
-            var (card, task) = match;
-            if (task.CallbackReceived)
-                return Results.NoContent();
-            if (!task.Finished && task.Deadline <= now)
-                PythonTaskState.Fail(card, task, PythonTaskState.TimedOut);
-            if (task.Finished || task.CardVersion != card.Version)
-            {
-                task.CallbackReceived = true;
-                task.Finished = true;
-                return Results.NoContent();
-            }
-
-            string? error;
-            try
-            {
-                error = (task.Kind, message.Event) switch
-                {
-                    (PythonTask.Recommendations, "recommendations.finished") => ApplyRecommendations(card, task,
-                        payload.Deserialize<RecommendationsFinished>(PythonApiClient.JsonOptions)!),
-                    (PythonTask.Budget, "budget.finished") => ApplyBudget(card, task,
-                        payload.Deserialize<BudgetFinished>(PythonApiClient.JsonOptions)!),
-                    _ => "The event type does not match the task."
-                };
-            }
-            catch (JsonException)
-            {
-                return InvalidEvent("Callback fields do not match the event schema.");
-            }
-            if (error is not null)
-                return InvalidEvent(error);
-            task.Accepted = true;
-            task.CallbackReceived = true;
-            task.Finished = true;
-            return Results.NoContent();
-        });
     }
 
     private static string? ApplyRecommendations(TripCard card, PythonTask task, RecommendationsFinished message)
@@ -256,9 +236,14 @@ internal static class PythonEventEndpoints
         foreach (var (key, target) in task.Targets)
         {
             if (!results.TryGetValue(key, out var result) || result?.Items is not { } candidates ||
-                candidates.Length > target.Count || !ValidTargetResult(result, candidates.Length))
+                candidates.Length > target.Count || !ValidTargetResult(result, candidates.Length)
+                || candidates.Any(candidate => !ValidCandidate(candidate, key == "hotels")))
                 return "Invalid result for a recommendation target.";
+        }
 
+        foreach (var (key, target) in task.Targets)
+        {
+            var result = results[key]!;
             var queue = card.Planning.Queue(key);
             queue.Status = result.Status;
             queue.Error = result.Error;
@@ -269,10 +254,8 @@ internal static class PythonEventEndpoints
             var isHotel = key == "hotels";
             var excluded = (target.Exclusions ?? []).Concat(queue.Items.Where(item => !item.NeedsReview)
                 .Select(item => item.Candidate.ObjectId)).ToHashSet(StringComparer.Ordinal);
-            foreach (var candidate in candidates)
+            foreach (var candidate in result.Items!)
             {
-                if (!ValidCandidate(candidate, isHotel))
-                    return "Invalid candidate in the result.";
                 if (WithinLimit(candidate, isHotel, target.Criteria?.MaxTotalRub, card.Trip.Travelers)
                     && excluded.Add(candidate.ObjectId))
                     queue.Items.Add(new CandidateView(Guid.NewGuid(), candidate));
@@ -296,13 +279,13 @@ internal static class PythonEventEndpoints
         if (message.Status == PlanningStatus.Failed)
         {
             if (message.Expenses is not null || !ErrorDetail.IsValid(message.Error))
-                return "A failed budget event requires an error and null expenses.";
+                return "A failed budget result requires an error and null expenses.";
             PythonTaskState.Fail(card, task, message.Error!);
             return null;
         }
         if (message.Status != PlanningStatus.Succeeded || message.Error is not null || message.Expenses is not
             { FoodTotalRub: >= 0, LocalTransportTotalRub: >= 0, OtherExpensesTotalRub: >= 0, ReserveTotalRub: >= 0 } expenses)
-            return "A successful budget event requires four nonnegative expenses.";
+            return "A successful budget result requires four nonnegative expenses.";
         try
         {
             card.Planning.Budget = new BudgetState
@@ -357,9 +340,7 @@ internal static class PythonEventEndpoints
     private static bool IsHttps(string? url) => Uri.TryCreate(url, UriKind.Absolute, out var uri)
         && uri.Scheme == Uri.UriSchemeHttps && !string.IsNullOrWhiteSpace(uri.Host);
 
-    private static IResult InvalidEvent(string title) => Results.Problem(statusCode: 400, title: title);
-
-    private sealed record PythonEvent(string? TaskId, string? Event);
+    private sealed record PythonResultHeader(Guid TaskId, string? Event);
     private sealed record RecommendationsFinished(Dictionary<string, RecommendationResult?>? Results);
     private sealed record RecommendationResult(string Status, TripCandidate[]? Items,
         [property: JsonRequired] bool? HasMore, ErrorDetail? Error);

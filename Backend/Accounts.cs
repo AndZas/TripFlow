@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 namespace TripFlow.Backend;
@@ -21,14 +22,12 @@ internal static class AccountEndpoints
         auth.MapGet("/me", GetCurrentAccount).RequireAuthorization().WithSummary("Посмотреть свой аккаунт")
             .Produces<AccountView>();
         auth.MapPost("/logout", (ClaimsPrincipal user, SessionStore sessions) =>
-        {
-            sessions.Revoke(user.FindFirstValue(BearerSessionHandler.SessionClaim)!);
-            return Results.NoContent();
-        }).RequireAuthorization().WithSummary("Завершить текущую сессию")
+            sessions.Revoke(user.FindFirstValue(BearerSessionHandler.SessionClaim)!))
+            .RequireAuthorization().WithSummary("Завершить текущую сессию")
             .Produces(StatusCodes.Status204NoContent);
     }
 
-    private static IResult Register(Credentials request, FileStore store,
+    private static IResult Register(Credentials request, PostgresStore store,
         IPasswordHasher<Account> hasher, SessionStore sessions)
     {
         var email = request.Email?.Trim();
@@ -44,19 +43,16 @@ internal static class AccountEndpoints
 
         var account = new Account(Guid.NewGuid(), email, "");
         account = account with { PasswordHash = hasher.HashPassword(account, request.Password) };
-        var saved = store.Change(data =>
+        return store.Change(data =>
         {
             if (FindByEmail(data, email) is not null)
                 return Results.Problem(statusCode: 409, title: "This email is already registered.");
             data.Accounts.Add(account);
-            return Results.NoContent();
+            return Results.Created("/api/auth/me", sessions.Issue(data, account));
         });
-        return saved is IStatusCodeHttpResult { StatusCode: 204 }
-            ? Results.Created("/api/auth/me", sessions.Issue(account))
-            : saved;
     }
 
-    private static IResult Login(Credentials request, FileStore store,
+    private static IResult Login(Credentials request, PostgresStore store,
         IPasswordHasher<Account> hasher, SessionStore sessions)
     {
         if (request.Email is not { Length: > 0 and <= 254 } || request.Password is not { Length: >= 10 and <= 128 })
@@ -67,20 +63,24 @@ internal static class AccountEndpoints
             hasher.VerifyHashedPassword(account, account.PasswordHash, request.Password) == PasswordVerificationResult.Failed)
             return Results.Unauthorized();
 
-        return Results.Ok(sessions.Issue(account));
+        return store.Change(data => Results.Ok(sessions.Issue(data, account)));
     }
 
-    private static IResult GetCurrentAccount(ClaimsPrincipal user, FileStore store) =>
+    private static IResult GetCurrentAccount(ClaimsPrincipal user, PostgresStore store) =>
         store.Read(data =>
         {
-            var account = data.Accounts.Find(account => account.Id == user.AccountId());
+            var accountId = user.AccountId();
+            var account = data.Accounts.SingleOrDefault(account => account.Id == accountId);
             return account is null
                 ? Results.Unauthorized()
                 : Results.Ok(new AccountView(account.Id, account.Email));
         });
 
-    private static Account? FindByEmail(StoreData data, string email) =>
-        data.Accounts.Find(account => string.Equals(account.Email, email, StringComparison.OrdinalIgnoreCase));
+    private static Account? FindByEmail(TripFlowDbContext data, string email)
+    {
+        var normalized = email.ToUpperInvariant();
+        return data.Accounts.SingleOrDefault(account => account.NormalizedEmail == normalized);
+    }
 
     public static Guid AccountId(this ClaimsPrincipal user) =>
         Guid.Parse(user.FindFirstValue(ClaimTypes.NameIdentifier)!);
@@ -90,42 +90,31 @@ internal static class AccountEndpoints
 
 internal sealed record AccountView(Guid Id, string Email);
 internal sealed record SessionView(string AccessToken, string TokenType, DateTimeOffset ExpiresAt, AccountView User);
-internal sealed record Session(Guid AccountId, DateTimeOffset ExpiresAt);
+internal sealed record Session(string TokenHash, Guid AccountId, DateTimeOffset ExpiresAt);
 
-internal sealed class SessionStore(TimeProvider clock)
+internal sealed class SessionStore(PostgresStore store, TimeProvider clock)
 {
-    private readonly object _gate = new();
-    private readonly Dictionary<string, Session> _sessions = [];
-
-    public SessionView Issue(Account account)
+    public SessionView Issue(TripFlowDbContext data, Account account)
     {
         var token = SecretTokens.Create();
         var now = clock.GetUtcNow();
-        var session = new Session(account.Id, now.AddHours(12));
-        lock (_gate)
-        {
-            foreach (var key in _sessions.Where(entry => entry.Value.ExpiresAt <= now).Select(entry => entry.Key).ToArray())
-                _sessions.Remove(key);
-            _sessions.Add(SecretTokens.Hash(token), session);
-        }
+        var session = new Session(SecretTokens.Hash(token), account.Id, now.AddHours(12));
+        data.Sessions.Where(session => session.ExpiresAt <= now).ExecuteDelete();
+        data.Sessions.Add(session);
         return new SessionView(token, "Bearer", session.ExpiresAt, new AccountView(account.Id, account.Email));
     }
 
     public Session? Find(string key)
     {
-        lock (_gate)
-        {
-            return _sessions.TryGetValue(key, out var session) && session.ExpiresAt > clock.GetUtcNow()
-                ? session
-                : null;
-        }
+        var now = clock.GetUtcNow();
+        return store.Read(data => data.Sessions.SingleOrDefault(session => session.TokenHash == key && session.ExpiresAt > now));
     }
 
-    public void Revoke(string key)
+    public IResult Revoke(string key) => store.Change(data =>
     {
-        lock (_gate)
-            _sessions.Remove(key);
-    }
+        data.Sessions.Where(session => session.TokenHash == key).ExecuteDelete();
+        return Results.NoContent();
+    });
 }
 
 internal sealed class BearerSessionHandler(

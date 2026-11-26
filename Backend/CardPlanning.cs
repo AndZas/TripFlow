@@ -22,7 +22,7 @@ internal static partial class DashboardEndpoints
     }
 
     private static async Task<IResult> StartGeneration(Guid dashboardId, Guid cardId, CardGenerationInput request,
-        ClaimsPrincipal user, FileStore store, PythonApiClient python, TimeProvider clock, CancellationToken cancellationToken)
+        ClaimsPrincipal user, PostgresStore store, PythonTaskWorker worker, TimeProvider clock, CancellationToken cancellationToken)
     {
         var accountId = user.AccountId();
         var prepared = ChangeOwnCard(dashboardId, cardId, user, store, (_, card) =>
@@ -44,8 +44,10 @@ internal static partial class DashboardEndpoints
             PythonTaskState.Expire(card, now);
             var active = card.PythonTasks.Where(task => task.Kind == PythonTask.Recommendations && !task.Finished);
             var existing = active.FirstOrDefault(task => task.Generation == input && task.CardVersion == card.Version);
+            if (existing?.GenerationBatchId is Guid batchId)
+                return Prepare(card.PythonTasks.Where(task => task.GenerationBatchId == batchId));
             if (existing is not null)
-                return Prepare(existing, card, accountId);
+                return Prepare([existing]);
             if (active.Any(task => task.Targets.Keys.Any(keys.Contains)))
                 return PlanningConflict("A requested target is already being searched.");
 
@@ -55,9 +57,7 @@ internal static partial class DashboardEndpoints
             if (input.ReplaceAttractionId is not null && (input.Target != "attractions" || replacement is null))
                 return PlanningValidation("replaceAttractionId", "Use a currently selected attraction for its additional search.");
 
-            var taskId = Guid.NewGuid();
             var targets = new Dictionary<string, RecommendationTaskTarget>();
-            var outgoing = new Dictionary<string, RecommendationRequestTarget>();
             foreach (var key in keys)
             {
                 var queue = plan.Queue(key);
@@ -68,22 +68,28 @@ internal static partial class DashboardEndpoints
                     .Distinct(StringComparer.Ordinal).ToArray();
                 var count = key == "hotels" ? 3 : 4;
                 targets.Add(key, new(count, criteria, exclusions));
-                outgoing.Add(key, new(count, criteria.MaxTotalRub, criteria.Refinement, exclusions));
             }
-            if (!python.IsConfigured)
+            if (!worker.IsConfigured)
                 return PythonApiClient.Unavailable();
 
-            var task = CreateTask(card, taskId, PythonTask.Recommendations, python.Deadline(now),
-                new { taskId, card.Trip, Targets = outgoing }, input, targets);
-            foreach (var key in keys)
+            var generationBatchId = Guid.NewGuid();
+            var tasks = new List<PythonTask>();
+            foreach (var (key, target) in targets)
+            {
+                var taskId = Guid.NewGuid();
+                var body = new PythonRecommendationRequest(taskId, card.Trip, key, target.Count,
+                    target.Criteria?.MaxTotalRub, target.Criteria?.Refinement, target.Exclusions ?? []);
+                tasks.Add(CreateTask(card, taskId, PythonTask.Recommendations, now, worker.Deadline(now), body,
+                    input, generationBatchId, new() { [key] = target }));
                 plan.Queue(key).Start(taskId);
-            return Prepare(task, card, accountId);
+            }
+            return Prepare(tasks);
         });
-        return await SubmitPrepared(prepared, store, python, cancellationToken);
+        return await SubmitPrepared(prepared, dashboardId, cardId, accountId, store, worker, cancellationToken);
     }
 
     private static IResult SelectHotel(Guid dashboardId, Guid cardId, HotelSelectionInput request,
-        ClaimsPrincipal user, FileStore store) =>
+        ClaimsPrincipal user, PostgresStore store) =>
         ChangeOwnCard(dashboardId, cardId, user, store, (_, card) =>
         {
             var plan = card.Planning;
@@ -99,7 +105,7 @@ internal static partial class DashboardEndpoints
         });
 
     private static IResult SelectAttractions(Guid dashboardId, Guid cardId, AttractionSelectionInput request,
-        ClaimsPrincipal user, FileStore store) =>
+        ClaimsPrincipal user, PostgresStore store) =>
         ChangeOwnCard(dashboardId, cardId, user, store, (_, card) =>
         {
             if (request.AttractionIds is not { Length: <= 100 } ids || ids.Distinct().Count() != ids.Length)
@@ -118,7 +124,7 @@ internal static partial class DashboardEndpoints
         });
 
     private static async Task<IResult> StartBudget(Guid dashboardId, Guid cardId, ClaimsPrincipal user,
-        FileStore store, PythonApiClient python, TimeProvider clock, CancellationToken cancellationToken)
+        PostgresStore store, PythonTaskWorker worker, TimeProvider clock, CancellationToken cancellationToken)
     {
         var accountId = user.AccountId();
         var prepared = ChangeOwnCard(dashboardId, cardId, user, store, (_, card) =>
@@ -133,48 +139,62 @@ internal static partial class DashboardEndpoints
                 return PlanningConflict("Update or remove the selections from the previous trip parameters.");
             var existing = card.PythonTasks.Find(task => task.Id == plan.Budget.TaskId && !task.Finished);
             if (existing is not null)
-                return Prepare(existing, card, accountId);
-            if (!python.IsConfigured)
+                return Prepare([existing]);
+            if (!worker.IsConfigured)
                 return PythonApiClient.Unavailable();
 
             var selectedHotel = hotel is null ? null : new PythonSelectedHotel(hotel.Candidate.ObjectId,
-                PlanningBudget.HotelPrice(hotel.Candidate.Price), hotel.Candidate.Tariff ?? new(null, []));
+                PlanningBudget.HotelPrice(hotel.Candidate.Price));
             var taskId = Guid.NewGuid();
             var request = new PythonBudgetRequest(taskId, card.Trip, selectedHotel, attractions.Select(item =>
                 new PythonSelectedAttraction(item!.Candidate.ObjectId, PlanningBudget.AdmissionPrice(item.Candidate.Price))).ToArray());
-            var task = CreateTask(card, taskId, PythonTask.Budget, python.Deadline(now), request);
+            var task = CreateTask(card, taskId, PythonTask.Budget, now, worker.Deadline(now), request);
             plan.Budget = new BudgetState { Status = PlanningStatus.Pending, TaskId = taskId };
-            return Prepare(task, card, accountId);
+            return Prepare([task]);
         });
-        return await SubmitPrepared(prepared, store, python, cancellationToken);
+        return await SubmitPrepared(prepared, dashboardId, cardId, accountId, store, worker, cancellationToken);
     }
 
-    private static PythonTask CreateTask(TripCard card, Guid id, string kind, DateTimeOffset deadline, object body,
-        CardGenerationInput? generation = null, Dictionary<string, RecommendationTaskTarget>? targets = null)
+    private static PythonTask CreateTask(TripCard card, Guid id, string kind, DateTimeOffset now,
+        DateTimeOffset deadline, object body, CardGenerationInput? generation = null,
+        Guid? batchId = null, Dictionary<string, RecommendationTaskTarget>? targets = null)
     {
         var task = new PythonTask
         {
-            Id = id, Kind = kind, CardVersion = card.Version, Deadline = deadline, Generation = generation,
+            Id = id, CardId = card.Id, Kind = kind, CardVersion = card.Version, Deadline = deadline, NextAttemptAt = now,
+            Generation = generation, GenerationBatchId = batchId,
             Payload = JsonSerializer.SerializeToElement(body, PythonApiClient.JsonOptions), Targets = targets ?? []
         };
         card.PythonTasks.Add(task);
         return task;
     }
 
-    private sealed record PreparedTask(PythonTask Task, TripCardView CardView, Guid AccountId);
+    private static IResult Prepare(IEnumerable<PythonTask> tasks) => Results.Ok(tasks.ToArray());
 
-    private static IResult Prepare(PythonTask task, TripCard card, Guid accountId) =>
-        Results.Ok(new PreparedTask(task, CardView(card, accountId, includePlanning: true), accountId));
-
-    private static async Task<IResult> SubmitPrepared(IResult prepared, FileStore store,
-        PythonApiClient python, CancellationToken cancellationToken)
+    private static async Task<IResult> SubmitPrepared(IResult prepared, Guid dashboardId, Guid cardId, Guid accountId,
+        PostgresStore store, PythonTaskWorker worker, CancellationToken cancellationToken)
     {
-        if (prepared is not IValueHttpResult { Value: PreparedTask pending })
+        if (prepared is not IValueHttpResult { Value: PythonTask[] tasks })
             return prepared;
-        if (pending.Task.Accepted)
-            return Results.Accepted(value: pending.CardView);
-        return await python.Submit(pending.Task, store,
-            card => CardView(card, pending.AccountId, includePlanning: true), cancellationToken);
+        var attempts = await Task.WhenAll(tasks.Select(task => worker.Submit(task, cancellationToken)));
+        return store.Read<IResult>(data =>
+        {
+            var card = FindCard(data, dashboardId, cardId, accountId, includeTasks: false);
+            if (card is null)
+                return Results.NotFound();
+            if (card.Version != tasks[0].CardVersion)
+                return PlanningConflict("The task inputs have changed.");
+            if (attempts.Any(attempt => attempt.Status == StatusCodes.Status202Accepted))
+                return Results.Accepted(value: CardView(card, accountId, includePlanning: true));
+
+            return Results.Problem(statusCode: attempts[0].Status, title: attempts[0].Error?.Message
+                ?? "Python acceptance could not be confirmed. The backend will retry until the deadline.",
+                extensions: new Dictionary<string, object?>
+                {
+                    ["taskId"] = tasks[0].Id,
+                    ["error"] = attempts[0].Error
+                });
+        });
     }
 
     private static long? RecommendationLimit(TripCard card, string target, CandidateView? replacement)

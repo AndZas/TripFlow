@@ -1,3 +1,4 @@
-bin/
+﻿bin/
 obj/
 App_Data/
+.env
